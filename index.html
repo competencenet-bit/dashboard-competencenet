@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard CompetenceNet</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f0f2f5;color:#222}
+header{background:#1a1a2e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+header h1{font-size:1.1rem}
+.header-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+header .meta{font-size:0.78rem;opacity:0.7}
+.btn-refresh{background:#3b82f6;color:#fff;border:none;border-radius:6px;padding:7px 14px;cursor:pointer;font-size:0.85rem;font-weight:600}
+.btn-refresh:hover{opacity:0.85}
+.btn-refresh.dirty{background:#f59e0b}
+.dirty-badge{background:#ef4444;color:#fff;font-size:0.7rem;padding:2px 7px;border-radius:20px;display:none}
+.dirty-badge.show{display:inline-block}
+/* Tabs */
+.tabs{display:flex;background:#fff;border-bottom:2px solid #e5e7eb;position:sticky;top:56px;z-index:99}
+.tab{flex:1;padding:12px 8px;text-align:center;cursor:pointer;font-size:0.9rem;font-weight:600;color:#888;border-bottom:3px solid transparent;transition:all .15s}
+.tab:hover{color:#1a1a2e;background:#f9f9f9}
+.tab.active{color:#1a1a2e;border-bottom-color:#1a1a2e}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.container{max-width:900px;margin:0 auto;padding:16px}
+/* Stats filtro */
+.stats{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.stat{background:#fff;border-radius:8px;padding:10px 14px;flex:1;min-width:80px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.1);cursor:pointer;transition:all .15s}
+.stat:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.stat.active{box-shadow:0 0 0 3px #1a1a2e;transform:translateY(-2px)}
+.stat .num{font-size:1.6rem;font-weight:700}
+.stat .lab{font-size:0.72rem;color:#666}
+.grupo{margin-bottom:28px}
+.grupo.oculto{display:none}
+.grupo h2{font-size:1rem;margin-bottom:12px}
+/* Cards */
+.card{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);transition:opacity .3s}
+.card.encerrado{opacity:0.3;pointer-events:none}
+.card-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.emoji{font-size:1.2rem}
+.titulo{flex:1;font-size:0.95rem}
+.badge{font-size:0.7rem;color:#fff;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.desc{font-size:0.82rem;color:#555;margin-bottom:6px;line-height:1.5}
+.proximo{font-size:0.78rem;color:#888;margin-bottom:10px}
+.acoes{display:flex;flex-direction:column;gap:8px}
+button{border:none;border-radius:6px;padding:7px 14px;cursor:pointer;font-size:0.85rem;font-weight:600;transition:opacity .2s}
+button:disabled{opacity:0.4;cursor:default}
+.btn-encerrar{background:#22c55e;color:#fff}
+.btn-encerrar:hover{opacity:0.85}
+.btn-audio{background:#3b82f6;color:#fff}
+.btn-audio:hover{opacity:0.85}
+.btn-rec{background:#ef4444;color:#fff}
+.btn-stop{background:#6b7280;color:#fff}
+.btn-copiar{background:#7c3aed;color:#fff}
+.btn-copiar:hover{opacity:0.85}
+.btn-copiar.copiado{background:#059669}
+.audio-container{background:#f8f8f8;border-radius:6px;padding:10px}
+.comentario{width:100%;border:1px solid #ddd;border-radius:6px;padding:8px;font-size:0.85rem;resize:vertical;font-family:inherit}
+.comentario:focus{outline:none;border-color:#3b82f6}
+.btn-salvar{background:#1a1a2e;color:#fff;padding:12px 28px;font-size:1rem;border-radius:8px;width:100%;margin-top:8px}
+.btn-salvar:hover{opacity:0.9}
+/* Log status */
+.log-entry{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-left:4px solid #3b82f6}
+.log-entry.log-limpa{background:#f0fdf4;border-left:4px solid #22c55e;padding:10px 16px}
+.log-entry.log-acao{border-left:4px solid #f59e0b;background:#fffbee}
+.log-titulo{font-weight:700;font-size:0.9rem;margin-bottom:6px;color:#1a1a2e}
+.log-entry.log-limpa .log-titulo{color:#166534;font-weight:600;font-size:0.85rem}
+.log-corpo{font-size:0.82rem;color:#555;line-height:1.6}
+/* Chat Zapia */
+.chat-area{background:#fff;border-radius:10px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.chat-area h3{font-size:1rem;margin-bottom:6px;color:#1a1a2e}
+.chat-area p{font-size:0.82rem;color:#888;margin-bottom:16px;line-height:1.5}
+.chat-textarea{width:100%;border:1px solid #ddd;border-radius:8px;padding:12px;font-size:0.9rem;resize:vertical;font-family:inherit;min-height:100px}
+.chat-textarea:focus{outline:none;border-color:#3b82f6}
+.chat-btns{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.btn-chat-audio{background:#3b82f6;color:#fff;flex:1}
+.btn-chat-enviar{background:#22c55e;color:#fff;flex:1}
+.chat-audio-bar{background:#f8f8f8;border-radius:8px;padding:12px;margin-top:10px;display:none;flex-wrap:wrap;gap:8px;align-items:center}
+.chat-historico{margin-top:20px}
+.chat-historico h4{font-size:0.85rem;color:#888;margin-bottom:10px;border-top:1px solid #eee;padding-top:12px}
+.chat-msg{background:#f0f7ff;border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:0.85rem;line-height:1.5}
+.chat-msg .ts{font-size:0.72rem;color:#aaa;margin-top:4px}
+/* Notif e modal */
+.notif{position:fixed;bottom:24px;right:24px;background:#22c55e;color:#fff;padding:14px 18px;border-radius:10px;font-weight:600;display:none;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,.2);max-width:300px;font-size:0.9rem}
+/* Financeiro */
+.fin-resumo{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.fin-card{background:#fff;border-radius:10px;padding:16px 20px;flex:1;min-width:150px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.fin-val{font-size:1.4rem;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.fin-lab{font-size:0.78rem;color:#888}
+.fin-titulo{font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
+.fin-table-wrap{overflow-x:auto;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.fin-table{width:100%;border-collapse:collapse;background:#fff;font-size:0.85rem}
+.fin-table thead th{background:#1a1a2e;color:#fff;padding:10px 14px;text-align:left;font-size:0.8rem}
+.fin-table tbody td{padding:10px 14px;border-bottom:1px solid #f0f0f0}
+.fin-table tbody tr:hover{background:#f9fafb}
+.fin-table .total-row td{background:#f0fdf4;font-weight:700;border-top:2px solid #22c55e}
+.td-right{text-align:right;font-variant-numeric:tabular-nums}
+.td-center{text-align:center}
+.cat-badge{font-size:0.72rem;color:#fff;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.fin-nota{background:#fffbee;border:1px solid #fde68a;border-radius:10px;padding:14px 16px;font-size:0.82rem;color:#555;line-height:1.6;margin-top:20px}
+.fin-nota a{color:#3b82f6}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:200}
+.modal-overlay.show{display:flex}
+.modal{background:#fff;border-radius:12px;padding:24px;max-width:340px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.modal h3{margin-bottom:12px;font-size:1rem}
+.modal p{font-size:0.88rem;color:#555;margin-bottom:20px;line-height:1.5}
+.modal-btns{display:flex;gap:10px}
+.modal-btns button{flex:1}
+.btn-confirmar{background:#ef4444;color:#fff}
+.btn-cancelar{background:#e5e7eb;color:#333}
+</style>
+</head>
+<body>
+<!-- Netlify Forms: receptor silencioso do dashboard -->
+<form name="zapia-retorno" netlify netlify-honeypot="bot-field" hidden>
+  <input name="payload" type="hidden"/>
+</form>
+
+<header>
+  <h1>📡 CompetenceNet</h1>
+  <div class="header-right">
+    <span class="dirty-badge" id="dirty-badge">● não salvo</span>
+    <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
+    <span class="meta">Gerado: 28/06/2026 14:08 | 41 itens</span>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
+  <div class="tab" onclick="abrirAba('financeiro',this)">💰 Financeiro</div>
+  <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
+  <div class="tab" onclick="abrirAba('chat',this)">💬 Falar com Zapia</div>
+</div>
+
+<!-- Modal refresh -->
+<div class="modal-overlay" id="modal-refresh">
+  <div class="modal">
+    <h3>⚠️ Tem ações não salvas</h3>
+    <p>Tem itens marcados, comentários ou áudios não salvos.<br><br>Se atualizar agora, <strong>vai perder tudo isso</strong>.</p>
+    <div class="modal-btns">
+      <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+      <button class="btn-confirmar" onclick="confirmarRefresh()">Atualizar mesmo assim</button>
+    </div>
+  </div>
+</div>
+
+<!-- ABA 1: ATENDIMENTOS -->
+<div class="tab-content active" id="aba-atendimentos">
+<div class="container">
+  <div class="stats">
+    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">41</div><div class="lab">Todos</div></div>
+    <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">4</div><div class="lab">🔴 Urgente</div></div>
+    <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">16</div><div class="lab">🟡 Andamento</div></div>
+    <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#888">13</div><div class="lab">⏳ Pendente</div></div>
+    <div class="stat" data-filter="triagem" onclick="filtrar('triagem')"><div class="num" style="color:#2288cc">5</div><div class="lab">🔵 Triagem</div></div>
+  </div>
+<div class="grupo" data-status="urgente"><h2 style="color:#ff4444;border-bottom:2px solid #ff4444;padding-bottom:6px">🔴 URGENTE (4)</h2>
+<div class="card" id="card_felipe_raquel_11264_42df54" data-uid="felipe_raquel_11264_42df54" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">Felipe/Raquel (11264)</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc">- Sinal oscilando após reinício. Porta do roteador danificada. Vai trazer roteador "durante a semana"<br>- 8 dias em aberto — **ESCALAR JÚNIOR**<br>- 📅 próximo contato: **hoje 24/06** — cutucar se já tem data para trazer o roteador</div>
+  <div class="proximo">📅 **hoje 24/06** — cutucar se já tem data para trazer o roteador</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('felipe_raquel_11264_42df54',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('felipe_raquel_11264_42df54')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('felipe_raquel_11264_42df54')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_felipe_raquel_11264_42df54" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_aline_aires_da_silveira_16986_ee123c" data-uid="aline_aires_da_silveira_16986_ee123c" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">Aline Aires da Silveira (16986)</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc">- Lenta/travando há dias. Heavy user (32-45GB/sessão)<br>- ⏳ **PENDENTE JÚNIOR:** upgrade ou explicar limitação?<br>- 📅 próximo contato: **hoje 24/06** — cobrar decisão Júnior</div>
+  <div class="proximo">📅 **hoje 24/06** — cobrar decisão Júnior</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('aline_aires_da_silveira_16986_ee123c',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('aline_aires_da_silveira_16986_ee123c')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('aline_aires_da_silveira_16986_ee123c')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_aline_aires_da_silveira_16986_ee123c" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_lilian_bicca_15989_d1ff90" data-uid="lilian_bicca_15989_d1ff90" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">Lilian Bicca (15989)</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc">- Sinal -76dBm, antena possivelmente torta. Visita técnica pendente<br>- Sem internet desde 26/06. Mandou mensagem 27/06 17:11: "desde ontem sem internet" + "tava péssima, agora não funciona nada"<br>- Avisei às 18:35 que estou verificando<br>- 📅 próximo contato: 27/06 noite — verificar no sistema + acionar Fábio se necessário</div>
+  <div class="proximo">📅 27/06 noite — verificar no sistema + acionar Fábio se necessário</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('lilian_bicca_15989_d1ff90',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('lilian_bicca_15989_d1ff90')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('lilian_bicca_15989_d1ff90')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_lilian_bicca_15989_d1ff90" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_glaucileia_16397_cancelamento__1af246" data-uid="glaucileia_16397_cancelamento__1af246" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">Glaucileia (16397) — CANCELAMENTO CONFIRMADO</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc"></div>
+  <div class="proximo">📅 assim que responder sobre comodato | JID: 555198666595@s.whatsapp.net | Área rural. Pediu cancelamento. Tentativa de retenção enviada (15:50). Aguardando motivo. | 📅 próximo contato: assim que responder</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('glaucileia_16397_cancelamento__1af246',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('glaucileia_16397_cancelamento__1af246')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('glaucileia_16397_cancelamento__1af246')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_glaucileia_16397_cancelamento__1af246" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+</div>
+<div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (16)</h2>
+<div class="card" id="card_bruno_procath_17292_484c88" data-uid="bruno_procath_17292_484c88" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Bruno Procath (17292)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Reclamou que só recebe notificação de boleto quando já está vencido<br>- Respondido: orientado ao Portal Fatura Fácil para consultar antecipado<br>- ⏳ PENDENTE: verificar configuração de aviso antecipado no MK com Júnior/Lu<br>- 📅 próximo contato: aguardar retorno ou confirmar ajuste no sistema</div>
+  <div class="proximo">📅 aguardar retorno ou confirmar ajuste no sistema</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('bruno_procath_17292_484c88',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('bruno_procath_17292_484c88')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('bruno_procath_17292_484c88')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_bruno_procath_17292_484c88" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_rosane_vieira_peixoto_16903_452cc4" data-uid="rosane_vieira_peixoto_16903_452cc4" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Rosane Vieira Peixoto (16903)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Júnior assumiu atendimento pessoalmente (áudios 18:37-18:39).<br>- Ela disse "Conseguimos fazer ali no coisinho" — parece ter conseguido acessar o chatbot.<br>- Júnior pediu pra ela mandar print quando travar. Ela respondeu "Tá bom" (18:44).<br>- ⚠️ Júnior sem sistema no momento para desbloquear manual — monitorar se ela retornar com print.</div>
+  <div class="proximo">📅 se não retornar até amanhã → encerrar (resolvido pelo Júnior)</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('rosane_vieira_peixoto_16903_452cc4',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('rosane_vieira_peixoto_16903_452cc4')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('rosane_vieira_peixoto_16903_452cc4')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_rosane_vieira_peixoto_16903_452cc4" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_celetro_gilberto_16574_edceb5" data-uid="celetro_gilberto_16574_edceb5" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Celetro/Gilberto (16574)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Perguntou se tem fibra na BR-153 com BR-290. Dissemos "vou repassar pro Júnior"<br>- ⏳ **PENDENTE JÚNIOR:** responder se tem fibra ali<br>- 📅 próximo contato: **hoje 24/06** — Júnior responder diretamente ou autorizar resposta</div>
+  <div class="proximo">📅 **hoje 24/06** — Júnior responder diretamente ou autorizar resposta</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('celetro_gilberto_16574_edceb5',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('celetro_gilberto_16574_edceb5')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('celetro_gilberto_16574_edceb5')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_celetro_gilberto_16574_edceb5" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_cl_zio_17281_348c54" data-uid="cl_zio_17281_348c54" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Clézio (17281)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Risco cancelamento. Júnior enviou áudio pessoal. Problema real não identificado<br>- 📅 próximo contato: **hoje 24/06** — 6 dias. Cutucar cliente ou escalar Júnior</div>
+  <div class="proximo">📅 **hoje 24/06** — 6 dias. Cutucar cliente ou escalar Júnior</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('cl_zio_17281_348c54',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('cl_zio_17281_348c54')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('cl_zio_17281_348c54')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_cl_zio_17281_348c54" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_mere_terezinha_17198_6c0e16" data-uid="mere_terezinha_17198_6c0e16" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Mere Terezinha (17198)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Sem internet desde 22h/18/06. Orientada a reiniciar<br>- 📅 próximo contato: **hoje 24/06** — 6 dias sem retorno. Cutucar urgente</div>
+  <div class="proximo">📅 **hoje 24/06** — 6 dias sem retorno. Cutucar urgente</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('mere_terezinha_17198_6c0e16',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('mere_terezinha_17198_6c0e16')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('mere_terezinha_17198_6c0e16')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_mere_terezinha_17198_6c0e16" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_mar_cunha_10568_4f7d8e" data-uid="mar_cunha_10568_4f7d8e" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Marô Cunha (10568)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Nome completo: Maria Irtilia Vieira da Cunha Silva. Email: maro.silvia@gmail.com<br>- Quer NF com CEP 96528-000 + "Fazenda da Tafona" no endereço<br>- Júnior às 10:36 disse "dei o comando pro sistema te enviar" — mas NF precisa ser emitida com dados corretos<br>- ⚠️ **PRAZO: sexta 26/06 de manhã** — Júnior prometeu para a manhã de sexta</div>
+  <div class="proximo">📅 **26/06 manhã** — confirmar envio NF para maro.silvia@gmail.com</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('mar_cunha_10568_4f7d8e',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('mar_cunha_10568_4f7d8e')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('mar_cunha_10568_4f7d8e')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_mar_cunha_10568_4f7d8e" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_valdir_garcia_17294_recolhimen_b434ee" data-uid="valdir_garcia_17294_recolhimen_b434ee" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Valdir Garcia (17294) — Recolhimento antena</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Jean NÃO USA WHATSAPP — ligar (51) 99888-8403<br>- OS reagendada para **27/06 (sábado) 14h** no Calendar<br>- 📅 próximo contato: **26/06** — ligar pro Jean para confirmar disponibilidade no sábado</div>
+  <div class="proximo">📅 **26/06** — ligar pro Jean para confirmar disponibilidade no sábado</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('valdir_garcia_17294_recolhimen_b434ee',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('valdir_garcia_17294_recolhimen_b434ee')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('valdir_garcia_17294_recolhimen_b434ee')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_valdir_garcia_17294_recolhimen_b434ee" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_ivanete_17053_0eb2be" data-uid="ivanete_17053_0eb2be" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Ivanete (17053)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Voltou a funcionar após apertar botão da bateria. Pode ser bateria fraca<br>- 📅 próximo contato: **27/06** — checar se caiu de novo; se sim, OS de troca de bateria</div>
+  <div class="proximo">📅 **27/06** — checar se caiu de novo; se sim, OS de troca de bateria</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('ivanete_17053_0eb2be',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('ivanete_17053_0eb2be')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('ivanete_17053_0eb2be')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_ivanete_17053_0eb2be" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_alceu_sandra_16457_17171_6907fb" data-uid="alceu_sandra_16457_17171_6907fb" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Alceu/Sandra (16457/17171)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Vai pagar sexta<br>- 📅 próximo contato: **26/06 (sexta)** — verificar pagamento</div>
+  <div class="proximo">📅 **26/06 (sexta)** — verificar pagamento</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('alceu_sandra_16457_17171_6907fb',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('alceu_sandra_16457_17171_6907fb')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('alceu_sandra_16457_17171_6907fb')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_alceu_sandra_16457_17171_6907fb" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_mariane_rodrigues_gomes_16923__ea30b0" data-uid="mariane_rodrigues_gomes_16923__ea30b0" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Mariane Rodrigues Gomes (16923) — PAGAMENTO AMANHÃ ✅</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Antena recolhida. Acordo R$150 + 4x R$122,50. Aguardando aceite + registro Lu<br>- 📅 próximo contato: **26/06** — se não confirmar, cutucar</div>
+  <div class="proximo">📅 **26/06** — se não confirmar, cutucar</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('mariane_rodrigues_gomes_16923__ea30b0',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('mariane_rodrigues_gomes_16923__ea30b0')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('mariane_rodrigues_gomes_16923__ea30b0')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_mariane_rodrigues_gomes_16923__ea30b0" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_maria_beatriz_17061_atualizado_e9efc4" data-uid="maria_beatriz_17061_atualizado_e9efc4" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Maria Beatriz (17061) — atualizado 25/06 21:57</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Roteador trocado pelo Fábio. Lu fez follow-up hoje (16:57): cliente confirmou "melhorou muito, mas às vezes dá uma tracada".<br>- Status: melhorou significativamente, mas instabilidade pontual ainda existe.<br>- 📅 próximo contato: **02/07** — follow-up 7 dias para confirmar se estabilizou completamente</div>
+  <div class="proximo">📅 **02/07** — follow-up 7 dias para confirmar se estabilizou completamente</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('maria_beatriz_17061_atualizado_e9efc4',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('maria_beatriz_17061_atualizado_e9efc4')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('maria_beatriz_17061_atualizado_e9efc4')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_maria_beatriz_17061_atualizado_e9efc4" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_leandro_17290_bfe2ee" data-uid="leandro_17290_bfe2ee" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Leandro (17290)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Cancelamento confirmado. Equipamentos com encarregado da Fazenda Teluque/Barragem<br>- 🚧 NÃO REALIZADA — Fábio ficou na ponte, não conseguiu atravessar. Voltou para casa às ~18:30 sem fazer a instalação. Reagendar.<br>- Pendente: cancelar no MK (Lu) + confirmar quais equipamentos estão lá<br>- 📅 próximo contato: hoje 26/06 — confirmar retirada após OS</div>
+  <div class="proximo">📅 hoje 26/06 — confirmar retirada após OS</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('leandro_17290_bfe2ee',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('leandro_17290_bfe2ee')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('leandro_17290_bfe2ee')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_leandro_17290_bfe2ee" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_bet_faxineira_loja_16751_segur_1fbbcc" data-uid="bet_faxineira_loja_16751_segur_1fbbcc" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Bet Faxineira Loja (16751) — Segurar internet até sexta</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc"></div>
+  <div class="proximo">📅 26/06</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('bet_faxineira_loja_16751_segur_1fbbcc',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('bet_faxineira_loja_16751_segur_1fbbcc')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('bet_faxineira_loja_16751_segur_1fbbcc')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_bet_faxineira_loja_16751_segur_1fbbcc" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_poliana_francine_17286_ebf9ba_1" data-uid="poliana_francine_17286_ebf9ba_1" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Poliana Francine (17286)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Interferência de canal — vizinho com satélite desconhecido (não Starlink/HughesNet) em canal automático<br>- Júnior trocou canal (11:05) em 26/06. POP Zeno.<br>- 27/06 19:01: voltou a reclamar "sinal saindo fora"<br>- Júnior respondeu: sem sistema (VPN quebrada), vai verificar amanhã domingo à tardezinha</div>
+  <div class="proximo">📅 28/06 (domingo tarde) — verificar sinal no sistema quando Júnior chegar em casa</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('poliana_francine_17286_ebf9ba_1',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('poliana_francine_17286_ebf9ba_1')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('poliana_francine_17286_ebf9ba_1')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_poliana_francine_17286_ebf9ba_1" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_16734_ana_paula_alves_b5b95f" data-uid="16734_ana_paula_alves_b5b95f" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">16734 - Ana Paula Alves</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- **Situação:** Sem no-break, luz cai frequentemente na área rural. Pediu fornecimento de bateria/no-break.<br>- **Ação:** Respondida, informei que vou repassar ao Júnior.<br>- **Pendência:** Júnior decidir se vende/fornece no-break pra ela.<br>- **📅 próximo contato:** aguardar decisão do Júnior</div>
+  <div class="proximo">📅 ** aguardar decisão do Júnior</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('16734_ana_paula_alves_b5b95f',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('16734_ana_paula_alves_b5b95f')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('16734_ana_paula_alves_b5b95f')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_16734_ana_paula_alves_b5b95f" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_15001_val_ria_bartmann_ab3435" data-uid="15001_val_ria_bartmann_ab3435" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">15001 - Valéria Bartmann</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Quer alterar cadastro: tirar nome do marido Eduardo → colocar nome da mãe (nova titular)<br>- Júnior pediu foto do documento de identidade (frente e verso) da nova titular<br>- Ela vai mandar as fotos por aqui<br>- 📅 próximo contato: assim que mandar as fotos → processar alteração no MK</div>
+  <div class="proximo">📅 assim que mandar as fotos → processar alteração no MK</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('15001_val_ria_bartmann_ab3435',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('15001_val_ria_bartmann_ab3435')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('15001_val_ria_bartmann_ab3435')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_15001_val_ria_bartmann_ab3435" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+</div>
+<div class="grupo" data-status="pendente"><h2 style="color:#888888;border-bottom:2px solid #888888;padding-bottom:6px">⏳ PENDENTE JÚNIOR/LU (13)</h2>
+<div class="card" id="card_pendente_j_nior_fd5282" data-uid="pendente_j_nior_fd5282" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">PENDENTE JÚNIOR:</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- 📅 próximo contato: **hoje 24/06** — decisão urgente</div>
+  <div class="proximo">📅 **hoje 24/06** — decisão urgente</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('pendente_j_nior_fd5282',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_j_nior_fd5282')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('pendente_j_nior_fd5282')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_pendente_j_nior_fd5282" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_jo_o_luiz_siqueira_pai_emerson_b5b473" data-uid="jo_o_luiz_siqueira_pai_emerson_b5b473" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">João Luiz Siqueira (pai Emerson 16753)</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- CPF: 670.257.900-91 — Bairro Teluk<br>- ✅ INSTALAÇÃO CONCLUÍDA por Fábio em 26/06 (~16h)<br>- ⏳ PENDENTE LU: cadastrar no MK + cobrar R$450 da instalação<br>- Fábio pediu no DM às 16:06: "ela já vai fazendo o cadastro... R$450 da instalação"</div>
+  <div class="proximo">📅 confirmar cadastro MK e pagamento R$450</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('jo_o_luiz_siqueira_pai_emerson_b5b473',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('jo_o_luiz_siqueira_pai_emerson_b5b473')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('jo_o_luiz_siqueira_pai_emerson_b5b473')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_jo_o_luiz_siqueira_pai_emerson_b5b473" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_pendente_adda72" data-uid="pendente_adda72" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">PENDENTE:</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- 📅 próximo contato: **hoje 24/06** — confirmar se internet foi liberada</div>
+  <div class="proximo">📅 **hoje 24/06** — confirmar se internet foi liberada</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('pendente_adda72',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_adda72')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('pendente_adda72')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_pendente_adda72" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_liziane_arbelo_15339_b00127" data-uid="liziane_arbelo_15339_b00127" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Liziane Arbelo (15339)</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Consumo absurdo (435GB). Júnior vai explicar e oferecer upgrade<br>- 📅 próximo contato: **hoje 24/06** — 9 dias. Cobrar Júnior no briefing</div>
+  <div class="proximo">📅 **hoje 24/06** — 9 dias. Cobrar Júnior no briefing</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('liziane_arbelo_15339_b00127',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('liziane_arbelo_15339_b00127')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('liziane_arbelo_15339_b00127')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_liziane_arbelo_15339_b00127" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_jorge_10383_62fc4b" data-uid="jorge_10383_62fc4b" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Jorge (10383)</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Pix R$250 autorizado. Verificar se pagou<br>- 📅 próximo contato: **hoje 24/06** — 8 dias. Cobrar Júnior no briefing</div>
+  <div class="proximo">📅 **hoje 24/06** — 8 dias. Cobrar Júnior no briefing</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('jorge_10383_62fc4b',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('jorge_10383_62fc4b')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('jorge_10383_62fc4b')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_jorge_10383_62fc4b" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_adilmo_11093_716eb6" data-uid="adilmo_11093_716eb6" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Adilmo (11093)</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Júnior prometeu roteador novo. Aguardando chegada dos roteadores ZTE (encomenda Jairo)<br>- 🔇 **Silêncio intencional** — não cutucar nas rondas<br>- 📅 Reativar: **25/06** — verificar se os roteadores chegaram; se sim, avisar Adilmo</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('adilmo_11093_716eb6',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('adilmo_11093_716eb6')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('adilmo_11093_716eb6')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_adilmo_11093_716eb6" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_jo_o_lu_s_locat_rio_ngela_3c48b7" data-uid="jo_o_lu_s_locat_rio_ngela_3c48b7" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">João Luís (locatário Ângela)</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Quer valor para 1-2 meses<br>- 📅 próximo contato: **hoje 24/06** — 6 dias. Cobrar Júnior no briefing</div>
+  <div class="proximo">📅 **hoje 24/06** — 6 dias. Cobrar Júnior no briefing</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('jo_o_lu_s_locat_rio_ngela_3c48b7',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('jo_o_lu_s_locat_rio_ngela_3c48b7')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('jo_o_lu_s_locat_rio_ngela_3c48b7')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_jo_o_lu_s_locat_rio_ngela_3c48b7" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_carla_juninho_16706_paga_segun_e2ee0a" data-uid="carla_juninho_16706_paga_segun_e2ee0a" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Carla/Juninho (16706) — paga segunda 29/06</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Propôs R$110 (R$100 + R$10 juros). Aceitar ou não?<br>- 📅 próximo contato: **25/06** — cobrar decisão do Júnior</div>
+  <div class="proximo">📅 29/06 | JID: 555199656051@s.whatsapp.net | Entrada: 23/06</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('carla_juninho_16706_paga_segun_e2ee0a',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('carla_juninho_16706_paga_segun_e2ee0a')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('carla_juninho_16706_paga_segun_e2ee0a')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_carla_juninho_16706_paga_segun_e2ee0a" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_j_ssica_prussiano_de_morais_3b4f4a" data-uid="j_ssica_prussiano_de_morais_3b4f4a" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Jéssica Prussiano de Morais</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Comodato no cadastro, equipamento não retirado<br>- 📅 próximo contato: **hoje 24/06** — PENDENTE LU: ID MK + endereço</div>
+  <div class="proximo">📅 **hoje 24/06** — PENDENTE LU: ID MK + endereço</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('j_ssica_prussiano_de_morais_3b4f4a',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('j_ssica_prussiano_de_morais_3b4f4a')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('j_ssica_prussiano_de_morais_3b4f4a')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_j_ssica_prussiano_de_morais_3b4f4a" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_jorge_luis_dutra_nunes_17177_62f55e" data-uid="jorge_luis_dutra_nunes_17177_62f55e" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Jorge Luis Dutra Nunes (17177)</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Cancelamento informado pela Lu. Sem comodato pendente (já recolhido)<br>- 📅 próximo contato: **hoje 24/06** — confirmar cancelamento no MK. PENDENTE LU</div>
+  <div class="proximo">📅 **hoje 24/06** — confirmar cancelamento no MK. PENDENTE LU</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('jorge_luis_dutra_nunes_17177_62f55e',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('jorge_luis_dutra_nunes_17177_62f55e')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('jorge_luis_dutra_nunes_17177_62f55e')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_jorge_luis_dutra_nunes_17177_62f55e" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_teiftec_ap_dos_pppoe_vin_cius_1615cf" data-uid="teiftec_ap_dos_pppoe_vin_cius_1615cf" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Teiftec — AP dos PPPoE (Vinícius)</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Perguntou a qual AP pertencem pppoe-elianess, pppoe-ionaragbr, pppoe-romildomaas (sem VLAN)<br>- 📅 próximo contato: **hoje 24/06** — PENDENTE JÚNIOR: identificar o AP e responder</div>
+  <div class="proximo">📅 **hoje 24/06** — PENDENTE JÚNIOR: identificar o AP e responder</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('teiftec_ap_dos_pppoe_vin_cius_1615cf',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('teiftec_ap_dos_pppoe_vin_cius_1615cf')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('teiftec_ap_dos_pppoe_vin_cius_1615cf')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_teiftec_ap_dos_pppoe_vin_cius_1615cf" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_ana_paula_16734_sem_no_break_23eb4d" data-uid="ana_paula_16734_sem_no_break_23eb4d" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Ana Paula (16734) — sem no-break</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Interior. Internet travando, já reiniciou e tirou da tomada — não resolveu.<br>- Perguntou no DM + no grupo da competence net "alguém mais sem internet?"<br>- Respondida às 20:37. Aguardando identificar se tem antena.<br>- 📅 próximo contato: **hoje 24/06** — acompanhar diagnóstico</div>
+  <div class="proximo">📅 26/06 | JID: 555199121781@s.whatsapp.net | Entrada: 24/06 20:08</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('ana_paula_16734_sem_no_break_23eb4d',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('ana_paula_16734_sem_no_break_23eb4d')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('ana_paula_16734_sem_no_break_23eb4d')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_ana_paula_16734_sem_no_break_23eb4d" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_pergunta_lu_cobran_a_servi_os__6daf8e" data-uid="pergunta_lu_cobran_a_servi_os__6daf8e" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Pergunta Lu — Cobrança Serviços 25/06</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Lu enviou print do Calendar com os serviços do dia (Roberta Porto 08h + Pedro Gustavo 10h)<br>- Pergunta: "tem alguma cobrança?"<br>- Não há regra definida nos arquivos para cobrança em manutenção<br>- **📅 próximo contato:** aguardar Júnior responder à Lu diretamente</div>
+  <div class="proximo">📅 ** aguardar Júnior responder à Lu diretamente</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('pergunta_lu_cobran_a_servi_os__6daf8e',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('pergunta_lu_cobran_a_servi_os__6daf8e')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('pergunta_lu_cobran_a_servi_os__6daf8e')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_pergunta_lu_cobran_a_servi_os__6daf8e" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+</div>
+<div class="grupo" data-status="triagem"><h2 style="color:#2288cc;border-bottom:2px solid #2288cc;padding-bottom:6px">🔵 TRIAGEM (5)</h2>
+<div class="card" id="card_17015_maria_eduarda_trindade_d_755544" data-uid="17015_maria_eduarda_trindade_d_755544" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
+  <div class="card-header">
+    <span class="emoji">🔵</span>
+    <strong class="titulo">17015 - Maria Eduarda Trindade dos Santos</strong>
+    <span class="badge" style="background:#2288cc">Triagem</span>
+  </div>
+  <div class="desc">- **JID:** 555196983474@s.whatsapp.net<br>- **Contato:** 27/06 13:30 — "Boa tarde" (saudação sem contexto)<br>- **Ação:** Respondido "Boa tarde! Em que posso ajudar?" — aguardando retorno<br>- 📅 próximo contato: 27/06 (aguardando resposta)</div>
+  <div class="proximo">📅 27/06 (aguardando resposta)</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('17015_maria_eduarda_trindade_d_755544',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('17015_maria_eduarda_trindade_d_755544')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('17015_maria_eduarda_trindade_d_755544')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_17015_maria_eduarda_trindade_d_755544" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_triagem_83f6d1" data-uid="triagem_83f6d1" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
+  <div class="card-header">
+    <span class="emoji">🔵</span>
+    <strong class="titulo">Triagem</strong>
+    <span class="badge" style="background:#2288cc">Triagem</span>
+  </div>
+  <div class="desc">- 🔴 **Urgente** — sem internet ou OS crítica (alerta em 24h)<br>- 🟡 **Em andamento** — atendimento em curso (alerta em 48h sem movimento)<br>- ⏳ **Pendente Júnior/Lu** — aguardando decisão; cobrar em até 5 dias<br>- 🔇 **Silêncio intencional** — aguardando evento externo com data definida. **Obrigatório ter data de reativação.** Sem data = vira 🟡 automaticamente.</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('triagem_83f6d1',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('triagem_83f6d1')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('triagem_83f6d1')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_triagem_83f6d1" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_lead_j_lio_ac27d6" data-uid="lead_j_lio_ac27d6" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
+  <div class="card-header">
+    <span class="emoji">🔵</span>
+    <strong class="titulo">Lead — Júlio</strong>
+    <span class="badge" style="background:#2288cc">Triagem</span>
+  </div>
+  <div class="desc">- **Interesse:** Internet residencial/rural<br>- **Coords:** -30.201492, -53.045672<br>- **Maps:** https://maps.google.com/?q=-30.201492,-53.045672<br>- **POPs viáveis (≤17km, todos os 20 calculados):**</div>
+  <div class="proximo">📅 ** aguardar resposta com nome + confirmar viabilidade</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('lead_j_lio_ac27d6',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('lead_j_lio_ac27d6')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('lead_j_lio_ac27d6')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_lead_j_lio_ac27d6" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_kak_amigo_39ad0d" data-uid="kak_amigo_39ad0d" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
+  <div class="card-header">
+    <span class="emoji">🔵</span>
+    <strong class="titulo">Kaká (amigo)</strong>
+    <span class="badge" style="background:#2288cc">Triagem</span>
+  </div>
+  <div class="desc">- Está tentando ajudar "Michel" com computador queimado<br>- Precisa saber: o que queimou + se RAM é DDR3 ou DDR4 + processador<br>- Tem placa-mãe ASUS antiga (i3/i7 4a geração) + 2 pentes DDR3 pra oferecer<br>- Conversa pessoal — aguardando Júnior responder</div>
+  <div class="proximo">📅 quando Júnior voltar</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('kak_amigo_39ad0d',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('kak_amigo_39ad0d')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('kak_amigo_39ad0d')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_kak_amigo_39ad0d" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_16886_naiara_de_souza_oliveira_722634" data-uid="16886_naiara_de_souza_oliveira_722634" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
+  <div class="card-header">
+    <span class="emoji">🔵</span>
+    <strong class="titulo">16886 - Naiara de Souza Oliveira Belmiro</strong>
+    <span class="badge" style="background:#2288cc">Triagem</span>
+  </div>
+  <div class="desc">- Mandou "Olá bom dia" — respondida com saudação. Aguardando retorno pra identificar necessidade.<br>- 📅 próximo contato: assim que responder</div>
+  <div class="proximo">📅 assim que responder</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('16886_naiara_de_souza_oliveira_722634',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('16886_naiara_de_souza_oliveira_722634')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('16886_naiara_de_souza_oliveira_722634')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_16886_naiara_de_souza_oliveira_722634" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+</div>
+<div class="grupo" data-status="silencio"><h2 style="color:#999999;border-bottom:2px solid #999999;padding-bottom:6px">🔇 SILÊNCIO INTENCIONAL (3)</h2>
+<div class="card" id="card_poliana_francine_17286_ebf9ba" data-uid="poliana_francine_17286_ebf9ba" data-status="silencio" style="border-left:4px solid #999999;background:#f9f9f9">
+  <div class="card-header">
+    <span class="emoji">🔇</span>
+    <strong class="titulo">Poliana Francine (17286)</strong>
+    <span class="badge" style="background:#999999">Silêncio</span>
+  </div>
+  <div class="desc">- 📅 Reativar: **hoje 24/06** — disparar follow-up agora</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('poliana_francine_17286_ebf9ba',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('poliana_francine_17286_ebf9ba')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('poliana_francine_17286_ebf9ba')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_poliana_francine_17286_ebf9ba" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_alana_corr_a_da_silva_17054_735bcd" data-uid="alana_corr_a_da_silva_17054_735bcd" data-status="silencio" style="border-left:4px solid #999999;background:#f9f9f9">
+  <div class="card-header">
+    <span class="emoji">🔇</span>
+    <strong class="titulo">Alana Corrêa da Silva (17054)</strong>
+    <span class="badge" style="background:#999999">Silêncio</span>
+  </div>
+  <div class="desc">- Pagou R$150 ✅ em 24/06. Internet liberada. Comprovante enviado. Acordo confirmado: 3x R$100 em 05/08, 05/09, 05/10<br>- 🔇 Silêncio — aguardar parcelas<br>- 📅 Reativar: **04/08** — lembrar da 1ª parcela</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('alana_corr_a_da_silva_17054_735bcd',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('alana_corr_a_da_silva_17054_735bcd')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('alana_corr_a_da_silva_17054_735bcd')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_alana_corr_a_da_silva_17054_735bcd" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+<div class="card" id="card_ana_cristina_16575_1f4e5c" data-uid="ana_cristina_16575_1f4e5c" data-status="silencio" style="border-left:4px solid #999999;background:#f9f9f9">
+  <div class="card-header">
+    <span class="emoji">🔇</span>
+    <strong class="titulo">Ana Cristina (16575)</strong>
+    <span class="badge" style="background:#999999">Silêncio</span>
+  </div>
+  <div class="desc">- ✅ Problema resolvido 26/06 11:35 — canal trocado, cliente confirmou melhora<br>- Causa: interferência de equipamento clandestino de vizinho no POP Zeno<br>- Sem upgrade de antena (vai se mudar no futuro)<br>- 📅 próximo contato: se reclamar de novo → verificar canal antes de OS</div>
+  <div class="proximo">📅 se reclamar de novo → verificar canal antes de OS</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('ana_cristina_16575_1f4e5c',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('ana_cristina_16575_1f4e5c')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-copiar" onclick="copiarContexto('ana_cristina_16575_1f4e5c')">📋 Copiar contexto</button>
+    </div>
+
+    <textarea class="comentario" id="txt_ana_cristina_16575_1f4e5c" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
+  </div>
+</div>
+</div>
+
+  <button class="btn-salvar" onclick="salvarTudo()">💾 Salvar e enviar pra Zapia</button>
+</div>
+</div>
+
+<!-- ABA 2: FINANCEIRO -->
+<div class="tab-content" id="aba-financeiro">
+<div class="container">
+  <h2 style="margin-bottom:6px;font-size:1rem;color:#1a1a2e">💰 Financeiro da Empresa</h2>
+  <p style="font-size:0.82rem;color:#888;margin-bottom:20px">Saídas mapeadas pela Zapia — contratos fixos + despesas variáveis recentes.</p>
+  
+<div class="fin-resumo">
+  <div class="fin-card" style="border-top:4px solid #ef4444">
+    <div class="fin-val">R$ 51.610,36</div>
+    <div class="fin-lab">💸 Total saídas maio/26</div>
+  </div>
+  <div class="fin-card" style="border-top:4px solid #3b82f6">
+    <div class="fin-val">R$ 7.751,34</div>
+    <div class="fin-lab">🔗 Links de internet</div>
+  </div>
+  <div class="fin-card" style="border-top:4px solid #22c55e">
+    <div class="fin-val">R$ 17.740,47</div>
+    <div class="fin-lab">👥 Pessoal (salários/retiradas)</div>
+  </div>
+  <div class="fin-card" style="border-top:4px solid #ef4444">
+    <div class="fin-val">R$ 9.205,28</div>
+    <div class="fin-lab">🏛️ Impostos</div>
+  </div>
+</div>
+
+<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin:20px 0">
+  <div style="flex:0 0 260px">
+    <h3 class="fin-titulo">🥧 Despesas por Categoria — Maio/2026</h3>
+    <svg viewBox="0 0 260 260" width="260" height="260" xmlns="http://www.w3.org/2000/svg">
+<path d="M 130.00 20.00 A 110 110 0 0 1 221.47 191.11 L 175.73 160.55 A 55 55 0 0 0 130.00 75.00 Z" fill="#22c55e" stroke="#fff" stroke-width="2"><title>Pessoal: R$ 17.740,47 (34.4%)</title></path>
+<path d="M 221.47 191.11 A 110 110 0 0 1 114.77 238.94 L 122.39 184.47 A 55 55 0 0 0 175.73 160.55 Z" fill="#ef4444" stroke="#fff" stroke-width="2"><title>Impostos: R$ 9.205,28 (17.8%)</title></path>
+<path d="M 114.77 238.94 A 110 110 0 0 1 32.85 181.60 L 81.43 155.80 A 55 55 0 0 0 122.39 184.47 Z" fill="#3b82f6" stroke="#fff" stroke-width="2"><title>Link: R$ 7.751,34 (15.0%)</title></path>
+<path d="M 32.85 181.60 A 110 110 0 0 1 20.71 142.49 L 75.36 136.24 A 55 55 0 0 0 81.43 155.80 Z" fill="#94a3b8" stroke="#fff" stroke-width="2"><title>Bancário: R$ 3.076,35 (6.0%)</title></path>
+<path d="M 20.71 142.49 A 110 110 0 0 1 23.18 103.76 L 76.59 116.88 A 55 55 0 0 0 75.36 136.24 Z" fill="#a855f7" stroke="#fff" stroke-width="2"><title>Consórcio: R$ 2.913,07 (5.6%)</title></path>
+<path d="M 23.18 103.76 A 110 110 0 0 1 38.00 69.70 L 84.00 99.85 A 55 55 0 0 0 76.59 116.88 Z" fill="#8b5cf6" stroke="#fff" stroke-width="2"><title>Sistema: R$ 2.787,29 (5.4%)</title></path>
+<path d="M 38.00 69.70 A 110 110 0 0 1 54.26 50.23 L 92.13 90.11 A 55 55 0 0 0 84.00 99.85 Z" fill="#0d9488" stroke="#fff" stroke-width="2"><title>Equipamento: R$ 1.898,33 (3.7%)</title></path>
+<path d="M 54.26 50.23 A 110 110 0 0 1 70.86 37.25 L 100.43 83.63 A 55 55 0 0 0 92.13 90.11 Z" fill="#f97316" stroke="#fff" stroke-width="2"><title>Empréstimo: R$ 1.575,38 (3.1%)</title></path>
+<path d="M 70.86 37.25 A 110 110 0 0 1 88.24 28.23 L 109.12 79.12 A 55 55 0 0 0 100.43 83.63 Z" fill="#eab308" stroke="#fff" stroke-width="2"><title>Combustível: R$ 1.464,51 (2.8%)</title></path>
+<path d="M 88.24 28.23 A 110 110 0 0 1 105.75 22.71 L 117.87 76.35 A 55 55 0 0 0 109.12 79.12 Z" fill="#9ca3af" stroke="#fff" stroke-width="2"><title>Outros: R$ 1.372,40 (2.7%)</title></path>
+<path d="M 105.75 22.71 A 110 110 0 0 1 112.68 21.37 L 121.34 75.69 A 55 55 0 0 0 117.87 76.35 Z" fill="#f59e0b" stroke="#fff" stroke-width="2"><title>Energia: R$ 526,98 (1.0%)</title></path>
+<path d="M 112.68 21.37 A 110 110 0 0 1 117.65 20.70 L 123.83 75.35 A 55 55 0 0 0 121.34 75.69 Z" fill="#0ea5e9" stroke="#fff" stroke-width="2"><title>ERP: R$ 374,98 (0.7%)</title></path>
+<path d="M 117.65 20.70 A 110 110 0 0 1 121.55 20.33 L 125.77 75.16 A 55 55 0 0 0 123.83 75.35 Z" fill="#78716c" stroke="#fff" stroke-width="2"><title>Associação: R$ 292,28 (0.6%)</title></path>
+<path d="M 121.55 20.33 A 110 110 0 0 1 124.89 20.12 L 127.44 75.06 A 55 55 0 0 0 125.77 75.16 Z" fill="#06b6d4" stroke="#fff" stroke-width="2"><title>Chatbot: R$ 249,90 (0.5%)</title></path>
+<path d="M 124.89 20.12 A 110 110 0 0 1 127.59 20.03 L 128.80 75.01 A 55 55 0 0 0 127.44 75.06 Z" fill="#ec4899" stroke="#fff" stroke-width="2"><title>Telefonia: R$ 201,90 (0.4%)</title></path>
+<path d="M 127.59 20.03 A 110 110 0 0 1 128.93 20.01 L 129.47 75.00 A 55 55 0 0 0 128.80 75.01 Z" fill="#84cc16" stroke="#fff" stroke-width="2"><title>Manutenção: R$ 100,00 (0.2%)</title></path>
+<path d="M 128.93 20.01 A 110 110 0 0 1 130.00 20.00 L 130.00 75.00 A 55 55 0 0 0 129.47 75.00 Z" fill="#6366f1" stroke="#fff" stroke-width="2"><title>Storage: R$ 79,90 (0.2%)</title></path>
+<text x="205.2" y="89.8" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#fff" font-weight="bold">34.4%</text>
+<text x="164.9" y="207.8" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#fff" font-weight="bold">17.8%</text>
+<text x="81.1" y="199.8" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#fff" font-weight="bold">15.0%</text>
+<text x="48.6" y="155.3" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#fff" font-weight="bold">6.0%</text>
+<text x="44.9" y="124.6" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#fff" font-weight="bold">5.6%</text>
+<text x="51.8" y="96.0" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#fff" font-weight="bold">5.4%</text>
+
+<circle cx="130" cy="130" r="55" fill="white"/>
+<text x="130" y="120" text-anchor="middle" font-size="11" fill="#555" font-weight="bold">TOTAL</text>
+<text x="130" y="138" text-anchor="middle" font-size="10" fill="#222">R$ 51.610,36</text>
+</svg>
+  </div>
+  <div style="flex:1;min-width:220px">
+    <h3 class="fin-titulo">📊 Resumo por Categoria</h3>
+    <table class="fin-table">
+      <thead><tr><th>Categoria</th><th style="text-align:right">Total</th><th style="text-align:right">%</th></tr></thead>
+      <tbody>
+<tr><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 17.740,47</td><td style="text-align:right">34.4%</td></tr>
+<tr><td><span class="cat-badge" style="background:#ef4444">Impostos</span></td><td style="text-align:right">R$ 9.205,28</td><td style="text-align:right">17.8%</td></tr>
+<tr><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:right">R$ 7.751,34</td><td style="text-align:right">15.0%</td></tr>
+<tr><td><span class="cat-badge" style="background:#94a3b8">Bancário</span></td><td style="text-align:right">R$ 3.076,35</td><td style="text-align:right">6.0%</td></tr>
+<tr><td><span class="cat-badge" style="background:#a855f7">Consórcio</span></td><td style="text-align:right">R$ 2.913,07</td><td style="text-align:right">5.6%</td></tr>
+<tr><td><span class="cat-badge" style="background:#8b5cf6">Sistema</span></td><td style="text-align:right">R$ 2.787,29</td><td style="text-align:right">5.4%</td></tr>
+<tr><td><span class="cat-badge" style="background:#0d9488">Equipamento</span></td><td style="text-align:right">R$ 1.898,33</td><td style="text-align:right">3.7%</td></tr>
+<tr><td><span class="cat-badge" style="background:#f97316">Empréstimo</span></td><td style="text-align:right">R$ 1.575,38</td><td style="text-align:right">3.1%</td></tr>
+<tr><td><span class="cat-badge" style="background:#eab308">Combustível</span></td><td style="text-align:right">R$ 1.464,51</td><td style="text-align:right">2.8%</td></tr>
+<tr><td><span class="cat-badge" style="background:#9ca3af">Outros</span></td><td style="text-align:right">R$ 1.372,40</td><td style="text-align:right">2.7%</td></tr>
+<tr><td><span class="cat-badge" style="background:#f59e0b">Energia</span></td><td style="text-align:right">R$ 526,98</td><td style="text-align:right">1.0%</td></tr>
+<tr><td><span class="cat-badge" style="background:#0ea5e9">ERP</span></td><td style="text-align:right">R$ 374,98</td><td style="text-align:right">0.7%</td></tr>
+<tr><td><span class="cat-badge" style="background:#78716c">Associação</span></td><td style="text-align:right">R$ 292,28</td><td style="text-align:right">0.6%</td></tr>
+<tr><td><span class="cat-badge" style="background:#06b6d4">Chatbot</span></td><td style="text-align:right">R$ 249,90</td><td style="text-align:right">0.5%</td></tr>
+<tr><td><span class="cat-badge" style="background:#ec4899">Telefonia</span></td><td style="text-align:right">R$ 201,90</td><td style="text-align:right">0.4%</td></tr>
+<tr><td><span class="cat-badge" style="background:#84cc16">Manutenção</span></td><td style="text-align:right">R$ 100,00</td><td style="text-align:right">0.2%</td></tr>
+<tr><td><span class="cat-badge" style="background:#6366f1">Storage</span></td><td style="text-align:right">R$ 79,90</td><td style="text-align:right">0.2%</td></tr>
+<tr class="total-row"><td><strong>TOTAL</strong></td><td style="text-align:right"><strong>R$ 51.610,36</strong></td><td style="text-align:right">100%</td></tr>
+</tbody></table></div></div>
+<h3 class="fin-titulo" style="margin-top:28px">📋 Extrato Maio/2026 — Todos os Lançamentos</h3>
+<div class="fin-table-wrap"><table class="fin-table">
+<thead><tr><th>Data</th><th>Descrição</th><th>Categoria</th><th style="text-align:right">Valor</th></tr></thead><tbody>
+<tr><td>04/05</td><td>ALGCOM</td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:right">R$ 508,97</td></tr>
+<tr><td>04/05</td><td>IOF/Juros Cheque Especial</td><td><span class="cat-badge" style="background:#94a3b8">Bancário</span></td><td style="text-align:right">R$ 134,50</td></tr>
+<tr><td>05/05</td><td>RGE Sul (energia)</td><td><span class="cat-badge" style="background:#f59e0b">Energia</span></td><td style="text-align:right">R$ 73,81</td></tr>
+<tr><td>05/05</td><td>Mistral Sat (equipamento)</td><td><span class="cat-badge" style="background:#0d9488">Equipamento</span></td><td style="text-align:right">R$ 556,33</td></tr>
+<tr><td>05/05</td><td>MK Solutions</td><td><span class="cat-badge" style="background:#8b5cf6">Sistema</span></td><td style="text-align:right">R$ 997,00</td></tr>
+<tr><td>05/05</td><td>Sandra M. S. Vargas</td><td><span class="cat-badge" style="background:#9ca3af">Outros</span></td><td style="text-align:right">R$ 260,00</td></tr>
+<tr><td>05/05</td><td>Fábio Cenedeze (salário)</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 3.448,00</td></tr>
+<tr><td>05/05</td><td>Luciana Gules (sócia)</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 1.442,69</td></tr>
+<tr><td>05/05</td><td>Mateus (saque salário)</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 5.382,00</td></tr>
+<tr><td>05/05</td><td>Tarifa bancária Sicredi</td><td><span class="cat-badge" style="background:#94a3b8">Bancário</span></td><td style="text-align:right">R$ 42,49</td></tr>
+<tr><td>05/05</td><td>Embalaexpress Embalagens</td><td><span class="cat-badge" style="background:#9ca3af">Outros</span></td><td style="text-align:right">R$ 179,90</td></tr>
+<tr><td>05/05</td><td>Sandro Roberto Hoerbe</td><td><span class="cat-badge" style="background:#9ca3af">Outros</span></td><td style="text-align:right">R$ 810,50</td></tr>
+<tr><td>06/05</td><td>Posto Dal Ri (combustível)</td><td><span class="cat-badge" style="background:#eab308">Combustível</span></td><td style="text-align:right">R$ 321,45</td></tr>
+<tr><td>07/05</td><td>Mistral Sat (equipamento)</td><td><span class="cat-badge" style="background:#0d9488">Equipamento</span></td><td style="text-align:right">R$ 1.342,00</td></tr>
+<tr><td>07/05</td><td>Júnior (retirada)</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 6.700,00</td></tr>
+<tr><td>07/05</td><td>Posto Marina (combustível)</td><td><span class="cat-badge" style="background:#eab308">Combustível</span></td><td style="text-align:right">R$ 285,00</td></tr>
+<tr><td>08/05</td><td>Fábio — ajuda de custo</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 135,32</td></tr>
+<tr><td>11/05</td><td>Sigesc Sistemas</td><td><span class="cat-badge" style="background:#9ca3af">Outros</span></td><td style="text-align:right">R$ 32,00</td></tr>
+<tr><td>11/05</td><td>ABRINT</td><td><span class="cat-badge" style="background:#78716c">Associação</span></td><td style="text-align:right">R$ 220,00</td></tr>
+<tr><td>11/05</td><td>Dobrobit Telecom</td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:right">R$ 550,00</td></tr>
+<tr><td>11/05</td><td>Fábio — reembolso campo</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 347,71</td></tr>
+<tr><td>12/05</td><td>RGE Sul (energia 2)</td><td><span class="cat-badge" style="background:#f59e0b">Energia</span></td><td style="text-align:right">R$ 266,88</td></tr>
+<tr><td>12/05</td><td>Consórcio Sicredi</td><td><span class="cat-badge" style="background:#a855f7">Consórcio</span></td><td style="text-align:right">R$ 2.913,07</td></tr>
+<tr><td>13/05</td><td>Celetro (energia repetidora)</td><td><span class="cat-badge" style="background:#f59e0b">Energia</span></td><td style="text-align:right">R$ 143,02</td></tr>
+<tr><td>13/05</td><td>Teiftec (suporte TI)</td><td><span class="cat-badge" style="background:#8b5cf6">Sistema</span></td><td style="text-align:right">R$ 1.790,29</td></tr>
+<tr><td>13/05</td><td>RR64 / Omie (ERP)</td><td><span class="cat-badge" style="background:#0ea5e9">ERP</span></td><td style="text-align:right">R$ 374,98</td></tr>
+<tr><td>13/05</td><td>CDL Cachoeira do Sul</td><td><span class="cat-badge" style="background:#78716c">Associação</span></td><td style="text-align:right">R$ 72,28</td></tr>
+<tr><td>13/05</td><td>V Mix / Chatmix</td><td><span class="cat-badge" style="background:#06b6d4">Chatbot</span></td><td style="text-align:right">R$ 249,90</td></tr>
+<tr><td>13/05</td><td>Fábio — ajuda de custo</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 30,00</td></tr>
+<tr><td>14/05</td><td>Posto Dal Ri (combustível)</td><td><span class="cat-badge" style="background:#eab308">Combustível</span></td><td style="text-align:right">R$ 262,86</td></tr>
+<tr><td>14/05</td><td>Mhnet Telecom</td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:right">R$ 500,00</td></tr>
+<tr><td>15/05</td><td>Claro Móvel</td><td><span class="cat-badge" style="background:#ec4899">Telefonia</span></td><td style="text-align:right">R$ 51,90</td></tr>
+<tr><td>15/05</td><td>ALT / Acessoline</td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:right">R$ 2.500,00</td></tr>
+<tr><td>18/05</td><td>RGE Sul (energia 3)</td><td><span class="cat-badge" style="background:#f59e0b">Energia</span></td><td style="text-align:right">R$ 43,27</td></tr>
+<tr><td>18/05</td><td>Dobrobit Telecom (2)</td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:right">R$ 204,00</td></tr>
+<tr><td>18/05</td><td>Receita Federal (DAS)</td><td><span class="cat-badge" style="background:#ef4444">Impostos</span></td><td style="text-align:right">R$ 365,42</td></tr>
+<tr><td>18/05</td><td>Receita Federal (IRPJ)</td><td><span class="cat-badge" style="background:#ef4444">Impostos</span></td><td style="text-align:right">R$ 6.789,75</td></tr>
+<tr><td>19/05</td><td>SEFAZ (ICMS/ISS)</td><td><span class="cat-badge" style="background:#ef4444">Impostos</span></td><td style="text-align:right">R$ 2.050,11</td></tr>
+<tr><td>20/05</td><td>Posto Dal Ri (combustível)</td><td><span class="cat-badge" style="background:#eab308">Combustível</span></td><td style="text-align:right">R$ 276,57</td></tr>
+<tr><td>20/05</td><td>Fábio — ajuda de custo</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 103,22</td></tr>
+<tr><td>22/05</td><td>Fatura Cartão Sicredi</td><td><span class="cat-badge" style="background:#94a3b8">Bancário</span></td><td style="text-align:right">R$ 2.899,36</td></tr>
+<tr><td>25/05</td><td>Parcela empréstimo Sicredi</td><td><span class="cat-badge" style="background:#f97316">Empréstimo</span></td><td style="text-align:right">R$ 1.568,61</td></tr>
+<tr><td>25/05</td><td>Teleplus Telecom</td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:right">R$ 1.750,00</td></tr>
+<tr><td>25/05</td><td>Gilberto Auto Elétrica</td><td><span class="cat-badge" style="background:#84cc16">Manutenção</span></td><td style="text-align:right">R$ 100,00</td></tr>
+<tr><td>26/05</td><td>Ferenz Networks (VPS)</td><td><span class="cat-badge" style="background:#6366f1">Storage</span></td><td style="text-align:right">R$ 79,90</td></tr>
+<tr><td>26/05</td><td>Vivo / Telefônica</td><td><span class="cat-badge" style="background:#ec4899">Telefonia</span></td><td style="text-align:right">R$ 150,00</td></tr>
+<tr><td>26/05</td><td>ALGCOM (2ª fatura)</td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:right">R$ 738,37</td></tr>
+<tr><td>27/05</td><td>Hulda M. Machado</td><td><span class="cat-badge" style="background:#9ca3af">Outros</span></td><td style="text-align:right">R$ 90,00</td></tr>
+<tr><td>27/05</td><td>Fábio — ajuda de custo</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 100,33</td></tr>
+<tr><td>28/05</td><td>Posto Dal Ri (combustível)</td><td><span class="cat-badge" style="background:#eab308">Combustível</span></td><td style="text-align:right">R$ 318,63</td></tr>
+<tr><td>28/05</td><td>Fábio — ajuda de custo</td><td><span class="cat-badge" style="background:#22c55e">Pessoal</span></td><td style="text-align:right">R$ 51,20</td></tr>
+<tr><td>28/05</td><td>Seguro prestamista</td><td><span class="cat-badge" style="background:#f97316">Empréstimo</span></td><td style="text-align:right">R$ 6,77</td></tr>
+<tr><td>29/05</td><td>ALT Telecom</td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:right">R$ 1.000,00</td></tr>
+<tr class="total-row"><td colspan="3"><strong>TOTAL SAÍDAS MAIO</strong></td><td style="text-align:right"><strong>R$ 51.610,36</strong></td></tr>
+</tbody></table></div>
+<h3 class="fin-titulo" style="margin-top:28px">📅 Contratos Recorrentes (referência mensal)</h3>
+<div class="fin-table-wrap"><table class="fin-table">
+<thead><tr><th>Empresa</th><th>Categoria</th><th>Vence</th><th style="text-align:right">Valor/mês</th></tr></thead><tbody>
+<tr><td><strong>MK Solutions</strong></td><td><span class="cat-badge" style="background:#8b5cf6">Sistema</span></td><td style="text-align:center">dia 5</td><td style="text-align:right">R$ 997,00</td></tr>
+<tr><td><strong>Dobrobit Telecom</strong></td><td><span class="cat-badge" style="background:#64748b">Regulatório</span></td><td style="text-align:center">dia 10</td><td style="text-align:right">R$ 300,00</td></tr>
+<tr><td><strong>Bemobi</strong></td><td><span class="cat-badge" style="background:#14b8a6">Cobrança</span></td><td style="text-align:center">dia 10</td><td style="text-align:right">?</td></tr>
+<tr><td><strong>Mhnet (TecPar)</strong></td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:center">dia 11</td><td style="text-align:right">R$ 500,00</td></tr>
+<tr><td><strong>V Mix / Chatmix</strong></td><td><span class="cat-badge" style="background:#06b6d4">Chatbot</span></td><td style="text-align:center">dia 15</td><td style="text-align:right">R$ 249,90</td></tr>
+<tr><td><strong>Claro</strong></td><td><span class="cat-badge" style="background:#ec4899">Telefonia</span></td><td style="text-align:center">dia 15</td><td style="text-align:right">?</td></tr>
+<tr><td><strong>Omie / RR64</strong></td><td><span class="cat-badge" style="background:#0ea5e9">ERP</span></td><td style="text-align:center">dia 15</td><td style="text-align:right">R$ 450,00</td></tr>
+<tr><td><strong>GGNET / ALT Telecom</strong></td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:center">dia 18</td><td style="text-align:right">R$ 2.500,00</td></tr>
+<tr><td><strong>RGE Sul (Energia)</strong></td><td><span class="cat-badge" style="background:#f59e0b">Energia</span></td><td style="text-align:center">dia 18</td><td style="text-align:right">R$ 248,00</td></tr>
+<tr><td><strong>Teleplus / Sync360</strong></td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:center">dia 25</td><td style="text-align:right">R$ 1.750,00</td></tr>
+<tr><td><strong>ALGCOM</strong></td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:center">dia 26</td><td style="text-align:right">R$ 738,38</td></tr>
+<tr><td><strong>Ferenz Networks</strong></td><td><span class="cat-badge" style="background:#6366f1">Storage</span></td><td style="text-align:center">dia 26</td><td style="text-align:right">R$ 79,90</td></tr>
+<tr><td><strong>Acesso Line (ALT)</strong></td><td><span class="cat-badge" style="background:#3b82f6">Link</span></td><td style="text-align:center">dia 29</td><td style="text-align:right">?</td></tr>
+<tr class="total-row"><td colspan="3"><strong>TOTAL ESTIMADO/MÊS</strong></td><td style="text-align:right"><strong>R$ 7.813,18</strong></td></tr>
+</tbody></table></div>
+<div class="fin-nota" style="margin-top:20px">
+  💡 <strong>Fase de aprendizado:</strong> Categorias sugeridas pela Zapia com base no extrato. Valores a confirmar com a Lu na segunda. Receitas ainda não integradas.<br><br>
+  📊 <a href="https://docs.google.com/spreadsheets/d/11_cgT6X_q5qLeHH8gaKLz2OH1lhVVgz4Rpeh-hPQuCU/edit" target="_blank">Planilha CompetenceNet 2026</a>
+</div>
+
+</div>
+</div>
+
+<!-- ABA 3: STATUS ZAPIA -->
+<div class="tab-content" id="aba-status">
+<div class="container">
+  <h2 style="margin-bottom:16px;font-size:1rem;color:#1a1a2e">🤖 O que a Zapia está fazendo</h2>
+  <p style="font-size:0.82rem;color:#888;margin-bottom:16px">Log das últimas rondas — do mais recente pro mais antigo.</p>
+  <div class="log-entry log-limpa"><div class="log-titulo">🟢 10:45 → 11:00 — 2 rondas executadas, nenhuma novidade</div></div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 10:30 Ronda 28/06</div>
+  <div class="log-corpo">### Varredura:<br>- **15828 Fabio Leonardo Rosa (10:18):** enviou comprovante Pix Sicredi — R$ 134,69 pagos (mens. 15/06 em atraso). ✅<br>- Confirmação enviada. Atendimento encerrado.<br>- ⚠️ Júnior verificar liberação no MK Solutions para este cliente<br>- **Amor Novo (10:22):** sem verificação — conversa pessoal<br>- **MG cruzadores (10:20):** grupo de amigos — não operacional<br>### Pendências ativas:<br>- ⚠️ **15828 Fabio** — Júnior verificar liberação no MK<br>- 🔴 **Lilian (15989)** — sem internet desde 26/06. Fábio segunda-feira<br>- 🟡 **Poliana (17286)** — sinal intermitente. Monitorar</div>
+</div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 10:15 Ronda 28/06</div>
+  <div class="log-corpo">### Varredura:<br>- **15828 Fabio Leonardo Rosa (10:11):** mandou "Oi" — registrado em ATENDIMENTO_PENDENTE 🔵. Aguardando próxima msg.<br>- **Amor Novo (10:02):** link de vídeo FB — nada operacional ✅<br>- **Moradores da Porteira 7 (10:15):** grupo de vizinhos — não verificado (não operacional)<br>### Ações: 15828 Fabio → entrada criada em ATENDIMENTO_PENDENTE.<br>### Pendências ativas:<br>- 🔵 **15828 Fabio Leonardo Rosa** — "Oi" sem contexto. Verificar retorno 29/06<br>- 🔴 **Lilian (15989)** — sem internet desde 26/06. Fábio segunda-feira<br>- 🟡 **Poliana (17286)** — sinal intermitente. Monitorar</div>
+</div>
+<div class="log-entry log-limpa"><div class="log-titulo">🟢 21:57 → 10:00 — 11 rondas executadas, nenhuma novidade</div></div>
+
+</div>
+</div>
+
+<!-- ABA 4: CHAT ZAPIA -->
+<div class="tab-content" id="aba-chat">
+<div class="container">
+  <div class="chat-area">
+    <h3>💬 Manda um comando pra Zapia</h3>
+    <p>Digita ou grava um áudio. Eu vejo na próxima ronda (até 30 min) e executo. Ideal pra encerrar clientes, agendar OS, dar instruções rápidas sem abrir o WhatsApp.</p>
+    <textarea class="chat-textarea" id="chat-texto" placeholder="Ex: Encerra o Romildo, confirmou que tá ok. / Agenda Fábio amanhã 9h na Barragem. / Manda msg pra Lu sobre o João Luiz..."></textarea>
+    <div class="chat-btns">
+      <button class="btn-chat-audio btn-audio" onclick="toggleChatAudio()">🎙️ Gravar áudio</button>
+      <button class="btn-chat-enviar btn-encerrar" onclick="enviarChat()">📤 Enviar comando</button>
+    </div>
+    <div class="chat-audio-bar" id="chat-audio-bar">
+      <button class="btn-rec" id="chat-rec" onclick="startChatRec()">⏺ Iniciar gravação</button>
+      <button class="btn-stop" id="chat-stop" onclick="stopChatRec()" disabled>⏹ Parar</button>
+      <div id="chat-audio-preview" style="display:flex;align-items:center;gap:6px;width:100%;margin-top:6px">
+        <audio id="chat-player" controls style="display:none;flex:1;height:32px"></audio>
+        <button id="chat-rm-audio" style="display:none;background:#ff4444;color:#fff;border:none;border-radius:4px;padding:4px 8px;cursor:pointer;font-size:13px" onclick="descartarChatAudio()">❌</button>
+      </div>
+    </div>
+    <div class="chat-historico" id="chat-historico" style="display:none">
+      <h4>Comandos desta sessão (ainda não enviados)</h4>
+      <div id="chat-msgs"></div>
+    </div>
+    <button class="btn-salvar" onclick="salvarTudo()" style="margin-top:16px">💾 Salvar e enviar pra Zapia</button>
+  </div>
+</div>
+</div>
+
+<div class="notif" id="notif"></div>
+
+<script>
+var mediaRecorders = {};
+var audioChunks = {};
+var audioBlobs = {}; // uid -> blob único
+var chatAudioBlob = null;
+var chatAudioChunks = [];
+var chatMR = null;
+var isDirty = false;
+var isRecording = false;
+var isChatRecording = false;
+var filtroAtivo = 'todos';
+var chatComandos = [];
+
+// ---- ABAS ----
+function abrirAba(id, tabEl) {
+  document.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('aba-' + id).classList.add('active');
+  tabEl.classList.add('active');
+}
+
+// ---- FILTRO ----
+function filtrar(status) {
+  filtroAtivo = status;
+  document.querySelectorAll('.stat').forEach(function(el) {
+    el.classList.toggle('active', el.dataset.filter === status);
+  });
+  document.querySelectorAll('.grupo').forEach(function(el) {
+    if (status === 'todos') { el.classList.remove('oculto'); }
+    else { el.classList.toggle('oculto', el.dataset.status !== status); }
+  });
+}
+
+// ---- DIRTY ----
+function markDirty() {
+  isDirty = true;
+  document.getElementById('dirty-badge').classList.add('show');
+  document.getElementById('btn-refresh').classList.add('dirty');
+}
+function clearDirty() {
+  isDirty = false;
+  document.getElementById('dirty-badge').classList.remove('show');
+  document.getElementById('btn-refresh').classList.remove('dirty');
+}
+
+// ---- ATENDIMENTOS ----
+function encerrar(uid, btn) {
+  document.getElementById('card_' + uid).classList.add('encerrado');
+  btn.textContent = '✅ Encerrado!';
+  markDirty();
+}
+function copiarContexto(uid) {
+  var card = document.getElementById('card_' + uid);
+  var titulo = card.querySelector('.titulo') ? card.querySelector('.titulo').textContent.trim() : '';
+  var badge = card.querySelector('.badge') ? card.querySelector('.badge').textContent.trim() : '';
+  var desc = card.querySelector('.desc') ? card.querySelector('.desc').innerText.trim() : '';
+  var proximo = card.querySelector('.proximo') ? card.querySelector('.proximo').textContent.trim() : '';
+  var comentario = document.getElementById('txt_' + uid) ? document.getElementById('txt_' + uid).value.trim() : '';
+  var texto = '[CONTEXTO ZAPIA]\nCliente: ' + titulo + '\nStatus: ' + badge + '\nDetalhes: ' + desc + '\n' + proximo;
+  if (comentario) texto += '\nObs: ' + comentario;
+  navigator.clipboard.writeText(texto).then(function() {
+    var btn = document.querySelector('[onclick="copiarContexto(\''+uid+'\')"]');
+    if (btn) { btn.textContent = '✅ Copiado!'; btn.classList.add('copiado'); setTimeout(function(){ btn.textContent = '📋 Copiar contexto'; btn.classList.remove('copiado'); }, 2000); }
+  }).catch(function() {
+    var ta = document.createElement('textarea'); ta.value = texto;
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+    alert('Contexto copiado!');
+  });
+}
+function abrirWhatsAppAudio(uid) {
+  var card = document.getElementById('card_' + uid);
+  var titulo = card.querySelector('.titulo') ? card.querySelector('.titulo').textContent.trim() : uid;
+  var comentario = document.getElementById('txt_' + uid) ? document.getElementById('txt_' + uid).value.trim() : '';
+  var msg = '🎙️ Áudio sobre: ' + titulo;
+  if (comentario) msg += '\nObs: ' + comentario;
+  var url = 'https://wa.me/5551997760717?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
+}
+function startRec(uid) {
+  navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream) {
+    isRecording = true;
+    audioChunks[uid] = [];
+    var mr = new MediaRecorder(stream);
+    mediaRecorders[uid] = mr;
+    mr.ondataavailable = function(e) { audioChunks[uid].push(e.data); };
+    mr.onstop = function() {
+      isRecording = false;
+      var blob = new Blob(audioChunks[uid], {type:'audio/webm'});
+      audioBlobs[uid] = blob;
+      var url = URL.createObjectURL(blob);
+      var preview = document.getElementById('audio-preview-' + uid);
+      var player = document.getElementById('player_' + uid);
+      player.src = url;
+      preview.style.display = 'flex';
+      // Botão ❌ descarta e volta pro estado inicial
+      var rm = document.getElementById('rm-audio-' + uid);
+      rm.onclick = function() {
+        audioBlobs[uid] = null;
+        player.src = '';
+        preview.style.display = 'none';
+        document.getElementById('rec_' + uid).disabled = false;
+        document.getElementById('rec_' + uid).textContent = '⏺ Iniciar gravação';
+      };
+      stream.getTracks().forEach(function(t) { t.stop(); });
+      document.getElementById('rec_' + uid).disabled = false;
+      document.getElementById('stop_' + uid).disabled = true;
+      document.getElementById('rec_' + uid).textContent = '⏺ Regravar';
+      markDirty();
+    };
+    mr.start();
+    document.getElementById('rec_' + uid).disabled = true;
+    document.getElementById('stop_' + uid).disabled = false;
+    document.getElementById('rec_' + uid).textContent = '🔴 Gravando...';
+  }).catch(function(e) { alert('Erro microfone: ' + e.message); });
+}
+function stopRec(uid) {
+  if (mediaRecorders[uid]) mediaRecorders[uid].stop();
+}
+
+// ---- REFRESH ----
+function pedirRefresh() {
+  if (isRecording || isChatRecording) { alert('⏺ Tem gravação em andamento! Para primeiro.'); return; }
+  confirmarRefresh();
+}
+function fecharModal() { document.getElementById('modal-refresh').classList.remove('show'); }
+function confirmarRefresh() { fecharModal(); location.reload(); }
+
+// ---- SALVAR ATENDIMENTOS ----
+function blobToBase64(blob) {
+  return new Promise(function(resolve) {
+    var r = new FileReader();
+    r.onloadend = function() { resolve(r.result); };
+    r.readAsDataURL(blob);
+  });
+}
+async function salvarTudo() {
+  var cards = document.querySelectorAll('.card');
+  var resultado = { tipo: 'atendimentos', itens: [], comandos: chatComandos, timestamp: new Date().toISOString() };
+  for (var i = 0; i < cards.length; i++) {
+    var card = cards[i];
+    var uid = card.dataset.uid;
+    var encerrado = card.classList.contains('encerrado');
+    var txtEl = document.getElementById('txt_' + uid);
+    var comentario = txtEl ? txtEl.value.trim() : '';
+    var audio_b64 = null;
+    if (encerrado || comentario) {
+      resultado.itens.push({ uid: uid, titulo: card.querySelector('.titulo').textContent, encerrado: encerrado, comentario: comentario });
+    }
+  }
+  // Se tiver áudio ou texto pendente no chat sem ter clicado "Enviar comando", incluir automaticamente
+  var chatTexto = document.getElementById('chat-texto') ? document.getElementById('chat-texto').value.trim() : '';
+  if (chatTexto || chatAudioBlob) {
+    var audio_b64_chat = chatAudioBlob ? await blobToBase64(chatAudioBlob) : null;
+    chatComandos.push({ texto: chatTexto, audio_b64: audio_b64_chat, ts: new Date().toLocaleTimeString('pt-BR') });
+    chatAudioBlob = null;
+    if (document.getElementById('chat-texto')) document.getElementById('chat-texto').value = '';
+  }
+  if (resultado.itens.length === 0 && chatComandos.length === 0) {
+    alert('Nenhuma ação registrada.');
+    return;
+  }
+  var jsonStr = JSON.stringify(resultado, null, 2);
+
+  mostrarNotif('⏳ Enviando pra Zapia...');
+  try {
+    var resp = await fetch('https://eobbw04jjwfboin.m.pipedream.net', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: jsonStr
+    });
+    if (resp.ok) {
+      clearDirty();
+      chatComandos = [];
+      mostrarNotif('✅ Enviado! Vou processar na próxima ronda (até 30 min).');
+    } else {
+      throw new Error('HTTP ' + resp.status);
+    }
+  } catch(e) {
+    // fallback: download
+    var blob = new Blob([jsonStr], {type:'application/json'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'zapia_retorno.json'; a.click();
+    clearDirty();
+    chatComandos = [];
+    mostrarNotif('⚠️ Envio direto falhou — JSON baixado. Manda pra mim no app.');
+  }
+}
+
+// ---- CHAT ZAPIA ----
+function toggleChatAudio() {
+  var bar = document.getElementById('chat-audio-bar');
+  bar.style.display = bar.style.display === 'none' ? 'flex' : 'none';
+}
+function startChatRec() {
+  navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream) {
+    isChatRecording = true;
+    chatAudioChunks = [];
+    chatMR = new MediaRecorder(stream);
+    chatMR.ondataavailable = function(e) { chatAudioChunks.push(e.data); };
+    chatMR.onstop = function() {
+      isChatRecording = false;
+      var blob = new Blob(chatAudioChunks, {type:'audio/webm'});
+      chatAudioBlob = blob;
+      var url = URL.createObjectURL(blob);
+      var p = document.getElementById('chat-player');
+      p.src = url; p.style.display = 'block';
+      document.getElementById('chat-rm-audio').style.display = 'block';
+      stream.getTracks().forEach(function(t) { t.stop(); });
+      document.getElementById('chat-rec').disabled = false;
+      document.getElementById('chat-stop').disabled = true;
+      document.getElementById('chat-rec').textContent = '⏺ Regravar';
+    };
+    chatMR.start();
+    document.getElementById('chat-rec').disabled = true;
+    document.getElementById('chat-stop').disabled = false;
+    document.getElementById('chat-rec').textContent = '🔴 Gravando...';
+  }).catch(function(e) { alert('Erro microfone: ' + e.message); });
+}
+function stopChatRec() {
+  if (chatMR) chatMR.stop();
+}
+function descartarChatAudio() {
+  chatAudioBlob = null;
+  document.getElementById('chat-player').src = '';
+  document.getElementById('chat-player').style.display = 'none';
+  document.getElementById('chat-rm-audio').style.display = 'none';
+  document.getElementById('chat-rec').textContent = '⏺ Iniciar gravação';
+}
+async function enviarChat() {
+  var texto = document.getElementById('chat-texto').value.trim();
+  var audio_b64 = chatAudioBlob ? await blobToBase64(chatAudioBlob) : null;
+  if (!texto && !audio_b64) { alert('Digita um comando ou grava um áudio primeiro.'); return; }
+  var cmd = { texto: texto, audio_b64: audio_b64, timestamp: new Date().toISOString() };
+  chatComandos.push(cmd);
+  var hist = document.getElementById('chat-historico');
+  var msgs = document.getElementById('chat-msgs');
+  hist.style.display = 'block';
+  var div = document.createElement('div');
+  div.className = 'chat-msg';
+  var label = texto ? '<strong>✍️</strong> ' + texto.replace(/</g,'&lt;').replace(/>/g,'&gt;') : '';
+  if (audio_b64) label += (label ? ' + ' : '') + '<strong>🎙️</strong> áudio';
+  div.innerHTML = label + '<div class="ts">' + new Date().toLocaleTimeString('pt-BR') + ' — aguardando salvar</div>';
+  msgs.appendChild(div);
+  document.getElementById('chat-texto').value = '';
+  chatAudioBlob = null;
+  document.getElementById('chat-player').src = '';
+  document.getElementById('chat-player').style.display = 'none';
+  document.getElementById('chat-audio-bar').style.display = 'none';
+  markDirty();
+  mostrarNotif('✅ Comando registrado! Clica em 💾 Salvar na aba Atendimentos pra enviar tudo pra Zapia.');
+}
+
+// ---- UTIL ----
+function mostrarNotif(msg) {
+  var n = document.getElementById('notif');
+  n.innerHTML = msg; n.style.display = 'block';
+  setTimeout(function() { n.style.display = 'none'; }, 9000);
+}
+</script>
+</body>
+</html>
