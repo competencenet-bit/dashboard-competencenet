@@ -122,7 +122,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
     <span class="dirty-badge" id="dirty-badge">● não salvo</span>
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 28/06/2026 14:08 | 41 itens</span>
+    <span class="meta">Gerado: 28/06/2026 14:36 | 41 itens</span>
   </div>
 </header>
 
@@ -1079,7 +1079,7 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="container">
   <h2 style="margin-bottom:16px;font-size:1rem;color:#1a1a2e">🤖 O que a Zapia está fazendo</h2>
   <p style="font-size:0.82rem;color:#888;margin-bottom:16px">Log das últimas rondas — do mais recente pro mais antigo.</p>
-  <div class="log-entry log-limpa"><div class="log-titulo">🟢 10:45 → 11:00 — 2 rondas executadas, nenhuma novidade</div></div>
+  <div class="log-entry log-limpa"><div class="log-titulo">🟢 10:45 → 11:30 — 4 rondas executadas, nenhuma novidade</div></div>
 <div class="log-entry log-acao">
   <div class="log-titulo">🔄 UPDATE 10:30 Ronda 28/06</div>
   <div class="log-corpo">### Varredura:<br>- **15828 Fabio Leonardo Rosa (10:18):** enviou comprovante Pix Sicredi — R$ 134,69 pagos (mens. 15/06 em atraso). ✅<br>- Confirmação enviada. Atendimento encerrado.<br>- ⚠️ Júnior verificar liberação no MK Solutions para este cliente<br>- **Amor Novo (10:22):** sem verificação — conversa pessoal<br>- **MG cruzadores (10:20):** grupo de amigos — não operacional<br>### Pendências ativas:<br>- ⚠️ **15828 Fabio** — Júnior verificar liberação no MK<br>- 🔴 **Lilian (15989)** — sem internet desde 26/06. Fábio segunda-feira<br>- 🟡 **Poliana (17286)** — sinal intermitente. Monitorar</div>
@@ -1088,7 +1088,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="log-titulo">🔄 UPDATE 10:15 Ronda 28/06</div>
   <div class="log-corpo">### Varredura:<br>- **15828 Fabio Leonardo Rosa (10:11):** mandou "Oi" — registrado em ATENDIMENTO_PENDENTE 🔵. Aguardando próxima msg.<br>- **Amor Novo (10:02):** link de vídeo FB — nada operacional ✅<br>- **Moradores da Porteira 7 (10:15):** grupo de vizinhos — não verificado (não operacional)<br>### Ações: 15828 Fabio → entrada criada em ATENDIMENTO_PENDENTE.<br>### Pendências ativas:<br>- 🔵 **15828 Fabio Leonardo Rosa** — "Oi" sem contexto. Verificar retorno 29/06<br>- 🔴 **Lilian (15989)** — sem internet desde 26/06. Fábio segunda-feira<br>- 🟡 **Poliana (17286)** — sinal intermitente. Monitorar</div>
 </div>
-<div class="log-entry log-limpa"><div class="log-titulo">🟢 21:57 → 10:00 — 11 rondas executadas, nenhuma novidade</div></div>
+<div class="log-entry log-limpa"><div class="log-titulo">🟢 08:05 → 10:00 — 9 rondas executadas, nenhuma novidade</div></div>
 
 </div>
 </div>
@@ -1382,6 +1382,22 @@ function mostrarNotif(msg) {
   n.innerHTML = msg; n.style.display = 'block';
   setTimeout(function() { n.style.display = 'none'; }, 9000);
 }
+
+// ---- PROTEÇÃO POR SENHA ----
+(function() {
+  var SENHA = 'compnet2026';
+  var KEY = 'dash_auth';
+  if (sessionStorage.getItem(KEY) === '1') return;
+  document.body.style.display = 'none';
+  var s = prompt('🔒 Dashboard CompetenceNet\nDigite a senha de acesso:');
+  if (s === SENHA) {
+    sessionStorage.setItem(KEY, '1');
+    document.body.style.display = '';
+  } else {
+    document.body.innerHTML = '<div style="text-align:center;padding:80px;font-family:sans-serif"><h2>⛔ Acesso negado</h2><p>Senha incorreta.</p></div>';
+    document.body.style.display = '';
+  }
+})();
 </script>
 </body>
 </html>
