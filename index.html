@@ -67,6 +67,11 @@ button:disabled{opacity:0.4;cursor:default}
 .log-titulo{font-weight:700;font-size:0.9rem;margin-bottom:6px;color:#1a1a2e}
 .log-entry.log-limpa .log-titulo{color:#166534;font-weight:600;font-size:0.85rem}
 .log-corpo{font-size:0.82rem;color:#555;line-height:1.6}
+.alerta-rede{border-radius:10px;padding:12px 16px;margin-bottom:4px;font-size:0.88rem}
+.alerta-ok{background:#f0fdf4;color:#166534;border:1px solid #bbf7d0}
+.alerta-problema{background:#fff7ed;border:1px solid #fed7aa;color:#92400e}
+.alerta-problema strong{color:#c2410c}
+.alerta-item{background:#fff;border-radius:8px;padding:9px 12px;margin-top:8px;font-size:0.85rem;color:#333}
 /* Chat Zapia */
 .chat-area{background:#fff;border-radius:10px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
 .chat-area h3{font-size:1rem;margin-bottom:6px;color:#1a1a2e}
@@ -122,7 +127,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
     <span class="dirty-badge" id="dirty-badge">● não salvo</span>
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 28/06/2026 14:41 | 41 itens</span>
+    <span class="meta">Gerado: 28/06/2026 15:20 | 41 itens</span>
   </div>
 </header>
 
@@ -143,6 +148,14 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-confirmar" onclick="confirmarRefresh()">Atualizar mesmo assim</button>
     </div>
   </div>
+</div>
+
+<!-- PAINEL ALERTAS REDE -->
+<div class="container" style="padding-bottom:0;padding-top:12px">
+  <div class="alerta-rede alerta-problema">
+⚠️ <strong>ALERTAS DE REDE</strong>
+<div class="alerta-item" style="border-left:4px solid #888">🟡 <strong>competence-cachoeira-fasa-NETPROBE</strong> — offline há <strong>12:08</strong></div>
+</div>
 </div>
 
 <!-- ABA 1: ATENDIMENTOS -->
@@ -1079,7 +1092,7 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="container">
   <h2 style="margin-bottom:16px;font-size:1rem;color:#1a1a2e">🤖 O que a Zapia está fazendo</h2>
   <p style="font-size:0.82rem;color:#888;margin-bottom:16px">Log das últimas rondas — do mais recente pro mais antigo.</p>
-  <div class="log-entry log-limpa"><div class="log-titulo">🟢 10:45 → 11:30 — 4 rondas executadas, nenhuma novidade</div></div>
+  <div class="log-entry log-limpa"><div class="log-titulo">🟢 10:45 → 12:15 — 7 rondas executadas, nenhuma novidade</div></div>
 <div class="log-entry log-acao">
   <div class="log-titulo">🔄 UPDATE 10:30 Ronda 28/06</div>
   <div class="log-corpo">### Varredura:<br>- **15828 Fabio Leonardo Rosa (10:18):** enviou comprovante Pix Sicredi — R$ 134,69 pagos (mens. 15/06 em atraso). ✅<br>- Confirmação enviada. Atendimento encerrado.<br>- ⚠️ Júnior verificar liberação no MK Solutions para este cliente<br>- **Amor Novo (10:22):** sem verificação — conversa pessoal<br>- **MG cruzadores (10:20):** grupo de amigos — não operacional<br>### Pendências ativas:<br>- ⚠️ **15828 Fabio** — Júnior verificar liberação no MK<br>- 🔴 **Lilian (15989)** — sem internet desde 26/06. Fábio segunda-feira<br>- 🟡 **Poliana (17286)** — sinal intermitente. Monitorar</div>
@@ -1088,7 +1101,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="log-titulo">🔄 UPDATE 10:15 Ronda 28/06</div>
   <div class="log-corpo">### Varredura:<br>- **15828 Fabio Leonardo Rosa (10:11):** mandou "Oi" — registrado em ATENDIMENTO_PENDENTE 🔵. Aguardando próxima msg.<br>- **Amor Novo (10:02):** link de vídeo FB — nada operacional ✅<br>- **Moradores da Porteira 7 (10:15):** grupo de vizinhos — não verificado (não operacional)<br>### Ações: 15828 Fabio → entrada criada em ATENDIMENTO_PENDENTE.<br>### Pendências ativas:<br>- 🔵 **15828 Fabio Leonardo Rosa** — "Oi" sem contexto. Verificar retorno 29/06<br>- 🔴 **Lilian (15989)** — sem internet desde 26/06. Fábio segunda-feira<br>- 🟡 **Poliana (17286)** — sinal intermitente. Monitorar</div>
 </div>
-<div class="log-entry log-limpa"><div class="log-titulo">🟢 08:05 → 10:00 — 9 rondas executadas, nenhuma novidade</div></div>
+<div class="log-entry log-limpa"><div class="log-titulo">🟢 08:45 → 10:00 — 6 rondas executadas, nenhuma novidade</div></div>
 
 </div>
 </div>
