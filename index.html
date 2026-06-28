@@ -61,6 +61,13 @@ button:disabled{opacity:0.4;cursor:default}
 .btn-dados-faltando:hover{opacity:0.85}
 .tag-faltando{display:inline-block;background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:10px;padding:2px 8px;font-size:0.73rem;margin:2px 3px 2px 0;font-weight:500}
 .coringa-lista{padding:4px 0}
+.sem-internet-banner{background:linear-gradient(135deg,#7c2d12,#dc2626);border-radius:12px;padding:16px 18px;margin-bottom:16px;box-shadow:0 4px 12px rgba(220,38,38,.35)}
+.sem-internet-titulo{color:#fff;font-weight:700;font-size:1rem;margin-bottom:10px;animation:pulse 1.5s infinite;letter-spacing:.5px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.sem-internet-card{background:rgba(255,255,255,.12);border-radius:8px;padding:10px 12px;margin-bottom:8px;color:#fff}
+.sem-internet-card:last-child{margin-bottom:0}
+.badge-horas{background:#fef2f2;color:#dc2626;border:1px solid #fca5a5;border-radius:10px;padding:2px 8px;font-size:0.75rem;font-weight:700}
+.btn-wpp-urgente{background:#25d366;color:#fff;border:none;border-radius:6px;padding:5px 12px;font-size:0.8rem;font-weight:600;cursor:pointer}
 .audio-container{background:#f8f8f8;border-radius:6px;padding:10px}
 .comentario{width:100%;border:1px solid #ddd;border-radius:6px;padding:8px;font-size:0.85rem;resize:vertical;font-family:inherit}
 .comentario:focus{outline:none;border-color:#3b82f6}
@@ -133,13 +140,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
     <span class="dirty-badge" id="dirty-badge">● não salvo</span>
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 28/06/2026 23:48 | 38 itens</span>
+    <span class="meta">Gerado: 28/06/2026 23:53 | 38 itens</span>
   </div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
   <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa </div>
+  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos (30)</div>
   <div class="tab" onclick="abrirAba('financeiro',this)">💰 Financeiro</div>
   <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
   <div class="tab" onclick="abrirAba('chat',this)">💬 Falar com Zapia</div>
@@ -168,6 +176,7 @@ button:disabled{opacity:0.4;cursor:default}
 <!-- ABA 1: ATENDIMENTOS -->
 <div class="tab-content active" id="aba-atendimentos">
 <div class="container">
+  
   <div class="stats">
     <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">38</div><div class="lab">Todos</div></div>
     <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">1</div><div class="lab">🔴 Urgente</div></div>
@@ -959,7 +968,314 @@ button:disabled{opacity:0.4;cursor:default}
 </div>
 </div>
 
-<!-- ABA 3: FINANCEIRO -->
+<!-- ABA 3: RESOLVIDOS 48h -->
+<div class="tab-content" id="aba-resolvidos">
+<div class="container">
+  <h2 style="margin-bottom:6px;font-size:1rem;color:#1a1a2e">✅ Resolvidos — últimas 48h</h2>
+  <div style="font-size:0.82rem;color:#888;margin-bottom:12px">Atendimentos encerrados nas últimas 48h. A Zapia limpa automaticamente o que passou.</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Encerrado** — ficam aqui por 3 dias, depois vão pro ATENDIMENTO_HISTORICO.md
+
+---
+
+## ⚡ SEM INTERNET — GRITO OBRIGATÓRIO
+&gt; Aparecem em TODA ronda e TODA resposta até ação concreta (Fábio agendado / OS criada / cliente confirma ok)
+
+*(Nenhum cliente nesta categoria no momento — 28/06 18h)*
+
+---
+
+## 🔴 URGENTES — PROBLEMA TÉCNICO ATIVO
+
+✅ **Glaci Neneca (16973) — ENCERRADO 26/06 12h</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">26/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555199778947','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| JID: 555199778947@s.whatsapp.net | - Luz voltou, internet ok, baterias carregando normalmente (LEDs todos acesos) | - Ela verificou tudo e confirmou: sem necessidade de visita técnica</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Lucas (16979) — ENCERRADO 24/06 15h</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">24/06</span>
+    
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| Liberado manualmente. Vai tentar pagar amanhã (dia de pagamento). Entendeu o chatbot dos 5 dias. Sem cobrança imediata. | - Bloqueado por inadimplência. Esgotou desbloqueio de confiança (5 dias). Mandou comprovante de imagem hoje 09:25 (INSS?). Diz que "já usou 5 dias". | - Prometemos "verificar com a equipe" às 09:33 e 12:31 — sem resposta definitiva ainda</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Tauana (17000) — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555596956523','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| JID: 555596956523@s.whatsapp.net | Entrada: 20/06 | - Internet caindo. Júnior precisa trocar canal do rádio no POP (identificado em reclamacoes.md desde 02/06) | - 22 dias no radar total</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Patrícia (10942) — ENCERRADO 27/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">27/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555199247292','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| JID: 555199247292@s.whatsapp.net | - Internet oscilando. Cutuquei 27/06, respondeu 19:01: "por enquanto tá boa, não vi nada de problema" | - Júnior confirmou "Top" às 19:16 — encerrado ✅</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Aline da Silva (15924) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555599461813','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— internet voltou | JID: 555599461813@s.whatsapp.net | Entrada: 23/06 | - Internet travando Netflix. Pedido reinício. Sem retorno | - Cutuquei hoje 10:03 — sem resposta</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Josiele Araujo Barbosa (17210) — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555198991141','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| JID: 555198991141@s.whatsapp.net | Entrada: 09/06 | - Mudança para Rua Horácio Borges 494. Travada por chuva. Telhado de barro | - ✅ OS executada — mudança para Rua Horácio Borges, 494 concluída. Pagou R$60,00 de mudança via Pix.</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Thais Moura (17291) — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555197975754','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— sem retorno após orientação, sem reclamação | JID: 555197975754@s.whatsapp.net | Entrada: 18/06 | - Internet oscilando. Respondido | - 📅 próximo contato: **hoje 24/06** — 6 dias. Confirmar se resolveu</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Mere Terezinha (17198) — ENCERRADA 28/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">28/06</span>
+    
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| Júnior confirmou: Vitor concluiu o serviço, 6 dias sem retorno negativo = ok. Promover follow-up 7 dias. | - JID grupo: 120363423780844081@g.us | Entrada: 18/06 | - OBS: JID individual não mapeado — sem botão WhatsApp no dashboard (bug a corrigir)</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Colono Claro (15530) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555191745521','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— sem retorno desde orientação, sem reclamação | JID: 555191745521@s.whatsapp.net | Entrada: 19/06 | - Câmeras offline. Orientado a reiniciar roteador | - 📅 próximo contato: **hoje 24/06** — 5 dias. Cutucar para confirmar</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Maria Rita (16538) — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555196942868','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— 2 follow-ups sem resposta, sem reclamação | JID: 555196942868@s.whatsapp.net | Entrada: 20/06 | - Follow-up 7 dias enviado. Sem retorno | - 📅 próximo contato: **hoje 24/06** — última cutucada; sem resposta → encerrar</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Sueli (16757) — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555198742827','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— pagou 21/06, orientada chatbot | JID: 555198742827@s.whatsapp.net | Entrada: 21/06 | - Pagou e foi orientada ao chatbot. Aguardando confirmação de desbloqueio | - 📅 próximo contato: **hoje 24/06** — verificar se desbloqueou</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Luciano Motta (16633) — ENCERRADO 24/06 15:44</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">24/06</span>
+    
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| "Voltou" — internet restabelecida pós-manutenção CCR1036. | - Pediu Pix para pagar. Filtro educativo enviado | - 📅 próximo contato: **hoje 24/06** — verificar se pagou</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Marô Cunha (10568) — ENCERRADA 28/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">28/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555182102461','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| Problema: não recebia NF por e-mail. Ela mesma confirmou que chegou. Não era problema de internet — não vai para follow-up 7 dias. | - JID: 555182102461@s.whatsapp.net | Entrada: 24/06</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Ione Margarete (17014) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555199676833','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— confirmou ok em 24/06 | JID: 555199676833@s.whatsapp.net | Entrada: 23/06 | - Internet ruim. Área rural. Aguardando retorno | - 📅 próximo contato: **25/06** — verificar retorno</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Rodrigo Trindade (11263) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555180173180','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— sinal voltou, cliente confirmou 22/06 | JID: 555180173180@s.whatsapp.net | Entrada: 22/06 | - Queda coincidiu com falha PPPoE. Respondido | - 📅 próximo contato: **25/06** — confirmar estabilidade</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Chaiene (10502) — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555197016886','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— conversa derivou, sem retorno técnico | JID: 555197016886@s.whatsapp.net | Entrada: 23/06 | - Roteador dando paradinhas. Aguardando modelo do roteador | - 📅 próximo contato: **25/06** — verificar se enviou o modelo</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Olimpio/Janice (17055) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555199940049','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— pagou R$75, agradeceu. Confirmar liberação com Lu | JID: 555199940049@s.whatsapp.net | Entrada: 24/06 | - Pediu chave Pix. CNPJ enviado. Mandou comprovante às 09:39 (R$75). Confirmamos recebimento | - ⏳ **PENDENTE:** Júnior/Lu liberar internet no sistema</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Nelson Soares (16721) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555191354077','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— sem retorno desde 20/06 | JID: 555191354077@s.whatsapp.net | Entrada: 19/06 | - Quer senha Wi-Fi. Júnior autoriza ou não? | - 📅 próximo contato: **hoje 24/06** — 5 dias. Cobrar Júnior no briefing</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Marilene (16573) — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555198456160','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— conversa informal, Júnior respondeu | JID: 555198456160@s.whatsapp.net | Entrada: 24/06 14:04 | - Mandou link do YouTube + "Olha aí Júnior" — assunto pessoal/social, não parece atendimento | - 📅 próximo contato: **hoje** — verificar se é só compartilhamento ou tem pedido por trás</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Ricardo Freitas (11309) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555196913979','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— sem retorno após nosso oi | JID: 555196913979@s.whatsapp.net | Entrada: 23/06 | - "Boa tarde" — sinal de vida. Sem retorno do cliente | - 📅 próximo contato: **hoje 24/06** — responder e identificar o que precisa</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Ana Cristina (16575)** | 24/06 | Confirmou que internet está ok. Encerrado.
+✅ **Adelia (11290)** | 24/06 | Orientada sobre prazo de bloqueio (30/06). Pergunta resolvida.
+✅ **Joana Pedroso (17224)** | 24/06 | Respondeu que não usou a TV mas vai usar hoje no jogo. Sem pendência.
+✅ **Ivanete (17053) — atendimento 23/06** | Encerrado: 23/06 | Confirmou que voltou a funcionar. (Nova entrada aberta para monitorar bateria)
+✅ **Juci Meri Horbe (16798)** | Encerrado: 23/06 | Fábio recolheu antena. Pendente: oficializar financeiro com Lu.
+✅ **Paula Marlise (17239)** | Encerrado: 22/06 | Pagamento confirmado pelo portal.
+✅ **Elidiane (11002)** | Encerrado: 22/06 | Internet voltou após queda PPPoE.
+✅ **Humberto (16958) — ENCERRADO 26/06 20:37</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">26/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555197975636','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| JID: 555197975636@s.whatsapp.net | - Reclamou internet lenta às 19:27 (jogo online). Respondido. Não retornou — resolveu sozinho.</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Liege (15394) — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555195517126','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— sem luz 24/06, orientada, sem reclamação posterior | JID: 555195517126@s.whatsapp.net | Reclamou queda pós-CCR1036. Orientei reiniciar roteador (15:25). Aguardando confirmação. | 📅 próximo contato: se não responder em 1h</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Valdelise (17295) — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555180472953','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— agradeceu e encerrou 24/06 | JID: 555180472953@s.whatsapp.net | Área rural. Reclamou queda pós-CCR. Orientei reiniciar roteador (15:50). Aguardando. | 📅 próximo contato: se não responder em 1h</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Valdelise (17295) extra — ENCERRADA 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555180472953','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| JID: 555180472953@s.whatsapp.net | Internet piorou após reboot. Sem Zabbix. Júnior avisado. Aguardar diagnóstico/visita técnica. | 📅 próximo contato: aguardar resposta Júnior</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Roberta Porto (17299) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555198394740','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— OS executada, senha Wi-Fi trocada pelo cliente, resolvido | JID: 555198394740@s.whatsapp.net | Entrada: 24/06 19:36 | - iPhone conectado ok. 2 Samsung (esposo + genro) não conectam ao Wi-Fi. Erro: "Não foi possível conectar-se à rede Roberta" | - Tentativas: esquecer rede ✅ | MAC do dispositivo ✅ — nenhuma resolveu</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">17264 - Joel Oliveira Alexandre** | JID: 555199133274@s.whatsapp.net | ENCERRADO 27/06
+- Reiniciou roteador, melhorou. Sem mais contato — resolvido.
+
+---
+🟡</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">27/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555199133274','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">16734 - Ana Paula Alves** | JID: 555199121781@s.whatsapp.net | Entrada: 25/06 14:25 | - **Situação:** Sem no-break, luz cai frequentemente na área rural. Pediu fornecimento de bateria/no-break. | - **Ação:** Respondida, informei que vou repassar ao Júnior.</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">16661 - Romildo Gustavo Maas** | JID: 555199960087@s.whatsapp.net | ENCERRADO 25/06
+- POE da Natália trocado por Fábio ~15h. Confirmou "funcionando normal" 20:13.
+
+---
+🔵</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555199960087','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">Lead — Júlio** | JID: 555199556463@s.whatsapp.net | Entrada: 25/06 16:00 | - **Interesse:** Internet residencial/rural | - **Coords:** -30.201492, -53.045672</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Pandão (cunhado) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555189087619','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| JID: 555189087619@s.whatsapp.net | Entrada: 25/06 17:50 | - Ontem 08h: "Tem como puxar o carro" (pedido de ajuda, carro enguiçado?) | - Hoje 08h: "Bom dia" — sem resposta do Júnior</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Ana Brazil (10064) — ENCERRADO 25/06</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">25/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555195221038','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">— agendou pagamento pelo portal | JID: 555195221038@s.whatsapp.net | Entrada: 25/06 17:57 | - Pediu link pra pagar — enviado link do portal Fatura Fácil | - 📅 próximo contato: confirmar se conseguiu pagar (1 dia)</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1.1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">16886 - Naiara de Souza Oliveira Belmiro — ENCERRADA 28/06 18:57</strong>
+    <span style="font-size:0.75rem;color:#666;background:#e0f2fe;padding:2px 8px;border-radius:10px">28/06</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555198478595','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">| JID: 555198478595@s.whatsapp.net | - Internet falhando → Júnior explicou plano → respondeu 28/06 18:48 "deu uma melhorada sim" | - Follow-up 7 dias: **05/07** — confirmar se estabilizou</div>
+</div>
+
+</div>
+</div>
+
+<!-- ABA 4: FINANCEIRO -->
 <div class="tab-content" id="aba-financeiro">
 <div class="container">
   <h2 style="margin-bottom:6px;font-size:1rem;color:#1a1a2e">💰 Financeiro da Empresa</h2>
