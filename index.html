@@ -59,6 +59,10 @@ button:disabled{opacity:0.4;cursor:default}
 .btn-copiar.copiado{background:#059669}
 .btn-dados-faltando{background:#f59e0b;color:#fff;border:none;border-radius:6px;padding:6px 12px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:opacity .15s}
 .btn-dados-faltando:hover{opacity:0.85}
+.btn-followup-on{background:#7c3aed;color:#fff;border:none;border-radius:20px;padding:4px 12px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-followup-on:hover{background:#6d28d9}
+.btn-followup-off{background:#e5e7eb;color:#6b7280;border:1px solid #d1d5db;border-radius:20px;padding:4px 12px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-followup-off:hover{background:#f3f4f6;color:#374151}
 .tag-faltando{display:inline-block;background:#fef3c7;color:#92400e;border:1px solid #fcd34d;border-radius:10px;padding:2px 8px;font-size:0.73rem;margin:2px 3px 2px 0;font-weight:500}
 .coringa-lista{padding:4px 0}
 .sem-internet-banner{background:linear-gradient(135deg,#7c2d12,#dc2626);border-radius:12px;padding:16px 18px;margin-bottom:16px;box-shadow:0 4px 12px rgba(220,38,38,.35)}
@@ -140,7 +144,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
     <span class="dirty-badge" id="dirty-badge">● não salvo</span>
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 29/06/2026 01:01 | 38 itens</span>
+    <span class="meta">Gerado: 29/06/2026 01:05 | 38 itens</span>
   </div>
 </header>
 
@@ -201,7 +205,7 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Glaucileia%20(16397)%20—%20CANCELAMENTO%20CONFIRMADO*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
       <button class="btn-copiar" onclick="copiarContexto('glaucileia_16397_cancelamento__1af246')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_glaucileia_16397_cancelamento__1af246" data-ativo="false" onclick="toggleFollowup('glaucileia_16397_cancelamento__1af246')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_glaucileia_16397_cancelamento__1af246" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -223,9 +227,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('felipe_raquel_11264_42df54')">📋 Copiar contexto</button>
     </div>
-    <div style="margin:6px 0 2px 0;padding:5px 10px;background:#f5f5f5;border-left:3px solid #7c3aed;border-radius:4px;font-size:0.8rem;color:#7c3aed;font-weight:600;display:flex;align-items:center;gap:8px">
-      📅 →7d  vai gerar follow-up ao encerrar
-    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_felipe_raquel_11264_42df54" data-ativo="true" onclick="toggleFollowup('felipe_raquel_11264_42df54')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d  vai gerar follow-up ao encerrar</span></div>
     <textarea class="comentario" id="txt_felipe_raquel_11264_42df54" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -245,9 +247,7 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Aline%20Aires%20da%20Silveira%20(16986)*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
       <button class="btn-copiar" onclick="copiarContexto('aline_aires_da_silveira_16986_ee123c')">📋 Copiar contexto</button>
     </div>
-    <div style="margin:6px 0 2px 0;padding:5px 10px;background:#e0f0ff;border-left:3px solid #2288cc;border-radius:4px;font-size:0.8rem;color:#2288cc;font-weight:600;display:flex;align-items:center;gap:8px">
-      🔵 Follow-up disparado — aguardando resposta
-    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_aline_aires_da_silveira_16986_ee123c" data-ativo="true" onclick="toggleFollowup('aline_aires_da_silveira_16986_ee123c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#2288cc;margin-left:6px">&#128309; Follow-up disparado &#8212; aguardando resposta</span></div>
     <textarea class="comentario" id="txt_aline_aires_da_silveira_16986_ee123c" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -267,7 +267,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('rosane_vieira_peixoto_16903_452cc4')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_rosane_vieira_peixoto_16903_452cc4" data-ativo="false" onclick="toggleFollowup('rosane_vieira_peixoto_16903_452cc4')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_rosane_vieira_peixoto_16903_452cc4" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -287,7 +287,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('celetro_gilberto_16574_edceb5')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_celetro_gilberto_16574_edceb5" data-ativo="false" onclick="toggleFollowup('celetro_gilberto_16574_edceb5')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_celetro_gilberto_16574_edceb5" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -307,7 +307,7 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Clézio%20(17281)*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
       <button class="btn-copiar" onclick="copiarContexto('cl_zio_17281_348c54')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_cl_zio_17281_348c54" data-ativo="false" onclick="toggleFollowup('cl_zio_17281_348c54')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_cl_zio_17281_348c54" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -327,9 +327,7 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Lilian%20Bicca%20(15989)*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (4)</button>
       <button class="btn-copiar" onclick="copiarContexto('lilian_bicca_15989_d1ff90')">📋 Copiar contexto</button>
     </div>
-    <div style="margin:6px 0 2px 0;padding:5px 10px;background:#f5f5f5;border-left:3px solid #7c3aed;border-radius:4px;font-size:0.8rem;color:#7c3aed;font-weight:600;display:flex;align-items:center;gap:8px">
-      📅 →7d  vai gerar follow-up ao encerrar
-    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_lilian_bicca_15989_d1ff90" data-ativo="true" onclick="toggleFollowup('lilian_bicca_15989_d1ff90')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d  vai gerar follow-up ao encerrar</span></div>
     <textarea class="comentario" id="txt_lilian_bicca_15989_d1ff90" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -349,7 +347,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('valdir_garcia_17294_recolhimen_b434ee')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_valdir_garcia_17294_recolhimen_b434ee" data-ativo="false" onclick="toggleFollowup('valdir_garcia_17294_recolhimen_b434ee')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_valdir_garcia_17294_recolhimen_b434ee" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -369,9 +367,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('ivanete_17053_0eb2be')">📋 Copiar contexto</button>
     </div>
-    <div style="margin:6px 0 2px 0;padding:5px 10px;background:#f5f5f5;border-left:3px solid #7c3aed;border-radius:4px;font-size:0.8rem;color:#7c3aed;font-weight:600;display:flex;align-items:center;gap:8px">
-      📅 →7d  vai gerar follow-up ao encerrar
-    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_ivanete_17053_0eb2be" data-ativo="true" onclick="toggleFollowup('ivanete_17053_0eb2be')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d  vai gerar follow-up ao encerrar</span></div>
     <textarea class="comentario" id="txt_ivanete_17053_0eb2be" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -391,7 +387,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('alceu_sandra_16457_17171_6907fb')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_alceu_sandra_16457_17171_6907fb" data-ativo="false" onclick="toggleFollowup('alceu_sandra_16457_17171_6907fb')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_alceu_sandra_16457_17171_6907fb" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -411,7 +407,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('mariane_rodrigues_gomes_16923__ea30b0')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_mariane_rodrigues_gomes_16923__ea30b0" data-ativo="false" onclick="toggleFollowup('mariane_rodrigues_gomes_16923__ea30b0')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_mariane_rodrigues_gomes_16923__ea30b0" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -431,7 +427,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('maria_beatriz_17061_atualizado_e9efc4')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_maria_beatriz_17061_atualizado_e9efc4" data-ativo="false" onclick="toggleFollowup('maria_beatriz_17061_atualizado_e9efc4')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_maria_beatriz_17061_atualizado_e9efc4" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -451,7 +447,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('liziane_arbelo_15339_b00127')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_liziane_arbelo_15339_b00127" data-ativo="false" onclick="toggleFollowup('liziane_arbelo_15339_b00127')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_liziane_arbelo_15339_b00127" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -471,7 +467,7 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Leandro%20(17290)*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n-%20CPF%20do%20titular\n-%20Telefone/WhatsApp%20atualizado\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (4)</button>
       <button class="btn-copiar" onclick="copiarContexto('leandro_17290_bfe2ee')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_leandro_17290_bfe2ee" data-ativo="false" onclick="toggleFollowup('leandro_17290_bfe2ee')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_leandro_17290_bfe2ee" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -491,7 +487,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('bet_faxineira_loja_16751_segur_1fbbcc')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_bet_faxineira_loja_16751_segur_1fbbcc" data-ativo="false" onclick="toggleFollowup('bet_faxineira_loja_16751_segur_1fbbcc')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_bet_faxineira_loja_16751_segur_1fbbcc" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -511,7 +507,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('poliana_francine_17286_ebf9ba_1')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_poliana_francine_17286_ebf9ba_1" data-ativo="false" onclick="toggleFollowup('poliana_francine_17286_ebf9ba_1')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_poliana_francine_17286_ebf9ba_1" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -531,7 +527,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('16734_ana_paula_alves_b5b95f')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_16734_ana_paula_alves_b5b95f" data-ativo="false" onclick="toggleFollowup('16734_ana_paula_alves_b5b95f')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_16734_ana_paula_alves_b5b95f" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -553,7 +549,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('bruno_procath_17292_484c88')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_bruno_procath_17292_484c88" data-ativo="false" onclick="toggleFollowup('bruno_procath_17292_484c88')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_bruno_procath_17292_484c88" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -573,7 +569,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('pendente_j_nior_fd5282')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_pendente_j_nior_fd5282" data-ativo="false" onclick="toggleFollowup('pendente_j_nior_fd5282')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_pendente_j_nior_fd5282" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -593,7 +589,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('jo_o_luiz_siqueira_pai_emerson_b5b473')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_jo_o_luiz_siqueira_pai_emerson_b5b473" data-ativo="false" onclick="toggleFollowup('jo_o_luiz_siqueira_pai_emerson_b5b473')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_jo_o_luiz_siqueira_pai_emerson_b5b473" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -613,7 +609,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('pendente_adda72')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_pendente_adda72" data-ativo="false" onclick="toggleFollowup('pendente_adda72')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_pendente_adda72" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -633,7 +629,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('jorge_10383_62fc4b')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_jorge_10383_62fc4b" data-ativo="false" onclick="toggleFollowup('jorge_10383_62fc4b')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_jorge_10383_62fc4b" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -653,7 +649,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('adilmo_11093_716eb6')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_adilmo_11093_716eb6" data-ativo="false" onclick="toggleFollowup('adilmo_11093_716eb6')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_adilmo_11093_716eb6" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -673,7 +669,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('jo_o_lu_s_locat_rio_ngela_3c48b7')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_jo_o_lu_s_locat_rio_ngela_3c48b7" data-ativo="false" onclick="toggleFollowup('jo_o_lu_s_locat_rio_ngela_3c48b7')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_jo_o_lu_s_locat_rio_ngela_3c48b7" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -693,7 +689,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('j_ssica_prussiano_de_morais_3b4f4a')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_j_ssica_prussiano_de_morais_3b4f4a" data-ativo="false" onclick="toggleFollowup('j_ssica_prussiano_de_morais_3b4f4a')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_j_ssica_prussiano_de_morais_3b4f4a" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -713,7 +709,7 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Jorge%20Luis%20Dutra%20Nunes%20(17177)*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
       <button class="btn-copiar" onclick="copiarContexto('jorge_luis_dutra_nunes_17177_62f55e')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_jorge_luis_dutra_nunes_17177_62f55e" data-ativo="false" onclick="toggleFollowup('jorge_luis_dutra_nunes_17177_62f55e')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_jorge_luis_dutra_nunes_17177_62f55e" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -733,7 +729,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('teiftec_ap_dos_pppoe_vin_cius_1615cf')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_teiftec_ap_dos_pppoe_vin_cius_1615cf" data-ativo="false" onclick="toggleFollowup('teiftec_ap_dos_pppoe_vin_cius_1615cf')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_teiftec_ap_dos_pppoe_vin_cius_1615cf" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -753,7 +749,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('ana_paula_16734_sem_no_break_23eb4d')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_ana_paula_16734_sem_no_break_23eb4d" data-ativo="false" onclick="toggleFollowup('ana_paula_16734_sem_no_break_23eb4d')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_ana_paula_16734_sem_no_break_23eb4d" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -773,7 +769,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('pergunta_lu_cobran_a_servi_os__6daf8e')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_pergunta_lu_cobran_a_servi_os__6daf8e" data-ativo="false" onclick="toggleFollowup('pergunta_lu_cobran_a_servi_os__6daf8e')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_pergunta_lu_cobran_a_servi_os__6daf8e" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -793,7 +789,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('15001_val_ria_bartmann_ab3435')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_15001_val_ria_bartmann_ab3435" data-ativo="false" onclick="toggleFollowup('15001_val_ria_bartmann_ab3435')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_15001_val_ria_bartmann_ab3435" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -815,9 +811,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('17015_maria_eduarda_trindade_d_755544')">📋 Copiar contexto</button>
     </div>
-    <div style="margin:6px 0 2px 0;padding:5px 10px;background:#f5f5f5;border-left:3px solid #666;border-radius:4px;font-size:0.8rem;color:#666;font-weight:600;display:flex;align-items:center;gap:8px">
-      📅 →7d em 3d (2026-07-02)
-    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_17015_maria_eduarda_trindade_d_755544" data-ativo="true" onclick="toggleFollowup('17015_maria_eduarda_trindade_d_755544')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 3d (2026-07-02)</span></div>
     <textarea class="comentario" id="txt_17015_maria_eduarda_trindade_d_755544" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -837,7 +831,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('triagem_83f6d1')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_triagem_83f6d1" data-ativo="false" onclick="toggleFollowup('triagem_83f6d1')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_triagem_83f6d1" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -857,7 +851,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('lead_j_lio_ac27d6')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_lead_j_lio_ac27d6" data-ativo="false" onclick="toggleFollowup('lead_j_lio_ac27d6')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_lead_j_lio_ac27d6" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -877,7 +871,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('kak_amigo_39ad0d')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_kak_amigo_39ad0d" data-ativo="false" onclick="toggleFollowup('kak_amigo_39ad0d')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_kak_amigo_39ad0d" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -897,9 +891,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('17296_vandoir_follow_up_7d_agu_204aaa')">📋 Copiar contexto</button>
     </div>
-    <div style="margin:6px 0 2px 0;padding:5px 10px;background:#e0f0ff;border-left:3px solid #2288cc;border-radius:4px;font-size:0.8rem;color:#2288cc;font-weight:600;display:flex;align-items:center;gap:8px">
-      🔵 Follow-up disparado — aguardando resposta
-    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_17296_vandoir_follow_up_7d_agu_204aaa" data-ativo="true" onclick="toggleFollowup('17296_vandoir_follow_up_7d_agu_204aaa')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#2288cc;margin-left:6px">&#128309; Follow-up disparado &#8212; aguardando resposta</span></div>
     <textarea class="comentario" id="txt_17296_vandoir_follow_up_7d_agu_204aaa" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -921,7 +913,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('poliana_francine_17286_ebf9ba')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_poliana_francine_17286_ebf9ba" data-ativo="false" onclick="toggleFollowup('poliana_francine_17286_ebf9ba')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_poliana_francine_17286_ebf9ba" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -941,9 +933,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('alana_corr_a_da_silva_17054_735bcd')">📋 Copiar contexto</button>
     </div>
-    <div style="margin:6px 0 2px 0;padding:5px 10px;background:#f5f5f5;border-left:3px solid #666;border-radius:4px;font-size:0.8rem;color:#666;font-weight:600;display:flex;align-items:center;gap:8px">
-      📅 →7d em 3d (2026-07-02)
-    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_alana_corr_a_da_silva_17054_735bcd" data-ativo="true" onclick="toggleFollowup('alana_corr_a_da_silva_17054_735bcd')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 3d (2026-07-02)</span></div>
     <textarea class="comentario" id="txt_alana_corr_a_da_silva_17054_735bcd" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -963,7 +953,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="copiarContexto('ana_cristina_16575_1f4e5c')">📋 Copiar contexto</button>
     </div>
-    
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_ana_cristina_16575_1f4e5c" data-ativo="false" onclick="toggleFollowup('ana_cristina_16575_1f4e5c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
     <textarea class="comentario" id="txt_ana_cristina_16575_1f4e5c" placeholder="Comentário (opcional)..." rows="2" oninput="markDirty()"></textarea>
   </div>
 </div>
@@ -1483,6 +1473,40 @@ function encerrar(uid, btn) {
   btn.textContent = '✅ Encerrado!';
   markDirty();
 }
+function toggleFollowup(uid) {
+  var btn = document.getElementById('fu_' + uid);
+  if (!btn) return;
+  var ativo = btn.getAttribute('data-ativo') === 'true';
+  ativo = !ativo;
+  btn.setAttribute('data-ativo', ativo ? 'true' : 'false');
+  if (ativo) {
+    btn.className = 'btn-followup-on';
+    btn.innerHTML = '&#128197; Follow-up ON';
+  } else {
+    btn.className = 'btn-followup-off';
+    btn.innerHTML = '&#128197; Follow-up OFF';
+  }
+  markDirty();
+  // Salva preferencia local para nao perder ao recarregar
+  var key = 'fu_pref_' + uid;
+  localStorage.setItem(key, ativo ? '1' : '0');
+}
+
+// Restaurar preferencias de follow-up salvas no localStorage
+function restaurarFollowupPrefs() {
+  document.querySelectorAll('[id^="fu_"]').forEach(function(btn) {
+    var uid = btn.id.replace('fu_', '');
+    var key = 'fu_pref_' + uid;
+    var saved = localStorage.getItem(key);
+    if (saved !== null) {
+      var ativo = saved === '1';
+      btn.setAttribute('data-ativo', ativo ? 'true' : 'false');
+      btn.className = ativo ? 'btn-followup-on' : 'btn-followup-off';
+      btn.innerHTML = ativo ? '&#128197; Follow-up ON' : '&#128197; Follow-up OFF';
+    }
+  });
+}
+
 function copiarContexto(uid) {
   var card = document.getElementById('card_' + uid);
   var titulo = card.querySelector('.titulo') ? card.querySelector('.titulo').textContent.trim() : '';
@@ -1580,9 +1604,11 @@ async function salvarTudo() {
     var encerrado = card.classList.contains('encerrado');
     var txtEl = document.getElementById('txt_' + uid);
     var comentario = txtEl ? txtEl.value.trim() : '';
+    var fuBtn = document.getElementById('fu_' + uid);
+    var followup_ativo = fuBtn ? fuBtn.getAttribute('data-ativo') === 'true' : false;
     var audio_b64 = null;
     if (encerrado || comentario) {
-      resultado.itens.push({ uid: uid, titulo: card.querySelector('.titulo').textContent, encerrado: encerrado, comentario: comentario });
+      resultado.itens.push({ uid: uid, titulo: card.querySelector('.titulo').textContent, encerrado: encerrado, comentario: comentario, followup_ativo: followup_ativo });
     }
   }
   // Se tiver áudio ou texto pendente no chat sem ter clicado "Enviar comando", incluir automaticamente
@@ -1711,6 +1737,8 @@ function mostrarNotif(msg) {
     document.body.style.display = '';
   }
 })();
+// Restaurar estados de follow-up salvos pelo usuario
+restaurarFollowupPrefs();
 </script>
 </body>
 </html>
