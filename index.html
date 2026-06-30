@@ -142,14 +142,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 30/06/2026 10:02 | 45 itens</span>
+    <span class="meta">Gerado: 30/06/2026 21:17 | 52 itens</span>
   </div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
-  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa (11)</div>
-  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos (7)</div>
+  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa (12)</div>
+  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos (11)</div>
   <div class="tab" onclick="abrirAba('financeiro',this)">💰 Financeiro</div>
   <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
   <div class="tab" onclick="abrirAba('chat',this)">💬 Falar com Zapia</div>
@@ -178,27 +178,15 @@ button:disabled{opacity:0.4;cursor:default}
 <!-- ABA 1: ATENDIMENTOS -->
 <div class="tab-content active" id="aba-atendimentos">
 <div class="container">
-  <div class="sem-internet-banner">
-<div class="sem-internet-titulo">⚡ SEM INTERNET — AÇÃO URGENTE</div>
-<div class="sem-internet-card">
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-    <span style="font-size:1.3rem">⚡</span>
-    <strong style="flex:1;font-size:0.95rem">17291 - Thais Moura — SEM LUZ + SINAL RUIM</strong>
-    
-    <button class="btn-wpp-urgente" onclick="window.open('https://wa.me/555197975754','_blank')">💬 WhatsApp</button>
-  </div>
-  <div style="font-size:0.82rem;color:#7c2d12;margin-top:4px">- Reclamação há ~1 mês: YouTube travando, WhatsApp lento, reinício não resolve | - 11:04 — Sem luz na barragem agora | - Histórico MK: antena conectada sem interrupção desde 27/06 19h35 — nunca reiniciou a antena, só o roteador</div>
-</div>
-</div>
-
+  
   <div class="stats">
-    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">45</div><div class="lab">Todos</div></div>
-    <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">2</div><div class="lab">🔴 Urgente</div></div>
+    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">52</div><div class="lab">Todos</div></div>
+    <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">5</div><div class="lab">🔴 Urgente</div></div>
     <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">20</div><div class="lab">🟡 Andamento</div></div>
-    <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#888">15</div><div class="lab">⏳ Pendente</div></div>
-    <div class="stat" data-filter="triagem" onclick="filtrar('triagem')"><div class="num" style="color:#2288cc">5</div><div class="lab">🔵 Triagem</div></div>
+    <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#888">17</div><div class="lab">⏳ Pendente</div></div>
+    <div class="stat" data-filter="triagem" onclick="filtrar('triagem')"><div class="num" style="color:#2288cc">6</div><div class="lab">🔵 Triagem</div></div>
   </div>
-<div class="grupo" data-status="urgente"><h2 style="color:#ff4444;border-bottom:2px solid #ff4444;padding-bottom:6px">🔴 URGENTE (2)</h2>
+<div class="grupo" data-status="urgente"><h2 style="color:#ff4444;border-bottom:2px solid #ff4444;padding-bottom:6px">🔴 URGENTE (5)</h2>
 <div class="card" id="card_17015_maria_eduarda_trindade_d_0b1e6a" data-uid="17015_maria_eduarda_trindade_d_0b1e6a" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
   <div class="card-header">
     <span class="emoji">🔴</span>
@@ -216,6 +204,26 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-copiar" onclick="copiarContexto('17015_maria_eduarda_trindade_d_0b1e6a')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_17015_maria_eduarda_trindade_d_0b1e6a" data-ativo="true" onclick="toggleFollowup('17015_maria_eduarda_trindade_d_0b1e6a')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 2d (2026-07-02)</span></div>
+
+  </div>
+</div>
+<div class="card" id="card_lucas_schmidt_17235_internet_c_9576b8" data-uid="lucas_schmidt_17235_internet_c_9576b8" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">Lucas Schmidt (17235) — INTERNET CAIU 30/06 12:08</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc">- Encerrado 29/06, MAS voltou às 12:08: "Minha internet não tá funcionando"<br>- Provavelmente relacionado com ajuste de logins (Reynaldo/Lucas/Marcelo) ainda pendente<br>- Respondido às 12:32: diagnóstico PPPoE não autenticado — mandado para técnico verificar login ✅<br>- 12:33: Lucas disse "Tá bom" — aguardando internet voltar</div>
+  <div class="proximo">📅 30/06 14:00 — se não retornou confirmando OK, acionar Júnior/Fábio</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('lucas_schmidt_17235_internet_c_9576b8',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('lucas_schmidt_17235_internet_c_9576b8')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196495774')">💬 WhatsApp Cliente</button>
+      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Lucas%20Schmidt%20(17235)%20—%20INTERNET%20CAIU%2030/06%2012:08*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (4)</button>
+      <button class="btn-copiar" onclick="copiarContexto('lucas_schmidt_17235_internet_c_9576b8')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_lucas_schmidt_17235_internet_c_9576b8" data-ativo="false" onclick="toggleFollowup('lucas_schmidt_17235_internet_c_9576b8')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -239,8 +247,68 @@ button:disabled{opacity:0.4;cursor:default}
 
   </div>
 </div>
+<div class="card" id="card_urgente_j_nior_9c643c" data-uid="urgente_j_nior_9c643c" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">URGENTE JÚNIOR:</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc">- 📅 próximo contato: 30/06 14:30 — se não confirmou ok, escalar Fábio fisicamente</div>
+  <div class="proximo">📅 30/06 14:30 — se não confirmou ok, escalar Fábio fisicamente</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('urgente_j_nior_9c643c',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('urgente_j_nior_9c643c')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('urgente_j_nior_9c643c')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_urgente_j_nior_9c643c" data-ativo="false" onclick="toggleFollowup('urgente_j_nior_9c643c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
+<div class="card" id="card_urgente_j_nior_9c643c_1" data-uid="urgente_j_nior_9c643c_1" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">URGENTE JÚNIOR:</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc">- ✅ Respondido 14:02: escalado como urgente, prometido que login será corrigido<br>- 📅 próximo contato: 14:45 — se não confirmou ok, considerar enviar Fábio fisicamente</div>
+  <div class="proximo">📅 14:45 — se não confirmou ok, considerar enviar Fábio fisicamente</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('urgente_j_nior_9c643c_1',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('urgente_j_nior_9c643c_1')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('urgente_j_nior_9c643c_1')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_urgente_j_nior_9c643c_1" data-ativo="false" onclick="toggleFollowup('urgente_j_nior_9c643c_1')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
 </div>
 <div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (20)</h2>
+<div class="card" id="card_17291_thais_moura_sinal_ruim_d_37b125" data-uid="17291_thais_moura_sinal_ruim_d_37b125" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">17291 - Thais Moura — SINAL RUIM (desempenho)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">- Reclamação há ~1 mês: YouTube travando, WhatsApp lento, reinício não resolve<br>- ✅ Online desde 29/06 15:50 (16h uptime, 35 GB baixados) — luz voltou, antena logou sozinha<br>- Login: thaism | codconexao: 14214 | VLAN: vlan112-silo-hoerbe<br>- **30/06 12:19:** Respondeu — YouTube melhorou, WhatsApp com vídeo/áudio ainda pesado</div>
+  <div class="proximo">📅 hoje tarde — diagnosticar e retornar</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('17291_thais_moura_sinal_ruim_d_37b125',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('17291_thais_moura_sinal_ruim_d_37b125')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197975754')">💬 WhatsApp Cliente</button>
+      
+      <button class="btn-copiar" onclick="copiarContexto('17291_thais_moura_sinal_ruim_d_37b125')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_17291_thais_moura_sinal_ruim_d_37b125" data-ativo="false" onclick="toggleFollowup('17291_thais_moura_sinal_ruim_d_37b125')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
 <div class="card" id="card_felipe_raquel_11264_42df54" data-uid="felipe_raquel_11264_42df54" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
     <span class="emoji">🟡</span>
@@ -307,8 +375,8 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Celetro/Gilberto (16574)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- Perguntou se tem fibra na BR-153 com BR-290. Dissemos "vou repassar pro Júnior"<br>- ⏳ **PENDENTE JÚNIOR:** responder se tem fibra ali<br>- 📅 próximo contato: **hoje 24/06** — Júnior responder diretamente ou autorizar resposta</div>
-  <div class="proximo">📅 **hoje 24/06** — Júnior responder diretamente ou autorizar resposta</div>
+  <div class="desc">- 24/06: perguntou sobre fibra na BR-153 com BR-290<br>- 30/06 13:12: **NOVO PEDIDO** — quer orçamento de pontos CTG em 4 locais:<br>- PINHEIRO (IP FIXO) — coords 328291,129 / -6714955,441<br>- KM 0 — 318973,491 / -6679995,338</div>
+  <div class="proximo">📅 **01/07** — cobrar Júnior sobre orçamento</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('celetro_gilberto_16574_edceb5',this)">✅ Encerrar</button>
@@ -347,14 +415,14 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Lilian Bicca (15989)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- 29/06 10:03: internet voltou parcialmente mas abaixo dos 10 MB contratados<br>- Solicitei teste no minhaconexao.com.br (10:15) — aguardando resultado<br>- Próxima ação: se abaixo de 7-8 MB → agendar Fábio para ajuste de antena<br>- 📅 próximo contato: 30/06 — se sem resultado do teste, cutucar</div>
-  <div class="proximo">📅 30/06 — se sem resultado do teste, cutucar</div>
+  <div class="desc">- 29/06: internet voltou mas abaixo dos 10 MB contratados<br>- 30/06 07:44: perguntei se tinha equipe disponível hoje — ela disse "Hj não" às 08:57<br>- Confirmou com 👍 às 09:17 — esperando ela avisar quando pode receber visita<br>- 📅 próximo contato: aguardar ela retornar (aguarda disponibilidade)</div>
+  <div class="proximo">📅 aguardar ela retornar (aguarda disponibilidade)</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('lilian_bicca_15989_d1ff90',this)">✅ Encerrar</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('lilian_bicca_15989_d1ff90')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197534942')">💬 WhatsApp Cliente</button>
-      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Lilian%20Bicca%20(15989)*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (4)</button>
+      
       <button class="btn-copiar" onclick="copiarContexto('lilian_bicca_15989_d1ff90')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_lilian_bicca_15989_d1ff90" data-ativo="false" onclick="toggleFollowup('lilian_bicca_15989_d1ff90')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
@@ -507,8 +575,8 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Leandro (17290)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- Cancelamento confirmado. Equipamentos com encarregado da Fazenda Teluque/Barragem<br>- 🚧 NÃO REALIZADA — Fábio ficou na ponte, não conseguiu atravessar. Voltou para casa às ~18:30 sem fazer a instalação. Reagendar.<br>- Pendente: cancelar no MK (Lu) + confirmar quais equipamentos estão lá<br>- 👤 CPF: 829.279.360-72 | Fone: (51) 98031-9063 | Email: leandromarques.tb@gmail.com</div>
-  <div class="proximo">📅 29/06 — reagendar retirada com Júnior</div>
+  <div class="desc">- Cancelamento confirmado. Equipamentos com encarregado da Fazenda Teluque/Barragem<br>- 🚧 Retirada ainda não realizada — Fábio ficou na ponte na última tentativa<br>- Pendente: cancelar no MK (Lu) + confirmar quais equipamentos estão lá<br>- 👤 CPF: 829.279.360-72 | Fone: (51) 98031-9063 | Email: leandromarques.tb@gmail.com</div>
+  <div class="proximo">📅 01/07 — verificar status da retirada e cobrar atualização de endereço no MK</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('leandro_17290_bfe2ee',this)">✅ Encerrar</button>
@@ -581,26 +649,6 @@ button:disabled{opacity:0.4;cursor:default}
 
   </div>
 </div>
-<div class="card" id="card_poliana_francine_17286_ebf9ba_1" data-uid="poliana_francine_17286_ebf9ba_1" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
-  <div class="card-header">
-    <span class="emoji">🟡</span>
-    <strong class="titulo">Poliana Francine (17286)</strong>
-    <span class="badge" style="background:#e6a700">Em andamento</span>
-  </div>
-  <div class="desc">- Interferência de canal — vizinho com satélite desconhecido (não Starlink/HughesNet) em canal automático<br>- Júnior trocou canal (11:05) em 26/06. POP Zeno.<br>- 27/06 19:01: voltou a reclamar "sinal saindo fora"<br>- Júnior respondeu: sem sistema (VPN quebrada), vai verificar amanhã domingo à tardezinha</div>
-  <div class="proximo">📅 28/06 (domingo tarde) — verificar sinal no sistema quando Júnior chegar em casa</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('poliana_francine_17286_ebf9ba_1',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('poliana_francine_17286_ebf9ba_1')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196383299')">💬 WhatsApp Cliente</button>
-      
-      <button class="btn-copiar" onclick="copiarContexto('poliana_francine_17286_ebf9ba_1')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_poliana_francine_17286_ebf9ba_1" data-ativo="false" onclick="toggleFollowup('poliana_francine_17286_ebf9ba_1')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
-
-  </div>
-</div>
 <div class="card" id="card_16734_ana_paula_alves_b5b95f" data-uid="16734_ana_paula_alves_b5b95f" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
     <span class="emoji">🟡</span>
@@ -642,7 +690,7 @@ button:disabled{opacity:0.4;cursor:default}
   </div>
 </div>
 </div>
-<div class="grupo" data-status="pendente"><h2 style="color:#888888;border-bottom:2px solid #888888;padding-bottom:6px">⏳ PENDENTE JÚNIOR/LU (15)</h2>
+<div class="grupo" data-status="pendente"><h2 style="color:#888888;border-bottom:2px solid #888888;padding-bottom:6px">⏳ PENDENTE JÚNIOR/LU (17)</h2>
 <div class="card" id="card_bruno_procath_17292_484c88" data-uid="bruno_procath_17292_484c88" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
   <div class="card-header">
     <span class="emoji">⏳</span>
@@ -923,14 +971,34 @@ button:disabled{opacity:0.4;cursor:default}
 
   </div>
 </div>
+<div class="card" id="card_pendente_7e29d5" data-uid="pendente_7e29d5" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Pendente:</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Lu pediu data de nascimento + e-mail + vencimento para completar cadastro<br>- **📅 próximo contato:** aguardar resposta do Pedro (perguntei nasc + email + vencimento às 10:20)</div>
+  <div class="proximo">📅 ** aguardar resposta do Pedro (perguntei nasc + email + vencimento às 10:20)</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('pendente_7e29d5',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_7e29d5')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('pendente_7e29d5')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_pendente_7e29d5" data-ativo="false" onclick="toggleFollowup('pendente_7e29d5')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
 <div class="card" id="card_pendente_j_nior_0e3217" data-uid="pendente_j_nior_0e3217" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
   <div class="card-header">
     <span class="emoji">⏳</span>
     <strong class="titulo">Pendente Júnior:</strong>
     <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
   </div>
-  <div class="desc">- **📅 próximo contato:** aguardar dados cadastrais para criar OS na agenda</div>
-  <div class="proximo">📅 ** aguardar dados cadastrais para criar OS na agenda</div>
+  <div class="desc">- 📅 próximo contato: hoje — Júnior informar taxa instalação + telefone cliente para Lu cadastrar</div>
+  <div class="proximo">📅 hoje — Júnior informar taxa instalação + telefone cliente para Lu cadastrar</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('pendente_j_nior_0e3217',this)">✅ Encerrar</button>
@@ -943,8 +1011,28 @@ button:disabled{opacity:0.4;cursor:default}
 
   </div>
 </div>
+<div class="card" id="card_milbradt_dar_baixa_no_comodato_70dc90" data-uid="milbradt_dar_baixa_no_comodato_70dc90" data-status="pendente" style="border-left:4px solid #888888;background:#f5f5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">Milbradt — dar baixa no comodato (AirGrid)</strong>
+    <span class="badge" style="background:#888888">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- No grupo Atividades (30/06 11:10), Júnior disse: "dar baixa na antena dele [Milbradt] pelo login"<br>- Milbradt se mudou para outra fazenda (Granja alguma coisa), deixou a AirGrid na casa antiga (Teluke)<br>- Fábio instalou uma Force 180 na nova casa. Milbradt não deve nada.<br>- Comodato registrado para Ana Paula Oliveira Milbradt (nora) — parece ser AirGrid (não Force 180)</div>
+  <div class="proximo">📅 30/06 — fazer essa baixa no sistema</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('milbradt_dar_baixa_no_comodato_70dc90',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('milbradt_dar_baixa_no_comodato_70dc90')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('milbradt_dar_baixa_no_comodato_70dc90')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_milbradt_dar_baixa_no_comodato_70dc90" data-ativo="false" onclick="toggleFollowup('milbradt_dar_baixa_no_comodato_70dc90')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
 </div>
-<div class="grupo" data-status="triagem"><h2 style="color:#2288cc;border-bottom:2px solid #2288cc;padding-bottom:6px">🔵 TRIAGEM (5)</h2>
+</div>
+<div class="grupo" data-status="triagem"><h2 style="color:#2288cc;border-bottom:2px solid #2288cc;padding-bottom:6px">🔵 TRIAGEM (6)</h2>
 <div class="card" id="card_triagem_83f6d1" data-uid="triagem_83f6d1" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
   <div class="card-header">
     <span class="emoji">🔵</span>
@@ -1045,8 +1133,28 @@ button:disabled{opacity:0.4;cursor:default}
 
   </div>
 </div>
+<div class="card" id="card_bianca_marques_nunes_17223_tri_3c8a34" data-uid="bianca_marques_nunes_17223_tri_3c8a34" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
+  <div class="card-header">
+    <span class="emoji">🔵</span>
+    <strong class="titulo">Bianca Marques Nunes (17223) — triagem</strong>
+    <span class="badge" style="background:#2288cc">Triagem</span>
+  </div>
+  <div class="desc">- Mandou "Oii" — não identificou o motivo<br>- ✅ Respondido 14:00: "Oi Bianca! Tudo bem? Como posso te ajudar?"<br>- 📅 próximo contato: aguardar resposta</div>
+  <div class="proximo">📅 aguardar resposta</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('bianca_marques_nunes_17223_tri_3c8a34',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('bianca_marques_nunes_17223_tri_3c8a34')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('5551920052058')">💬 WhatsApp Cliente</button>
+      
+      <button class="btn-copiar" onclick="copiarContexto('bianca_marques_nunes_17223_tri_3c8a34')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_bianca_marques_nunes_17223_tri_3c8a34" data-ativo="true" onclick="toggleFollowup('bianca_marques_nunes_17223_tri_3c8a34')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 6d (2026-07-06)</span></div>
+
+  </div>
 </div>
-<div class="grupo" data-status="silencio"><h2 style="color:#999999;border-bottom:2px solid #999999;padding-bottom:6px">🔇 SILÊNCIO INTENCIONAL (3)</h2>
+</div>
+<div class="grupo" data-status="silencio"><h2 style="color:#999999;border-bottom:2px solid #999999;padding-bottom:6px">🔇 SILÊNCIO INTENCIONAL (4)</h2>
 <div class="card" id="card_poliana_francine_17286_ebf9ba" data-uid="poliana_francine_17286_ebf9ba" data-status="silencio" style="border-left:4px solid #999999;background:#f9f9f9">
   <div class="card-header">
     <span class="emoji">🔇</span>
@@ -1104,6 +1212,26 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-copiar" onclick="copiarContexto('ana_cristina_16575_1f4e5c')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_ana_cristina_16575_1f4e5c" data-ativo="false" onclick="toggleFollowup('ana_cristina_16575_1f4e5c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
+<div class="card" id="card_marly_mota_bri_o_16987_acordo__8567a9" data-uid="marly_mota_bri_o_16987_acordo__8567a9" data-status="silencio" style="border-left:4px solid #999999;background:#f9f9f9">
+  <div class="card-header">
+    <span class="emoji">🔇</span>
+    <strong class="titulo">Marly Mota Brião (16987) — acordo dia 15/07</strong>
+    <span class="badge" style="background:#999999">Silêncio</span>
+  </div>
+  <div class="desc">- Acordo fechado ao vivo com Júnior: paga dia 15 (entrega do móvel)<br>- Ela respondeu "Valeu abraco" ✅ — acordo confirmado<br>- CPF: 004.553.580-95 — Bairro Gonçalves<br>- 📅 reativação: 15/07 — cobrar pagamento</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('marly_mota_bri_o_16987_acordo__8567a9',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('marly_mota_bri_o_16987_acordo__8567a9')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('marly_mota_bri_o_16987_acordo__8567a9')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_marly_mota_bri_o_16987_acordo__8567a9" data-ativo="false" onclick="toggleFollowup('marly_mota_bri_o_16987_acordo__8567a9')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -1241,8 +1369,8 @@ button:disabled{opacity:0.4;cursor:default}
     <span class="badge" style="background:#6b7280">📋 OS</span>
   </div>
   <div style="margin:4px 0 2px"><span class="tag-faltando">Lista de comodatos (equipamentos que precisam ser devolvidos)</span><span class="tag-faltando">CPF do titular</span></div>
-  <div class="desc">- Cancelamento confirmado. Equipamentos com encarregado da Fazenda Teluque/Barragem<br>- 🚧 NÃO REALIZADA — Fábio ficou na ponte, não conseguiu atravessar. Voltou para casa às ~18:30 sem fazer a instalação. Reagendar.<br>- Pendente: cancelar no MK (Lu) + confirmar quais equipamentos estão lá<br>- 👤 CPF: 829.279.360-72 | Fone: (51) 98031-9063 | Email: leandromarques.tb@gmail.com</div>
-  <div class="proximo">📅 29/06 — reagendar retirada com Júnior</div>
+  <div class="desc">- Cancelamento confirmado. Equipamentos com encarregado da Fazenda Teluque/Barragem<br>- 🚧 Retirada ainda não realizada — Fábio ficou na ponte na última tentativa<br>- Pendente: cancelar no MK (Lu) + confirmar quais equipamentos estão lá<br>- 👤 CPF: 829.279.360-72 | Fone: (51) 98031-9063 | Email: leandromarques.tb@gmail.com</div>
+  <div class="proximo">📅 01/07 — verificar status da retirada e cobrar atualização de endereço no MK</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-audio" onclick="abrirWhatsAppAudio('coringa_leandro_17290_bfe2ee')">🎙️ Áudio via WhatsApp</button>
@@ -1329,6 +1457,25 @@ button:disabled{opacity:0.4;cursor:default}
     <textarea class="comentario" id="txt_coringa_pergunta_lu_cobran_a_servi_os__6daf8e" placeholder="Anotação sobre esta OS..." rows="2"></textarea>
   </div>
 </div>
+<div class="card" style="border-left:4px solid #6b7280;background:#f9fafb;margin-bottom:12px">
+  <div class="card-header">
+    <span style="font-weight:700;color:#6b7280;font-size:0.9rem;min-width:50px">⏰ ??:??</span>
+    <strong class="titulo">Pendente Júnior:</strong>
+    <span class="badge" style="background:#6b7280">📋 OS</span>
+  </div>
+  
+  <div class="desc">- 📅 próximo contato: **hoje 24/06** — decisão urgente</div>
+  <div class="proximo">📅 **hoje 24/06** — decisão urgente</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('coringa_pendente_j_nior_fd5282')">🎙️ Áudio via WhatsApp</button>
+      
+      <span style="font-size:0.78rem;color:#22c55e;font-weight:600">✅ Dados completos</span>
+      <button class="btn-copiar" onclick="copiarContexto('coringa_pendente_j_nior_fd5282')">📋 Copiar contexto</button>
+    </div>
+    <textarea class="comentario" id="txt_coringa_pendente_j_nior_fd5282" placeholder="Anotação sobre esta OS..." rows="2"></textarea>
+  </div>
+</div>
 </div>
 <div style="margin-top:20px;border-top:2px dashed #7c3aed;padding-top:16px"><div style="font-size:0.9rem;font-weight:700;color:#7c3aed;margin-bottom:10px">&#128161; Sugest&#245;es da Zapia &#8212; Completar dia do F&#225;bio</div><div style="background:#f5f3ff;border-left:3px solid #7c3aed;border-radius:6px;padding:12px 14px;margin-bottom:10px"><div style="font-size:0.85rem;font-weight:600;color:#5b21b6;margin-bottom:6px">💡 Segunda 29/06 — Tarde livre após 11h</div><div id="sug_0_corpo" style="font-size:0.82rem;color:#374151;line-height:1.6">📍 Agenda confirmada:<br>• 09:00 — Glauciléia (rural norte, retirada antena)<br>• 10:00 — Cauana (centro, retirada antena)<br><br>🕐 Tarde livre — sugestões:<br><br>📌 Clézio (17281) — sudoeste, ~20 km<br>→ Risco cancelamento. Fábio passa e verifica sinal.<br>→ Na mesma saída de volta da Cauana.<br><br>📌 Lilian Bicca (15989) — leste, ~27 km<br>→ Sem internet há 3+ dias. Antena torta ou árvore na frente.<br>→ Saída separada (sentido oposto ao Clézio).<br><br>🗺️ Melhor rota: Clézio de tarde (sul), Lilian na sequência ou outro dia.</div><div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><button onclick="copiarSugestao('sug_0')" style="background:#7c3aed;color:#fff;border:none;border-radius:6px;padding:5px 12px;font-size:0.8rem;font-weight:600;cursor:pointer">&#128203; Copiar texto</button><a href="https://wa.me/5551997760717?text=Júnior,%20vi%20que%20segunda%20de%20tarde%20tá%20livre%20depois%20das%2011h.%20Posso%20encaixar%20o%20Clézio%20(17281)%20e%20a%20Lilian%20Bicca%20(15989)?%0A%0AClézio%20fica%20a%20~20km%20sentido%20sudoeste%20—%20risco%20de%20cancelamento,%20vale%20o%20Fábio%20passar%20lá%20e%20verificar%20o%20sinal.%0ALilian%20fica%20a%20~27km%20leste%20—%20sem%20internet%20há%203+%20dias,%20antena%20torta%20ou%20árvore%20na%20frente.%0A%0AQuer%20que%20eu%20crie%20as%20OS%20e%20avise%20o%20Fábio?" target="_blank" style="background:#25d366;color:#fff;border:none;border-radius:6px;padding:5px 12px;font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:4px">&#128172; Abrir no WhatsApp</a></div></div></div><script>function copiarSugestao(sid){var el=document.getElementById(sid+"_corpo");if(!el)return;navigator.clipboard.writeText(el.innerText||el.textContent).then(function(){mostrarNotif("&#10003; Texto copiado!");});}</script>
 </div>
@@ -1342,6 +1489,154 @@ button:disabled{opacity:0.4;cursor:default}
 <div style="background:#dcfce7;border-left:4px solid #16a34a;border-radius:8px;padding:12px 14px;margin-bottom:8px">
   <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
     <span style="color:#16a34a;font-size:1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Fazenda Teluke — INSTALAÇÃO CONCLUÍDA 30/06 10:16** | Grupo Materiais
+- Fábio confirmou no grupo Materiais (10:16): instalou Force 180 + fonte + C20; retirou Ubnt (antiga)
+- Cliente levou roteador e fonte embora (Milbradt antes)
+- Plano: R$75/mês | CPF João Luiz (Teluke): 679.259.000-91 | Venc: dia 15
+- ⏳ **Pendente Júnior:** informar à Lu se houve taxa de instalação + telefone do cliente
+- 📅 próximo contato: hoje — Júnior informar taxa instalação + telefone cliente para Lu cadastrar
+
+### ⏳ **Milbradt — dar baixa no comodato (AirGrid)** | Atividades 11:10
+- No grupo Atividades (30/06 11:10), Júnior disse: "dar baixa na antena dele [Milbradt] pelo login"
+- Milbradt se mudou para outra fazenda (Granja alguma coisa), deixou a AirGrid na casa antiga (Teluke)
+- Fábio instalou uma Force 180 na nova casa. Milbradt não deve nada.
+- Comodato registrado para Ana Paula Oliveira Milbradt (nora) — parece ser AirGrid (não Force 180)
+- ⏳ **Ação Júnior:** Identificar o cliente "Milbradt" pelo login no MK e dar baixa na AirGrid do comodato
+- 📅 próximo contato: 30/06 — fazer essa baixa no sistema
+
+---
+### 🟡 Jayne Vargas (16775) — sinal ruim | JID: 555180592752@s.whatsapp.net | Atualizado: 30/06 12:12
+- Internet "cada vez pior" — múltiplos dispositivos, YouTube na TV consumindo banda
+- Orientada: reiniciar roteador. Prometido técnico no campo
+- ✅ **Fábio confirmou (Atividades 11:53): "vou lá sim, vou lá hoje sim"**
+- Fábio saiu Vila Vargas 12:12 — em trânsito para próxima OS (pode ser Jayne)
+- 📅 próximo contato: hoje à tarde — confirmar visita do Fábio ou perguntar ao Fábio horário
+
+### 🔵 Marlon Qualitec Pessoal — peça ePMP 2000
+- **JID:** 555191937849@s.whatsapp.net | Entrada: 30/06 11:20
+- Pediu tampa debaixo do ePMP 2000 da Cambium (tem aparelho de sucata?)
+- Respondido: "vou perguntar pro Júnior" ✅
+- 📅 próximo contato: aguardar Júnior responder sobre disponibilidade de peça
+
+🔇 **Marly Mota Brião (16987) — acordo dia 15/07** | JID pessoal: 555198787790@s.whatsapp.net | Atualizado: 30/06 11:50
+- Acordo fechado ao vivo com Júnior: paga dia 15 (entrega do móvel)
+- Ela respondeu "Valeu abraco" ✅ — acordo confirmado
+- CPF: 004.553.580-95 — Bairro Gonçalves
+- 📅 reativação: 15/07 — cobrar pagamento
+
+### ✅ OS Andriele Vargas da Rosa (16752) — CONCLUÍDA 30/06
+- Lu liberou Mac às 11:41 ✅
+- Fábio executou OS (confirmado no grupo Materiais 12:12: Entrada: 180 + bateria de sistema | Saída: Ubnt + Fonte)
+- Fábio saiu Vila Vargas 12:12 ✅
+
+### Lu — preocupação com desbloqueio via bot
+- Áudio de 11:42 no DM: "Só espero não botar correia em alguns clientes com esse negócio de desbloqueio pelo robô demorado..."
+- Feedback real: clientes acostumados com liberação imediata pela Lu agora têm demora
+- ⏳ Para Júnior: avaliar fluxo de desbloqueio e resposta ao feedback da Lu
+
+---
+## UPDATE 14:00 Ronda 30/06
+
+### Novos atendimentos e status (após 13:45):
+
+⚡ **Lucas Schmidt (17235) — SEM INTERNET (2h)** | Atualizado: 30/06 14:00
+- 13:49: voltou reclamar "Não tá funcionando ainda" — já são ~2h de interrupção
+- ✅ Respondido 14:00: confirmado que login PPPoE ainda não foi corrigido, escalado como urgente
+- 🔴 **URGENTE JÚNIOR:** logins Reynaldo/Lucas/Marcelo invertidos no MK → corrigir IMEDIATAMENTE
+- 📅 próximo contato: 30/06 14:30 — se não confirmou ok, escalar Fábio fisicamente
+
+🔵 **Bianca Marques Nunes (17223) — triagem** | JID: 5551920052058@s.whatsapp.net | Entrada: 30/06 13:56
+- Mandou "Oii" — não identificou o motivo
+- ✅ Respondido 14:00: "Oi Bianca! Tudo bem? Como posso te ajudar?"
+- 📅 próximo contato: aguardar resposta
+
+### Poliana (17286) — MIGRAÇÃO FASA EM ANDAMENTO (13:45~14:00):
+- Fábio pediu rota FASA na Atividades (13:28) → Lu enviou linha
+- Júnior gravou 3 versões de mapas para apoio (13:44, 13:51, 13:55)
+- 13:59: Júnior enviou coordenadas da FASA ao self-chat: -30.143597, -52.618403 ← coordenada da torre FASA
+- Júnior orientou Lu via áudio (13:53): quer linhas até cada POP (FASA, Zeno, Piquiri, Sandro Cassol, Vila Vargas) partindo das coordenadas exatas das torres
+
+### Teresa (17300) — Instalação em cadastro:
+- Lu enviou print 13:48: registrando "Teresa Terres da Rosa COMODATO (R)" no sistema (código 17300)
+- Discussão de custo: Júnior (áudio 13:41): roteador ~R$350, 12.6m cabo, 2x POE (~R$15 cada), 3 suportes de parede → deslocamento +R$100 (arredondado para R$300 base)
+- Lu mencionou "Teresa" às 13:43 — confirmando qual cliente
+- 📅 Status: Lu cadastrando no MK agora
+
+### Vinicius (17091):
+- ✅ Respondeu "Obrigado" após confirmação do pagamento (13:48) → ENCERRADO
+
+### Atividades grupo (até 13:31):
+- Fábio confirmou que fez alteração Trevisan → Vila Vargas (sinal melhorou)
+- Fábio pediu traçar linha FASA → Lu respondeu "Já faço"
+
+---
+## UPDATE 14:25 Ronda 30/06
+
+### ⚡ Lucas Schmidt (17235) — SEM INTERNET (2h+) — STATUS: AGUARDANDO MK
+- 14:04: Lucas disse "Blz" — confirmou que ainda espera
+- Internet continua sem funcionar
+- 🔴 **URGENTE JÚNIOR:** Corrigir logins PPPoE invertidos (Reynaldo/Lucas/Marcelo) no MK — cliente parado há 2h+
+- ✅ Respondido 14:02: escalado como urgente, prometido que login será corrigido
+- 📅 próximo contato: 14:45 — se não confirmou ok, considerar enviar Fábio fisicamente
+
+### 🔵 Chaiene Scortegana Flores (10502) — OS TROCA ROTEADOR HOJE
+- Lu postou OS no grupo CompetenceNet/OS às 14:18
+- **Horário:** Hoje 30/06 às 16:30–17:30
+- **Bairro:** Noemia — Cachoeira do Sul/RS
+- **JID:** 555197016886@s.whatsapp.net
+- **Problema:** Roteador com falha intermitente — trava tudo (TV, celular, tablet, impressora). Reiniciar resolve por algumas horas.
+- **Diagnóstico:** Júnior avaliou que é o roteador. Ação: trocar roteador.
+- **Endereço:** pendente (verificar no MK antes de ir)
+- 📅 próximo contato: 30/06 16:30 — confirmar se Fábio foi + resultado
+
+### 🔵 Bianca Nunes (17223) — triagem continuada
+- 14:19: enviou "Oiie tudo bem?" — segundo greeting, sem mencionar o problema
+- ✅ Respondido 14:25: "Tudo certo! 😊 Em que posso te ajudar, Bianca?"
+- 📅 próximo contato: aguardar Bianca dizer o que precisa
+
+### Poliana (17286) — Mapa FASA:
+- Júnior gravando mais versões de mapa 14:08–14:19 (v5, Google z17/z18/z19, final)
+- Júnior enviou imagem ao Fábio via DM (áudio: "calibrando, diz se a linha verde é a fase")
+- Fábio em campo, linha FASA traçada → aguardando feedback de sinal
+- 📅 próximo contato: aguardar Fábio/Júnior confirmar resultado da migração
+
+### Novo OS Group update:
+- Fábio saiu Vila Vargas 12:12 → depois Chaiene 16:30 hoje
+- Poliana migração FASA pendente (Fábio foi checar depois do almoço)
+
+---
+## UPDATE 14:50 Ronda 30/06
+
+✅ **Bianca Nunes (17223)</strong>
+    <span style="background:#16a34a;color:#fff;font-size:0.7rem;padding:1px 7px;border-radius:8px;font-weight:700">ÚLTIMO</span>
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">30/06 às 14:43</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555180592752','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">Queria desbloqueio — pagou ao meio-dia, internet liberou automaticamente | 14:43: "Cheguei em casa e ela ta funcionando / Obrigada" | Respondido 14:50: confirmação + encerramento ✅</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Joana Pedroso (17224)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">30/06 às 13:06</span>
+    
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">—</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Daiane (Álvaro 16467 / ID 13269)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">30/06 às 12:10</span>
+    <button class="btn-cliente" onclick="window.open('https://wa.me/555180354681','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">Lu desbloqueou manualmente. Daiane confirmou: "a Luciana arrumou obrigada" ✅</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1rem">✅</span>
     <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">10853 - Adriana Nunes Pruss** | JID: 555199209365@s.whatsapp.net | Entrada: 29/06 | Encerrado: 29/06
 - Pediu desbloqueio 06:23. Problema era roteador — filho reiniciou, voltou. Encerrado ✅
 
@@ -1376,45 +1671,40 @@ button:disabled{opacity:0.4;cursor:default}
 - 📅 próximo contato: aguardar resposta Júnior
 
 ---
-### ✅ Israel Lucas (16865) — Configuração roteador "Paulinho" — RESOLVIDO
-- Paulinho reconectou às 17:56 — configurou sozinho ✅
-- Confirmei para Israel que está online
-
-### 🟡 Santa Helena / Fasa (17284) — Configuração roteador
-- **JID:** 555195260383@s.whatsapp.net
-- **Hora:** 17:26 (29/06)
-- **Pedido:** IP e senha PPPoE para configurar roteador. Username: `joaoluiz`. **Senha PPPoE: ⏳ aguardando Júnior confirmar**
-- **Resposta enviada:** "estou verificando, um minutinho"
-- **📅 Próximo contato:** assim que Júnior chegar (~18:30)
-- **Status:** 🟡 Pendente senha
-
----
-### 🟡 Lead NOVO via Emerson (16753) — João Luiz Sampaio Siqueira
-- **Intermediário:** Emerson (16753) — 555197620606@s.whatsapp.net
-- **Hora:** 18:22 (29/06)
-- **Lead:** João Luiz Sampaio Siqueira
-  - **RG:** 9046108883 | **Nascimento:** 12/08/1969
-  - **Naturalidade:** São Sepé RS
-  - **Filiação:** Vilton Aires de Siqueira / Maria José Sampaio Siqueira
-  - **CPF:** ⏳ não consta no RG, pendente
-- **Instalação:** marcada para amanhã (30/06) de manhã
-- **Obs:** Cliente está fazendo documento novo (identidade estragada). Emerson tem a foto do RG antigo.
-- **📅 Próxima ação:** confirmar CPF e criar cadastro no MK antes da instalação
-- **Status:** 🟡 Pendente CPF
-
-### 🟡 LEAD — Grasi E Oséias
-- **JID:** 555195343191@s.whatsapp.net
-- **Hora:** 18:12 (29/06)
-- **Info:** Vai se mudar para o interior no Irui — quer internet (19:03)
-- **Resposta enviada:** atendemos o interior, pedindo endereço exato
-- **📅 Próximo contato:** aguardar endereço para verificar cobertura
-- **Status:** 🟡 Lead ativo — aguardando endereço
-
----
-✅ **16979 - Lucas Eduardo Sena da Rosa</strong>
-    <span style="background:#16a34a;color:#fff;font-size:0.7rem;padding:1px 7px;border-radius:8px;font-weight:700">ÚLTIMO</span>
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">29/06 às 22:22</span>
+### ✅ Israel Lucas (16865)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">30/06 às 11:56</span>
     <button class="btn-cliente" onclick="window.open('https://wa.me/555199209365','_blank')">💬 Ver conversa</button>
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">Paulinho reconectou às 17:56 29/06 — configurou sozinho ✅ | Novo áudio 30/06 11:56: Augusto colocou fontezinha no roteador → internet funcionando, YouTube rodando ✅ | Diagnóstico: era problema de alimentação elétrica (fonte do roteador). Resolvido sem visita técnica.</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Ana (JID: 555195007185)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">30/06 às 09:29</span>
+    
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">—</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Luiz Carlos Lopes (10690)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">30/06 às 09:13</span>
+    
+  </div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">Entendeu o processo, agradeceu. ✅ Sem pendência — chatbot resolvido ao vivo pelo Júnior. Não há nada a fazer no MK.</div>
+</div>
+<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+    <span style="color:#22c55e;font-size:1rem">✅</span>
+    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">16979 - Lucas Eduardo Sena da Rosa</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">29/06 às 22:22</span>
+    
   </div>
   <div style="font-size:0.8rem;color:#374151;line-height:1.4">—</div>
 </div>
@@ -1426,7 +1716,7 @@ button:disabled{opacity:0.4;cursor:default}
     <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">29/06 às 21:17</span>
     <button class="btn-cliente" onclick="window.open('https://wa.me/555197916269','_blank')">💬 Ver conversa</button>
   </div>
-  <div style="font-size:0.8rem;color:#374151;line-height:1.4">Entendeu o processo, agradeceu. Pendência de vinculação de número no MK permanece (⏳ Lu).</div>
+  <div style="font-size:0.8rem;color:#374151;line-height:1.4">—</div>
 </div>
 <div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
   <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
@@ -1458,26 +1748,6 @@ button:disabled{opacity:0.4;cursor:default}
     
   </div>
   <div style="font-size:0.8rem;color:#374151;line-height:1.4">—</div>
-</div>
-<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
-  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
-    <span style="color:#22c55e;font-size:1rem">✅</span>
-    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Carla/Juninho (16706)</strong>
-    
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">28/06 às 20:38</span>
-    <button class="btn-cliente" onclick="window.open('https://wa.me/555199656051','_blank')">💬 Ver conversa</button>
-  </div>
-  <div style="font-size:0.8rem;color:#374151;line-height:1.4">Pix CNPJ enviado 18:37. Comprovante recebido 20:22 (documento PDF). Confirmado para ela 20:38. ✅ | ⚠️ Confirmar valor exato no sistema MK (PDF protegido — não foi possível ler)</div>
-</div>
-<div style="background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:12px 14px;margin-bottom:8px">
-  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
-    <span style="color:#22c55e;font-size:1rem">✅</span>
-    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">16886 - Naiara de Souza Oliveira Belmiro</strong>
-    
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">28/06 às 18:57</span>
-    <button class="btn-cliente" onclick="window.open('https://wa.me/555198478595','_blank')">💬 Ver conversa</button>
-  </div>
-  <div style="font-size:0.8rem;color:#374151;line-height:1.4">Internet falhando → Júnior explicou plano → respondeu 28/06 18:48 "deu uma melhorada sim" | Follow-up 7 dias: **05/07** — confirmar se estabilizou</div>
 </div>
 
 </div>
@@ -1654,62 +1924,62 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="container">
   <h2 style="margin-bottom:16px;font-size:1rem;color:#1a1a2e">🤖 O que a Zapia está fazendo</h2>
   <p style="font-size:0.82rem;color:#888;margin-bottom:16px">Log das últimas rondas — do mais recente pro mais antigo.</p>
-  <div class="log-entry log-limpa"><div class="log-titulo">🟢 22:37 — ronda limpa, nenhuma novidade</div></div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 21:58 — Ronda automática</div>
-  <div class="log-corpo">### Novidades após 21:40:<br>- **Chaiene (10502):** Júnior conduziu ao vivo e prometeu OS para troca de roteador (21:55). ⚠️ Monitorar se Júnior cria OS no Calendar para Chaiene.<br>- **Lucas Schmidt (17235):** Confirmou "Isso mesmo" — logins invertidos confirmados. Respondido, encaminhado para técnico.<br>- **Pedroschmidt:** Sem resposta aos dados cadastrais ainda (aguardando).<br>### Ações tomadas:<br>- Respondido Lucas Schmidt: "repassando pro técnico" ✅<br>- Nenhuma cutucada nova (noite, normal sem retorno dos demais)<br>### Status ⚡ Thaís 17291:<br>- Offline no MK. Sem resposta à cutucada das 21:28. Luz ainda fora (área barragem).<br>- Monitorar na próxima ronda.<br>### Pendências em aberto (consolidado noturno):<br>1. 🔴 **Endereço CompetenceNet** — Reges vem amanhã de tarde<br>2. 🔴 **Senha PPPoE João Luiz (17284)** — Santa Helena aguarda<br>3. 🔴 **OS Chaiene** — Júnior prometeu troca de roteador, precisa criar no Calendar<br>4. ⚡ **Thaís 17291** — sem internet, sem resposta, aguardando luz<br>5. 🟡 **Lucas Schmidt logins** — corrigir no MK (Lucas/Reynaldo/Marcelo)<br>6. 🟡 **Pedroschmidt** — aguardando nome+CPF+endereço do pai<br>7. 🟡 **Aline 15924** — prometido diagnóstico P7 amanhã (risco cancelamento)<br>8. 🟡 **Instalação João Luiz (Emerson)** — amanhã manhã, CPF ainda pendente</div>
+  <div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 17:58 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 17:50):<br>- **Lucas Eduardo (16979) — 17:57:** Pediu liberação da internet hoje pois vai receber salário. Respondido: confirmado e orientado a fazer Pix. ⏳ Aguardar pagamento hoje à noite.<br>- **Reinoldo Fischer/Breno (15957) — 17:57 ENCERRADO:** Questão de fatura paga em dinheiro (25/05) esclarecida. Júnior encerrou com 🙏👊💪. ✅<br>- **Lucas Schmidt (17235) — 17:25 ENCERRADO:** "Resolvido então, obrigado e desculpa." Situação fatura esclarecida. ✅<br>- **Pedro/Maria Cecilia (11207) — 17:55:** Pedro: "Deixa escurecer bem na hora de dormir, vamos ver se o bichinho vai aparecer." Monitorar sinal esta noite.<br>- **Atividades — 17:41-56:** Chaiene OS executada (roteador trocado). Fábio diz que era noturno — não encontrou falha física. Júnior: problema pode ser serviço externo (Paramount) + não reiniciava roteador.<br>- **Lu DM — 17:52:** Enviou foto cabo WAN ressecado/danificado num roteador. Júnior confirmou "É sim". Provável relação com Regina Porto (cabos suspeitos). Cabo precisa ser trocado.<br>### Disparo comunicado:<br>- Campanha 100% encerrada. STEP 3 PULADO.<br>### Pendências críticas em aberto (17:58):<br>1. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente não agendada ainda. Fábio foi pra Chaiene, não foi na Jayne hoje.<br>2. 🟡 **Pedro/Maria Cecilia (11207)** — monitorar sinal esta noite (19h-22h). Sinal cai ao escurecer.<br>3. 🟡 **Chaiene (10502)** — roteador trocado. Monitorar se problema persiste à noite.<br>4. 🟡 **Lucas Eduardo (16979)** — prometeu pagar hoje. Verificar se Pix chegou.<br>5. 🟡 **Regina Porto (17065)** — cabos suspeitos. Lu enviou foto de cabo danificado. Possível cabo WAN ressecado. Agendar troca.<br>6. ⏳ **Paulo Jean (17201)** — não estava em casa. Remarcar visita Fábio.<br>7. ⏳ **Marcelo Bittencourt** — cadastro novo no sistema pendente.<br>8. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu ainda.<br>9. 🟡 **Maria Eduarda (17015)** — sem resposta. Cutucar amanhã (01/07).<br>10. ⏳ **Leandro retirada** — verificar 01/07.<br>11. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>12. 🔇 **Marly** — acordo 15/07.<br>13. ⏳ **Emerson (16753)** — CPF João Luiz aguardando.<br>14. ⏳ **Valdir** — cancelamento agendado.<br>15. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>16. ⏳ **Glauciléia (16397)** — retirada comodato: tarde 01/07 se tempo bom.<br>17. ⏳ **Poliana (17286)** — antena velha no poste; OS retirada pendente (Lu vai criar).<br>18. ⏳ **Pedroschmidt** — Júnior CONFIRMAR qual dia (03/07 quinta ou 04/07 sexta) antes de criar OS.<br>### Lembretes desta noite:<br>- 🌙 19h-22h: monitorar sinal Pedro/Maria Cecilia (11207) — Zeno Melo 5.74km<br>- 🌙 19h-22h: monitorar Chaiene (10502) — roteador novo, verificar se problema persiste<br>- 💰 Verificar Lucas Eduardo (16979) — prometeu Pix hoje<br>- ⚠️ Amanhã CHUVA → sem campo. Reagendar visitas se necessário.<br>- Amanhã 01/07: Maria Eduarda cutucar, Leandro retirada, Celetro orçamento, Glauciléia comodato (tarde, tempo bom)</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 21:40 — Ronda automática</div>
-  <div class="log-corpo">### Respostas recebidas após varrida 21:33:<br>- **Reges Belle (17119):** vai de tarde, precisa do endereço. ⚠️ Endereço da CompetenceNet NÃO consta nos arquivos — alertar Júnior p/ incluir em USER.md<br>- **Lucas Schmidt (17235):** antenas trocadas — Lucas/Reynaldo/Marcelo com logins invertidos. Pedido confirmado, aguardando Júnior corrigir no MK<br>- **Pedroschmidt:** CONFIRMOU sexta 04/07 às 13h! Lead virou instalação. Pedido nome+CPF+endereço.<br>- **Gelson (16836):** entendeu e agradeceu. ENCERRADO ✅<br>- **Chaiene (10502):** REABERTA — roteador com problema intermitente. Júnior atendendo ao vivo 21:41.<br>- **Lu:** "o que estava com problema é só a Regina" — confirmou situação Regina Porto.<br>- **Demais cutucadas (Lilian, Aline, Patrícia, Thaís, Ana Cristina):** sem resposta ainda (noite).<br>### Ações tomadas:<br>- Respondido Lucas Schmidt: esclarecimento sobre logins invertidos, pedida confirmação<br>- Confirmado Pedroschmidt: sexta 13h ✅, pedido dados cadastrais<br>- Atualizado ATENDIMENTO_PENDENTE.md: Gelson encerrado, Bxga encerrado, Chaiene reaberta, Pedro instalação confirmada<br>- Encaminhado nota sobre Reges (endereço não cadastrado)<br>### Pendências novas identificadas:<br>1. 🔴 **Endereço CompetenceNet** — Reges Belle quer vir amanhã e pediu o endereço. Não consta nos arquivos.<br>2. 🟡 **Lucas Schmidt:** corrigir logins MK (Lucas/Reynaldo/Marcelo invertidos)<br>3. ⚡ **Thaís 17291** — continua sem resposta, offline no MK. Aguardando luz voltar.</div>
+  <div class="log-titulo">🔄 UPDATE 17:50 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 17:25):<br>- **Pedro/Maria Cecilia Ibiaçu (11207) — 17:43:** Audio unanswered: "Vai dando uma monitorada pra ver como tá o sinal." Contexto: sinal cai à noite de forma anormal. Júnior prometeu monitorar. ⚠️ PENDENTE.<br>- **Pedroschmidt (17:32-42):** Bot confirmou "sexta 04/07 13h?". Pedro: "Sim / 03/07" → ⚠️ CONFLITO DE DATA: 03/07 é quinta, não sexta. Pedro apagou uma mensagem. Precisa confirmação do Júnior.<br>- **Atividades group (17:41):** Fábio reportou Chaiene: "Troquei o roteador mas não vi nada de errado. Funcionava bem. Ela disse que é à noite. Júnior tem que dar uma controlada." ⚠️ Problema pode não ser o roteador — noturno.<br>- **OS group (17:36):** Fábio: "Saindo Chaiene" — OS Chaiene CONCLUÍDA ✅<br>- **Reinoldo Fischer/Breno (17:26):** Audio de encerramento positivo: "pessoa muito honesta, vai indicar e procurar primeiro se precisar de internet em Cachoeira." ✅ ENCERRADO.<br>### Ações tomadas:<br>- ✅ Chaiene (10502) cliente file atualizado: roteador trocado, problema pode ser noturno<br>- ✅ Pedro/Maria Cecilia (11207) cliente file criado: sinal noturno anômalo<br>- ✅ Pedro/Maria Cecilia adicionado ao ATENDIMENTO_PENDENTE.md<br>- ✅ Chaiene UPDATE adicionado ao ATENDIMENTO_PENDENTE.md<br>- ✅ Pedroschmidt date confusion documentada no cliente file<br>- Reinoldo Fischer encerrado ✅<br>### Disparo comunicado: PULADO — 0 pendentes<br>### Pendências críticas em aberto (17:50):<br>1. ⚠️⚠️ **Pedroschmidt DATA CONFUSA** — Pedro disse "Sim / 03/07". 03/07 = quinta, 04/07 = sexta. JÚNIOR CONFIRMAR: qual dia? OS no Calendar ainda não criada.<br>2. ⚠️ **Chaiene (10502)** — roteador trocado mas problema pode não ser o roteador. Júnior monitorar esta noite.<br>3. ⚠️ **Pedro/Maria Cecilia (11207)** — sinal caindo à noite. Júnior prometeu monitorar. Pediu às 17:43. Monitorar 19h-22h.<br>4. 🔴 **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente ainda não agendada.<br>5. 🟡 **Regina Porto (17065)** — reclamando de novo. Cabos suspeitos. Aguardando ela contactar Júnior.<br>6. ⏳ **Paulo Jean (17201)** — não estava em casa. Remarcar visita Fábio.<br>7. ⏳ **Marcelo Bittencourt** — cadastro novo no sistema pendente.<br>8. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu ainda.<br>9. 🟡 **Maria Eduarda (17015)** — sem resposta. Cutucar amanhã (01/07).<br>10. ⏳ **Leandro retirada** — verificar 01/07.<br>11. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>12. 🔇 **Marly** — acordo 15/07.<br>13. ⏳ **Emerson (16753)** — CPF João Luiz aguardando.<br>14. ⏳ **Valdir** — cancelamento agendado.<br>15. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>16. ⏳ **Glauciléia (16397)** — retirada comodato: tarde 01/07 se tempo bom.<br>17. ⏳ **Poliana** — antena velha no poste; OS retirada pendente (Lu vai criar).<br>### Lembretes desta noite:<br>- 🌙 19h-22h: monitorar sinal Pedro/Maria Cecilia (11207) — Zeno Melo 5.74km<br>- 🌙 19h-22h: monitorar Chaiene — problema noturno (Fábio não encontrou nada errado no roteador)<br>- ⚠️ Amanhã CHUVA → sem campo. Reagendar visitas se necessário.<br>- Amanhã 01/07: Maria Eduarda cutucar, Leandro retirada, Celetro orçamento, Glauciléia comodato (tarde, tempo bom)<br>- Pedroschmidt: Júnior CONFIRMAR qual dia (03/07 quinta ou 04/07 sexta) antes de criar OS</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 21:33 — Varrida completa do dashboard</div>
-  <div class="log-corpo">### Ações executadas (autônomo):<br>- Thaís 17291: cutucada enviada — luz voltou? ⚡ aguardando<br>- Lilian Bicca 15924: cutucada sobre teste de velocidade<br>- Aline 15924 (Garcia): respondida — saturação P7, prazo amanhã. RISCO CANCELAMENTO<br>- Patrícia 17059: cutucada — reiniciou, ficou boa?<br>- Talila (ponto): cutucada — endereço pendente para instalação<br>- Ana Cristina 16575: cutucada — como está depois de 3 dias<br>- Reges Belle 17119: confirmado vir amanhã buscar fonte<br>- Lucas Schmidt 17235: pedido esclarecimento sobre antenas<br>- Emerson 16753: dados do João Luiz Sampaio Siqueira LIDOS (instalação amanhã). CPF pedido.<br>- Santa Helena: avisada que estamos verificando senha PPPoE<br>### Precisa do Júnior:<br>1. 🔴 Senha PPPoE João Luiz (17284) — Santa Helena aguarda<br>2. 🔴 Thaís 17291 — decisão: OS Fábio ou mais diagnóstico?<br>3. 🟡 Aline 15924 — saturação P7, confirmar análise técnica da torre amanhã<br>4. 🟡 Pedroschmidt — política de km + disponibilidade sexta<br>### Encerráveis (pendente confirmação):<br>- Airton Borba 16692 — pagou e agradeceu ✅<br>- Israel 16865 — Júnior falou Blz ✅<br>- Ivanete 17053 — encerrada 24/06 ✅</div>
+  <div class="log-titulo">🔄 UPDATE 17:25 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 17:00):<br>- **Pedroschmidt (17:21-24):** Confirmou que sexta 04/07 é o dia certo (amanhã vai chover). Audio: leva escada, paga à vista, sem cobrança deslocamento. ✅ Negócio fechado. Júnior ativo no chat.<br>- **Reinoldo Fischer/Breno (17:08-23):** Perguntou sobre pagamento R$199,90 de maio. Júnior respondeu às 17:20 e 17:23. Conversa ativa com Júnior.<br>- **Atividades group (17:06-17):**<br>- Fábio perguntou endereço Chaiene ("ali da Noêmia?")<br>- Lu: "Já vou passar / Mas não é Noêmia, Fábio / Medianeira"<br>- Júnior (17:17): "Muda do cadastro dela então, a Medianeira, tu consegui-la, me salva!"<br>- Status: Fábio está indo para Chaiene. Endereço correto: Medianeira. OS em andamento. ✅<br>- **Lucas Schmidt (17:01-25):** Audio final 17:25: "Tá beleza, resolvido. Obrigado e desculpa, é um cômodo também." ✅ ENCERRADO.<br>- **Lu DM (17:02):** ⚠️ Regina Porto (17065) reclamando de novo. Sinal ok na antena. Suspeita: cabos. Lu mandou ela contatar Júnior.<br>- **Família presente de Deus (17:11):** Grupo familiar pessoal — sem ação.<br>### Ações tomadas:<br>- ✅ Regina Porto (17065) adicionada ao ATENDIMENTO_PENDENTE.md (🟡 aguardando ela contactar Júnior)<br>- ✅ Cliente Pedroschmidt file atualizado com confirmação sexta + info chuva amanhã<br>- Lucas Schmidt encerrado ✅<br>### Disparo comunicado: PULADO — 0 pendentes<br>### Observação importante — Chaiene OS:<br>- Fábio perguntou endereço às 17:06 → a OS estava incompleta ou endereço errado no Calendar<br>- Lu corrigiu: não é "Noêmia", é "Medianeira"<br>- Júnior pediu para Lu corrigir no cadastro<br>- OS provavelmente ainda em andamento (Fábio indo para Chaiene)<br>### Pendências críticas em aberto (17:25):<br>1. ⚠️ **Pedroschmidt OS 04/07 13h** — AINDA NÃO CRIADA no Calendar. Valor: confirmar R$70 ou R$75. Ponto de encontro: a definir.<br>2. 🔴 **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente ainda não agendada.<br>3. ⏳ **Chaiene (10502)** — Fábio indo agora (17:06+). Resultado ainda não reportado. Endereço correto: Medianeira.<br>4. 🟡 **Regina Porto (17065)** — reclamando de novo. Sinal ok, suspeita cabos. Aguardando contato dela com Júnior.<br>5. ⏳ **Paulo Jean (17201)** — não estava em casa. Remarcar visita Fábio.<br>6. ⏳ **Marcelo Bittencourt** — cadastro novo no sistema pendente criação.<br>7. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu ainda.<br>8. 🟡 **Maria Eduarda (17015)** — sem resposta. Cutucar amanhã (01/07).<br>9. ⏳ **Leandro retirada** — verificar 01/07.<br>10. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>11. 🔇 **Marly** — acordo 15/07.<br>12. ⏳ **Emerson (16753)** — CPF João Luiz aguardando.<br>13. ⏳ **Valdir** — cancelamento agendado.<br>14. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>15. ⏳ **Glauciléia (16397)** — retirada comodato: possível tarde 01/07 se tempo bom.<br>16. ⏳ **Poliana** — antena velha no poste; OS retirada pendente (Lu vai criar).<br>17. ⏳ **Reinoldo Fischer/Breno** — pergunta pagamento maio R$199,90. Júnior ativo.<br>### Lembretes:<br>- Próxima ronda: Chaiene — Fábio concluiu? Roteador trocado? Valor cobrado?<br>- Amanhã chuva → reagendar visitas campo se necessário<br>- Amanhã 01/07: Maria Eduarda cutucar, Leandro retirada, Celetro orçamento, Glauciléia comodato (tarde, se tempo bom)<br>- 04/07 13h: Pedroschmidt OS a criar (valor + ponto de encontro pendentes com Júnior)</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 20:58 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Lu — 20:58:** Enviou contato 17153 Raul + áudio "tá no nome de Raul, mas é Regina Porto dela" — vínculo registrado em USER.md. Confirmei para a Lu ✅<br>- **Pedroschmidt — 20:39:** Insistiu no km. Respondi com cuidado: fato de eles levarem o técnico conta bastante, decidimos junto na hora. Aguardando horário da sexta.<br>- **Grasi E Oséias — 20:53-20:57:** Mora em Cachoeira, está negociando chácara perto do Iruí. Vizinhos da chácara já têm CompetenceNet (confirmação de sinal!). Não tem localização exata ainda — vai tentar conseguir. Júnior respondeu diretamente.<br>- **Lucas Eduardo — sem nova mensagem.** Resolvido ✅<br>### Pendências:<br>1. ⏳ giovanicasa — senha PPPoE com Júnior<br>2. ⏳ Grasi E Oséias — aguardando localização exata da chácara<br>3. ⏳ João Luiz Sampaio (via Emerson) — instalação amanhã manhã, CPF pendente<br>4. ⏳ Pedroschmidt — aguardando horário sexta + Júnior confirmar política km<br>5. ⚠️ Despesas pessoais R43,00 — lançar na planilha amanhã (Super Ronda)<br>6. 🔓 Amanhã: habilitar fluxos Webservice MK<br>7. 📋 17153 Raul = cônjuge Regina Porto (17065) — ambos área rural CHS<br>### Notas:<br>- Grupo Atividades: Fábio perguntou às 16h se tinha algo — sem serviço hoje.<br>- Campanha comunicado: encerrada (338/338 enviados).</div>
+  <div class="log-titulo">🔄 UPDATE 17:00 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 16:50):<br>- **Lu DM (16:57):** "Vou colocar 90" — Lu decidiu valor da instalação R$90. Conversa Lu-Júnior resolvida. ✅<br>- **Pedroschmidt (16:55):** 🤝🤝 — Pedro confirmou acordo com emoji. Negócio FECHADO. ✅<br>- **Marcelo Bittencourt (16:51):** "Ok obrigado" — acusou recebimento das explicações do Júnior. Conversa encerrada. ✅<br>- **Família presente de Deus (16:52-58):** Sogra + Mita Cunha trocando áudios/imagens — grupo pessoal familiar, sem ação.<br>- **Atividades (15:59):** Lu perguntou "Ele vai trocar?" → Júnior respondeu áudio → Lu "Tá bom." Provável confirmação da troca de roteador Chaiene.<br>- **OS Group:** Sem atualização desde 16:27. Chaiene OS em andamento (campo).<br>### Ações tomadas:<br>- Nenhuma nova ação necessária — todos os chats com atividade foram tratados pelo Júnior diretamente.<br>### Disparo comunicado: PULADO — 0 pendentes<br>### Pendências críticas em aberto (17:00):<br>1. ⚠️ **Pedroschmidt VALOR** — ainda não confirmado (R$70 ou R$75?). Júnior DEVE confirmar antes de sexta 04/07.<br>2. ⚠️ **Pedroschmidt ponto de encontro sexta** — onde Fábio busca Pedro/avó? Pendente Júnior.<br>3. ⚠️ **Pedroschmidt OS 04/07 13h** — OS ainda não criada no Calendar.<br>4. 🔴 **Jayne (16775)** — só WhatsApp funciona desde 16:12. Visita técnica urgente ainda não agendada.<br>5. ⏳ **Chaiene (10502)** — OS 16:30-17:30. Fábio em campo. Resultado ainda aguardado.<br>6. ⏳ **Paulo Jean (17201)** — não estava em casa 16:27. Remarcar visita Fábio.<br>7. ⏳ **Marcelo Bittencourt** — Júnior explicou financeiro. Cadastro novo pendente criação no sistema. Monitorar.<br>8. ⏳ **Lucas Schmidt (17235)** — situação faturamento clarificada. Acompanhar resolução.<br>9. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu ainda.<br>10. 🟡 **Maria Eduarda (17015)** — sem resposta. Cutucar amanhã (01/07).<br>11. ⏳ **Leandro retirada** — verificar 01/07.<br>12. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>13. 🔇 **Marly** — acordo 15/07.<br>14. ⏳ **Emerson (16753)** — CPF João Luiz aguardando.<br>15. ⏳ **Valdir** — cancelamento agendado.<br>16. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>17. ⏳ **Glauciléia (16397)** — retirada comodato: possível tarde 01/07 se tempo bom.<br>18. ⏳ **Poliana** — antena velha no poste; OS retirada pendente (Lu vai criar).<br>### Lembretes:<br>- Próxima ronda: Chaiene — Fábio concluiu? Roteador trocado? Valor cobrado?<br>- Próxima ronda: Pedroschmidt — Júnior confirmou valor R$70 ou R$75?<br>- Próxima ronda: Paulo Jean (17201) — remarcar visita<br>- Amanhã 01/07: Maria Eduarda cutucar, Leandro retirada, Celetro orçamento, Glauciléia comodato (tarde)</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 20:37 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Lucas Eduardo (16979) — 19:58:** Subiu no galpão e realinhou a antena! Pediu confirmação. API: online 57min, 919MB. RESOLVIDO ✅<br>- **Lu — 20:23-20:32:** Conversa operacional com Júnior, "tá bom". Áudio 20:32: "deu 23 mega" — speedtest pós-realinhamento. Monitorado.<br>- **Grasi E Oséias — 20:00:** "Pode sim" — quer proposta e visita. Pedi nome completo para registrar.<br>- **Pedroschmidt 🌾🌱 — 20:25:** Lead quente. Quer instalar 20 Mega (4 câmeras). Propõe sexta tarde, eles levam o técnico. Perguntou sobre km. Respondi confirmando sexta, pedi horário. Aguardando Júnior confirmar disponibilidade + política km.<br>- **Despesas pessoais (grupo Amor Novo):** R43,00 total. PENDENTE lançamento planilha (gog sheets não suportado). Salvo em despesas_pendentes.md.<br>### Pendências:<br>1. ⏳ giovanicasa — senha PPPoE com Júnior<br>2. ⏳ Grasi E Oséias — aguardando nome completo<br>3. ⏳ João Luiz Sampaio (via Emerson) — instalação amanhã manhã, CPF pendente<br>4. ⏳ Pedroschmidt — aguardar horário + Júnior confirmar sexta/km<br>5. ⚠️ Despesas pessoais R43,00 — lançar na planilha amanhã<br>6. 🔓 Amanhã: habilitar fluxos Webservice MK</div>
+  <div class="log-titulo">🔄 UPDATE 16:50 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 16:25):<br>- **Marcelo Bittencourt (16:44-49):** Júnior está criando novo cadastro para Marcelo a partir da data que ele entrou (dia 1). Vencimento dia 5. Marcelo pagou R$350 para o Reynaldo pela instalação (R$100 mais barato que o normal). Júnior resolvendo no sistema. **Status: Júnior ativo, em andamento.**<br>- **Lucas Schmidt (16:38-44):** Confirmou "Eu tô um mês na casa do Reinoldo e o Marcelo tá um mês na que eu tava." Júnior esclareceu situação de faturamento. Caso encaminhado corretamente.<br>- **Pedroschmidt (16:33-46):** Pedro confirmou desconto (sem deslocamento) e perguntou "Fechado então?" após Júnior explicar que não cobra deslocamento se for à vista. **Respondido 16:50: FECHADO confirmado, sexta 04/07 13h, dois carros.** ✅<br>- **Lu DM (16:28-47):** Discussão sobre preços de instalação. Lu perguntou "❓❓❓" às 16:47 — Júnior ainda não respondeu. Contexto: cobrança por instalação (~R$30/unidade, Lu coloca R$60). Lu e Júnior conversando diretamente — sem ação do bot.<br>- **OS Group (16:27):** Fábio: "Jean não estava, saindo Piquiri" — visitou Paulo Jean (17201) que não estava em casa. Chaiene OS 16:30 — Fábio deve estar a caminho.<br>- **Jayne (16775):** Sem novas mensagens desde 16:26. Aguardando visita técnica.<br>### Ações tomadas:<br>- ✅ Respondido Pedroschmidt: negócio FECHADO, confirmar valor e ponto de encontro<br>### Disparo comunicado: PULADO — 0 pendentes<br>### Pendências críticas em aberto (16:50):<br>1. ⚠️ **Pedroschmidt VALOR** — ainda não confirmado (R$70 ou R$75?). Júnior DEVE confirmar antes de sexta 04/07.<br>2. ⚠️ **Pedroschmidt ponto de encontro sexta** — onde Fábio vai buscar Pedro/avó? Pendente Júnior.<br>3. ⚠️ **Pedroschmidt OS 04/07 13h** — OS ainda não criada no Calendar.<br>4. 🔴 **Jayne (16775)** — só WhatsApp funciona desde 16:12. Visita técnica ainda não agendada.<br>5. ⏳ **Chaiene (10502)** — OS 16:30. Fábio saindo Piquiri 16:27. Resultado ainda pendente.<br>6. ⏳ **Paulo Jean (17201)** — não estava em casa 16:27. Remarcar visita Fábio.<br>7. ⏳ **Marcelo Bittencourt** — Júnior criando cadastro novo. Monitorar conclusão.<br>8. ⏳ **Lucas Schmidt (17235)** — situação de faturamento em resolução com Júnior.<br>9. ⏳ **Lu ❓❓❓ (16:47)** — aguardando resposta do Júnior sobre preço instalação.<br>10. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu ainda.<br>11. 🟡 **Maria Eduarda (17015)** — sem resposta. Cutucar amanhã (01/07).<br>12. ⏳ **Leandro retirada** — verificar 01/07.<br>13. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>14. 🔇 **Marly** — acordo 15/07.<br>15. ⏳ **Emerson (16753)** — CPF João Luiz aguardando.<br>16. ⏳ **Valdir** — cancelamento agendado.<br>17. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>18. ⏳ **Glauciléia (16397)** — retirada comodato: possível tarde 01/07 se tempo bom.<br>19. ⏳ **Poliana** — antena velha no poste; OS de retirada pendente (Lu vai criar).<br>### Lembretes:<br>- Ronda 17:30: Chaiene — Fábio concluiu? Resultado? Roteador trocado?<br>- Ronda 17:30: Pedroschmidt — Júnior confirmou valor (R$70 ou R$75)?<br>- Ronda 17:30: Lu ❓❓❓ — Júnior respondeu sobre preço instalação?<br>- Ronda 17:30: Paulo Jean (17201) — remarcar visita<br>- Amanhã 01/07: Maria Eduarda cutucar, Leandro retirada, Celetro orçamento, Glauciléia comodato (tarde)</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 19:57 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Lucas Eduardo (16979) — 19:41:** Dois áudios — antena provavelmente girada desde ontem. TV oscilando. Ele vai subir no galpão pra ver. API: online 18min, 333MB baixados. Respondi orientando sobre realinhamento.<br>- **Anita (16501) — 19:41:** "Voltou" — Júnior tratou ✅<br>- **Pedro/Maria Cecilia (11207) — 19:40:** Respondeu Júnior — Júnior conduzindo ✅<br>- **Grasi E Oséias — 19:41:** Endereço = Estrada do Balneário Irui km 247. Calculei: ~12.5km da Porteira 7 (dentro dos 17km). Respondi positivo com ressalva de verificação técnica.<br>- **Lu — 19:48:** Enviou speedtest da Regina Porto (17065): Downlink 65.6 Mbps / Uplink 1.3 Mbps (uplink muito baixo). Conversa operacional com Júnior.<br>### Pendências:<br>1. ⏳ giovanicasa — senha PPPoE com Júnior<br>2. ⏳ Grasi E Oséias — lead, aguardando resposta sobre proposta/visita<br>3. ⏳ João Luiz Sampaio (via Emerson) — instalação amanhã manhã, CPF pendente<br>4. ⏳ Lucas Eduardo — aguardando retorno sobre antena girada<br>5. ⚠️ Regina Porto (17065) — uplink 1.3 Mbps muito baixo — verificar<br>6. 🔓 Amanhã: habilitar fluxos Webservice MK</div>
+  <div class="log-titulo">🔄 UPDATE 16:25 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 16:00):<br>- **Marcelo Bittencourt** — CASO RESOLVIDO: é novo morador da casa. Comprometeu-se a pagar mensalidades futuras. Dívida de junho (transição Reynaldo→Marcelo) ainda indefinida — Júnior resolve depois de Teodópolis.<br>- **Lucas Schmidt (17235)** — Júnior enviou print fatura + explicou período. Aguardando Lucas confirmar data que Reynaldo foi embora.<br>- **Competencenet Materiais** — Poliana: Fábio usou 190 + Fonte + Suporte. Antena velha ficou no poste (sem escada). Lu vai criar OS + comodato.<br>- **Lu DM** — Agenda 01/07: nada de manhã. Tarde: possível retirada Glauciléia (16397) se tempo bom.<br>- **Pedroschmidt** — Confirmou 20 MB. Perguntou se é R$70. Respondido: confirmar com Júnior.<br>- **Jayne (16775)** — "Só WhatsApp funciona". Respondido: urgente, técnico vai verificar.<br>### Ações tomadas:<br>- Respondido Pedroschmidt: 20 MB confirmado, valor sendo verificado ✅<br>- Respondido Jayne: urgente, técnico vai verificar ✅<br>### Disparo comunicado: PULADO — 0 pendentes<br>### Pendências críticas em aberto (16:25):<br>1. ⏳ **Lucas Schmidt (17235)** — Aguardando confirmar data que Reynaldo foi embora (para definir quem paga junho). Júnior resolve depois de Teodópolis.<br>2. ⏳ **Marcelo Bittencourt** — Comprometeu-se a pagar futuras. Dívida de transição junho ainda pendente.<br>3. ⚠️ **Pedroschmidt preço** — Pedro acha R$70. Eu disse R$75. JÚNIOR DEVE CONFIRMAR valor real antes de sexta.<br>4. ⚠️ **Pedroschmidt OS 04/07 13h** — OS ainda não criada no Calendar.<br>5. ⚠️ **Pedroschmidt ponto de encontro sexta** — onde buscar Fábio? Pendente Júnior.<br>6. 🔴 **Jayne (16775)** — "Só WhatsApp funciona" (16:12). Aguardando agendamento técnico urgente.<br>7. ⏳ **Poliana** — Antena velha no poste. Lu vai criar OS de retirada. Confirmar comodato registrado.<br>8. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu ainda.<br>9. ⚠️ **Lu — OS Chaiene** — Valor ainda pendente. Fábio já foi à casa? Resultado?<br>10. 🟡 **Maria Eduarda (17015)** — sem resposta. Cutucar amanhã (01/07).<br>11. ⏳ **Leandro retirada** — verificar 01/07.<br>12. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>13. 🔇 **Marly** — acordo 15/07.<br>14. ⏳ **Emerson (16753)** — CPF João Luiz aguardando.<br>15. ⏳ **Valdir** — cancelamento agendado.<br>16. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>17. 🔵 **555180650501** — número desconhecido.<br>18. 🔵 **Gabriel Propaganda Rádio** — contato publicidade, baixa prioridade.<br>19. ⏳ **Glauciléia (16397)** — retirada comodato: possível tarde de 01/07 se tempo bom.<br>### Lembretes:<br>- Ronda 17:00: OS Chaiene — Fábio foi? Resultado? Valor cobrado?<br>- Ronda 17:00: Lucas Schmidt — confirmou data saída Reynaldo?<br>- Ronda 17:00: Jayne — agendamento técnico confirmado?<br>- Ronda 17:00: Pedroschmidt preço R$70 ou R$75 — Júnior confirmou?<br>- Amanhã 01/07: Leandro retirada, Celetro/Gilberto orçamento, Glauciléia comodato (se tempo bom tarde)</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 19:37 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Lucas Eduardo (16979) — 19:37:** Reclamou de quedas. API: login sena online (5min, vlan109-dickow). Reconectou sozinho. Respondi confirmando online e pedindo pra avisar se continuar.<br>- **Anita (16501) — 19:36:** "Voltou" — Júnior tratou, encerrado ✅<br>- **Pedro/Maria Cecilia (11207):** Júnior respondeu diretamente ✅<br>- **Israel Lucas:** Júnior encerrou com "Blz" ✅<br>- **Grasi E Oséias (19:03):** Vai se mudar pro Irui (interior). Pedi endereço exato para checar cobertura.<br>- **Lu/Júnior (19:01-19:02):** Conversa operacional — Lu perguntando sobre agenda. Sem ação minha.<br>### Pendências abertas:<br>1. ⏳ giovanicasa (Santa Helena) — senha PPPoE com Júnior<br>2. ⏳ Grasi E Oséias — aguardando endereço no Irui<br>3. ⏳ João Luiz Sampaio (via Emerson) — instalação amanhã manhã, CPF pendente<br>4. ⏳ Lucas Eduardo — monitorar quedas nas próximas rondas<br>5. 🔓 Amanhã: habilitar fluxos Webservice MK (OS + cliente + histórico)</div>
+  <div class="log-titulo">🔄 UPDATE 16:00 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 15:50):<br>- **Lucas Schmidt (17235) — 15:52-59:** Caso dos logins cruzados encaminhado:<br>- Júnior instruiu Lucas a ter Reynaldo ligar para refazer cadastro no nome dele<br>- Reynaldo pagou ~10x de R$199 (TV Box), deve junho ainda<br>- Lucas quer o mesmo plano do Reynaldo para si<br>- Reynaldo já ligou via Marcelo Bittencourt<br>- **Marcelo Bittencourt (555196354831) — 15:57-58:** NOVO<br>- "Buenas / Pediu pra mim te ligar" — contato de Reynaldo via Marcelo<br>- Júnior não respondeu ainda — monitorar<br>- **Lu DM + Atividades — 15:54-59:** Cliente POP Trevisan<br>- Atualmente 10 MB R$131,50 — quer upgrade<br>- Júnior propôs 20 MB por R$131,50 (mesmo preço, dobra velocidade)<br>- Lu: "Tá bom" mas cliente ainda não decidiu<br>- Status: aguardando decisão cliente<br>- **Pedroschmidt — 15:55:** Perguntou sobre instalação (não mensalidade!) + planos maiores<br>- Respondido 16:00: R$100 comodato + confirmar planos maiores com Júnior ✅<br>- Pendente: Júnior definir planos disponíveis para interior do Pedro<br>- **Gabriel Propaganda Rádio — 15:51:** "Boa tarde, tudo bem?" — contato de rádio/publicidade, não cliente. Baixa prioridade.<br>- **Família presente de Deus — 16:00:** Futebol. Pessoal. Sem ação.<br>### Ações tomadas:<br>- Respondido Pedroschmidt: comodato R$100 + aguardar planos com Júnior ✅<br>### Disparo comunicado: PULADO — 0 pendentes<br>### Pendências críticas em aberto (16:00):<br>1. ⚠️ **Marcelo Bittencourt (555196354831)** — "Pediu pra mim te ligar" (Reynaldo via Marcelo). Júnior não respondeu. Monitorar — pode ser urgente para resolver cadastro Reynaldo/Lucas<br>2. ⚠️ **Lucas Schmidt (17235)** — Lucas quer plano igual ao do Reynaldo (R$199?). Aguardando Júnior resolver cadastro com Marcelo/Reynaldo.<br>3. ⏳ **Cliente Trevisan** — quer upgrade 10→20 MB (mesmo preço R$131,50). Não decidiu ainda.<br>4. ⚠️ **Lu DM** — "Ele não decidiu ainda" — aguardando cliente Trevisan<br>5. ⚠️ **Pedroschmidt preço** — informei R$75/mês SEM confirmação. Pode estar errado. Agora perguntou planos maiores também — Júnior deve confirmar.<br>6. ⏳ **Pedroschmidt ponto de encontro sexta** — onde buscar Fábio? Pendente Júnior definir.<br>7. ⚠️ **Lu — valor OS Chaiene** — ainda não confirmado. <strong style="color:#ff4444">URGENTE</strong> antes 16:30.<br>8. 🔵 **Chaiene (10502)** — OS 16:30. Fábio vai à casa. Valor ainda pendente.<br>9. 🟡 **Jayne (16775)** — confirmar se Fábio concluiu visita.<br>10. ⏳ **Pedroschmidt OS 04/07 13h** — OS ainda não criada no Calendar.<br>11. 🟡 **Maria Eduarda (17015)** — sem resposta. Cutucar amanhã.<br>12. ⏳ **Leandro retirada** — verificar 01/07.<br>13. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>14. 🔇 **Marly** — acordo 15/07.<br>15. ⏳ **Emerson (16753)** — CPF João Luiz aguardando.<br>16. ✅ **Poliana (17286)** — resolvida em campo.<br>17. ⏳ **Valdir** — cancelamento agendado.<br>18. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>19. 🔵 **555180650501** — número desconhecido, Júnior enviou contato do Fábio.<br>20. 🔵 **Gabriel Propaganda Rádio** — contato publicidade, baixa prioridade.<br>### Lembretes:<br>- Ronda 16:30: OS Chaiene executada? Fábio cobrou? Valor confirmado pela Lu?<br>- Ronda 16:30: Jayne — visita Fábio concluída?<br>- Ronda 16:30: Marcelo Bittencourt — Júnior respondeu sobre cadastro Reynaldo?<br>- Ronda 16:30: Pedroschmidt preço correto + planos maiores confirmados?<br>- Ronda 16:30: Cliente Trevisan decidiu sobre upgrade?</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 18:57 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Israel Lucas:** Júnior conduzindo diretamente — sem ação minha ✅<br>- **Lu (18:56):** Áudio — confirmou que falou só com a instalação, resto da agenda ainda vai tentar encaixar. Conversa entre Júnior e Lu — sem ação minha.<br>- **Grasi E Oséias (18:46):** Perguntou "Vocês trabalham com internet?" → LEAD ativo<br>- Respondi: sim, internet via rádio, pedindo localidade para verificar cobertura<br>- ⏳ Aguardando resposta com endereço<br>- **Comunicado:** 338/338 enviados — encerrado ✅<br>### Pendências abertas:<br>1. ⏳ giovanicasa (Santa Helena) — senha PPPoE, Júnior precisa verificar no MK<br>2. ⏳ Lead Grasi E Oséias — aguardando localidade para checar cobertura<br>3. ⏳ João Luiz Sampaio Siqueira (via Emerson) — instalação amanhã manhã, CPF pendente</div>
+  <div class="log-titulo">🔄 UPDATE 15:50 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 15:25):<br>- **Lucas Schmidt (17235) — 15:46-50:** Júnior mostrando faturas ao cliente → logins cruzados desvendados:<br>- Lucas pagou (OK, 10/06, vencimento 05/06 — 5 dias atrasado)<br>- Reynaldo NÃO pagou junho (vence 15/06, sem pagamento) e estava usando login de Lucas<br>- Lucas confirmou "ele tinha me falado que tava pago" → Reynaldo afirmou falsamente<br>- Status: Júnior ainda identificando/resolvendo os logins cruzados<br>- **Lu DM — 15:39-40:** Continuação custo OS Chaiene:<br>- 2 adaptadores PPPoE (~R$15-20 cada) + 3 suportes (R$50 cada = R$150)<br>- Lu disse OS já está no sistema, só não faturou<br>- Os dois ainda não fecharam o valor final<br>- ⚠️ <strong style="color:#ff4444">URGENTE</strong> antes de 16:30: Júnior confirmar valor final para Lu faturar e Fábio cobrar<br>- **Atividades — 15:33-37:** Fábio foi até Poliana → cliente "mudança gigantesca". ✅ Poliana CONFIRMADA resolvida.<br>- Júnior enviou mapa de setas (Zeno/FASA/Sandro/Piquiri) para Fábio no grupo<br>- **555180650501 — 15:32:** Júnior enviou "Oi" + contato Fábio para esse número. Provavelmente Chaiene. Sem resposta.<br>- **Pedroschmidt — 15:37-50:** Pedro perguntou localização + preço sem desconto.<br>- Respondido: "20 Mega R$75/mês (interior), confirmo desconto à vista com Júnior"<br>- ⚠️ R$75 informado SEM confirmação Júnior — pode estar errado para interior<br>- Pedro ainda precisa: ponto de encontro para buscar técnico sexta<br>- **Humberto (16958) — 15:29:** 2 vídeos pessoais. Sem ação operacional.<br>### Ações tomadas:<br>- Respondido Pedroschmidt (R$75 + aguardar confirmação desconto) ✅<br>- Todos os áudios relevantes transcritos ✅<br>### Disparo comunicado: PULADO — 0 pendentes<br>### Pendências críticas em aberto (15:50):<br>1. 🔴 Lucas Schmidt (17235) — Júnior resolvendo logins cruzados. Reynaldo deve junho.<br>2. ⚠️ Lu DM — valor OS Chaiene ainda não fechado. <strong style="color:#ff4444">URGENTE</strong> antes 16:30.<br>3. 🔵 Chaiene (10502) — OS 16:30. Valor ainda não confirmado.<br>4. ⚠️ Pedroschmidt preço — informei R$75 sem confirmar. Pode estar errado.<br>5. ⏳ Pedroschmidt ponto de encontro sexta — pendente Júnior definir.<br>6. 🟡 Jayne (16775) — confirmar se Fábio concluiu visita.<br>7. ⏳ Pedroschmidt OS 04/07 13h — OS ainda não criada no Calendar.<br>8. 🟡 Maria Eduarda (17015) — sem resposta. Cutucar amanhã.<br>9. ⏳ Leandro retirada — verificar 01/07.<br>10. ⏳ Celetro/Gilberto — orçamento CTG (cobrar 01/07).<br>11. 🔇 Marly — acordo 15/07.<br>12. ⏳ Emerson (16753) — CPF João Luiz aguardando.<br>13. ✅ Poliana (17286) — CONFIRMADA resolvida em campo.<br>14. ⏳ Valdir — cancelamento agendado.<br>15. ⏳ Nelson Caixa — Pronampe retorno semana que vem.<br>16. 🔵 555180650501 — número desconhecido, identificar.<br>### Lembretes:<br>- Ronda 16:30: OS Chaiene executada? Fábio cobrou? Valor confirmado?<br>- Ronda 16:30: Jayne conclusão visita<br>- Ronda 16:30: Lucas Schmidt logins resolvidos?<br>- Ronda 16:30: Júnior corrigiu preço Pedro (R$75)?</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 18:37 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Israel Lucas (16865):** Júnior assumiu a conversa diretamente às 18:33 — atendimento encerrado ✅<br>- **Emerson (16753) — 18:22:** Marcou instalação para amanhã (30/06) manhã.<br>- Enviou RG do novo cliente: João Luiz Sampaio Siqueira (RG 9046108883, nasc 12/08/1969)<br>- ⚠️ CPF pendente — necessário para cadastro no MK antes da instalação<br>- **Grasi E Oséias (555195343191) — 18:12:** "Boa tarde" — desconhecido. Respondi com saudação básica.<br>- **Amor Novo:** Só links de Facebook compartilhados — sem ação necessária<br>- **giovanicasa (Santa Helena):** Senha PPPoE ainda pendente com Júnior<br>### Pendências para Júnior:<br>1. Senha PPPoE do giovanicasa → Santa Helena aguardando<br>2. CPF do João Luiz Sampaio Siqueira → instalação amanhã manhã</div>
+  <div class="log-titulo">🔄 UPDATE 15:25 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 15:00):<br>- **Lucas Schmidt (17235) — 15:15-16:** Júnior assumiu atendimento direto via 2 áudios:<br>- Áudio 1: Contexto confuso (achou que Lucas tinha mudado de casa/antena trocada entre clientes). Menciona assistente "anotando tudo".<br>- Áudio 2: "Tira a antena da tomada, acho que volta. Vamos entender esse mal acontecido." → diagnóstico: reiniciar antena<br>- Lucas ainda não respondeu confirmando se voltou<br>- **Lu DM — 15:12-18:**<br>- 15:12: Lu enviou link ML desengripante (Etaniz 300ml, kit 6un)<br>- 15:12 (áudio): "Tu sabe se o Fábio vai conseguir trocar Poliana pra FASA?" → DESATUALIZADA (já resolvido via Zeno)<br>- 15:15 (texto): Estimativa custo OS Chaiene = R$636 (roteador 300 + cabo 96 + deslocamento 100 + cabo 60 + adaptador PPPoE 30 + suportes 50)<br>- 15:15 (áudio): "Dá uma olhada nos preços, eu inventei, não sei o valor certo"<br>- 15:16: "Total 636"<br>- 15:18 (áudio): "Só me confirma se o valor está certo, vou passar pro Fábio cobrar a Chaiene"<br>- ⚠️ **PENDENTE: Júnior confirmar R$636 ou corrigir valores antes das 16:30**<br>- **Nelson Caixa — 15:13:** Respondeu "Ok, ficamos no aguardo" ao áudio do Júnior. Sem ação necessária.<br>### Disparo comunicado:<br>- Campanha 100% encerrada. STEP 3 PULADO.<br>### Pendências críticas em aberto (15:25):<br>1. 🔴 **Lucas Schmidt (17235)** — reiniciar antena mandado às 15:16. Aguardando confirmação. Ronda 15:45 → cutucar se sem resposta<br>2. ⚠️ **Lu DM — R$636 OS Chaiene** — Júnior precisa confirmar valor ANTES das 16:30. Lu aguardando para repassar ao Fábio<br>3. 🔵 **Chaiene (10502)** — OS troca roteador HOJE 16:30. Fábio a caminho. Valor OS: R$636 (pendente confirmação Júnior)<br>4. 🟡 **Jayne (16775)** — confirmar se Fábio concluiu visita<br>5. ⏳ **Pedroschmidt OS 04/07 13h** — dados pendentes<br>6. 🟡 **Maria Eduarda (17015)** — sem resposta. Cutucar amanhã se persistir<br>7. ⏳ **Leandro retirada** — verificar status 01/07<br>8. ⏳ **Celetro/Gilberto** — orçamento CTG pendente (cobrar 01/07)<br>9. 🔇 **Marly** — acordo 15/07<br>10. ⏳ **Emerson (16753)** — CPF João Luiz aguardando confirmação<br>11. ✅ **Poliana (17286)** — RESOLVIDA (monitoramento passivo)<br>12. ⏳ **Valdir** — cancelamento agendado<br>13. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem<br>### Lembretes:<br>- Ronda 15:45 → checar Lucas Schmidt (confirmou internet voltou?)<br>- Ronda 15:45 → verificar se Júnior confirmou R$636 Lu (antes das 16:30)<br>- Ronda 16:30 → checar Chaiene OS executada pelo Fábio<br>- Ronda 16:30 → checar Jayne conclusão visita</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 17:57 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Israel Lucas (16865) — 17:54:** Respondeu áudio: "vamos ficar na guarda pra ver"<br>- Verifiquei via API: epifanio2 reconectou às 17:56:27 — RESOLVIDO ✅<br>- Enviei confirmação: "tô vendo que o Paulinho acabou de conectar"<br>- **Santa Helena/Fasa (17284):** Conexão joaoluiz online há ~50min (vlan122-fasa) ✅<br>- ⏳ Ela ainda aguarda senha PPPoE — pegar com Júnior quando chegar<br>### Pendente urgente quando Júnior chegar:<br>- Senha PPPoE do joaoluiz para Santa Helena</div>
+  <div class="log-titulo">🔄 UPDATE 15:00 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 14:50):<br>- **Lu DM — 14:58-15:00:**<br>- Lu (14:58 áudio): "sempre quando dava menos, a gente sempre cobrou 100" — contexto km Teresa → tarifa mínima R$100 quando distância é menor<br>- Júnior (14:58:54 áudio): perguntou à Lu se foi ela ou o Zap que agendou Chaiene (Cheyenne) pra de tarde e cancelamento Valdir<br>- Júnior (14:59:11 áudio): "tá bom sem pila até aquelas distâncias" (sinal ok sem necessidade de rádio adicional)<br>- Lu (14:59 áudio): resposta curta (transcrição falhou)<br>- Júnior: "Hummmm"<br>- **Nelson Caixa (555186833985) — 14:53-14:59:** Nelson perguntou sobre Pronampe (linha de crédito empresa). Júnior já respondeu via áudio: "ainda avaliando internamente, dou retorno semana que vem". ✅ Sem ação necessária.<br>- **Fábio DM — 14:52:** Júnior enviou áudio + imagem (painel Poliana):<br>- Áudio: "Fábio, viu o sinal dela? 99% CCQ, espetáculo! Troquei o canal da Zeno, ficou bom. Não sei se vai durar mas tá espetacular."<br>- Imagem: AirGrid M5HP, CompNet_Zeno_SO, **-59 dBm, CCQ 99.1%, 150/150 Mbps**, uptime 01:30 — **POLIANA RESOLVIDA** ✅<br>- **Bianca Nunes — 14:51:** Minha confirmação de encerramento entregue. ✅<br>### 🔴 ATUALIZAÇÃO CRÍTICA — Poliana (17286):<br>- **STATUS: RESOLVIDA** — Júnior trocou canal na Zeno → sinal foi pra 99.1% CCQ, -59 dBm, 150/150 Mbps<br>- Migração FASA cancelada/adiada — não necessária por enquanto<br>- ⚠️ Júnior alertou que a Zeno pode voltar a ter problema depois de um tempo (padrão recorrente)<br>### Disparo comunicado:<br>- Campanha 100% encerrada. STEP 3 PULADO.<br>### Pendências críticas em aberto (15:00):<br>1. ⚡ **CRÍTICO: Lucas Schmidt (17235)** — 3h+ sem internet → Júnior corrigir logins MK <strong style="color:#ff4444">URGENTE</strong><br>2. 🔵 **Chaiene (10502)** — OS troca roteador HOJE 16:30 → Júnior confirmou que está agendada. Fábio precisa ir ao bairro Noemia.<br>3. ✅ **Poliana (17286)** — RESOLVIDA: canal Zeno trocado, CCQ 99.1%. Monitorar recorrência.<br>4. 🟡 **Jayne (16775)** — confirmar se Fábio concluiu visita<br>5. ⏳ **Pedroschmidt OS 04/07 13h** — dados pendentes<br>6. 🟡 **Maria Eduarda (17015)** — aguardando resposta sobre horário retirada<br>7. ⏳ **Leandro retirada** — verificar status 01/07<br>8. ⏳ **Celetro/Gilberto** — orçamento CTG pendente (cobrar 01/07)<br>9. 🔇 **Marly** — acordo 15/07<br>10. ⏳ **Emerson (16753)** — CPF João Luiz aguardando confirmação<br>11. ⏳ **Valdir** — cancelamento agendado (mencionado por Júnior)<br>12. ⏳ **Nelson Caixa** — Pronampe, Júnior dará retorno semana que vem<br>### Lembretes:<br>- Ronda 15:15 → checar Lucas Schmidt — se ainda sem internet, escalada nova<br>- Ronda 16:30 → lembrar Chaiene OS execução + checar Jayne conclusão</div>
+</div>
+<div class="log-entry log-limpa"><div class="log-titulo">🟢 14:50 — ronda limpa, nenhuma novidade</div></div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 14:25 Ronda 30/06</div>
+  <div class="log-corpo">### Atividade nova (após 14:00):<br>- **Bianca Nunes (17223):** respondeu "Oiie tudo bem?" (14:19) → respondido: "Tudo certo! Em que posso te ajudar?"<br>- **Lucas Schmidt (17235):** 14:04 "Blz" — aguarda correção login MK (<strong style="color:#ff4444">URGENTE</strong> ainda ativo)<br>- **OS Group (14:18):** Lu postou OS Chaiene (10502) — troca roteador hoje 16:30-17:30 (bairro Noemia)<br>- **Fábio DM (14:09):** Júnior enviou mapa Poliana ao Fábio + áudio calibração linha verde<br>- **Self-chat (14:19):** Júnior perguntou se mapa Mariliane (16827) ok para grupo OS — conversa com ele mesmo, sem ação minha<br>### Disparo comunicado:<br>- Campanha 100% encerrada: 335/338 enviados, 3 nao_whatsapp. STEP 3 PULADO.<br>### Pendências críticas em aberto (14:25):<br>1. ⚡ **CRÍTICO: Lucas Schmidt (17235)** — 2h+ sem internet → Júnior corrigir logins MK AGORA<br>2. 🔵 **Chaiene (10502)** — OS troca roteador HOJE 16:30 → Fábio precisa saber endereço exato (verificar MK)<br>3. 🟡 **Poliana (17286)** — Fábio testando migração FASA. Aguardar confirmação de sinal<br>4. 🟡 **Jayne (16775)** — Fábio foi depois de Vila Vargas. Confirmar conclusão<br>5. 🔵 **Bianca (17223)** — aguardando ela dizer o que precisa<br>6. ⏳ **Pedroschmidt OS 04/07 13h** — dados pendentes (nasc Dóris + email + venc)<br>7. 🟡 **Maria Eduarda (17015)** — cutucar hoje sobre horário retirada equipamentos<br>8. ⏳ **Leandro retirada** — verificar status 01/07<br>9. ⏳ **Celetro/Gilberto** — orçamento CTG pendente (cobrar 01/07)<br>10. 🔇 **Marly** — acordo 15/07<br>11. ⏳ **Emerson (16753)** — CPF João Luiz aguardando confirmação de Emerson<br>### Lembretes:<br>- Ronda 14:30/14:45 → verificar Lucas Schmidt (confirmar internet voltou)<br>- Ronda 14:30 → checar Poliana resultado FASA com Fábio<br>- Ronda 16:00/16:30 → verificar Chaiene OS executada + Jayne confirmada</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 17:50 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Israel Lucas (16865) — 17:32:** Pede ajuda para configurar roteador resetado do Paulinho. Username PPPoE: epifanio2. Senha não disponível via API.<br>- Respondi: "estou verificando, um minutinho"<br>- ⏳ Aguardando Júnior confirmar senha PPPoE<br>- **Santa Helena/Fasa (17284) — 17:26:** Pede IP e senha PPPoE. Username: joaoluiz. Online há ~43min, vlan122-fasa.<br>- Respondi: "usuario joaoluiz, verificando senha"<br>- ⏳ Aguardando Júnior confirmar senha PPPoE<br>### Ação imediata quando Júnior chegar:<br>1. Pegar senhas PPPoE de epifanio2 e joaoluiz no MK<br>2. Enviar para Israel Lucas e Santa Helena<br>### Conquistas desta sessão:<br>- ✅ 703 clientes consultados via API MK<br>- ✅ 120 com coordenadas reais identificadas<br>- ✅ USER.md atualizado com coords de 6+ clientes<br>- ✅ VLAN descoberta via calledstationid (formato: vlanXXX-NomePOP)<br>- ✅ Aline (15924): Porteira 7 | João Luiz/Fasa (17284): vlan122-fasa</div>
+  <div class="log-titulo">🔄 UPDATE 14:00 Ronda 30/06</div>
+  <div class="log-corpo">### Varredura WhatsApp (após 13:45):<br>**Novos chats com atividade:**<br>1. **Self-chat (13:59):** Júnior enviou coords FASA (-30.143597, -52.618403) após trabalhar mapas da Poliana<br>2. **Bianca Nunes (17223) 13:56:** "Oii" — triagem. ✅ Respondido: "Oi Bianca, tudo bem?"<br>3. **Lucas Schmidt (17235) 13:49:** "Não tá funcionando ainda" (2h sem internet) ✅ Respondido urgência + escalado<br>4. **Lu DM (13:48):** Image = print cadastro Teresa Terres (17300) COMODATO(R) sendo registrado<br>- Áudios contexto: roteador R$350, deslocamento R$100 (~R$300 total), 12.6m cabo, 2x POE, 3 suportes<br>5. **Vinicius (17091) 13:48:** "Obrigado" após confirmação de pagamento ✅ ENCERRADO<br>### Áudios transcritos:<br>- AC322A1FCF4A (Lu DM 13:43): "Sim, e é usado também né, Juli?" (confirma que o roteador é usado)<br>- AC3E1852E5B3 (Júnior DM Lu 13:42): 1.90 km/rodado, confirmar com Zap depois; ID da OS pedido<br>- AC58D62F479E (Júnior DM Lu 13:42): roteador R$350 (baixou preço), cabo 12.6m, 2x POE ~R$15, 3 suportes<br>- AC51D45A65C3 (self 13:53): Júnior instruindo Lu sobre mapa com linhas até cada POP (coordenadas exatas)<br>- ACD7A06BC73E (Atividades Fábio 11:53): alterou de Trevisan → Vila Vargas pq estava ruim<br>- AC9EF41A71CD (Atividades Fábio 13:28): pediu linha de FASA até sua localização<br>### Disparo comunicado:<br>- Campanha encerrada (335/338). Step 3 PULADO.<br>### Pendências críticas em aberto (14:00):<br>1. ⚡ **CRÍTICO: Lucas Schmidt (17235)** — 2h sem internet, login PPPoE invertido → Júnior corrigir MK AGORA<br>2. 🔄 **Poliana (17286) FASA** — Fábio em campo executando migração agora (~13:28+). Confirmar resultado!<br>3. 🟡 **Jayne (16775)** — Fábio confirmou visita hoje. Verificar conclusão<br>4. 🔵 **Bianca (17223)** — aguardando resposta da triagem<br>5. ⏳ **Pedroschmidt OS 04/07 13h** — dados pendentes (nasc Dóris + email + venc)<br>6. 🟡 **Teresa (17300)** — Lu cadastrando COMODATO(R) no MK agora<br>7. ⏳ **Leandro retirada** — verificar status 01/07<br>8. ⏳ **Celetro/Gilberto** — orçamento CTG pendente Júnior (cobrar 01/07)<br>9. 🔇 **Marly** — acordo 15/07<br>10. 🔴 **Daiane (555180354681)** — desbloqueio manual ainda pendente?<br>### Lembretes:<br>- Ronda 14:30 → verificar se Lucas confirmou internet ok; se não → escalar urgência para Júnior<br>- Ronda 14:30 → verificar se Poliana migração FASA concluída</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 17:08 — Júnior em deslocamento</div>
-  <div class="log-corpo">### Status:<br>- ✅ API MK funcionando! Token Suporte: 8aedece24d29a53487ef7a943d7ec1f4<br>- ✅ Fluxo testado: WSAutenticacao → tokenRetornoAutenticacao → consultas OK<br>- 📸 Foto do painel do carro: Júnior disse que mandou hoje — sem encontrar ainda nas imagens. Não insistir hoje.<br>### Júnior offline:<br>- Saiu ~17:08 para Cachoeira do Sul, ~1h30 de viagem<br>- Retorno previsto: ~18:30-18:40<br>- Durante ausência: atender clientes autonomamente, escalar apenas emergências<br>### Pendentes mantidos:<br>- ⏳ Lilian (15989): Júnior avisa ela sobre visita amanhã 30/06 quando chegar<br>- ⏳ Cauana (16784): valor materiais pendente com Fábio<br>- ⏳ Lu: alinhamento sobre quem decide visitas<br>- 🔴 Maria Eduarda (17015): prazo 30/06<br>- 🔴 Aline (15924): diagnóstico sinal</div>
+  <div class="log-titulo">🔄 UPDATE 13:45 Ronda 30/06 (run #66)</div>
+  <div class="log-corpo">### Novidades (atividade após 13:30):<br>- **Vinicius Dias (17091) — 13:32:** Enviou comprovante Pix R$81,88 (vencimento 15/06 + juros). Pagador: DEISE ROSA DA ANUNCIACAO. Respondido: confirmação de recebimento ✅<br>- **Jairo (ZTE Roteadores) — 13:43-44:** Júnior rastreou pedido de solteador que não chegou. Jairo informou que já passou contato do Júnior à transportadora. NF 3549008 — tentativa de entrega frustrada (cliente ausente), Jairo pede contato ativo do cliente para facilitar entrega. ⏳ PENDENTE JÚNIOR: qual cliente/NF é essa entrega?<br>- **Lu DM — 13:24-43:** Cadastrando OS para Teresa (17300 provável). Materiais saída: ZTE + 2m cano + 12m cabo + 2 adaptadores PPPoE + 3 suportes de parede. Valores acordados: roteador R$300, km rodado R$1,90, Lu cobra R$100 deslocamento.<br>- **Atividades grupo — 13:28-31:** Fábio enviou localização (-30.228719,-52.694526) = coordenadas de Poliana (17286). Lu mediu linha até FASA: 11,94 km / 38°. Fábio em campo fazendo migração FASA da Poliana agora.<br>### Disparo comunicado:<br>- Campanha encerrada (335 enviados + 3 nao_whatsapp = 338 total). Nenhum pendente.<br>### Pendências críticas em aberto (13:45):<br>1. ⏳ **CRÍTICO: Pedroschmidt OS 04/07 13h** — ainda não no Calendar! Júnior confirmar ponto de encontro e criar OS<br>2. 🔴 **Lucas Schmidt (17235)** — internet sem PPPoE, logins invertidos — Júnior corrigir no MK<br>3. 🟡 **Poliana (17286) FASA** — Fábio em campo agora fazendo migração. Verificar resultado!<br>4. 🟡 **Jayne (16775)** — Fábio confirmou visita hoje. Verificar se foi<br>5. ⏳ **Jairo NF 3549008** — cliente ausente na entrega, Jairo pede contato. Júnior saber quem é<br>6. 🟡 **Thaís (17291)** — WhatsApp pesado, diagnóstico sinal vlan112 pendente<br>7. 🟡 **Aline (15924)** — Júnior perguntou visita (12:46), sem resposta<br>8. ⏳ **Celetro/Gilberto (16574)** — coordenadas UTM 7 pontos CTG recebidas, Júnior analisar viabilidade<br>9. ⏳ **Maria Eduarda (17015)** — aguardando horário filha para retirada comodatos<br>10. 🔇 **Marly** — acordo 15/07<br>11. 🔵 **Santa Helena/Fasa (17284)** — roteador Paulinho, senha PPPoE, pendente Júnior<br>12. 🔵 **Marlon Qualitec** — peça ePMP 2000, pendente Júnior<br>13. 🔴 **Daiane (555180354681)** — desbloqueio manual pendente (13269/fvalvaro)</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 16:53 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Lu + Júnior (16:44-16:48):** Discussão sobre Lilian Bicca (15989)<br>- OS de ajuste de antena criada pela Lu (Domingo Coringa 28/06 — não realizada)<br>- Júnior: vai amanhã (30/06), vai avisar Lilian pessoalmente hoje<br>- Lu: confusa sobre quem decide (bot, ela ou cliente) — precisa de alinhamento<br>- Instalação Barragem: Lu tentou contato, sem resposta — aguardando<br>- **Grupo Materiais (Cauana 16784):**<br>- Materiais usados: C20, Force180, fonte, cabo Prisma (caixa não precisou)<br>- Lu perguntou valor total + forma de pagamento — sem resposta do Fábio ainda<br>- ⏳ Pendente: fechar valor dos materiais da Cauana com Fábio<br>- **Giulia SDR Oiw:** comercial/fornecedor — registrar como 🔵 triagem, não responder<br>### Pendentes atualizados:<br>- ⏳ Lilian (15989): Júnior vai amanhã 30/06, ele avisa ela hoje — sem ação minha<br>- ⏳ Cauana (16784): valor materiais pendente com Fábio/Lu<br>- ⏳ Lu: precisa de alinhamento sobre quem decide visitas (Júnior deve esclarecer)<br>- ⏳ Webservice MK: aguardando Júnior informar caminho de Operadores no painel<br>- 🔴 Maria Eduarda (17015): prazo 30/06<br>- 🔴 Aline (15924): diagnóstico sinal</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 16:25 Ronda 29/06</div>
-  <div class="log-corpo">### Novidades:<br>- **Lu (16:11):** perguntou "a agenda de amanhã continua vazia ???" — Calendar confirmado: 30/06 SEM EVENTOS<br>- ⏳ PENDENTE JÚNIOR: confirmar para a Lu (pode ter OS informal de campo não na agenda)<br>- **Grupo Atividades (16:05):** Fábio perguntou se tem serviço → Júnior já respondeu "Nada" ✅<br>- **Grupos sociais:** sem ação<br>### Pendentes inalterados:<br>- ⏳ Lu aguardando resposta sobre agenda 30/06<br>- ⏳ Webservice MK: perfil criado, falta Júnior finalizar passo 3 (usuário vinculado)<br>- ⏳ Gelson — ajuste MK telefone<br>- 🔴 Maria Eduarda (17015) — aguardando horário filha (prazo 30/06)<br>- 🔴 Aline (15924) — diagnóstico sinal Porteira 7</div>
+  <div class="log-titulo">🔄 Ronda 13:30 — 30/06/2026</div>
+  <div class="log-corpo">### Novidades após 13:15:<br>- **Grupo Atividades (13:28-13:29):** Fábio (áudio 13:28) pediu pra Lu traçar rota da FASA. Lu enviou localização -30.228719,-52.694526 e disse "Já faço" + "Não marquei, mas é no piquiri" (KM). Lu confirmou "Tá bom". Fábio **está a caminho de Poliana (17286) para Migração FASA** — OS em execução!<br>- **Lu DM (13:24):** Lista de materiais de saída registrada: ZTE + 2m cano + 12m cabo + 2 adaptadores PPPoE + 3 suportes de parede. Roteador = R$300. Provável registro de comodato levado pelo Fábio para OS do dia.<br>- **Amor Novo (13:17):** Mensagem pessoal (campainha/banheiro) — sem ação.<br>- **Celetro, Joana, Pedroschmidt:** já processados na ronda anterior.<br>### Disparo comunicado:<br>- Campanha encerrada — sem disparos pendentes.<br>### Pendências críticas em aberto (13:30):<br>1. ⏳ **CRÍTICO: Pedroschmidt OS 04/07 13h** — NÃO está no Calendar! Júnior precisa confirmar ponto de encontro E criar OS (desconto à vista?)<br>2. 🔴 **Lucas Schmidt (17235)** — internet sem PPPoE, logins invertidos (Reynaldo/Lucas/Marcelo) → Júnior corrigir no MK <strong style="color:#ff4444">URGENTE</strong><br>3. 🟡 **Thaís (17291)** — WhatsApp ainda pesado, prometemos verificar sinal VLAN vlan112-silo-hoerbe — pendente diagnóstico<br>4. 🟡 **Jayne (16775)** — Fábio confirmou "vou lá hoje sim" — verificar se foi<br>5. 🟡 **Aline (15924)** — Júnior perguntou visita (12:46), aguardando resposta dela<br>6. 🔄 **Poliana (17286)** — Migração FASA EM EXECUÇÃO agora com Fábio<br>7. ⏳ **Celetro/Gilberto (16574)** — orçamento 4 pontos CTG — Júnior analisar coordenadas<br>8. ⏳ **Maria Eduarda (17015)** — aguardando horário da filha para retirada comodatos<br>9. 🔇 **Marly** — acordo 15/07<br>10. 🔵 **Santa Helena/Fasa (17284)** — roteador do Paulinho — pendente Júnior<br>11. 🔵 **Marlon Qualitec** — peça ePMP 2000 — pendente Júnior<br>12. ⏳ **Lu feedback desbloqueio** — repassar ao Júnior<br>13. 🔴 **Daiane (555180354681)** — desbloqueio manual pendente (13269/fvalvaro)</div>
 </div>
 
 </div>
