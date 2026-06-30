@@ -142,7 +142,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 30/06/2026 18:30 | 52 itens</span>
+    <span class="meta">Gerado: 30/06/2026 18:33 | 52 itens</span>
   </div>
 </header>
 
@@ -171,7 +171,23 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="container" style="padding-bottom:0;padding-top:12px">
   <div class="alerta-rede alerta-problema">
 ⚠️ <strong>ALERTAS DE REDE</strong>
-<div class="alerta-item" style="border-left:4px solid #888">🟡 <strong>competence-cachoeira-fasa-NETPROBE</strong> — offline há <strong>37 min</strong></div>
+<script>
+function _fmtDur(ms) {
+    var s=Math.floor(ms/1000),m=Math.floor(s/60),h=Math.floor(m/60),d=Math.floor(h/24);
+    if(d>0) return d+'d '+(h%24)+'h '+(m%60)+'min';
+    if(h>0) return h+'h '+(m%60)+'min';
+    return m+'min '+(s%60)+'s';
+}
+function _startCounters(){
+    document.querySelectorAll('[data-since]').forEach(function(el){
+        var t0=new Date(el.getAttribute('data-since')).getTime();
+        function tick(){ el.textContent=_fmtDur(Date.now()-t0); }
+        tick(); setInterval(tick,1000);
+    });
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',_startCounters);}
+else{_startCounters();}
+</script><div class="alerta-item" style="border-left:4px solid #888">🟡 <strong>competence-cachoeira-fasa-NETPROBE</strong> — offline há <strong><span data-since="2026-06-28T12:08:00">calculando...</span></strong></div>
 </div>
 </div>
 
