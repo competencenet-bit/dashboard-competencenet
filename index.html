@@ -146,7 +146,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 01/07/2026 19:50 | 45 itens</span>
+    <span class="meta">Gerado: 01/07/2026 19:58 | 45 itens</span>
   </div>
 </header>
 
@@ -251,13 +251,16 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('17015_maria_eduarda_trindade_d_0b1e6a')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196983474')">💬 WhatsApp Cliente</button>
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*17015%20-%20Maria%20Eduarda%20Trindade%20dos%20Santos%20—%20CANCELAMENTO*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (5)</button>
-      
+      <button class="btn-historico" id="histbtn_17015_maria_eduarda_trindade_d_0b1e6a" onclick="toggleHistorico('17015_maria_eduarda_trindade_d_0b1e6a')">📋 Histórico (4)</button>
       <button class="btn-copiar" onclick="copiarContexto('17015_maria_eduarda_trindade_d_0b1e6a')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_17015_maria_eduarda_trindade_d_0b1e6a" data-ativo="true" onclick="toggleFollowup('17015_maria_eduarda_trindade_d_0b1e6a')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
 
   </div>
-  
+  <div class="painel-historico" id="hist_17015_maria_eduarda_trindade_d_0b1e6a" style="display:none;margin-top:10px;padding:10px 12px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0">
+  <div style="font-size:0.78rem;color:#888;font-weight:600;margin-bottom:6px">📋 HISTÓRICO DE INTERAÇÕES</div>
+  <div class="hist-linha" style="border-left:3px solid #1d4ed8;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🎙️ 01/07 19:00 — Júnior: pediu confirmar se Maria Eduarda está no Domingo Coringa</div><div class="hist-linha" style="border-left:3px solid #059669;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🤖 01/07 19:00 — Bot: confirmado ✅ — está no Coringa às 19h (retirada comodato)</div><div class="hist-linha" style="border-left:3px solid #d97706;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">⏳ JÚNIOR: definir OS com Fábio + avisar Maria do horário com antecedência</div><div class="hist-linha" style="border-left:3px solid #6b7280;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">&gt; ⚠️ **Regra do prazo máximo:** Todo item deve ter `📅 próximo contato:`. Sem data = invisível. Ver RULES.md seção "Regra do Prazo Máximo".</div>
+</div>
 </div>
 <div class="card" id="card_pendente_j_nior_fd5282" data-uid="pendente_j_nior_fd5282" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
