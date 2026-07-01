@@ -35,6 +35,7 @@ header .meta{font-size:0.78rem;opacity:0.7}
 /* Cards */
 .card{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);transition:opacity .3s}
 .card.encerrado{background:#fff5f5!important;border-left-color:#ef4444!important;outline:2px solid #ef4444}.card.encerrado .titulo{color:#ef4444;text-decoration:line-through}.card.encerrado .btn-encerrar{background:#ef4444;color:#fff}
+.card.lido{opacity:0.55}.card.lido .btn-lido{background:#16a34a;color:#fff}.btn-lido{background:#e2e8f0;color:#374151;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.85rem}.btn-lido:hover{opacity:0.85}
 .card-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
 .emoji{font-size:1.2rem}
 .titulo{flex:1;font-size:0.95rem}
@@ -142,7 +143,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 01/07/2026 19:24 | 45 itens</span>
+    <span class="meta">Gerado: 01/07/2026 19:39 | 45 itens</span>
   </div>
 </header>
 
@@ -195,6 +196,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('aline_da_silva_15924_risco_can_e00557',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_aline_da_silva_15924_risco_can_e00557" onclick="marcarLido('aline_da_silva_15924_risco_can_e00557',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('aline_da_silva_15924_risco_can_e00557')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555599461813')">💬 WhatsApp Cliente</button>
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Aline%20da%20Silva%20(15924)%20—%20RISCO%20CANCELAMENTO*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
@@ -215,6 +217,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('aline_aires_da_silveira_16986_ee123c',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_aline_aires_da_silveira_16986_ee123c" onclick="marcarLido('aline_aires_da_silveira_16986_ee123c',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('aline_aires_da_silveira_16986_ee123c')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555195442333')">💬 WhatsApp Cliente</button>
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Aline%20Aires%20da%20Silveira%20(16986)*\n\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (1)</button>
@@ -237,6 +240,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('17015_maria_eduarda_trindade_d_0b1e6a',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_17015_maria_eduarda_trindade_d_0b1e6a" onclick="marcarLido('17015_maria_eduarda_trindade_d_0b1e6a',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('17015_maria_eduarda_trindade_d_0b1e6a')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196983474')">💬 WhatsApp Cliente</button>
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*17015%20-%20Maria%20Eduarda%20Trindade%20dos%20Santos%20—%20CANCELAMENTO*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (5)</button>
@@ -257,6 +261,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('pendente_j_nior_fd5282',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_pendente_j_nior_fd5282" onclick="marcarLido('pendente_j_nior_fd5282',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_j_nior_fd5282')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -277,6 +282,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('jo_o_luiz_siqueira_pai_emerson_b5b473',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_jo_o_luiz_siqueira_pai_emerson_b5b473" onclick="marcarLido('jo_o_luiz_siqueira_pai_emerson_b5b473',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('jo_o_luiz_siqueira_pai_emerson_b5b473')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -297,6 +303,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('pendente_adda72',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_pendente_adda72" onclick="marcarLido('pendente_adda72',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_adda72')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -317,6 +324,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('jorge_10383_62fc4b',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_jorge_10383_62fc4b" onclick="marcarLido('jorge_10383_62fc4b',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('jorge_10383_62fc4b')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198571888')">💬 WhatsApp Cliente</button>
       
@@ -337,6 +345,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('adilmo_11093_716eb6',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_adilmo_11093_716eb6" onclick="marcarLido('adilmo_11093_716eb6',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('adilmo_11093_716eb6')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197702115')">💬 WhatsApp Cliente</button>
       
@@ -357,6 +366,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('jo_o_lu_s_locat_rio_ngela_3c48b7',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_jo_o_lu_s_locat_rio_ngela_3c48b7" onclick="marcarLido('jo_o_lu_s_locat_rio_ngela_3c48b7',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('jo_o_lu_s_locat_rio_ngela_3c48b7')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555599130339')">💬 WhatsApp Cliente</button>
       
@@ -377,6 +387,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('j_ssica_prussiano_de_morais_3b4f4a',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_j_ssica_prussiano_de_morais_3b4f4a" onclick="marcarLido('j_ssica_prussiano_de_morais_3b4f4a',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('j_ssica_prussiano_de_morais_3b4f4a')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -397,6 +408,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('jorge_luis_dutra_nunes_17177_62f55e',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_jorge_luis_dutra_nunes_17177_62f55e" onclick="marcarLido('jorge_luis_dutra_nunes_17177_62f55e',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('jorge_luis_dutra_nunes_17177_62f55e')">🎙️ Áudio via WhatsApp</button>
       
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Jorge%20Luis%20Dutra%20Nunes%20(17177)*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
@@ -417,6 +429,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('ana_paula_16734_sem_no_break_23eb4d',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_ana_paula_16734_sem_no_break_23eb4d" onclick="marcarLido('ana_paula_16734_sem_no_break_23eb4d',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('ana_paula_16734_sem_no_break_23eb4d')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199121781')">💬 WhatsApp Cliente</button>
       
@@ -437,6 +450,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('pergunta_lu_cobran_a_servi_os__6daf8e',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_pergunta_lu_cobran_a_servi_os__6daf8e" onclick="marcarLido('pergunta_lu_cobran_a_servi_os__6daf8e',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pergunta_lu_cobran_a_servi_os__6daf8e')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -457,6 +471,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('15001_val_ria_bartmann_ab3435',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_15001_val_ria_bartmann_ab3435" onclick="marcarLido('15001_val_ria_bartmann_ab3435',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('15001_val_ria_bartmann_ab3435')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199961831')">💬 WhatsApp Cliente</button>
       
@@ -477,6 +492,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('pendente_7e29d5',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_pendente_7e29d5" onclick="marcarLido('pendente_7e29d5',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_7e29d5')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -497,6 +513,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('pendente_j_nior_0e3217',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_pendente_j_nior_0e3217" onclick="marcarLido('pendente_j_nior_0e3217',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_j_nior_0e3217')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -517,6 +534,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('milbradt_dar_baixa_no_comodato_70dc90',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_milbradt_dar_baixa_no_comodato_70dc90" onclick="marcarLido('milbradt_dar_baixa_no_comodato_70dc90',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('milbradt_dar_baixa_no_comodato_70dc90')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -539,6 +557,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('daiane_11150_17207_daiane_frei_064e47',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_daiane_11150_17207_daiane_frei_064e47" onclick="marcarLido('daiane_11150_17207_daiane_frei_064e47',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('daiane_11150_17207_daiane_frei_064e47')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198264296')">💬 WhatsApp Cliente</button>
       
@@ -559,6 +578,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('17291_thais_moura_sinal_ruim_d_37b125',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_17291_thais_moura_sinal_ruim_d_37b125" onclick="marcarLido('17291_thais_moura_sinal_ruim_d_37b125',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('17291_thais_moura_sinal_ruim_d_37b125')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197975754')">💬 WhatsApp Cliente</button>
       
@@ -579,6 +599,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('helena_teixeira_tavares_17227_823036',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_helena_teixeira_tavares_17227_823036" onclick="marcarLido('helena_teixeira_tavares_17227_823036',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('helena_teixeira_tavares_17227_823036')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197494054')">💬 WhatsApp Cliente</button>
       
@@ -599,6 +620,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('celetro_gilberto_16574_edceb5',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_celetro_gilberto_16574_edceb5" onclick="marcarLido('celetro_gilberto_16574_edceb5',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('celetro_gilberto_16574_edceb5')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196743031')">💬 WhatsApp Cliente</button>
       
@@ -619,6 +641,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('lilian_bicca_15989_d1ff90',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_lilian_bicca_15989_d1ff90" onclick="marcarLido('lilian_bicca_15989_d1ff90',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('lilian_bicca_15989_d1ff90')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197534942')">💬 WhatsApp Cliente</button>
       
@@ -639,6 +662,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('valdir_garcia_17294_recolhimen_b434ee',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_valdir_garcia_17294_recolhimen_b434ee" onclick="marcarLido('valdir_garcia_17294_recolhimen_b434ee',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('valdir_garcia_17294_recolhimen_b434ee')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -659,6 +683,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('ivanete_17053_0eb2be',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_ivanete_17053_0eb2be" onclick="marcarLido('ivanete_17053_0eb2be',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('ivanete_17053_0eb2be')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198473522')">💬 WhatsApp Cliente</button>
       
@@ -679,6 +704,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('chaiene_10502_71323f',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_chaiene_10502_71323f" onclick="marcarLido('chaiene_10502_71323f',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('chaiene_10502_71323f')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197016886')">💬 WhatsApp Cliente</button>
       
@@ -699,6 +725,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('alceu_sandra_16457_17171_6907fb',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_alceu_sandra_16457_17171_6907fb" onclick="marcarLido('alceu_sandra_16457_17171_6907fb',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('alceu_sandra_16457_17171_6907fb')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198264893')">💬 WhatsApp Cliente</button>
       
@@ -719,6 +746,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('mariane_rodrigues_gomes_16923__ea30b0',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_mariane_rodrigues_gomes_16923__ea30b0" onclick="marcarLido('mariane_rodrigues_gomes_16923__ea30b0',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('mariane_rodrigues_gomes_16923__ea30b0')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555195732903')">💬 WhatsApp Cliente</button>
       
@@ -739,6 +767,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('liziane_arbelo_15339_b00127',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_liziane_arbelo_15339_b00127" onclick="marcarLido('liziane_arbelo_15339_b00127',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('liziane_arbelo_15339_b00127')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199009710')">💬 WhatsApp Cliente</button>
       
@@ -759,6 +788,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('leandro_17290_bfe2ee',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_leandro_17290_bfe2ee" onclick="marcarLido('leandro_17290_bfe2ee',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('leandro_17290_bfe2ee')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180319063')">💬 WhatsApp Cliente</button>
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Leandro%20(17290)*\n\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n-%20CPF%20do%20titular\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
@@ -779,6 +809,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('cauana_baumhardt_16784_retirad_4910bd',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_cauana_baumhardt_16784_retirad_4910bd" onclick="marcarLido('cauana_baumhardt_16784_retirad_4910bd',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('cauana_baumhardt_16784_retirad_4910bd')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199605172')">💬 WhatsApp Cliente</button>
       
@@ -799,6 +830,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('glaucileia_16397_retirada_parc_ea401f',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_glaucileia_16397_retirada_parc_ea401f" onclick="marcarLido('glaucileia_16397_retirada_parc_ea401f',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('glaucileia_16397_retirada_parc_ea401f')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198666595')">💬 WhatsApp Cliente</button>
       
@@ -819,6 +851,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('bet_faxineira_loja_16751_segur_1fbbcc',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_bet_faxineira_loja_16751_segur_1fbbcc" onclick="marcarLido('bet_faxineira_loja_16751_segur_1fbbcc',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('bet_faxineira_loja_16751_segur_1fbbcc')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555194203690')">💬 WhatsApp Cliente</button>
       
@@ -839,6 +872,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('16734_ana_paula_alves_b5b95f',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_16734_ana_paula_alves_b5b95f" onclick="marcarLido('16734_ana_paula_alves_b5b95f',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('16734_ana_paula_alves_b5b95f')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199121781')">💬 WhatsApp Cliente</button>
       
@@ -859,6 +893,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('11263_rodrigo_trindade_florenc_0a0ebb',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_11263_rodrigo_trindade_florenc_0a0ebb" onclick="marcarLido('11263_rodrigo_trindade_florenc_0a0ebb',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('11263_rodrigo_trindade_florenc_0a0ebb')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180173180')">💬 WhatsApp Cliente</button>
       
@@ -881,6 +916,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('lead_talila_0f0972',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_lead_talila_0f0972" onclick="marcarLido('lead_talila_0f0972',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('lead_talila_0f0972')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555189749284')">💬 WhatsApp Cliente</button>
       
@@ -901,6 +937,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('triagem_83f6d1',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_triagem_83f6d1" onclick="marcarLido('triagem_83f6d1',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('triagem_83f6d1')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -921,6 +958,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('11263_rodrigo_trindade_pagamen_9749b9',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_11263_rodrigo_trindade_pagamen_9749b9" onclick="marcarLido('11263_rodrigo_trindade_pagamen_9749b9',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('11263_rodrigo_trindade_pagamen_9749b9')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180173180')">💬 WhatsApp Cliente</button>
       
@@ -941,6 +979,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('lead_j_lio_ac27d6',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_lead_j_lio_ac27d6" onclick="marcarLido('lead_j_lio_ac27d6',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('lead_j_lio_ac27d6')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199556463')">💬 WhatsApp Cliente</button>
       
@@ -961,6 +1000,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('kak_amigo_39ad0d',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_kak_amigo_39ad0d" onclick="marcarLido('kak_amigo_39ad0d',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('kak_amigo_39ad0d')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555194045839')">💬 WhatsApp Cliente</button>
       
@@ -981,6 +1021,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('santa_helena_fasa_roteador_do__d69c7c',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_santa_helena_fasa_roteador_do__d69c7c" onclick="marcarLido('santa_helena_fasa_roteador_do__d69c7c',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('santa_helena_fasa_roteador_do__d69c7c')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555195260383')">💬 WhatsApp Cliente</button>
       
@@ -1001,6 +1042,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('bianca_marques_nunes_17223_tri_3c8a34',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_bianca_marques_nunes_17223_tri_3c8a34" onclick="marcarLido('bianca_marques_nunes_17223_tri_3c8a34',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('bianca_marques_nunes_17223_tri_3c8a34')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('5551920052058')">💬 WhatsApp Cliente</button>
       
@@ -1023,6 +1065,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('poliana_francine_17286_ebf9ba',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_poliana_francine_17286_ebf9ba" onclick="marcarLido('poliana_francine_17286_ebf9ba',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('poliana_francine_17286_ebf9ba')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -1043,6 +1086,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('alana_corr_a_da_silva_17054_735bcd',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_alana_corr_a_da_silva_17054_735bcd" onclick="marcarLido('alana_corr_a_da_silva_17054_735bcd',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('alana_corr_a_da_silva_17054_735bcd')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196906767')">💬 WhatsApp Cliente</button>
       
@@ -1063,6 +1107,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('ana_cristina_16575_1f4e5c',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_ana_cristina_16575_1f4e5c" onclick="marcarLido('ana_cristina_16575_1f4e5c',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('ana_cristina_16575_1f4e5c')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198379692')">💬 WhatsApp Cliente</button>
       
@@ -1083,6 +1128,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('marly_mota_bri_o_16987_acordo__8567a9',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_marly_mota_bri_o_16987_acordo__8567a9" onclick="marcarLido('marly_mota_bri_o_16987_acordo__8567a9',this)">👁️ Lido</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('marly_mota_bri_o_16987_acordo__8567a9')">🎙️ Áudio via WhatsApp</button>
       
       
@@ -2167,6 +2213,49 @@ function restaurarFollowupPrefs() {
   });
 }
 
+// --- LIDO ---
+function hashCard(uid) {
+  var card = document.getElementById('card_' + uid);
+  if (!card) return '';
+  var desc = card.querySelector('.desc') ? card.querySelector('.desc').innerText : '';
+  var proximo = card.querySelector('.proximo') ? card.querySelector('.proximo').textContent : '';
+  var s = desc + proximo;
+  var h = 0;
+  for (var i = 0; i < s.length; i++) { h = ((h << 5) - h) + s.charCodeAt(i); h |= 0; }
+  return String(h);
+}
+function marcarLido(uid, btn) {
+  var card = document.getElementById('card_' + uid);
+  var jaLido = card.classList.contains('lido');
+  if (jaLido) {
+    card.classList.remove('lido');
+    btn.textContent = '👁️ Lido';
+    localStorage.removeItem('lido_' + uid);
+  } else {
+    card.classList.add('lido');
+    btn.textContent = '✓ Lido';
+    localStorage.setItem('lido_' + uid, hashCard(uid));
+  }
+}
+function restaurarLidos() {
+  document.querySelectorAll('.card').forEach(function(card) {
+    var uid = card.dataset.uid;
+    var savedHash = localStorage.getItem('lido_' + uid);
+    if (savedHash !== null) {
+      var currentHash = hashCard(uid);
+      var btn = document.getElementById('lido_' + uid);
+      if (currentHash === savedHash) {
+        card.classList.add('lido');
+        if (btn) btn.textContent = '✓ Lido';
+      } else {
+        // Conteúdo mudou — desmarca automaticamente
+        localStorage.removeItem('lido_' + uid);
+      }
+    }
+  });
+}
+// --- FIM LIDO ---
+
 function copiarContexto(uid) {
   var card = document.getElementById('card_' + uid);
   var titulo = card.querySelector('.titulo') ? card.querySelector('.titulo').textContent.trim() : '';
@@ -2431,6 +2520,8 @@ function mostrarNotif(msg) {
 })();
 // Restaurar estados de follow-up salvos pelo usuario
 restaurarFollowupPrefs();
+// Restaurar marcações de lido (desmarca automaticamente se conteúdo mudou)
+restaurarLidos();
 </script>
 </body>
 </html>
