@@ -142,14 +142,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 01/07/2026 10:26 | 53 itens</span>
+    <span class="meta">Gerado: 01/07/2026 13:02 | 53 itens</span>
   </div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
   <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa (12)</div>
-  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos (11)</div>
+  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos (12)</div>
   <div class="tab" onclick="abrirAba('financeiro',this)">💰 Financeiro</div>
   <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
   <div class="tab" onclick="abrirAba('chat',this)">💬 Falar com Zapia</div>
@@ -179,51 +179,11 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="stats">
     <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">53</div><div class="lab">Todos</div></div>
     <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">6</div><div class="lab">🔴 Urgente</div></div>
-    <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">20</div><div class="lab">🟡 Andamento</div></div>
-    <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#9333ea">17</div><div class="lab">⏳ Júnior</div></div>
+    <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">19</div><div class="lab">🟡 Andamento</div></div>
+    <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#9333ea">18</div><div class="lab">⏳ Júnior</div></div>
     <div class="stat" data-filter="triagem" onclick="filtrar('triagem')"><div class="num" style="color:#2288cc">6</div><div class="lab">🔵 Triagem</div></div>
   </div>
 <div class="grupo" data-status="urgente"><h2 style="color:#ff4444;border-bottom:2px solid #ff4444;padding-bottom:6px">🔴 URGENTE (6)</h2>
-<div class="card" id="card_daiane_11150_daiane_freitas_de_baf51d" data-uid="daiane_11150_daiane_freitas_de_baf51d" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
-  <div class="card-header">
-    <span class="emoji">🔴</span>
-    <strong class="titulo">Daiane (11150 / Daiane Freitas de Oliveira) — DESBLOQUEIO INTERNET</strong>
-    <span class="badge" style="background:#ff4444">Urgente</span>
-  </div>
-  <div class="desc">- Perguntou sobre número errado → Júnior respondeu com áudio 09:29<br>- Às 09:34 pediu: "Pode liberar p mim as nets / Tudo / A tata vai pagar amanhã"<br>- ⚠️ Sem resposta de Júnior para esse pedido específico — decisão do Júnior/Lu: liberar ou não com promessa de pagamento<br>- Tem 2 contratos: ID 11150 (bairro interior) e ID 17207 (bairro Noemia) — mesmo CPF 008.497.680-20</div>
-  <div class="proximo">📅 01/07 (hoje) — Júnior decidir</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('daiane_11150_daiane_freitas_de_baf51d',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('daiane_11150_daiane_freitas_de_baf51d')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198264296')">💬 WhatsApp Cliente</button>
-      
-      <button class="btn-copiar" onclick="copiarContexto('daiane_11150_daiane_freitas_de_baf51d')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_daiane_11150_daiane_freitas_de_baf51d" data-ativo="false" onclick="toggleFollowup('daiane_11150_daiane_freitas_de_baf51d')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
-
-  </div>
-</div>
-<div class="card" id="card_17015_maria_eduarda_trindade_d_0b1e6a" data-uid="17015_maria_eduarda_trindade_d_0b1e6a" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
-  <div class="card-header">
-    <span class="emoji">🔴</span>
-    <strong class="titulo">17015 - Maria Eduarda Trindade dos Santos — CANCELAMENTO</strong>
-    <span class="badge" style="background:#ff4444">Urgente</span>
-  </div>
-  <div class="desc">- Pediu cancelamento: se mudou<br>- **Endereço:** Rua Xafi Abrão Nazar, 136 — Parque Primavera<br>- ⚠️ Duas antenas na casa: uma dela (ID 17015) e uma da filha (também cliente CompetenceNet) — técnico deve identificar qual é qual<br>- Filha ficou com a chave da casa — vai confirmar horário com ela para liberação</div>
-  <div class="proximo">📅 30/06 — se não avisou o horário, cutucar</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('17015_maria_eduarda_trindade_d_0b1e6a',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('17015_maria_eduarda_trindade_d_0b1e6a')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196983474')">💬 WhatsApp Cliente</button>
-      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*17015%20-%20Maria%20Eduarda%20Trindade%20dos%20Santos%20—%20CANCELAMENTO*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (5)</button>
-      <button class="btn-copiar" onclick="copiarContexto('17015_maria_eduarda_trindade_d_0b1e6a')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_17015_maria_eduarda_trindade_d_0b1e6a" data-ativo="true" onclick="toggleFollowup('17015_maria_eduarda_trindade_d_0b1e6a')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
-
-  </div>
-</div>
 <div class="card" id="card_lucas_schmidt_17235_internet_c_9576b8" data-uid="lucas_schmidt_17235_internet_c_9576b8" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
   <div class="card-header">
     <span class="emoji">🔴</span>
@@ -261,6 +221,46 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-copiar" onclick="copiarContexto('aline_da_silva_15924_risco_can_e00557')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_aline_da_silva_15924_risco_can_e00557" data-ativo="true" onclick="toggleFollowup('aline_da_silva_15924_risco_can_e00557')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
+
+  </div>
+</div>
+<div class="card" id="card_aline_aires_da_silveira_16986_ee123c" data-uid="aline_aires_da_silveira_16986_ee123c" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">Aline Aires da Silveira (16986)</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc">- Lenta/travando (heavy user 32-45GB/sessão). Risco cancelamento<br>- ✅ Voltou da viagem (01/07 12:25) — continua fraca, videochamada quase impossível<br>- Bot respondeu 12:30 — aguardando diagnóstico técnico (verificar sinal no MK)<br>- 📍 Coordenadas: -30.2716481, -52.8634792 | Maps: https://maps.google.com/?q=-30.2716481,-52.8634792</div>
+  <div class="proximo">📅 **01/07 tarde** — feedback do diagnóstico</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('aline_aires_da_silveira_16986_ee123c',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('aline_aires_da_silveira_16986_ee123c')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555195442333')">💬 WhatsApp Cliente</button>
+      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Aline%20Aires%20da%20Silveira%20(16986)*\n\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (1)</button>
+      <button class="btn-copiar" onclick="copiarContexto('aline_aires_da_silveira_16986_ee123c')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_aline_aires_da_silveira_16986_ee123c" data-ativo="true" onclick="toggleFollowup('aline_aires_da_silveira_16986_ee123c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#2288cc;margin-left:6px">&#128309; Follow-up disparado &#8212; aguardando resposta</span></div>
+
+  </div>
+</div>
+<div class="card" id="card_maria_beatriz_17061_atualizado_d2e15c" data-uid="maria_beatriz_17061_atualizado_d2e15c" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">Maria Beatriz (17061) — atualizado 01/07 11:37</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc">- Roteador trocado 30/06. 25/06 "melhora mas dá tracadas".<br>- 01/07 11:37: respondeu ping "Deu uma parada" — nova queda confirmada!<br>- ✅ Respondido 11:45: "Tá sem internet agora ou voltou? Vou verificar 👀"<br>- 📅 próximo contato: aguardar resposta — checar status da antena/sinal</div>
+  <div class="proximo">📅 aguardar resposta — checar status da antena/sinal</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('maria_beatriz_17061_atualizado_d2e15c',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('maria_beatriz_17061_atualizado_d2e15c')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197973539')">💬 WhatsApp Cliente</button>
+      
+      <button class="btn-copiar" onclick="copiarContexto('maria_beatriz_17061_atualizado_d2e15c')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_maria_beatriz_17061_atualizado_d2e15c" data-ativo="false" onclick="toggleFollowup('maria_beatriz_17061_atualizado_d2e15c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -305,7 +305,27 @@ button:disabled{opacity:0.4;cursor:default}
   </div>
 </div>
 </div>
-<div class="grupo" data-status="pendente"><h2 style="color:#9333ea;border-bottom:2px solid #9333ea;padding-bottom:6px">⏳ PRECISA DO JÚNIOR (17)</h2>
+<div class="grupo" data-status="pendente"><h2 style="color:#9333ea;border-bottom:2px solid #9333ea;padding-bottom:6px">⏳ PRECISA DO JÚNIOR (18)</h2>
+<div class="card" id="card_17015_maria_eduarda_trindade_d_0b1e6a" data-uid="17015_maria_eduarda_trindade_d_0b1e6a" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
+  <div class="card-header">
+    <span class="emoji">⏳</span>
+    <strong class="titulo">17015 - Maria Eduarda Trindade dos Santos — CANCELAMENTO</strong>
+    <span class="badge" style="background:#9333ea">Pendente Júnior/Lu</span>
+  </div>
+  <div class="desc">- Pediu cancelamento: se mudou<br>- **Endereço:** Rua Xafi Abrão Nazar, 136 — Parque Primavera<br>- ⚠️ Duas antenas na casa: uma dela (ID 17015) e uma da filha (também cliente CompetenceNet) — técnico deve identificar qual é qual<br>- **Disponibilidade para retirada:** amanhã 02/07 ou sexta 03/07 — **preferencialmente à tarde**</div>
+  <div class="proximo">📅 02/07 — confirmar com Fábio e avisar horário à Maria</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('17015_maria_eduarda_trindade_d_0b1e6a',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('17015_maria_eduarda_trindade_d_0b1e6a')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196983474')">💬 WhatsApp Cliente</button>
+      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*17015%20-%20Maria%20Eduarda%20Trindade%20dos%20Santos%20—%20CANCELAMENTO*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (5)</button>
+      <button class="btn-copiar" onclick="copiarContexto('17015_maria_eduarda_trindade_d_0b1e6a')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_17015_maria_eduarda_trindade_d_0b1e6a" data-ativo="true" onclick="toggleFollowup('17015_maria_eduarda_trindade_d_0b1e6a')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
+
+  </div>
+</div>
 <div class="card" id="card_bruno_procath_17292_484c88" data-uid="bruno_procath_17292_484c88" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
     <span class="emoji">⏳</span>
@@ -647,7 +667,7 @@ button:disabled{opacity:0.4;cursor:default}
   </div>
 </div>
 </div>
-<div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (20)</h2>
+<div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (19)</h2>
 <div class="card" id="card_17291_thais_moura_sinal_ruim_d_37b125" data-uid="17291_thais_moura_sinal_ruim_d_37b125" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
     <span class="emoji">🟡</span>
@@ -688,23 +708,23 @@ button:disabled{opacity:0.4;cursor:default}
 
   </div>
 </div>
-<div class="card" id="card_aline_aires_da_silveira_16986_ee123c" data-uid="aline_aires_da_silveira_16986_ee123c" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+<div class="card" id="card_helena_teixeira_tavares_17227_823036" data-uid="helena_teixeira_tavares_17227_823036" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
     <span class="emoji">🟡</span>
-    <strong class="titulo">Aline Aires da Silveira (16986)</strong>
+    <strong class="titulo">Helena Teixeira Tavares (17227)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- Lenta/travando (heavy user 32-45GB/sessão). Risco cancelamento<br>- Respondeu 28/06 18:24: está viajando, dá retorno quando chegar em casa<br>- 📍 Coordenadas: -30.2716481, -52.8634792 | Maps: https://maps.google.com/?q=-30.2716481,-52.8634792<br>- 📦 Comodatos: Roteador TP-Link Archer C20, Cabo de Rede Prysmian Draka, Antena Cambium Force 180 - CHS</div>
-  <div class="proximo">📅 **01/07** — verificar se retornou; se sim, diagnosticar</div>
+  <div class="desc">- Internet instável + videochamadas travando<br>- Bot respondeu 12:47 — vai verificar sinal<br>- ⏳ Pendente: verificar sinal no sistema MK; diagnóstico<br>- 📅 próximo contato: 01/07 tarde</div>
+  <div class="proximo">📅 01/07 tarde</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('aline_aires_da_silveira_16986_ee123c',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('aline_aires_da_silveira_16986_ee123c')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555195442333')">💬 WhatsApp Cliente</button>
-      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Aline%20Aires%20da%20Silveira%20(16986)*\n\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (1)</button>
-      <button class="btn-copiar" onclick="copiarContexto('aline_aires_da_silveira_16986_ee123c')">📋 Copiar contexto</button>
+      <button class="btn-encerrar" onclick="encerrar('helena_teixeira_tavares_17227_823036',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('helena_teixeira_tavares_17227_823036')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197494054')">💬 WhatsApp Cliente</button>
+      
+      <button class="btn-copiar" onclick="copiarContexto('helena_teixeira_tavares_17227_823036')">📋 Copiar contexto</button>
     </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_aline_aires_da_silveira_16986_ee123c" data-ativo="true" onclick="toggleFollowup('aline_aires_da_silveira_16986_ee123c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#2288cc;margin-left:6px">&#128309; Follow-up disparado &#8212; aguardando resposta</span></div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_helena_teixeira_tavares_17227_823036" data-ativo="false" onclick="toggleFollowup('helena_teixeira_tavares_17227_823036')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -754,8 +774,8 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Clézio (17281)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- Risco cancelamento. Júnior enviou áudio 28/06 17:49 perguntando se está ok<br>- ⏳ aguardando resposta do cliente<br>- 📍 Coordenadas: -30.218135, -52.923695 | Maps: https://maps.google.com/?q=-30.218135,-52.923695<br>- 📦 Comodatos: Roteador TP-Link Archer C20, Mini UPS Nobreak POE com Bateria, Antena Cambium Force 190 - CHS</div>
-  <div class="proximo">📅 30/06 — se sem resposta, escalar Júnior</div>
+  <div class="desc">- Risco cancelamento. Check-in enviado 01/07 10:10<br>- **Resposta 01/07 10:52 (áudio):** "Não, continua daquele jeito, de vez em quando sai fora, sai no telefone, sai na TV também"<br>- ⚠️ Internet ainda caindo intermitente — problema técnico ativo<br>- ✅ Respondido 01/07 11:01: pedimos detalhes (duração da queda, horário mais frequente)</div>
+  <div class="proximo">📅 aguardando resposta Clézio sobre detalhes da queda</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('cl_zio_17281_348c54',this)">✅ Encerrar</button>
@@ -774,8 +794,8 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Lilian Bicca (15989)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- 29/06: internet voltou mas abaixo dos 10 MB contratados<br>- 30/06 07:44: perguntei se tinha equipe disponível hoje — ela disse "Hj não" às 08:57<br>- Confirmou com 👍 às 09:17 — esperando ela avisar quando pode receber visita<br>- 📅 próximo contato: aguardar ela retornar (aguarda disponibilidade)</div>
-  <div class="proximo">📅 aguardar ela retornar (aguarda disponibilidade)</div>
+  <div class="desc">- 29/06: internet voltou mas abaixo dos 10 MB contratados<br>- Lu ligou ontem (30/06) e mandou mensagem hoje<br>- Lilian disse: essa semana não dá (sem disponibilidade)<br>- **ESTRATÉGIA (Júnior 11:40):** Semana que vem — derrubar sinal dela antes para forçar ela ficar em casa</div>
+  <div class="proximo">📅 **semana que vem** — Júnior decide dia + derruba sinal antes</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('lilian_bicca_15989_d1ff90',this)">✅ Encerrar</button>
@@ -885,26 +905,6 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-copiar" onclick="copiarContexto('mariane_rodrigues_gomes_16923__ea30b0')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_mariane_rodrigues_gomes_16923__ea30b0" data-ativo="false" onclick="toggleFollowup('mariane_rodrigues_gomes_16923__ea30b0')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
-
-  </div>
-</div>
-<div class="card" id="card_maria_beatriz_17061_atualizado_e9efc4" data-uid="maria_beatriz_17061_atualizado_e9efc4" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
-  <div class="card-header">
-    <span class="emoji">🟡</span>
-    <strong class="titulo">Maria Beatriz (17061) — atualizado 25/06 21:57</strong>
-    <span class="badge" style="background:#e6a700">Em andamento</span>
-  </div>
-  <div class="desc">- Roteador trocado pelo Fábio. Lu fez follow-up hoje (16:57): cliente confirmou "melhorou muito, mas às vezes dá uma tracada".<br>- Status: melhorou significativamente, mas instabilidade pontual ainda existe.<br>- 📅 próximo contato: **02/07** — follow-up 7 dias para confirmar se estabilizou completamente</div>
-  <div class="proximo">📅 **02/07** — follow-up 7 dias para confirmar se estabilizou completamente</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('maria_beatriz_17061_atualizado_e9efc4',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('maria_beatriz_17061_atualizado_e9efc4')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197973539')">💬 WhatsApp Cliente</button>
-      
-      <button class="btn-copiar" onclick="copiarContexto('maria_beatriz_17061_atualizado_e9efc4')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_maria_beatriz_17061_atualizado_e9efc4" data-ativo="false" onclick="toggleFollowup('maria_beatriz_17061_atualizado_e9efc4')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -1272,8 +1272,8 @@ button:disabled{opacity:0.4;cursor:default}
     <span class="badge" style="background:#ff4444">🔴 Cancelamento</span>
   </div>
   <div style="margin:4px 0 2px"><span class="tag-faltando">Coordenadas GPS (latitude, longitude)</span><span class="tag-faltando">SSID da antena (nome da rede que aparece no rádio)</span><span class="tag-faltando">POP/repetidora que atende o cliente</span><span class="tag-faltando">Nível de sinal atual (dBm)</span><span class="tag-faltando">Lista de comodatos (equipamentos que precisam ser devolvidos)</span></div>
-  <div class="desc">- Pediu cancelamento: se mudou<br>- **Endereço:** Rua Xafi Abrão Nazar, 136 — Parque Primavera<br>- ⚠️ Duas antenas na casa: uma dela (ID 17015) e uma da filha (também cliente CompetenceNet) — técnico deve identificar qual é qual<br>- Filha ficou com a chave da casa — vai confirmar horário com ela para liberação</div>
-  <div class="proximo">📅 30/06 — se não avisou o horário, cutucar</div>
+  <div class="desc">- Pediu cancelamento: se mudou<br>- **Endereço:** Rua Xafi Abrão Nazar, 136 — Parque Primavera<br>- ⚠️ Duas antenas na casa: uma dela (ID 17015) e uma da filha (também cliente CompetenceNet) — técnico deve identificar qual é qual<br>- **Disponibilidade para retirada:** amanhã 02/07 ou sexta 03/07 — **preferencialmente à tarde**</div>
+  <div class="proximo">📅 02/07 — confirmar com Fábio e avisar horário à Maria</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-audio" onclick="abrirWhatsAppAudio('coringa_17015_maria_eduarda_trindade_d_0b1e6a')">🎙️ Áudio via WhatsApp</button>
@@ -1291,8 +1291,8 @@ button:disabled{opacity:0.4;cursor:default}
     <span class="badge" style="background:#ff4444">🔴 Cancelamento</span>
   </div>
   <div style="margin:4px 0 2px"><span class="tag-faltando">Coordenadas GPS (latitude, longitude)</span><span class="tag-faltando">Lista de comodatos (equipamentos que precisam ser devolvidos)</span></div>
-  <div class="desc">- Pediu cancelamento: se mudou<br>- **Endereço:** Rua Xafi Abrão Nazar, 136 — Parque Primavera<br>- ⚠️ Duas antenas na casa: uma dela (ID 17015) e uma da filha (também cliente CompetenceNet) — técnico deve identificar qual é qual<br>- Filha ficou com a chave da casa — vai confirmar horário com ela para liberação</div>
-  <div class="proximo">📅 30/06 — se não avisou o horário, cutucar</div>
+  <div class="desc">- Pediu cancelamento: se mudou<br>- **Endereço:** Rua Xafi Abrão Nazar, 136 — Parque Primavera<br>- ⚠️ Duas antenas na casa: uma dela (ID 17015) e uma da filha (também cliente CompetenceNet) — técnico deve identificar qual é qual<br>- **Disponibilidade para retirada:** amanhã 02/07 ou sexta 03/07 — **preferencialmente à tarde**</div>
+  <div class="proximo">📅 02/07 — confirmar com Fábio e avisar horário à Maria</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-audio" onclick="abrirWhatsAppAudio('coringa_17015_maria_eduarda_trindade_d_0b1e6a')">🎙️ Áudio via WhatsApp</button>
@@ -1367,8 +1367,8 @@ button:disabled{opacity:0.4;cursor:default}
     <span class="badge" style="background:#6b7280">📋 OS</span>
   </div>
   <div style="margin:4px 0 2px"><span class="tag-faltando">Lista de comodatos (equipamentos que precisam ser devolvidos)</span></div>
-  <div class="desc">- Risco cancelamento. Júnior enviou áudio 28/06 17:49 perguntando se está ok<br>- ⏳ aguardando resposta do cliente<br>- 📍 Coordenadas: -30.218135, -52.923695 | Maps: https://maps.google.com/?q=-30.218135,-52.923695<br>- 📦 Comodatos: Roteador TP-Link Archer C20, Mini UPS Nobreak POE com Bateria, Antena Cambium Force 190 - CHS</div>
-  <div class="proximo">📅 30/06 — se sem resposta, escalar Júnior</div>
+  <div class="desc">- Risco cancelamento. Check-in enviado 01/07 10:10<br>- **Resposta 01/07 10:52 (áudio):** "Não, continua daquele jeito, de vez em quando sai fora, sai no telefone, sai na TV também"<br>- ⚠️ Internet ainda caindo intermitente — problema técnico ativo<br>- ✅ Respondido 01/07 11:01: pedimos detalhes (duração da queda, horário mais frequente)</div>
+  <div class="proximo">📅 aguardando resposta Clézio sobre detalhes da queda</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-audio" onclick="abrirWhatsAppAudio('coringa_cl_zio_17281_348c54')">🎙️ Áudio via WhatsApp</button>
@@ -1506,6 +1506,40 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_0">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
+    <strong class="titulo" style="flex:1;color:#166534">Lucas Eduardo (16979)</strong>
+    <span style="background:#16a34a;color:#fff;font-size:0.7rem;padding:1px 7px;border-radius:8px;font-weight:700">ÚLTIMO</span>
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07 às 12:47</span>
+  </div>
+  <div class="desc">Sinal caindo/travando vídeos (30/06 20:57) | Reiniciou antena e roteador — voltou ao normal, demorou um pouco pra estabilizar (normal) | Bot confirmou que delay é normal pós-reinício ✅</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_0')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555191819081')">💬 WhatsApp Cliente</button>
+      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Lucas Eduardo (16979)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
+    </div>
+    <textarea class="comentario" id="txt_enc_0" placeholder="Anotação..." rows="2"></textarea>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_1">
+  <div class="card-header">
+    <span style="color:#16a34a;font-size:1rem">✅</span>
+    <strong class="titulo" style="flex:1;color:#166534">Daiane (11150 / Daiane Freitas de Oliveira)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07 às 12:45</span>
+  </div>
+  <div class="desc">Conseguiu desbloquear sozinha pelo autoatendimento | Enviou 2 comprovantes Pix: R$ 92,16 + R$ 97,40 = R$ 189,56 (origem: Tamires Freitas Torbes → COMPETENCENET) às 12:41/12:42 | Bot confirmou recebimento ✅</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_1')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198264296')">💬 WhatsApp Cliente</button>
+      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Daiane (11150 / Daiane Freitas de Oliveira)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
+    </div>
+    <textarea class="comentario" id="txt_enc_1" placeholder="Anotação..." rows="2"></textarea>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_2">
+  <div class="card-header">
+    <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Fazenda Teluke — INSTALAÇÃO CONCLUÍDA 30/06 10:16** | Grupo Materiais
 - Fábio confirmou no grupo Materiais (10:16): instalou Force 180 + fonte + C20; retirou Ubnt (antiga)
 - Cliente levou roteador e fonte embora (Milbradt antes)
@@ -1591,13 +1625,13 @@ button:disabled{opacity:0.4;cursor:default}
 - 14:04: Lucas disse "Blz" — confirmou que ainda espera
 - Internet continua sem funcionar
 - 🔴</strong>
-    <span style="background:#16a34a;color:#fff;font-size:0.7rem;padding:1px 7px;border-radius:8px;font-weight:700">ÚLTIMO</span>
+    
     <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07</span>
   </div>
   <div class="desc">✅ Respondido 14:02: escalado como urgente, prometido que login será corrigido</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_0')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_2')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180592752')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Fazenda Teluke — INSTALAÇÃO CONCLUÍDA 30/06 10:16** | Grupo Materiais
 - Fábio confirmou no grupo Materiais (10:16): instalou Force 180 + fonte + C20; retirou Ubnt (antiga)
@@ -1685,10 +1719,10 @@ button:disabled{opacity:0.4;cursor:default}
 - Internet continua sem funcionar
 - 🔴').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_0" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_2" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_1">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_3">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Bianca Nunes (17223)</strong>
@@ -1698,14 +1732,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">Queria desbloqueio — pagou ao meio-dia, internet liberou automaticamente | 14:43: "Cheguei em casa e ela ta funcionando / Obrigada" | Respondido 14:50: confirmação + encerramento ✅</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_1')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_3')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('5551920052058')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Bianca Nunes (17223)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_1" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_3" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_2">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_4">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Joana Pedroso (17224)</strong>
@@ -1719,10 +1753,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Joana Pedroso (17224)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_2" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_4" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_3">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_5">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Daiane (Álvaro 16467 / ID 13269)</strong>
@@ -1732,14 +1766,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">Lu desbloqueou manualmente. Daiane confirmou: "a Luciana arrumou obrigada" ✅</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_3')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_5')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180354681')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Daiane (Álvaro 16467 / ID 13269)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_3" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_5" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_4">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_6">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">10853 - Adriana Nunes Pruss** | JID: 555199209365@s.whatsapp.net | Entrada: 29/06 | Encerrado: 29/06
@@ -1783,7 +1817,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">Paulinho reconectou às 17:56 29/06 — configurou sozinho ✅ | Novo áudio 30/06 11:56: Augusto colocou fontezinha no roteador → internet funcionando, YouTube rodando ✅ | Diagnóstico: era problema de alimentação elétrica (fonte do roteador). Resolvido sem visita técnica.</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_4')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_6')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199209365')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('10853 - Adriana Nunes Pruss** | JID: 555199209365@s.whatsapp.net | Entrada: 29/06 | Encerrado: 29/06
 - Pediu desbloqueio 06:23. Problema era roteador — filho reiniciou, voltou. Encerrado ✅
@@ -1821,10 +1855,10 @@ button:disabled{opacity:0.4;cursor:default}
 ---
 ### ✅ Israel Lucas (16865)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_4" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_6" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_5">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_7">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Ana (JID: 555195007185)</strong>
@@ -1838,10 +1872,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Ana (JID: 555195007185)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_5" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_7" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_6">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_8">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Luiz Carlos Lopes (10690)</strong>
@@ -1855,10 +1889,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Luiz Carlos Lopes (10690)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_6" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_8" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_7">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_9">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">16979 - Lucas Eduardo Sena da Rosa</strong>
@@ -1872,10 +1906,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('16979 - Lucas Eduardo Sena da Rosa').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_7" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_9" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_8">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_10">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Gelson Souza (16836)</strong>
@@ -1885,14 +1919,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">—</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_8')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_10')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197916269')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Gelson Souza (16836)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_8" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_10" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_9">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_11">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">17269 - Paulo Ricardo Oliveira Soares (Bxga)</strong>
@@ -1906,26 +1940,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('17269 - Paulo Ricardo Oliveira Soares (Bxga)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_9" placeholder="Anotação..." rows="2"></textarea>
-  </div>
-</div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_10">
-  <div class="card-header">
-    <span style="color:#16a34a;font-size:1rem">✅</span>
-    <strong class="titulo" style="flex:1;color:#166534">Ana Cristina (16575)** | 24/06 | Confirmou que internet está ok. Encerrado.
-✅ **Adelia (11290)</strong>
-    
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">29/06 às 10:45</span>
-  </div>
-  <div class="desc">—</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      
-      
-      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Ana Cristina (16575)** | 24/06 | Confirmou que internet está ok. Encerrado.
-✅ **Adelia (11290)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
-    </div>
-    <textarea class="comentario" id="txt_enc_10" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_11" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
 
@@ -2104,6 +2119,35 @@ button:disabled{opacity:0.4;cursor:default}
   <h2 style="margin-bottom:16px;font-size:1rem;color:#1a1a2e">🤖 O que a Zapia está fazendo</h2>
   <p style="font-size:0.82rem;color:#888;margin-bottom:16px">Log das últimas rondas — do mais recente pro mais antigo.</p>
   <div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 12:47 Ronda 01/07 (run #86)</div>
+  <div class="log-corpo">**Novidades após 12:30:**<br>- **Daiane (11150) — ENCERRADO ✅:** Resolveu sozinha, pagou 2 Pix → R$ 92,16 + R$ 97,40 = R$ 189,56 (Tamires Freitas Torbes → COMPETENCENET). Bot confirmou recebimento.<br>- **Lucas Eduardo (16979) — ENCERRADO ✅:** Sinal voltou ao normal após reinício. Bot explicou que delay pós-reinício é normal.<br>- **Helena Teixeira Tavares (17227) — NOVA 🟡:** Instabilidade + videochamadas travando. Bot respondeu 12:47. ⏳ Pendente diagnóstico.<br>- **Aline Aires (16986):** Confirmou "tá bom" — aguarda retorno com diagnóstico Júnior.<br>- **⚠️ FEEDBACK JÚNIOR (áudio 12:33):** Bot errou — mandou Daiane pro número de autoatendimento em vez de dar o protocolo de desbloqueio diretamente. Júnior quer que bot resolva desbloqueios de forma autônoma (dar link/protocolo direto). Registrado para ajuste de comportamento.<br>- **Campanha:** encerrada, nada a disparar.<br>**Ações tomadas:**<br>- Respondeu Daiane (confirmação recebimento comprovantes)<br>- Respondeu Lucas Eduardo (fechamento)<br>- Respondeu Helena (triagem inicial)<br>- Criou arquivo cliente Helena<br>- Atualizou ATENDIMENTO<br>**Pendências em aberto (12:47 01/07):**<br>1. 🔴 Jonatan (16808) — boleto comodato sem fatura MK<br>2. ⚠️ Regina Porto (17065) — ligar sobre valores — HOJE<br>3. 🔴 Maria Beatriz (17061) — aguardando clarificação (parou de travar ou ficou sem?)<br>4. 🔴 Aline Aires (16986) — voltou viagem, continua lenta. ⏳ Júnior verificar sinal MK<br>5. 🟡 Helena (17227) — instabilidade. ⏳ Diagnóstico sinal<br>6. 🟡 Clézio (17281) — follow 02/07<br>7. 🟡 Alcino (16773) — aguardando resposta equip. Ana Elizete<br>8. 🟡 Lilian Bicca (15989) — semana que vem<br>9. 🟡 Chaiene (10502) — follow 02/07<br>10. ⏳ Ana Elizete/17270 — prazo 05/07<br>11. ⏳ Maria/Patrícia (17015) — OS retirada 02-03/07<br>12. 🟡 Aline da Silva (15924) — SSID/antena<br>13. 🔵 Andressa Bastos — lead<br>14. ⏳ Jayne (16775) — cutucar 07/07<br>15. ⏳ Glauciléia (16397) — retirada dia de sol<br>16. ⏳ Pedroschmidt — OS 04/07 13h<br>17. 🟡 Lucas Schmidt (17235) — logins invertidos MK<br>18. 💰 Despesa Dal Ri R$ 256,03 — lançar planilha<br>⏰ LEMBRETE: Lu saindo ~13:30 — disparar aviso ao Júnior na ronda ~13:10</div>
+</div>
+<div class="log-entry log-limpa"><div class="log-titulo">🟢 12:15 → 12:30 — 2 rondas executadas, nenhuma novidade</div></div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 11:45 Ronda 01/07 (run #82)</div>
+  <div class="log-corpo">**Novidades após 11:30:**<br>- Emily Advogada: conversa pessoal Júnior, não intervir<br>- Lu/Júnior: Lilian Bicca disse "semana não dá" → Júnior planeja derrubar sinal semana que vem antes da visita<br>- Lu (11:44): perguntou sobre Chaiene → falou só "Bom dia primo" com Júnior, sem relato de internet<br>- Fábio: Júnior orientou sobre Clézio (TV fecha → cabear/factory reset/ZTE)<br>- Alcino (16773): Bot já enviou mensagem 11:31 sobre Ana Elizete — aguardando resposta<br>- Maria Beatriz (17061): "Deu uma parada" às 11:37 → ✅ Respondido 11:45<br>**Pendências em aberto (11:45 01/07):**<br>1. 🔴 Daiane (11150) — liberação pendente Júnior<br>2. 🔴 Jonatan (16808) — boleto comodato sem fatura MK<br>3. ⚠️ Regina Porto (17065) — ligar sobre valores — HOJE<br>4. 🔴 Clézio (17281) — Fábio em campo (TV fecha sozinha, cabear/factory reset)<br>5. 🔴 Maria Beatriz (17061) — "deu uma parada" — respondido, aguardar<br>6. 🟡 Alcino (16773) — aguardando resposta sobre equip. Ana Elizete<br>7. 🟡 Lilian Bicca (15989) — semana que vem (Júnior derruba sinal antes)<br>8. 🟡 Chaiene (10502) — roteador trocado 30/06, problema pode ser noturno<br>9. ⏳ Ana Elizete/17270 — Júnior fala Alcino (prazo 05/07)<br>10. ⏳ Maria/Patrícia (17015) — OS retirada 02-03/07<br>11. 🟡 Aline da Silva (15924) — SSID/antena<br>12. 🔵 Andressa Bastos — lead<br>13. ⏳ Jayne (16775) — cutucar 07/07<br>14. ⏳ Glauciléia (16397) — retirada dia de sol<br>15. ⏳ Pedroschmidt — OS 04/07 13h<br>16. 🟡 Lucas Schmidt (17235) — logins invertidos MK<br>17. 💰 Despesa Dal Ri R$ 256,03 — lançar planilha<br>⏰ LEMBRETE: Lu saindo ~13:30 para exames</div>
+</div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 11:30 Ronda 01/07 (run #81)</div>
+  <div class="log-corpo">### Novidades (atividade após 11:15):<br>**Lu DM (11:27-11:30):**<br>- Lu enviou OS de Ana Elizete (17270) + perguntou "foi contigo esse?"<br>- Júnior (11:28): "Sim, veio na loja. Dia 5 vai embora. Tinha que falar com Alcino primeiro."<br>- Júnior (11:29): "Quer que eu fale com Alcino? Se quiser, deixa equip. pro novo morador."<br>- Lu (11:29): "Sim melhor — Fábio tá na área, vai almoçar por lá"<br>- Lu (11:30a): "Vou ver se Lilian Bicca tá em casa hoje — sinal a arrumar sem custo"<br>- Lu (11:30b): "Espera ver quanto tempo Clézio resolve"<br>- Júnior (11:30): "Clézio é barbada — rápido. Aguardamos mais OS naquele lado."<br>**Grupo OS (11:16-11:24):**<br>- Lu achou coords Clézio: https://maps.app.goo.gl/uCkeiB5q4UHSkxFbA — salvo na agenda<br>- Fábio: "Indo" 11:24<br>**Emily Advogada (11:23):** "Pode mandar claro" — Júnior gerencia.<br>### Ações tomadas:<br>- ATENDIMENTO: Clézio GPS atualizado, Alcino pendente Júnior, Lilian Bicca monitorar<br>- Comunicado: campanha encerrada, nada a enviar<br>### ⏰ LEMBRETES PENDENTES:<br>- **Lu saindo ~13:30** para exames<br>### Pendências em aberto (11:30 01/07):<br>1. 🔴 Daiane (11150) — liberação pendente Júnior<br>2. 🔴 Jonatan (16808) — boleto COMODATO sem fatura MK<br>3. ⚠️ Regina Porto (17065) — ligar sobre valores OS — HOJE<br>4. 🔴 Clézio (17281) — OS em campo Fábio "Indo" 11:24<br>5. 🟡 Lilian Bicca (15989) — possível visita hoje (Lu verificar)<br>6. ⏳ Alcino/Ana Elizete (17270) — Júnior fala com Alcino (prazo 05/07)<br>7. ⏳ Maria/Patrícia (17015) — OS retirada 02-03/07<br>8. 🟡 Aline da Silva (15924) — SSID/antena<br>9. 🔵 Andressa Bastos — lead<br>10. ⏳ Jayne (16775) — cutucar 07/07<br>11. ⏳ Glauciléia (16397) — retirada dia de sol<br>12. ⏳ Pedroschmidt — OS 04/07 13h<br>13. 🟡 Lucas Schmidt (17235) — logins invertidos MK<br>14. 💰 Despesa Dal Ri R$ 256,03 — lançar planilha</div>
+</div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 11:15 Ronda 01/07 (run #80)</div>
+  <div class="log-corpo">### Novidades (atividade após 11:01):<br>**Clesio (17281) — OS ABERTA EM CAMPO:**<br>- Júnior mandou Fábio ir na Vila Vargas visitar Clesio (11:02-11:06)<br>- Clesio passou localização por áudio (11:09): 1º prédio esquerda porteira/casa, 2º prédio armazém<br>- Fábio a caminho ~11:12. ⚠️ Sem coordenadas GPS — Fábio vai enviar depois<br>**Grupo OS (11:07-11:12):**<br>- OS postada + correção (sem coords, antena em SSID Vila Vargas)<br>- Júnior repassou localização ao Fábio via 3 áudios. Pediu coords GPS depois.<br>**Grupo Atividades (11:03):**<br>- Lu: "Beleza" + "Não" = sem mais OSs para Fábio na região. Regina concluída. ✅<br>**Felipe/Raquel (11264) — 11:02-11:03:**<br>- "Não sei dizer" quando vem à cidade. ✅ Respondido: "sem pressa, avisa quando vier"<br>### Ações tomadas:<br>- Felipe/Raquel respondido<br>- ATENDIMENTO Clesio atualizado: OS em campo<br>- Memory atualizado<br>### Comunicado: campanha encerrada (todos nao_whatsapp)<br>### ⏰ LEMBRETES PENDENTES:<br>- **Lu saindo ~13:30** para exames — não acionar após 13:30 até avisar retorno<br>### Pendências críticas em aberto (11:15 01/07):<br>1. 🔴 **Daiane (11150)** — liberação internet pendente Júnior<br>2. 🔴 **Jonatan (16808)** — boleto COMODATO sem fatura no MK<br>3. ⚠️ **Regina Porto (17065)** — OS concluída, PENDENTE: Júnior/Lu ligar sobre valores — HOJE<br>4. 🔴 **Clézio (17281)** — OS em campo agora — Fábio a caminho Vila Vargas. Aguardar conclusão + GPS coords<br>5. ⏳ **Maria/Patrícia (17015)** — OS retirada: 02 ou 03/07 tarde — pendente Júnior/Fábio agendar<br>6. 🟡 **Aline da Silva (15924)** — aguardando resposta sobre SSID/antena CompNet<br>7. 🔵 **Andressa Bastos** — lead aguardando resposta dos planos<br>8. 🔵 **Alcino / Ana Elizete (17270)** — aguardando resposta sobre manter internet<br>9. ⏳ **Jayne (16775)** — cancelamento, cutucar 07/07<br>10. ⏳ **Glauciléia (16397)** — retirada antena: dia de sol<br>11. ⏳ **Pedroschmidt** — OS 04/07 13h — Calendar + ponto de encontro<br>12. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK<br>13. 💰 **Despesa Posto Dal Ri R$ 256,03** — lançar planilha financeira</div>
+</div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 11:01 Ronda 01/07 (run #79)</div>
+  <div class="log-corpo">### Novidades (atividade após 10:45):<br>**Grupo Atividades (10:59) — Fábio 2 áudios:**<br>- Audio 1: OS Regina Porto (17065) CONCLUÍDA — fiação em curto + cabos LAN trocados. Internet ok no cabo. Notebook antigo = wifi fraco normal. Regina quer saber custo da visita.<br>- Audio 2: Outro local com queda intermitente (celular + TV) — local não identificado, aguardando contexto<br>**Fábio DM (10:49-11:01):** Conversa em andamento com Júnior — gerenciando.<br>**Clézio (17281) — 10:52:** Áudio confirmando queda intermitente (telefone + TV). ✅ Respondido: pedimos detalhes.<br>**Emily Advogada (10:53):** Júnior abriu contato, sem resposta dela.<br>**Jairo ZTE (10:58):** "Voltando pro escritório início da tarde, aí te mando." Júnior gerenciando.<br>### Ações tomadas:<br>- Clézio (17281): respondido, pediu detalhes da queda<br>- ATENDIMENTO atualizado: Regina (17065) concluída + pendente valores; Clézio com nova queixa ativa<br>- Memory 2026-07-01.md atualizado<br>### Comunicado: 3 restantes todos nao_whatsapp — sem envio possível<br>### ⏰ LEMBRETES PENDENTES:<br>- **Lu saindo ~13:30** para exames — não acionar após 13:30 até avisar retorno<br>### Pendências críticas em aberto (11:01 01/07):<br>1. 🔴 **Daiane (11150)** — liberação internet pendente Júnior<br>2. 🔴 **Jonatan (16808)** — boleto COMODATO sem fatura no MK<br>3. ⚠️ **Regina Porto (17065)** — OS concluída, mas PENDENTE: ligar para informar valores cobrados — HOJE<br>4. 🟡 **Clézio (17281)** — queda intermitente confirmada — aguardando detalhes para diagnóstico<br>5. ⏳ **Maria/Patrícia (17015)** — OS retirada: 02 ou 03/07 tarde — pendente Júnior/Fábio agendar<br>6. 🟡 **Aline da Silva (15924)** — aguardando resposta sobre SSID/antena CompNet<br>7. 🔵 **Andressa Bastos** — lead aguardando resposta dos planos<br>8. 🔵 **Alcino / Ana Elizete (17270)** — aguardando resposta sobre manter internet<br>9. ⏳ **Jayne (16775)** — cancelamento, cutucar 07/07<br>10. ⏳ **Glauciléia (16397)** — retirada antena: reagendar dia de sol<br>11. ⏳ **Pedroschmidt** — OS 04/07 13h — Calendar + ponto de encontro<br>12. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK<br>13. 💰 **Despesa Posto Dal Ri R$ 256,03** — lançar planilha financeira</div>
+</div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 10:45 Ronda 01/07 (run #78)</div>
+  <div class="log-corpo">### Novidades (atividade após 10:30):<br>**555196979771 — Alcino da Silveira Israel (10:38-10:39):**<br>- Júnior abriu contato, mandou: "Ana Elizete de Oliveira Nunes COMODATO (R U)" + áudio + "Alcino da Silveira Israel / dono da casa"<br>- Áudio de Júnior: explicou que Ana Elizete (17270) vai cancelar e perguntou se Alcino quer manter internet pra novo morador<br>- Nenhuma resposta do Alcino ainda<br>- ✅ Adicionado ao ATENDIMENTO_PENDENTE<br>**Rosane (16903) — 10:38:** Júnior mandou "996979771" pra ela (número de Alcino). Júnior gerenciando.<br>**Maria/Patrícia (17015):** Sem nova resposta — última foi nossa de 10:31.<br>### Comunicado:<br>- 3 restantes todos com status "nao_whatsapp" — campanha sem envios possíveis nesta ronda<br>### ⏰ LEMBRETES PENDENTES:<br>- **Lu saindo ~13:30** para exames — não acionar após 13:30 até avisar retorno<br>### Pendências críticas em aberto (10:45 01/07):<br>1. 🔴 **Daiane (11150)** — liberação internet pendente Júnior<br>2. 🔴 **Jonatan (16808)** — boleto COMODATO sem fatura no MK<br>3. ⏳ **Maria/Patrícia (17015)** — OS retirada: 02 ou 03/07 tarde — pendente Júnior/Fábio agendar<br>4. 🔵 **Alcino / Ana Elizete (17270)** — aguardando resposta do Alcino sobre manter internet<br>5. 🟡 **Aline da Silva (15924)** — aguardando resposta sobre SSID/antena CompNet<br>6. 🟡 **OS Regina Porto (17065)** — monitorar visita Fábio<br>7. 🔵 **Andressa Bastos** — lead aguardando resposta dos planos<br>8. ⏳ **Jayne (16775)** — cancelamento, cutucar 07/07<br>9. ⏳ **Glauciléia (16397)** — retirada antena: reagendar dia de sol<br>10. ⏳ **Pedroschmidt** — OS 04/07 13h — Calendar + ponto de encontro<br>11. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK<br>12. 💰 **Despesa Posto Dal Ri R$ 256,03** — lançar planilha financeira</div>
+</div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 10:30 Ronda 01/07 (run #77)</div>
+  <div class="log-corpo">### Novidades (atividade após 10:15):<br>**Rosane Vieira Peixoto (16903) — 10:26:** "Oi" — Júnior respondeu com link do portal MK (10:27). Júnior gerenciando.<br>**Teiftec Belluno (Amanda) — 10:17-10:18:** "Seria o rádio 172.31.72.58?" — B2B técnico, Júnior gerenciando.<br>**Jairo ZTE — 10:21:** Júnior enviou áudio. Júnior gerenciando.<br>**Maria/Patrícia (17015) — 10:19-10:20:**<br>- Confirmou: amanhã (02/07) ou sexta (03/07), **preferencialmente à tarde**<br>- Áudio: "Só me avise com a hora que eles forem, para ela ficar esperando — tem nenê pequeno"<br>- ✅ Respondido: confirmado agendamento, prometido aviso do horário<br>**Aline da Silva (15924):** Sem nova resposta após explicação TP-LINK.<br>### Ações tomadas:<br>- Maria/Patrícia (17015): respondida e ATENDIMENTO_PENDENTE atualizado com disponibilidade<br>- Memory 2026-07-01.md atualizado<br>### Comunicado: campanha_encerrada = true — sem envios<br>### ⏰ LEMBRETES PENDENTES:<br>- **Lu saindo ~13:30** para exames — não acionar após 13:30 até avisar retorno<br>### Pendências críticas em aberto (10:30 01/07):<br>1. 🔴 **Daiane (11150)** — pediu liberação de internet "a tata paga amanhã" — decisão pendente Júnior<br>2. 🔴 **Jonatan (16808)** — boleto COMODATO sem fatura no MK — Júnior/Lu emitir<br>3. ⏳ **Maria/Patrícia (17015)** — OS retirada antena: 02 ou 03/07 tarde — **pendente Júnior/Fábio agendar** + avisar horário à Maria<br>4. 🟡 **Aline da Silva (15924)** — aguardando resposta sobre SSID/antena CompNet<br>5. 🟡 **OS Regina Porto (17065)** — monitorar resultado da visita do Fábio<br>6. 🔵 **Andressa Bastos** — lead, recebeu planos às 10:00, aguardando resposta<br>7. ⏳ **Jayne (16775)** — cancelamento previsto, avisa data da mudança (07/07 cutucar)<br>8. ⏳ **Glauciléia (16397)** — antena no telhado, sem sol hoje — reagendar dia de sol<br>9. ⏳ **Pedroschmidt** — OS 04/07 13h — ponto de encontro + Calendar!<br>10. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK<br>11. 💰 **Despesa:** Posto Dal Ri R$ 256,03 (01/07) — lançar planilha financeira</div>
+</div>
+<div class="log-entry log-acao">
   <div class="log-titulo">🔄 UPDATE 10:15 Ronda 01/07 (run #76)</div>
   <div class="log-corpo">### Novidades (atividade após 10:01):<br>**Lu (10:06-10:15):**<br>- 10:06: Vai sair ~13:30 para 2 exames — avisa quando chegar<br>- 10:11: Fábio vai terminar e voltar; comentário sobre cliente sem cobrança<br>- 10:14: Sem sol hoje → **Glauciléia antena NÃO vai hoje** — reagendar dia de sol<br>- 10:15: "Sim" (resposta curta ao Júnior)<br>**Teiftec Belluno (10:13):** Júnior mandou áudio — conversa técnica Júnior gerenciando<br>**Aline da Silva (15924) (10:11):** Enviou foto WiFi "TP-LINK_10B6" em resposta ao bot<br>- → Respondido: explicado que é roteador local, não a antena CompNet ✅<br>**Maria/Patricia (17015) (10:08):** "Estou falando com ela, só um momento"<br>- → Respondido: "Pode chamar! Fico aguardando." ✅<br>**Follow-ups automáticos enviados (bot) — sem resposta ainda:**<br>- Liziane (15339) upgrade, Maria Beatriz (17061) check-in, Lilian (15989) agendamento, Clesio (17281) check-in, Thais (17291) retorno, Aline Aires (16986) viagem, Felipe/Raquel (11264) cidade<br>### Ações tomadas:<br>- Glauciléia (16397): atualizado ATENDIMENTO_PENDENTE — antena não retirada hoje<br>- Aline da Silva (15924): respondida sobre WiFi TP-LINK<br>- Maria/Patricia (17015): respondida<br>- Memory 2026-07-01.md atualizado<br>### Comunicado: campanha_encerrada = true — sem envios<br>### ⏰ LEMBRETES PENDENTES:<br>- **Lu saindo ~13:30** para exames — não acionar após 13:30 até avisar retorno<br>### Pendências críticas em aberto (10:15 01/07):<br>1. 🔴 **Daiane (11150)** — pediu liberação de internet "a tata paga amanhã" — decisão pendente Júnior<br>2. 🔴 **Jonatan (16808)** — boleto COMODATO sem fatura no MK — Júnior/Lu emitir<br>3. 🟡 **Aline da Silva (15924)** — aguardando resposta sobre SSID/antena CompNet<br>4. ⏳ **Maria/Patricia (17015)** — aguardando horário com a filha para retirada<br>5. 🟡 **OS Regina Porto (17065)** — monitorar resultado da visita do Fábio<br>6. 🔵 **Andressa Bastos** — lead, recebeu planos às 10:00, aguardando resposta<br>7. ⏳ **Jayne (16775)** — cancelamento previsto, avisa data da mudança (07/07 cutucar)<br>8. ⏳ **Glauciléia (16397)** — antena no telhado, reagendar dia de sol<br>9. ⏳ **Pedroschmidt** — OS 04/07 13h — ponto de encontro + Calendar!<br>10. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK<br>11. 💰 **Despesa:** Posto Dal Ri R$ 256,03 (01/07) — lançar planilha financeira</div>
 </div>
@@ -2126,42 +2170,6 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="log-entry log-acao">
   <div class="log-titulo">🔄 UPDATE 09:02 Ronda 01/07 (run #71)</div>
   <div class="log-corpo">### Novidades (atividade após 08:45):<br>**Jeferson Schmidt (15697) — 08:58:**<br>- Respondeu "Obrigado 🙏🙏" ao nosso encerramento<br>- ✅ Conversa encerrada definitivamente<br>**Pedro/Maria Cecilia Ibiaçu (11207) — 08:55-08:56:**<br>- Júnior enviou link produto (Cambium Force 200 radome - flytec.com.py) + áudio<br>- Contexto: provável cotação/compra de equipamento para OS do Pedro<br>- ✅ Júnior gerenciando<br>**Marcelo Bittencourt (15957) — 08:49:**<br>- Enviou mensagem vazia e deletou em seguida<br>- ✅ Sem conteúdo — ignorar<br>**Lu (08:46):**<br>- "Sim, é esse 01-22, sim." — confirmando algum item ao Júnior (adaptador DC ou material)<br>- ✅ Operacional entre eles<br>### Ações tomadas:<br>- Nenhuma ação necessária<br>- Comunicado: sem pendentes<br>### Pendências críticas em aberto (09:02 01/07):<br>1. 🟡 **OS Regina Porto (17065)** — Fábio deve estar chegando agora (09:00). Monitorar retorno<br>2. 🔴 **Jonatan (16808)** — **boleto COMODATO sem fatura no MK** — Júnior/Lu emitir<br>3. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita urgente<br>4. 🔵 **Andressa Bastos** — lead Leopoldina 301/aeroclube — aguarda cobertura<br>5. 🔵 **Lucas Eduardo (16979)** — sem resposta ao follow-up<br>6. ⏳ **Pedroschmidt** — OS 04/07 13h — ponto de encontro + Calendar!<br>7. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK<br>8. ⏳ **Glauciléia (16397)** — retirada antena hoje se tempo bom<br>9. ⏳ **Maria Eduarda (17015)** — cancelamento pendente<br>10. 💰 **Despesa:** Posto Dal Ri R$ 256,03 (01/07) — lançar planilha financeira</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 08:45 Ronda 01/07 (run #70)</div>
-  <div class="log-corpo">### Novidades (atividade após 08:30):<br>**Lu Vivo Particular (08:38-08:45):**<br>- Júnior enviou imagem + áudio às 08:38<br>- Lu respondeu 2 áudios (08:43-44):<br>- "Como tu vai pagar no cartão? É as compras que eu te pedi?"<br>- "Não sei se tu chegou a ver que eu coloquei umas coisinhas no grupo dos materiais que tá faltando"<br>- Júnior respondeu áudio (08:45): confirmou que viu o adaptador DC, vai verificar se tem mais material a comprar<br>- ✅ Conversa operacional entre Júnior e Lu — gerenciando compras/materiais para OSs do dia<br>**Chaiene (10502) — 08:40-08:41:**<br>- Chaiene: "Bom dia primo."<br>- Júnior: "Bom dia 🙏"<br>- ✅ Júnior gerenciando diretamente<br>**Jonatan (16808) — 08:33-08:37:**<br>- Júnior enviou endereço da loja + 2 áudios<br>- Jonatan: "Tá bom"<br>- ✅ Assunto nobreak encerrado. Boleto COMODATO ainda pendente no MK<br>**Joel (17264) — 08:31:**<br>- Última mensagem = nossa resposta de encerramento. ✅ Encerrado<br>### Ações tomadas:<br>- Nenhuma ação necessária — todas as conversas ativas sendo gerenciadas pelo Júnior diretamente<br>- Comunicado: sem pendentes<br>### Pendências críticas em aberto (08:45 01/07):<br>1. 🟡 **OS Regina Porto (17065)** — Fábio a caminho, 09:00 hoje<br>2. 🔴 **Jonatan (16808)** — **boleto COMODATO sem fatura no MK** — Júnior/Lu emitir<br>3. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita urgente<br>4. 🔵 **Andressa Bastos** — lead Leopoldina 301/aeroclube — aguarda cobertura<br>5. 🔵 **Lucas Eduardo (16979)** — sem resposta ao follow-up<br>6. ⏳ **Pedroschmidt** — OS 04/07 13h — ponto de encontro + Calendar!<br>7. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK<br>8. ⏳ **Chaiene (10502)** — Júnior atendendo diretamente<br>9. ⏳ **Glauciléia (16397)** — retirada antena hoje se tempo bom<br>10. ⏳ **Maria Eduarda (17015)** — cancelamento pendente<br>11. 💰 **Despesa:** Posto Dal Ri R$ 256,03 (01/07) — lançar planilha financeira<br>12. 🛒 **Compras Lu:** verificar materiais pendentes no grupo Compra Materiais</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 08:30 Ronda 01/07 (run #69)</div>
-  <div class="log-corpo">### Novidades (atividade após 08:15):<br>**Despesas CompetenceNet grupo (08:30):**<br>- Lu postou comprovante Pix: **R$ 256,03 → POSTO DAL RI** (combustível)<br>- Pago de conta CompetenceNet/Sicredi às 08:29:39<br>- ✅ Registrado em memory/super_ronda_log.md<br>**Joel (17264) — 08:26:**<br>- Respondeu: "Bom dia / Sim / Parece q melhorou agr"<br>- ✅ Respondido + encerrado — reiniciou e melhorou<br>**Jonatan (16808) — 08:16-08:31:**<br>- Nossa mensagem Pix enviada às 08:16 apareceu como "(empty)" no histórico — pode não ter chegado legível<br>- Júnior enviou áudio (08:16): ofereceu entregar nobreak na loja, confirmou que é o mesmo modelo<br>- Júnior deletou uma mensagem (08:18)<br>- Jonatan respondeu áudio (08:31): "me manda o endereço, vou comprar e mandar entregar lá"<br>- ✅ Júnior está gerenciando diretamente a conversa sobre nobreak<br>- ⚠️ Questão do boleto COMODATO: ainda em aberto — Júnior/Lu precisam emitir<br>**Jeferson Schmidt (15697):** Última mensagem = nossa resposta de encerramento. ✅ Encerrado<br>### Ações tomadas:<br>- ✅ Respondido/encerrado Joel (17264) — melhorou após reinício<br>- ✅ Registrada despesa Posto Dal Ri R$ 256,03 (combustível) em memory<br>### Pendências críticas em aberto (08:30 01/07):<br>1. 🟡 **OS Regina Porto (17065)** — Fábio a caminho, 09:00 hoje. Lu comprou cabo adaptador + material ok<br>2. 🔴 **Jonatan (16808)** — internet ok. MAS **boleto COMODATO sem fatura no portal MK** — Júnior/Lu emitir<br>3. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita urgente<br>4. 🔵 **Andressa Bastos** — lead Leopoldina 301/aeroclube — aguarda cobertura<br>5. 🔵 **Lucas Eduardo (16979)** — follow-up enviado, sem resposta<br>6. ⏳ **Pedroschmidt** — OS 04/07 13h — ponto de encontro + Calendar!<br>7. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK<br>8. ⏳ **Chaiene (10502)** — Júnior atendendo<br>9. ⏳ **Glauciléia (16397)** — retirada antena hoje se tempo bom<br>10. ⏳ **Maria Eduarda (17015)** — cancelamento pendente<br>11. 💰 **Despesa registrada:** Posto Dal Ri R$ 256,03 (01/07) — lançar planilha financeira</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 08:15 Ronda 01/07 (run #68)</div>
-  <div class="log-corpo">### Novidades (atividade após 08:01):<br>**Jonatan (16808) — 08:08-08:13:**<br>- Enviou imagem do portal MK: **"Jonatan Americo Simon COMODATO (N) — A fatura não está disponível para pagamento"**<br>- Estava tentando pagar mas boleto não está disponível no sistema (comodato sem fatura gerada)<br>- Júnior (08:10): respondeu com link ML de nobreak + "fera ta super valendo a pena a vista" — aparentemente resolveu a internet antes, e isso era conversa sobre equipamento<br>- ✅ Respondido 08:15: orientado a usar Pix ou verificar portal novamente<br>- ⏳ **Pendente Júnior/Lu: boleto COMODATO de Jonatan não disponível no portal — precisa atualizar/gerar no MK**<br>**Jeferson Schmidt (15697) — 08:04-08:05:**<br>- Confirmou: "Voltou logo em seguida. Não reiniciei. Mas deu tudo certo 🙏"<br>- ✅ Resolvido sozinho — instabilidade passageira. Respondido + encerrado.<br>**Andressa Bastos (lead) — 08:05:**<br>- Confirmou: "Bom dia aguardo" — aguardando verificação de cobertura<br>- ⏳ Pendente Júnior: verificar cobertura em Leopoldina 301 / aeroclube<br>**Lucas Eduardo (16979) — 08:04:** Nosso follow-up entregue. Sem resposta ainda.<br>**Joel (17264) — 08:04:** Nosso follow-up entregue. Sem resposta ainda.<br>**Self-chat (08:15):** Júnior enviou screenshot do histórico de conexões MK — cliente em vlan106-trev-br290, sessão ativa 30/06 16:06 com 14.65 GB consumo. Referência interna. ✅<br>**Compra Materiais grupo (08:05-08:05):** Lu postou "adaptador de 4" + foto de adaptadores DC em saquinho plástico — material para OS Regina Porto hoje (cabo DC de reposição). ✅ Logística confirmada.<br>### Ações tomadas:<br>- ✅ Encerrado Jeferson Schmidt (15697) — voltou sozinho<br>- ✅ Respondido Jonatan (16808) — orientado Pix para pagamento (boleto COMODATO com erro)<br>### Pendências críticas em aberto (08:15 01/07):<br>1. 🟡 **OS Regina Porto (17065)** — Fábio a caminho + Lu separou cabo adaptador. Hoje 09:00<br>2. 🔴 **Jonatan (16808)** — internet provavelmente ativa (Júnior resolveu), MAS boleto COMODATO sem fatura no portal ⚠️ — Júnior/Lu gerar boleto<br>3. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente<br>4. 🔵 **Andressa Bastos** — lead Leopoldina 301 / aeroclube — aguarda verificação de cobertura<br>5. 🔵 **Joel (17264)** — follow-up enviado, sem resposta<br>6. 🔵 **Lucas Eduardo (16979)** — follow-up enviado, sem resposta<br>7. ⏳ **Pedroschmidt** — OS 04/07 13h — ponto de encontro + Calendar!<br>8. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK<br>9. ⏳ **Chaiene (10502)** — Júnior atendendo<br>10. ⏳ **Glauciléia (16397)** — retirada antena hoje se tempo bom<br>11. ⏳ **Maria Eduarda (17015)** — cancelamento, aguardando horário filha</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 08:01 Ronda 01/07 (run #67)</div>
-  <div class="log-corpo">### Novidades (atividade após 22:37 de 30/06):<br>**OS grupo (07:55-07:58):**<br>- Lu postou OS formal para Regina Porto (17065/17153) — OS quarta 01/07 09:00<br>- Problema: cabo WAN danificado (conector DC fraturado com fio exposto — confirmado em foto)<br>- Fábio vai atender. Estimativa conclusão 10:40<br>- Duas imagens postadas: cabo de reposição + foto do cabo danificado<br>**Israel Lucas (16865) — 07:15-07:37:**<br>- Áudio 07:15: confirmou que internet funcionando, TV rodando. Encerrado ✅<br>- Conversa continuou sobre TV de prima (assunto pessoal, sem ação)<br>**Chaiene (10502) — 07:51-07:54:**<br>- Júnior enviou imagem, áudio e vídeo às 07:51-07:54 — atendimento ativo do Júnior<br>- Imagem 22:58 de ontem "Trancou" = TV com Paramount+ — provavelmente streaming travou, não a internet<br>- Júnior gerenciando diretamente<br>**Kerolayn (06:42):** Sticker + "Bom dia" — conversa pessoal familiar ✅<br>**Humberto (05:23):** Link YouTube com mensagem religiosa — pessoal, sem ação ✅<br>**Histórias grupo (23:48):** História noite enviada (A Grande Aventura na Fábrica de Sorvete) ✅<br>### Ações tomadas:<br>- ✅ Respondido Andressa Bastos (lead Leopoldina 301) — verificação de cobertura prometida<br>- ✅ Follow-up Jonatan (sem internet há +12h)<br>- ✅ Follow-up Joel (reiniciou, sem confirmação)<br>- ✅ Follow-up Lucas Eduardo (lentidão, sem confirmação de retorno)<br>- ✅ Follow-up Jeferson Schmidt (sem internet noite 30/06)<br>### Disparo comunicado: ENCERRADO — 335 enviados + 3 nao_whatsapp<br>### Pendências críticas em aberto (08:01 01/07):<br>1. 🟡 **OS Regina Porto** — Fábio a caminho, conclusão esperada ~10:40<br>2. 🔴 **Jonatan (16808)** — sem internet +12h, follow-up enviado, sem resposta. Escalar se não responder<br>3. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente — não foi ontem!<br>4. 🔵 **Andressa Bastos** — lead Leopoldina 301 / aeroclube — Júnior verificar cobertura<br>5. 🔵 **Jeferson Schmidt (15697)** — sem internet 22:13, follow-up enviado<br>6. 🔵 **Joel (17264)** — reinicialização sem confirmação, follow-up enviado<br>7. 🔵 **Lucas Eduardo (16979)** — lentidão oscilação, follow-up enviado<br>8. ⏳ **Pedroschmidt** — OS 04/07 13h — ponto de encontro pendente + Calendar!<br>9. 🟡 **Lucas Schmidt (17235)** — logins invertidos MK — Júnior corrigir<br>10. ⏳ **Chaiene (10502)** — Júnior atendendo diretamente<br>11. ⏳ **Glauciléia (16397)** — retirada antena hoje se tempo bom<br>12. ⏳ **Celetro/Gilberto** — coordenadas 7 pontos CTG, Júnior analisar<br>13. ⏳ **Maria Eduarda (17015)** — cancelamento, aguardando horário filha<br>14. ⏳ **Leandro (17290)** — retirada pendente<br>15. 🔇 **Marly** — acordo 15/07<br>16. ⏳ **Grasi E Oséias** — lead Irui, aguardando endereço<br>17. ⏳ **Sabrina (16822/Lourdes)** — desbloqueio manual pendente<br>18. ⏳ **Santa Helena/Fasa (17284)** — senha PPPoE, roteador Paulinho<br>19. ⏳ **Marlon Qualitec** — peça ePMP 2000<br>### Follow-up 7 dias vencendo AMANHÃ 02/07:<br>- Aline da Silva, Ione Margarete, Rodrigo Trindade, Liege, Valdelise, Roberta Porto, Romildo Maas</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 22:37 Ronda 30/06</div>
-  <div class="log-corpo">### Atividade nova (após 21:57):<br>- **Jeferson Schmidt (15697, Noemia) 22:13** — Sem internet. Enviou print do Wi-Fi: "Conectada / Sem acesso à Internet", sinal excelente 5GHz. Problema PPPoE/roteador. ✅ Respondido — orientado a reiniciar roteador. Aguardando retorno.<br>- **Chaiene Scortegana (10502, Noemia) 22:31** — Netflix travando. Júnior já está atendendo ativamente (enviou imagem + "Tenta agora"). Ela respondeu "Vou tentar". Conversa em andamento. Não interferido.<br>- **Andressa Bastos (555180401451) 21:58** — Quer contratar internet ("Gostaria de contatar a internet de vcs"). ✅ Respondido — perguntado endereço e se já tem internet hoje. Aguardando resposta. (Lead comercial)<br>### Lu DM / Grupo Atividades: Sem nova atividade. ✅ Ok.<br>### Disparo: PULADO — todos nao_whatsapp.<br>### Pendências críticas em aberto (22:37):<br>1. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente. Amanhã 01/07.<br>2. 🟡 **Regina Porto (17065)** — OS quarta 01/07 09:00. CHUVA prevista — confirmar Fábio cedo.<br>3. 🔴 **Jeferson Schmidt (15697)** — sem internet. Orientado reiniciar roteador. Aguardando confirmação.<br>4. 🔵 **Chaiene (10502)** — Netflix travando. Júnior atendendo. Monitorar retorno.<br>5. 🔵 **Andressa Bastos** — lead comercial quer contratar. Aguardando endereço.<br>6. 🔴 **Lucas Eduardo (16979)** — lentidão/oscilação. Aguardando retorno.<br>7. 🔴 **Jonatan (16808)** — sem internet (interior). Aguardando diagnóstico.<br>8. 🔵 **Joel (17264)** — reinicialização pendente confirmação.<br>9. 🔵 **Maria Eduarda (17015)** — cancelamento. Sem resposta.<br>10. ⏳ **Pedroschmidt** — sexta 03/07 tarde.<br>11. ⏳ **Paulo Jean (17201)** — remarcar visita Fábio.<br>12. ⏳ **Marcelo Bittencourt** — cadastro novo sistema pendente.<br>13. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu.<br>14. ⏳ **Leandro retirada** — verificar 01/07.<br>15. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>16. 🔇 **Marly** — acordo 15/07.<br>17. ⏳ **Emerson (16753)** — CPF João Luiz aguardando resposta.<br>18. ⏳ **Valdir** — cancelamento agendado.<br>19. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>20. ⏳ **Glauciléia (16397)** — retirada comodato tarde 01/07 se tempo bom.<br>21. ⏳ **Poliana (17286)** — antena velha no poste; OS retirada pendente.<br>22. 🔵 **Grasi E Oséias** — lead Irui. Aguardando endereço.<br>### Lembretes amanhã (01/07):<br>- ⚠️ CHUVA — confirmar Fábio cedo sobre OS Regina Porto 09:00<br>- ⚡ Jayne (16775) — visita técnica urgente<br>- 🟡 Cutucar Maria Eduarda se não responder<br>- ⏳ Verificar retirada Leandro<br>- ⏳ Cobrar Celetro/Gilberto orçamento CTG<br>- ⏳ Glauciléia (16397) — retirada comodato tarde (se tempo bom)</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 21:57 Ronda 30/06</div>
-  <div class="log-corpo">### Atividade nova (após 21:37):<br>- **Andressa Bastos (555180401451) 21:55:** "Boa noite" — número cadastrado no MK como José Leonardo dos Santos Araujo (ID 17167), bairro Medianeira. Mas quem escreveu é "Andressa Bastos" — pode ser familiar/terceiro usando o número, ou contato novo. ✅ Respondido — "Boa noite! Tudo bem? Em que posso ajudar? 😊"<br>- **Lu DM / Grupo Atividades:** Sem nova atividade. ✅ Ok.<br>### Disparo comunicado: PULADO — campanha encerrada (3 = nao_whatsapp).<br>### Pendências críticas em aberto (21:57):<br>1. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente. Fábio não foi hoje. 📅 Amanhã 01/07.<br>2. 🟡 **Regina Porto (17065)** — OS quarta 01/07 09:00. CHUVA prevista — confirmar Fábio cedo amanhã.<br>3. 🔴 **Lucas Eduardo (16979)** — lentidão/oscilação de sinal. Orientado a reiniciar. Aguardando retorno.<br>4. 🔴 **Jonatan (16808)** — sem internet o dia todo (interior). Aguardando diagnóstico.<br>5. 🔵 **Andressa Bastos / José Leonardo (17167)** — "Boa noite" respondido. Aguardando motivo do contato.<br>6. 🔵 **Joel (17264)** — disse "Ok" para reiniciar. Sem confirmação de melhora.<br>7. 🔵 **Maria Eduarda (17015)** — Júnior iniciou contato para cancelamento. Sem resposta.<br>8. ⏳ **Pedroschmidt** — sexta 03/07 tarde.<br>9. ⏳ **Paulo Jean (17201)** — remarcar visita Fábio.<br>10. ⏳ **Marcelo Bittencourt** — cadastro novo sistema pendente.<br>11. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu.<br>12. ⏳ **Leandro retirada** — verificar 01/07.<br>13. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>14. 🔇 **Marly** — acordo 15/07.<br>15. ⏳ **Emerson (16753)** — CPF João Luiz aguardando resposta.<br>16. ⏳ **Valdir** — cancelamento agendado.<br>17. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>18. ⏳ **Glauciléia (16397)** — retirada comodato tarde 01/07 se tempo bom.<br>19. ⏳ **Poliana (17286)** — antena velha no poste; OS retirada pendente.<br>20. 🔵 **Grasi E Oséias** — lead Irui. Aguardando endereço.<br>### Lembretes amanhã (01/07):<br>- ⚠️ CHUVA — confirmar Fábio cedo sobre OS Regina Porto 09:00<br>- ⚡ Jayne (16775) — visita técnica urgente<br>- 🟡 Cutucar Maria Eduarda se não responder<br>- ⏳ Verificar retirada Leandro<br>- ⏳ Cobrar Celetro/Gilberto orçamento CTG<br>- ⏳ Glauciléia (16397) — retirada comodato tarde (se tempo bom)</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 21:37 Ronda 30/06</div>
-  <div class="log-corpo">### Atividade nova (após 20:58):<br>- **Elizabet (16751) 21:19:** Enviou imagem de "Boa noite" religiosa ("Deus, obrigado pelo dia de hoje..."). Mensagem social, sem pendência operacional. ✅ Sem ação.<br>- **Lucas Eduardo (16979) 21:08:** Última mensagem foi a nossa resposta (orientando reiniciar equipamentos). Às 20:59 ele respondeu "Fica parando o vídeo e carregando" — lentidão/oscilação. Já respondido. Aguardando retorno após reinicialização.<br>- **Gilmar Dutra (16964) 20:59:** Última mensagem foi a nossa resposta confirmando liberação Pix. Sem nova resposta do Gilmar. Sem ação.<br>- **Jonatan (16808) 20:59:** Última mensagem foi a nossa resposta pedindo diagnóstico. Sem resposta ainda. Sem ação.<br>- **Lu DM / Grupo Atividades:** Sem nova atividade desde cutoff. ✅ Ok.<br>### Disparo comunicado: PULADO — campanha encerrada (3 = nao_whatsapp).<br>### Pendências críticas em aberto (21:37):<br>1. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente. Fábio não foi hoje. 📅 Amanhã 01/07.<br>2. 🟡 **Regina Porto (17065)** — OS quarta 01/07 09:00. CHUVA prevista — confirmar Fábio cedo amanhã.<br>3. 🔴 **Lucas Eduardo (16979)** — lentidão/oscilação de sinal. Orientado a reiniciar. Aguardando retorno.<br>4. 🔴 **Jonatan (16808)** — sem internet o dia todo (interior). Aguardando diagnóstico.<br>5. 🔵 **Joel (17264)** — disse "Ok" para reiniciar. Sem confirmação de melhora.<br>6. 🔵 **Maria Eduarda (17015)** — Júnior iniciou contato para cancelamento. Sem resposta.<br>7. ⏳ **Pedroschmidt** — sexta 03/07 tarde.<br>8. ⏳ **Paulo Jean (17201)** — remarcar visita Fábio.<br>9. ⏳ **Marcelo Bittencourt** — cadastro novo sistema pendente.<br>10. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu.<br>11. ⏳ **Leandro retirada** — verificar 01/07.<br>12. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>13. 🔇 **Marly** — acordo 15/07.<br>14. ⏳ **Emerson (16753)** — CPF João Luiz aguardando resposta.<br>15. ⏳ **Valdir** — cancelamento agendado.<br>16. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>17. ⏳ **Glauciléia (16397)** — retirada comodato tarde 01/07 se tempo bom.<br>18. ⏳ **Poliana (17286)** — antena velha no poste; OS retirada pendente.<br>19. 🔵 **Grasi E Oséias** — lead Irui. Aguardando endereço.<br>### Lembretes amanhã (01/07):<br>- ⚠️ CHUVA — confirmar Fábio cedo sobre OS Regina Porto 09:00<br>- ⚡ Jayne (16775) — visita técnica urgente<br>- 🟡 Cutucar Maria Eduarda se não responder<br>- ⏳ Verificar retirada Leandro<br>- ⏳ Cobrar Celetro/Gilberto orçamento CTG<br>- ⏳ Glauciléia (16397) — retirada comodato tarde (se tempo bom)</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 20:58 Ronda 30/06</div>
-  <div class="log-corpo">### Atividade nova (após 20:37):<br>- **Lucas Eduardo (16979) 20:57:** "tá caindo o sinal aqui / será que é aqui" — mudança de problema: antes era bloqueio/pagamento, agora é instabilidade técnica de sinal. ✅ Respondido — pedindo diagnóstico (oscila ou cai totalmente, quando começou).<br>- **Jonatan (16808) 20:42:** "to sem internet o dia todo, o que houve?" — cliente interior sem internet. NOVO. ✅ Respondido — pedindo diagnóstico roteador/erro.<br>- **Gilmar Dutra (16964) 20:41:** "Foi pix" — confirmou pagamento Pix. ✅ Respondido — confirmado liberação automática.<br>- **Isadora 20:39:** 🙏🏽 — emoji de resposta ao encerramento do Júnior. ✅ Encerrada.<br>### Disparo comunicado: PULADO — campanha encerrada (3 = nao_whatsapp).<br>### Pendências críticas em aberto (20:58):<br>1. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente. Fábio não foi hoje. 📅 Amanhã 01/07.<br>2. 🟡 **Regina Porto (17065)** — OS quarta 01/07 09:00. CHUVA prevista — confirmar Fábio cedo amanhã.<br>3. 🔴 **Lucas Eduardo (16979)** — instabilidade de sinal. Respondido. Aguardando diagnóstico dele.<br>4. 🔴 **Jonatan (16808)** — sem internet o dia todo (interior). Respondido. Aguardando diagnóstico.<br>5. 🔵 **Joel (17264)** — disse "Ok" para reiniciar equipamentos. Sem confirmação de melhora ainda.<br>6. 🔵 **Maria Eduarda (17015)** — Júnior iniciou contato para agendar cancelamento. Sem resposta.<br>7. 🟡 **Gilmar Dutra (16964)** — pagou via Pix. Deve liberar automático. ✅ Coberta.<br>8. ⏳ **Pedroschmidt** — sexta 03/07 tarde.<br>9. ⏳ **Paulo Jean (17201)** — remarcar visita Fábio.<br>10. ⏳ **Marcelo Bittencourt** — cadastro novo sistema pendente.<br>11. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu.<br>12. ⏳ **Leandro retirada** — verificar 01/07.<br>13. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>14. 🔇 **Marly** — acordo 15/07.<br>15. ⏳ **Emerson (16753)** — CPF João Luiz aguardando resposta.<br>16. ⏳ **Valdir** — cancelamento agendado.<br>17. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>18. ⏳ **Glauciléia (16397)** — retirada comodato tarde 01/07 se tempo bom.<br>19. ⏳ **Poliana (17286)** — antena velha no poste; OS retirada pendente.<br>20. 🔵 **Grasi E Oséias** — lead Irui. Aguardando endereço.<br>### Lembretes amanhã (01/07):<br>- ⚠️ CHUVA — confirmar Fábio cedo sobre OS Regina Porto 09:00<br>- ⚡ Jayne (16775) — visita técnica urgente<br>- 🟡 Cutucar Maria Eduarda se não responder<br>- ⏳ Verificar retirada Leandro<br>- ⏳ Cobrar Celetro/Gilberto orçamento CTG<br>- ⏳ Glauciléia (16397) — retirada comodato tarde (se tempo bom)</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 20:37 Ronda 30/06</div>
-  <div class="log-corpo">### Atividade nova (após 19:57):<br>- **Marcelo Bittencourt (20:30-34):** Júnior em conversa por áudios. Assunto: mudança de casa com Lucas Schmidt. Júnior encerrou "Tá Bueno 🙏 / 👍". Sem ação de Zapia.<br>- **Gilmar Dutra 16964 (20:11-14):** "Já paguei" — Júnior orientou sobre Pix (libera na hora) vs boleto (2 dias úteis). ✅ Encerrado — Júnior manejou.<br>- **Joel 17264 (20:21):** Respondeu "Ok" após orientação de reiniciar tudo. Aguardando confirmação se melhorou.<br>- **Maria Eduarda 17015 (20:22):** Júnior enviou áudio — "agendar o cancelamento". Nenhuma resposta da Maria ainda. Aguardando.<br>- **Lu DM (20:04-06):** Júnior e Lu em troca de áudios. Conversa operacional entre eles. Sem ação.<br>- **Isadora (20:01):** Júnior enviou recibo + "Tudo certo 🙏" — conversa encerrada por Júnior. ✅<br>- **Humberto (20:20-31):** Conversa pessoal, Júnior ativo. Sem ação.<br>- **Amor Novo (20:19):** Júnior enviou "Opa" — pessoal. Sem ação.<br>### Disparo comunicado: PULADO — campanha encerrada (3 = nao_whatsapp).<br>### Pendências críticas em aberto (20:37):<br>1. ⚡ **Jayne (16775)** — só WhatsApp funciona. Visita técnica urgente. Fábio não foi hoje. 📅 Amanhã 01/07.<br>2. 🟡 **Regina Porto (17065)** — OS quarta 01/07 09:00. CHUVA prevista — confirmar Fábio cedo amanhã.<br>3. 🟡 **Lucas Eduardo (16979)** — sem internet. Tutorial chatbot enviado. Sem retorno. Pode ser que resolveu sozinho ou ainda bloqueado.<br>4. 🔵 **Joel (17264)** — disse "Ok" para reiniciar equipamentos. Aguardando se voltou/melhorou.<br>5. 🔵 **Maria Eduarda (17015)** — Júnior iniciou contato para agendar cancelamento (20:22). Aguardando resposta dela.<br>6. ⏳ **Pedroschmidt** — sexta 03/07 tarde. OS aguardando ordem Júnior.<br>7. ⏳ **Paulo Jean (17201)** — remarcar visita Fábio.<br>8. ⏳ **Marcelo Bittencourt** — cadastro novo sistema pendente. Trocou de casa com Lucas Schmidt.<br>9. ⏳ **Cliente Trevisan** — 10→20 MB R$131,50. Não decidiu.<br>10. ⏳ **Leandro retirada** — verificar 01/07.<br>11. ⏳ **Celetro/Gilberto** — orçamento CTG (cobrar 01/07).<br>12. 🔇 **Marly** — acordo 15/07.<br>13. ⏳ **Emerson (16753)** — CPF João Luiz aguardando resposta.<br>14. ⏳ **Valdir** — cancelamento agendado.<br>15. ⏳ **Nelson Caixa** — Pronampe retorno semana que vem.<br>16. ⏳ **Glauciléia (16397)** — retirada comodato tarde 01/07 se tempo bom.<br>17. ⏳ **Poliana (17286)** — antena velha no poste; OS retirada pendente.<br>18. 🔵 **Grasi E Oséias** — lead Irui. Aguardando endereço.<br>### Lembretes amanhã (01/07):<br>- ⚠️ CHUVA — confirmar Fábio cedo sobre OS Regina Porto 09:00<br>- ⚡ Jayne (16775) — visita técnica urgente<br>- 🟡 Cutucar Maria Eduarda se não responder hoje à noite<br>- ⏳ Verificar retirada Leandro<br>- ⏳ Cobrar Celetro/Gilberto orçamento CTG<br>- ⏳ Glauciléia (16397) — retirada comodato tarde (se tempo bom)</div>
 </div>
 
 </div>
