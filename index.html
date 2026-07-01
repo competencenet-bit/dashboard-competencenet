@@ -36,6 +36,9 @@ header .meta{font-size:0.78rem;opacity:0.7}
 .card{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);transition:opacity .3s}
 .card.encerrado{background:#fff5f5!important;border-left-color:#ef4444!important;outline:2px solid #ef4444}.card.encerrado .titulo{color:#ef4444;text-decoration:line-through}.card.encerrado .btn-encerrar{background:#ef4444;color:#fff}
 .card.lido{opacity:0.55}.card.lido .btn-lido{background:#16a34a;color:#fff}.btn-lido{background:#e2e8f0;color:#374151;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.85rem}.btn-lido:hover{opacity:0.85}
+.btn-historico{background:#0ea5e9;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.85rem}.btn-historico:hover{opacity:0.85}
+@keyframes pulse-hist{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,0.7)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
+.btn-hist-pulse{background:#ea580c!important;animation:pulse-hist 1.4s infinite}
 .card-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
 .emoji{font-size:1.2rem}
 .titulo{flex:1;font-size:0.95rem}
@@ -143,7 +146,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 01/07/2026 19:41 | 45 itens</span>
+    <span class="meta">Gerado: 01/07/2026 19:50 | 45 itens</span>
   </div>
 </header>
 
@@ -200,11 +203,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('aline_da_silva_15924_risco_can_e00557')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555599461813')">💬 WhatsApp Cliente</button>
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Aline%20da%20Silva%20(15924)%20—%20RISCO%20CANCELAMENTO*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
+      
       <button class="btn-copiar" onclick="copiarContexto('aline_da_silva_15924_risco_can_e00557')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_aline_da_silva_15924_risco_can_e00557" data-ativo="true" onclick="toggleFollowup('aline_da_silva_15924_risco_can_e00557')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_aline_aires_da_silveira_16986_ee123c" data-uid="aline_aires_da_silveira_16986_ee123c" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
   <div class="card-header">
@@ -221,11 +226,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('aline_aires_da_silveira_16986_ee123c')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555195442333')">💬 WhatsApp Cliente</button>
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Aline%20Aires%20da%20Silveira%20(16986)*\n\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (1)</button>
+      
       <button class="btn-copiar" onclick="copiarContexto('aline_aires_da_silveira_16986_ee123c')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_aline_aires_da_silveira_16986_ee123c" data-ativo="true" onclick="toggleFollowup('aline_aires_da_silveira_16986_ee123c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#2288cc;margin-left:6px">&#128309; Follow-up disparado &#8212; aguardando resposta</span></div>
 
   </div>
+  
 </div>
 </div>
 <div class="grupo" data-status="pendente"><h2 style="color:#9333ea;border-bottom:2px solid #9333ea;padding-bottom:6px">⏳ PRECISA DO JÚNIOR (14)</h2>
@@ -244,11 +251,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('17015_maria_eduarda_trindade_d_0b1e6a')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196983474')">💬 WhatsApp Cliente</button>
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*17015%20-%20Maria%20Eduarda%20Trindade%20dos%20Santos%20—%20CANCELAMENTO*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (5)</button>
+      
       <button class="btn-copiar" onclick="copiarContexto('17015_maria_eduarda_trindade_d_0b1e6a')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_17015_maria_eduarda_trindade_d_0b1e6a" data-ativo="true" onclick="toggleFollowup('17015_maria_eduarda_trindade_d_0b1e6a')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_pendente_j_nior_fd5282" data-uid="pendente_j_nior_fd5282" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -265,11 +274,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_j_nior_fd5282')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('pendente_j_nior_fd5282')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_pendente_j_nior_fd5282" data-ativo="false" onclick="toggleFollowup('pendente_j_nior_fd5282')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_jo_o_luiz_siqueira_pai_emerson_b5b473" data-uid="jo_o_luiz_siqueira_pai_emerson_b5b473" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -277,7 +288,7 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">João Luiz Siqueira (pai Emerson 16753)</strong>
     <span class="badge" style="background:#9333ea">Pendente Júnior/Lu</span>
   </div>
-  <div class="desc">- CPF: 670.257.900-91 — Bairro Teluk<br>- ✅ INSTALAÇÃO CONCLUÍDA por Fábio em 26/06 (~16h)<br>- **01/07 19:24:** Bot verificou MK via API — comodato R$ 450 NÃO lançado (só mensalidades R$ 65 futuras). Bot postou no QG solicitando à Lu.<br>- ⏳ PENDENTE LU: lançar cobrança R$ 450 comodato no MK</div>
+  <div class="desc">- CPF: 670.257.900-91 — Bairro Teluk<br>- ✅ INSTALAÇÃO CONCLUÍDA por Fábio em 26/06 (~16h)<br>- ⏳ PENDENTE LU: lançar cobrança R$ 450 comodato no MK<br>- 📅 próximo contato: 02/07 — confirmar com Lu se lançou</div>
   <div class="proximo">📅 02/07 — confirmar com Lu se lançou</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -286,11 +297,16 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('jo_o_luiz_siqueira_pai_emerson_b5b473')">🎙️ Áudio via WhatsApp</button>
       
       
+      <button class="btn-historico btn-hist-pulse" id="histbtn_jo_o_luiz_siqueira_pai_emerson_b5b473" onclick="toggleHistorico('jo_o_luiz_siqueira_pai_emerson_b5b473')">📋 Histórico (4)</button>
       <button class="btn-copiar" onclick="copiarContexto('jo_o_luiz_siqueira_pai_emerson_b5b473')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_jo_o_luiz_siqueira_pai_emerson_b5b473" data-ativo="false" onclick="toggleFollowup('jo_o_luiz_siqueira_pai_emerson_b5b473')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  <div class="painel-historico" id="hist_jo_o_luiz_siqueira_pai_emerson_b5b473" style="display:none;margin-top:10px;padding:10px 12px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0">
+  <div style="font-size:0.78rem;color:#888;font-weight:600;margin-bottom:6px">📋 HISTÓRICO DE INTERAÇÕES</div>
+  <div class="hist-linha" style="border-left:3px solid #1d4ed8;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🎙️ 01/07 19:20 — Júnior: pediu verificar se Lu lançou cobrança R$450 comodato no MK</div><div class="hist-linha" style="border-left:3px solid #059669;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🤖 01/07 19:24 — Bot: verificou via API — só mensalidades R$65 futuras, R$450 não lançado</div><div class="hist-linha" style="border-left:3px solid #059669;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🤖 01/07 19:24 — Bot: postou no QG pedindo à Lu lançar o comodato ✅</div><div class="hist-linha" style="border-left:3px solid #d97706;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">⏳ JÚNIOR: aguardando Lu confirmar lançamento</div>
+</div>
 </div>
 <div class="card" id="card_pendente_adda72" data-uid="pendente_adda72" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -307,11 +323,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_adda72')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('pendente_adda72')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_pendente_adda72" data-ativo="false" onclick="toggleFollowup('pendente_adda72')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_jorge_10383_62fc4b" data-uid="jorge_10383_62fc4b" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -328,11 +346,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('jorge_10383_62fc4b')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198571888')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('jorge_10383_62fc4b')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_jorge_10383_62fc4b" data-ativo="false" onclick="toggleFollowup('jorge_10383_62fc4b')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_jo_o_lu_s_locat_rio_ngela_3c48b7" data-uid="jo_o_lu_s_locat_rio_ngela_3c48b7" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -349,11 +369,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('jo_o_lu_s_locat_rio_ngela_3c48b7')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555599130339')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('jo_o_lu_s_locat_rio_ngela_3c48b7')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_jo_o_lu_s_locat_rio_ngela_3c48b7" data-ativo="false" onclick="toggleFollowup('jo_o_lu_s_locat_rio_ngela_3c48b7')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_j_ssica_prussiano_de_morais_3b4f4a" data-uid="j_ssica_prussiano_de_morais_3b4f4a" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -361,7 +383,7 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Jéssica Prussiano de Morais</strong>
     <span class="badge" style="background:#9333ea">Pendente Júnior/Lu</span>
   </div>
-  <div class="desc">- Comodato no cadastro, equipamento não retirado<br>- **01/07 19:20:** Júnior revisou via áudio — sugeriu colocar no Domingo Coringa (recolhimento de antena). Aguarda ID MK + endereço da Lu para confirmar.<br>- 📅 próximo contato: 02/07 — cobrar Lu pelo ID MK + endereço para agendar no Coringa</div>
+  <div class="desc">- Comodato no cadastro, equipamento não retirado<br>- ⏳ PENDENTE LU: ID MK + endereço para agendar recolhimento no Domingo Coringa<br>- 📅 próximo contato: 02/07 — cobrar Lu pelo ID MK + endereço para agendar no Coringa<br>- 📋 HISTÓRICO:</div>
   <div class="proximo">📅 02/07 — cobrar Lu pelo ID MK + endereço para agendar no Coringa</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -370,11 +392,16 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('j_ssica_prussiano_de_morais_3b4f4a')">🎙️ Áudio via WhatsApp</button>
       
       
+      <button class="btn-historico btn-hist-pulse" id="histbtn_j_ssica_prussiano_de_morais_3b4f4a" onclick="toggleHistorico('j_ssica_prussiano_de_morais_3b4f4a')">📋 Histórico (2)</button>
       <button class="btn-copiar" onclick="copiarContexto('j_ssica_prussiano_de_morais_3b4f4a')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_j_ssica_prussiano_de_morais_3b4f4a" data-ativo="true" onclick="toggleFollowup('j_ssica_prussiano_de_morais_3b4f4a')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 5d (2026-07-06)</span></div>
 
   </div>
+  <div class="painel-historico" id="hist_j_ssica_prussiano_de_morais_3b4f4a" style="display:none;margin-top:10px;padding:10px 12px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0">
+  <div style="font-size:0.78rem;color:#888;font-weight:600;margin-bottom:6px">📋 HISTÓRICO DE INTERAÇÕES</div>
+  <div class="hist-linha" style="border-left:3px solid #1d4ed8;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🎙️ 01/07 19:20 — Júnior: sugeriu colocar no Domingo Coringa para recolher equipamento</div><div class="hist-linha" style="border-left:3px solid #d97706;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">⏳ JÚNIOR: aguardando Lu passar ID MK + endereço</div>
+</div>
 </div>
 <div class="card" id="card_jorge_luis_dutra_nunes_17177_62f55e" data-uid="jorge_luis_dutra_nunes_17177_62f55e" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -382,7 +409,7 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Jorge Luis Dutra Nunes (17177)</strong>
     <span class="badge" style="background:#9333ea">Pendente Júnior/Lu</span>
   </div>
-  <div class="desc">- Cancelamento informado pela Lu. Sem comodato pendente (já recolhido)<br>- **01/07 19:24:** Bot postou no QG — ele ainda ATIVO no MK, faturas vencidas desde mar/2026<br>- 2x parcela comodato R$ 233,40 (mar+abr) + mensalidades R$ 180/mês (mar-jun)<br>- ⚠️ PENDENTE LU: desativar no MK + definir os débitos em aberto</div>
+  <div class="desc">- Cancelamento informado pela Lu. Sem comodato pendente (já recolhido)<br>- ⚠️ PENDENTE LU: desativar no MK + definir os débitos em aberto<br>- 📅 próximo contato: aguardar Lu responder sobre o cancelamento<br>- 📋 HISTÓRICO:</div>
   <div class="proximo">📅 aguardar Lu responder sobre o cancelamento</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -391,11 +418,16 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('jorge_luis_dutra_nunes_17177_62f55e')">🎙️ Áudio via WhatsApp</button>
       
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Jorge%20Luis%20Dutra%20Nunes%20(17177)*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
+      <button class="btn-historico btn-hist-pulse" id="histbtn_jorge_luis_dutra_nunes_17177_62f55e" onclick="toggleHistorico('jorge_luis_dutra_nunes_17177_62f55e')">📋 Histórico (4)</button>
       <button class="btn-copiar" onclick="copiarContexto('jorge_luis_dutra_nunes_17177_62f55e')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_jorge_luis_dutra_nunes_17177_62f55e" data-ativo="true" onclick="toggleFollowup('jorge_luis_dutra_nunes_17177_62f55e')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 5d (2026-07-06)</span></div>
 
   </div>
+  <div class="painel-historico" id="hist_jorge_luis_dutra_nunes_17177_62f55e" style="display:none;margin-top:10px;padding:10px 12px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0">
+  <div style="font-size:0.78rem;color:#888;font-weight:600;margin-bottom:6px">📋 HISTÓRICO DE INTERAÇÕES</div>
+  <div class="hist-linha" style="border-left:3px solid #1d4ed8;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🎙️ 01/07 19:20 — Júnior: pediu verificar se está cancelado no MK</div><div class="hist-linha" style="border-left:3px solid #059669;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🤖 01/07 19:24 — Bot: verificou API — ATIVO, faturas vencidas desde mar/26 (2x comodato R$233,40 + mensalidades R$180)</div><div class="hist-linha" style="border-left:3px solid #059669;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🤖 01/07 19:24 — Bot: postou alerta no QG para Lu desativar + tratar débitos ✅</div><div class="hist-linha" style="border-left:3px solid #d97706;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">⏳ JÚNIOR: aguardando Lu confirmar cancelamento no MK</div>
+</div>
 </div>
 <div class="card" id="card_ana_paula_16734_sem_no_break_23eb4d" data-uid="ana_paula_16734_sem_no_break_23eb4d" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -412,11 +444,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('ana_paula_16734_sem_no_break_23eb4d')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199121781')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('ana_paula_16734_sem_no_break_23eb4d')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_ana_paula_16734_sem_no_break_23eb4d" data-ativo="false" onclick="toggleFollowup('ana_paula_16734_sem_no_break_23eb4d')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_pergunta_lu_cobran_a_servi_os__6daf8e" data-uid="pergunta_lu_cobran_a_servi_os__6daf8e" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -433,11 +467,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pergunta_lu_cobran_a_servi_os__6daf8e')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('pergunta_lu_cobran_a_servi_os__6daf8e')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_pergunta_lu_cobran_a_servi_os__6daf8e" data-ativo="false" onclick="toggleFollowup('pergunta_lu_cobran_a_servi_os__6daf8e')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_15001_val_ria_bartmann_ab3435" data-uid="15001_val_ria_bartmann_ab3435" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -445,7 +481,7 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">15001 - Valéria Bartmann</strong>
     <span class="badge" style="background:#9333ea">Pendente Júnior/Lu</span>
   </div>
-  <div class="desc">- Quer alterar cadastro: nova titular = mãe dela (Maria Inez Nazer Bartmann, CPF 563.170.000-00)<br>- **01/07 19:33:** Valéria respondeu — manter APENAS o número dela (99996-1831) no cadastro<br>- **01/07 19:32:** Bot postou no QG dados completos da nova titular + foto do documento ✅<br>- **01/07 19:34:** Bot confirmou para Valéria que o número dela fica + que Lu vai fazer a troca</div>
+  <div class="desc">- Quer alterar cadastro: nova titular = mãe dela (Maria Inez Nazer Bartmann, CPF 563.170.000-00)<br>- ⏳ PENDENTE LU: alterar titular no MK com dados da Maria Inez + confirmar para Valéria<br>- 📅 próximo contato: aguardar confirmação da Lu<br>- 📋 HISTÓRICO:</div>
   <div class="proximo">📅 aguardar confirmação da Lu</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -454,11 +490,16 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('15001_val_ria_bartmann_ab3435')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199961831')">💬 WhatsApp Cliente</button>
       
+      <button class="btn-historico btn-hist-pulse" id="histbtn_15001_val_ria_bartmann_ab3435" onclick="toggleHistorico('15001_val_ria_bartmann_ab3435')">📋 Histórico (7)</button>
       <button class="btn-copiar" onclick="copiarContexto('15001_val_ria_bartmann_ab3435')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_15001_val_ria_bartmann_ab3435" data-ativo="false" onclick="toggleFollowup('15001_val_ria_bartmann_ab3435')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  <div class="painel-historico" id="hist_15001_val_ria_bartmann_ab3435" style="display:none;margin-top:10px;padding:10px 12px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0">
+  <div style="font-size:0.78rem;color:#888;font-weight:600;margin-bottom:6px">📋 HISTÓRICO DE INTERAÇÕES</div>
+  <div class="hist-linha" style="border-left:3px solid #1d4ed8;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🎙️ 01/07 19:20 — Júnior: pediu verificar se nome foi trocado no MK</div><div class="hist-linha" style="border-left:3px solid #059669;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🤖 01/07 19:24 — Bot: confirmou via API — nome ainda é "José Eduardo Carvalho Nunes", troca não feita</div><div class="hist-linha" style="border-left:3px solid #1d4ed8;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🎙️ 01/07 19:31 — Júnior: pediu mandar documento pro QG com dados completos + perguntar telefones</div><div class="hist-linha" style="border-left:3px solid #059669;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🤖 01/07 19:32 — Bot: postou no QG dados da Maria Inez + foto do documento ✅</div><div class="hist-linha" style="border-left:3px solid #059669;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🤖 01/07 19:34 — Bot: perguntou à Valéria os telefones da mãe</div><div class="hist-linha" style="border-left:3px solid #7c3aed;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">💬 01/07 19:33 — Valéria: manter só o número dela (99996-1831) no cadastro</div><div class="hist-linha" style="border-left:3px solid #d97706;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">⏳ JÚNIOR: aguardando Lu fazer a troca no MK</div>
+</div>
 </div>
 <div class="card" id="card_pendente_7e29d5" data-uid="pendente_7e29d5" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -475,11 +516,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_7e29d5')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('pendente_7e29d5')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_pendente_7e29d5" data-ativo="false" onclick="toggleFollowup('pendente_7e29d5')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_pendente_j_nior_0e3217" data-uid="pendente_j_nior_0e3217" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -496,11 +539,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('pendente_j_nior_0e3217')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('pendente_j_nior_0e3217')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_pendente_j_nior_0e3217" data-ativo="false" onclick="toggleFollowup('pendente_j_nior_0e3217')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_milbradt_dar_baixa_no_comodato_70dc90" data-uid="milbradt_dar_baixa_no_comodato_70dc90" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
@@ -517,11 +562,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('milbradt_dar_baixa_no_comodato_70dc90')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('milbradt_dar_baixa_no_comodato_70dc90')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_milbradt_dar_baixa_no_comodato_70dc90" data-ativo="false" onclick="toggleFollowup('milbradt_dar_baixa_no_comodato_70dc90')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 </div>
 <div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (18)</h2>
@@ -540,11 +587,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('daiane_11150_17207_daiane_frei_064e47')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198264296')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('daiane_11150_17207_daiane_frei_064e47')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_daiane_11150_17207_daiane_frei_064e47" data-ativo="false" onclick="toggleFollowup('daiane_11150_17207_daiane_frei_064e47')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_17291_thais_moura_sinal_ruim_d_37b125" data-uid="17291_thais_moura_sinal_ruim_d_37b125" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -561,11 +610,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('17291_thais_moura_sinal_ruim_d_37b125')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197975754')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('17291_thais_moura_sinal_ruim_d_37b125')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_17291_thais_moura_sinal_ruim_d_37b125" data-ativo="false" onclick="toggleFollowup('17291_thais_moura_sinal_ruim_d_37b125')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_helena_teixeira_tavares_17227_823036" data-uid="helena_teixeira_tavares_17227_823036" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -582,11 +633,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('helena_teixeira_tavares_17227_823036')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197494054')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('helena_teixeira_tavares_17227_823036')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_helena_teixeira_tavares_17227_823036" data-ativo="false" onclick="toggleFollowup('helena_teixeira_tavares_17227_823036')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_celetro_gilberto_16574_edceb5" data-uid="celetro_gilberto_16574_edceb5" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -603,11 +656,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('celetro_gilberto_16574_edceb5')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196743031')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('celetro_gilberto_16574_edceb5')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_celetro_gilberto_16574_edceb5" data-ativo="false" onclick="toggleFollowup('celetro_gilberto_16574_edceb5')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_lilian_bicca_15989_d1ff90" data-uid="lilian_bicca_15989_d1ff90" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -624,11 +679,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('lilian_bicca_15989_d1ff90')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197534942')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('lilian_bicca_15989_d1ff90')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_lilian_bicca_15989_d1ff90" data-ativo="false" onclick="toggleFollowup('lilian_bicca_15989_d1ff90')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_valdir_garcia_17294_recolhimen_b434ee" data-uid="valdir_garcia_17294_recolhimen_b434ee" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -645,11 +702,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('valdir_garcia_17294_recolhimen_b434ee')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('valdir_garcia_17294_recolhimen_b434ee')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_valdir_garcia_17294_recolhimen_b434ee" data-ativo="false" onclick="toggleFollowup('valdir_garcia_17294_recolhimen_b434ee')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_ivanete_17053_0eb2be" data-uid="ivanete_17053_0eb2be" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -666,11 +725,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('ivanete_17053_0eb2be')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198473522')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('ivanete_17053_0eb2be')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_ivanete_17053_0eb2be" data-ativo="true" onclick="toggleFollowup('ivanete_17053_0eb2be')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d  vai gerar follow-up ao encerrar</span></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_chaiene_10502_71323f" data-uid="chaiene_10502_71323f" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -687,11 +748,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('chaiene_10502_71323f')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197016886')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('chaiene_10502_71323f')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_chaiene_10502_71323f" data-ativo="false" onclick="toggleFollowup('chaiene_10502_71323f')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_alceu_sandra_16457_17171_6907fb" data-uid="alceu_sandra_16457_17171_6907fb" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -708,11 +771,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('alceu_sandra_16457_17171_6907fb')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198264893')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('alceu_sandra_16457_17171_6907fb')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_alceu_sandra_16457_17171_6907fb" data-ativo="false" onclick="toggleFollowup('alceu_sandra_16457_17171_6907fb')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_mariane_rodrigues_gomes_16923__ea30b0" data-uid="mariane_rodrigues_gomes_16923__ea30b0" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -729,11 +794,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('mariane_rodrigues_gomes_16923__ea30b0')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555195732903')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('mariane_rodrigues_gomes_16923__ea30b0')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_mariane_rodrigues_gomes_16923__ea30b0" data-ativo="false" onclick="toggleFollowup('mariane_rodrigues_gomes_16923__ea30b0')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_liziane_arbelo_15339_b00127" data-uid="liziane_arbelo_15339_b00127" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -750,11 +817,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('liziane_arbelo_15339_b00127')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199009710')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('liziane_arbelo_15339_b00127')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_liziane_arbelo_15339_b00127" data-ativo="false" onclick="toggleFollowup('liziane_arbelo_15339_b00127')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_adilmo_11093_716eb6" data-uid="adilmo_11093_716eb6" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -762,7 +831,7 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Adilmo (11093)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- Júnior prometeu roteador novo. Roteador disponível na loja ✅<br>- **01/07 19:22:** Bot avisou que roteador está na loja, perguntou nome/senha do Wi-Fi pra configurar<br>- ⏳ Aguardando resposta do Adilmo<br>- 📅 próximo contato: 02/07 — se não respondeu, cutucar novamente</div>
+  <div class="desc">- Júnior prometeu roteador novo. Roteador disponível na loja ✅<br>- ⏳ Aguardando resposta do Adilmo sobre nome/senha Wi-Fi<br>- 📅 próximo contato: 02/07 — se não respondeu, cutucar novamente<br>- 📋 HISTÓRICO:</div>
   <div class="proximo">📅 02/07 — se não respondeu, cutucar novamente</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -771,11 +840,16 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('adilmo_11093_716eb6')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197702115')">💬 WhatsApp Cliente</button>
       
+      <button class="btn-historico btn-hist-pulse" id="histbtn_adilmo_11093_716eb6" onclick="toggleHistorico('adilmo_11093_716eb6')">📋 Histórico (3)</button>
       <button class="btn-copiar" onclick="copiarContexto('adilmo_11093_716eb6')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_adilmo_11093_716eb6" data-ativo="false" onclick="toggleFollowup('adilmo_11093_716eb6')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  <div class="painel-historico" id="hist_adilmo_11093_716eb6" style="display:none;margin-top:10px;padding:10px 12px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0">
+  <div style="font-size:0.78rem;color:#888;font-weight:600;margin-bottom:6px">📋 HISTÓRICO DE INTERAÇÕES</div>
+  <div class="hist-linha" style="border-left:3px solid #1d4ed8;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🎙️ 01/07 19:20 — Júnior: prometeu roteador, pediu pra avisar Adilmo e perguntar nome/senha Wi-Fi</div><div class="hist-linha" style="border-left:3px solid #059669;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">🤖 01/07 19:22 — Bot: avisou que roteador está na loja, perguntou nome/senha do Wi-Fi</div><div class="hist-linha" style="border-left:3px solid #7c3aed;padding:4px 0 4px 10px;margin:4px 0;font-size:0.82rem;color:#374151">⏳ JÚNIOR: Adilmo ainda não respondeu — confirmar se quer que eu cutuce</div>
+</div>
 </div>
 <div class="card" id="card_leandro_17290_bfe2ee" data-uid="leandro_17290_bfe2ee" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -792,11 +866,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('leandro_17290_bfe2ee')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180319063')">💬 WhatsApp Cliente</button>
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Leandro%20(17290)*\n\n-%20Lista%20de%20comodatos%20(equipamentos%20que%20precisam%20ser%20devolvidos)\n-%20CPF%20do%20titular\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (2)</button>
+      
       <button class="btn-copiar" onclick="copiarContexto('leandro_17290_bfe2ee')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_leandro_17290_bfe2ee" data-ativo="false" onclick="toggleFollowup('leandro_17290_bfe2ee')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_cauana_baumhardt_16784_retirad_4910bd" data-uid="cauana_baumhardt_16784_retirad_4910bd" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -813,11 +889,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('cauana_baumhardt_16784_retirad_4910bd')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199605172')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('cauana_baumhardt_16784_retirad_4910bd')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_cauana_baumhardt_16784_retirad_4910bd" data-ativo="false" onclick="toggleFollowup('cauana_baumhardt_16784_retirad_4910bd')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_glaucileia_16397_retirada_parc_ea401f" data-uid="glaucileia_16397_retirada_parc_ea401f" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -834,11 +912,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('glaucileia_16397_retirada_parc_ea401f')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198666595')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('glaucileia_16397_retirada_parc_ea401f')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_glaucileia_16397_retirada_parc_ea401f" data-ativo="false" onclick="toggleFollowup('glaucileia_16397_retirada_parc_ea401f')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_bet_faxineira_loja_16751_segur_1fbbcc" data-uid="bet_faxineira_loja_16751_segur_1fbbcc" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -855,11 +935,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('bet_faxineira_loja_16751_segur_1fbbcc')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555194203690')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('bet_faxineira_loja_16751_segur_1fbbcc')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_bet_faxineira_loja_16751_segur_1fbbcc" data-ativo="false" onclick="toggleFollowup('bet_faxineira_loja_16751_segur_1fbbcc')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_16734_ana_paula_alves_b5b95f" data-uid="16734_ana_paula_alves_b5b95f" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -876,11 +958,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('16734_ana_paula_alves_b5b95f')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199121781')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('16734_ana_paula_alves_b5b95f')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_16734_ana_paula_alves_b5b95f" data-ativo="false" onclick="toggleFollowup('16734_ana_paula_alves_b5b95f')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_11263_rodrigo_trindade_florenc_0a0ebb" data-uid="11263_rodrigo_trindade_florenc_0a0ebb" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
@@ -897,11 +981,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('11263_rodrigo_trindade_florenc_0a0ebb')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180173180')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('11263_rodrigo_trindade_florenc_0a0ebb')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_11263_rodrigo_trindade_florenc_0a0ebb" data-ativo="true" onclick="toggleFollowup('11263_rodrigo_trindade_florenc_0a0ebb')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
 
   </div>
+  
 </div>
 </div>
 <div class="grupo" data-status="triagem"><h2 style="color:#2288cc;border-bottom:2px solid #2288cc;padding-bottom:6px">🔵 TRIAGEM (7)</h2>
@@ -920,11 +1006,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('lead_talila_0f0972')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555189749284')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('lead_talila_0f0972')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_lead_talila_0f0972" data-ativo="false" onclick="toggleFollowup('lead_talila_0f0972')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_triagem_83f6d1" data-uid="triagem_83f6d1" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
   <div class="card-header">
@@ -941,11 +1029,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('triagem_83f6d1')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('triagem_83f6d1')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_triagem_83f6d1" data-ativo="false" onclick="toggleFollowup('triagem_83f6d1')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_11263_rodrigo_trindade_pagamen_9749b9" data-uid="11263_rodrigo_trindade_pagamen_9749b9" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
   <div class="card-header">
@@ -962,11 +1052,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('11263_rodrigo_trindade_pagamen_9749b9')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180173180')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('11263_rodrigo_trindade_pagamen_9749b9')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_11263_rodrigo_trindade_pagamen_9749b9" data-ativo="true" onclick="toggleFollowup('11263_rodrigo_trindade_pagamen_9749b9')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_lead_j_lio_ac27d6" data-uid="lead_j_lio_ac27d6" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
   <div class="card-header">
@@ -983,11 +1075,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('lead_j_lio_ac27d6')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199556463')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('lead_j_lio_ac27d6')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_lead_j_lio_ac27d6" data-ativo="false" onclick="toggleFollowup('lead_j_lio_ac27d6')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_kak_amigo_39ad0d" data-uid="kak_amigo_39ad0d" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
   <div class="card-header">
@@ -1004,11 +1098,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('kak_amigo_39ad0d')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555194045839')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('kak_amigo_39ad0d')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_kak_amigo_39ad0d" data-ativo="false" onclick="toggleFollowup('kak_amigo_39ad0d')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_santa_helena_fasa_roteador_do__d69c7c" data-uid="santa_helena_fasa_roteador_do__d69c7c" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
   <div class="card-header">
@@ -1025,11 +1121,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('santa_helena_fasa_roteador_do__d69c7c')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555195260383')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('santa_helena_fasa_roteador_do__d69c7c')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_santa_helena_fasa_roteador_do__d69c7c" data-ativo="false" onclick="toggleFollowup('santa_helena_fasa_roteador_do__d69c7c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_bianca_marques_nunes_17223_tri_3c8a34" data-uid="bianca_marques_nunes_17223_tri_3c8a34" data-status="triagem" style="border-left:4px solid #2288cc;background:#f0f7ff">
   <div class="card-header">
@@ -1046,11 +1144,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('bianca_marques_nunes_17223_tri_3c8a34')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('5551920052058')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('bianca_marques_nunes_17223_tri_3c8a34')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_bianca_marques_nunes_17223_tri_3c8a34" data-ativo="true" onclick="toggleFollowup('bianca_marques_nunes_17223_tri_3c8a34')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 5d (2026-07-06)</span></div>
 
   </div>
+  
 </div>
 </div>
 <div class="grupo" data-status="silencio"><h2 style="color:#999999;border-bottom:2px solid #999999;padding-bottom:6px">🔇 SILÊNCIO INTENCIONAL (4)</h2>
@@ -1069,11 +1169,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('poliana_francine_17286_ebf9ba')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('poliana_francine_17286_ebf9ba')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_poliana_francine_17286_ebf9ba" data-ativo="false" onclick="toggleFollowup('poliana_francine_17286_ebf9ba')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_alana_corr_a_da_silva_17054_735bcd" data-uid="alana_corr_a_da_silva_17054_735bcd" data-status="silencio" style="border-left:4px solid #999999;background:#f9f9f9">
   <div class="card-header">
@@ -1090,11 +1192,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('alana_corr_a_da_silva_17054_735bcd')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196906767')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('alana_corr_a_da_silva_17054_735bcd')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_alana_corr_a_da_silva_17054_735bcd" data-ativo="true" onclick="toggleFollowup('alana_corr_a_da_silva_17054_735bcd')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_ana_cristina_16575_1f4e5c" data-uid="ana_cristina_16575_1f4e5c" data-status="silencio" style="border-left:4px solid #999999;background:#f9f9f9">
   <div class="card-header">
@@ -1111,11 +1215,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('ana_cristina_16575_1f4e5c')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555198379692')">💬 WhatsApp Cliente</button>
       
+      
       <button class="btn-copiar" onclick="copiarContexto('ana_cristina_16575_1f4e5c')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_ana_cristina_16575_1f4e5c" data-ativo="false" onclick="toggleFollowup('ana_cristina_16575_1f4e5c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 <div class="card" id="card_marly_mota_bri_o_16987_acordo__8567a9" data-uid="marly_mota_bri_o_16987_acordo__8567a9" data-status="silencio" style="border-left:4px solid #999999;background:#f9f9f9">
   <div class="card-header">
@@ -1132,11 +1238,13 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-audio" onclick="abrirWhatsAppAudio('marly_mota_bri_o_16987_acordo__8567a9')">🎙️ Áudio via WhatsApp</button>
       
       
+      
       <button class="btn-copiar" onclick="copiarContexto('marly_mota_bri_o_16987_acordo__8567a9')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_marly_mota_bri_o_16987_acordo__8567a9" data-ativo="false" onclick="toggleFollowup('marly_mota_bri_o_16987_acordo__8567a9')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
+  
 </div>
 </div>
 
@@ -1234,7 +1342,7 @@ button:disabled{opacity:0.4;cursor:default}
     <span class="badge" style="background:#6b7280">📋 OS</span>
   </div>
   
-  <div class="desc">- CPF: 670.257.900-91 — Bairro Teluk<br>- ✅ INSTALAÇÃO CONCLUÍDA por Fábio em 26/06 (~16h)<br>- **01/07 19:24:** Bot verificou MK via API — comodato R$ 450 NÃO lançado (só mensalidades R$ 65 futuras). Bot postou no QG solicitando à Lu.<br>- ⏳ PENDENTE LU: lançar cobrança R$ 450 comodato no MK</div>
+  <div class="desc">- CPF: 670.257.900-91 — Bairro Teluk<br>- ✅ INSTALAÇÃO CONCLUÍDA por Fábio em 26/06 (~16h)<br>- ⏳ PENDENTE LU: lançar cobrança R$ 450 comodato no MK<br>- 📅 próximo contato: 02/07 — confirmar com Lu se lançou</div>
   <div class="proximo">📅 02/07 — confirmar com Lu se lançou</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -2213,7 +2321,18 @@ function restaurarFollowupPrefs() {
   });
 }
 
-// --- LIDO ---
+// --- HISTÓRICO POR CARD ---
+function toggleHistorico(uid) {
+  var painel = document.getElementById('hist_' + uid);
+  var btn = document.getElementById('histbtn_' + uid);
+  if (!painel) return;
+  var aberto = painel.style.display !== 'none';
+  painel.style.display = aberto ? 'none' : 'block';
+  if (btn) btn.textContent = aberto ? btn.textContent.replace('▲','').trim() : btn.textContent + ' ▲';
+}
+// --- FIM HISTÓRICO ---
+
+function copiarContexto(uid) {
 function hashCard(uid) {
   var card = document.getElementById('card_' + uid);
   if (!card) return '';
