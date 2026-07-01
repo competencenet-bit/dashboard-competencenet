@@ -142,14 +142,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 01/07/2026 18:40 | 50 itens</span>
+    <span class="meta">Gerado: 01/07/2026 19:24 | 45 itens</span>
   </div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
-  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa (12)</div>
-  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos (14)</div>
+  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa (11)</div>
+  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos (19)</div>
   <div class="tab" onclick="abrirAba('financeiro',this)">💰 Financeiro</div>
   <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
   <div class="tab" onclick="abrirAba('chat',this)">💬 Falar com Zapia</div>
@@ -177,33 +177,13 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="container">
   
   <div class="stats">
-    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">50</div><div class="lab">Todos</div></div>
-    <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">3</div><div class="lab">🔴 Urgente</div></div>
-    <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">18</div><div class="lab">🟡 Andamento</div></div>
-    <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#9333ea">18</div><div class="lab">⏳ Júnior</div></div>
+    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">45</div><div class="lab">Todos</div></div>
+    <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">2</div><div class="lab">🔴 Urgente</div></div>
+    <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">17</div><div class="lab">🟡 Andamento</div></div>
+    <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#9333ea">15</div><div class="lab">⏳ Júnior</div></div>
     <div class="stat" data-filter="triagem" onclick="filtrar('triagem')"><div class="num" style="color:#2288cc">7</div><div class="lab">🔵 Triagem</div></div>
   </div>
-<div class="grupo" data-status="urgente"><h2 style="color:#ff4444;border-bottom:2px solid #ff4444;padding-bottom:6px">🔴 URGENTE (3)</h2>
-<div class="card" id="card_lucas_schmidt_17235_internet_c_9576b8" data-uid="lucas_schmidt_17235_internet_c_9576b8" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
-  <div class="card-header">
-    <span class="emoji">🔴</span>
-    <strong class="titulo">Lucas Schmidt (17235) — INTERNET CAIU 30/06 12:08</strong>
-    <span class="badge" style="background:#ff4444">Urgente</span>
-  </div>
-  <div class="desc">- Encerrado 29/06, MAS voltou às 12:08: "Minha internet não tá funcionando"<br>- Provavelmente relacionado com ajuste de logins (Reynaldo/Lucas/Marcelo) ainda pendente<br>- Respondido às 12:32: diagnóstico PPPoE não autenticado — mandado para técnico verificar login ✅<br>- 12:33: Lucas disse "Tá bom" — aguardando internet voltar</div>
-  <div class="proximo">📅 30/06 14:00 — se não retornou confirmando OK, acionar Júnior/Fábio</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('lucas_schmidt_17235_internet_c_9576b8',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('lucas_schmidt_17235_internet_c_9576b8')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196495774')">💬 WhatsApp Cliente</button>
-      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Lucas%20Schmidt%20(17235)%20—%20INTERNET%20CAIU%2030/06%2012:08*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (4)</button>
-      <button class="btn-copiar" onclick="copiarContexto('lucas_schmidt_17235_internet_c_9576b8')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_lucas_schmidt_17235_internet_c_9576b8" data-ativo="false" onclick="toggleFollowup('lucas_schmidt_17235_internet_c_9576b8')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
-
-  </div>
-</div>
+<div class="grupo" data-status="urgente"><h2 style="color:#ff4444;border-bottom:2px solid #ff4444;padding-bottom:6px">🔴 URGENTE (2)</h2>
 <div class="card" id="card_aline_da_silva_15924_risco_can_e00557" data-uid="aline_da_silva_15924_risco_can_e00557" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
   <div class="card-header">
     <span class="emoji">🔴</span>
@@ -230,8 +210,8 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Aline Aires da Silveira (16986)</strong>
     <span class="badge" style="background:#ff4444">Urgente</span>
   </div>
-  <div class="desc">- Lenta/travando (heavy user 32-45GB/sessão). Risco cancelamento<br>- ✅ Voltou da viagem (01/07 12:25) — continua fraca, videochamada quase impossível<br>- Bot respondeu 12:30 — aguardando diagnóstico técnico (verificar sinal no MK)<br>- 📍 Coordenadas: -30.2716481, -52.8634792 | Maps: https://maps.google.com/?q=-30.2716481,-52.8634792</div>
-  <div class="proximo">📅 **01/07 tarde** — feedback do diagnóstico</div>
+  <div class="desc">- Lenta/travando (heavy user 32-45GB/sessão). Risco cancelamento<br>- ✅ Voltou da viagem (01/07 12:25) — continua fraca, videochamada quase impossível<br>- 📍 Coordenadas: -30.2716481, -52.8634792 | Maps: https://maps.google.com/?q=-30.2716481,-52.8634792<br>- 📦 Comodatos: Roteador TP-Link Archer C20, Cabo de Rede Prysmian Draka, Antena Cambium Force 180 - CHS</div>
+  <div class="proximo">📅 02/07 — verificar se Júnior encaminhou visita técnica</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('aline_aires_da_silveira_16986_ee123c',this)">✅ Encerrar</button>
@@ -245,7 +225,7 @@ button:disabled{opacity:0.4;cursor:default}
   </div>
 </div>
 </div>
-<div class="grupo" data-status="pendente"><h2 style="color:#9333ea;border-bottom:2px solid #9333ea;padding-bottom:6px">⏳ PRECISA DO JÚNIOR (18)</h2>
+<div class="grupo" data-status="pendente"><h2 style="color:#9333ea;border-bottom:2px solid #9333ea;padding-bottom:6px">⏳ PRECISA DO JÚNIOR (15)</h2>
 <div class="card" id="card_17015_maria_eduarda_trindade_d_0b1e6a" data-uid="17015_maria_eduarda_trindade_d_0b1e6a" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
   <div class="card-header">
     <span class="emoji">⏳</span>
@@ -263,26 +243,6 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-copiar" onclick="copiarContexto('17015_maria_eduarda_trindade_d_0b1e6a')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_17015_maria_eduarda_trindade_d_0b1e6a" data-ativo="true" onclick="toggleFollowup('17015_maria_eduarda_trindade_d_0b1e6a')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 1d (2026-07-02)</span></div>
-
-  </div>
-</div>
-<div class="card" id="card_bruno_procath_17292_484c88" data-uid="bruno_procath_17292_484c88" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
-  <div class="card-header">
-    <span class="emoji">⏳</span>
-    <strong class="titulo">Bruno Procath (17292)</strong>
-    <span class="badge" style="background:#9333ea">Pendente Júnior/Lu</span>
-  </div>
-  <div class="desc">- Confirma que paga pelo portal. Pediu cadastrar número para aviso de vencimento<br>- ✅ Confirmado recebimento 28/06 18:37 — repassar pra Lu cadastrar no MK<br>- ⏳ PENDENTE LU: cadastrar JID 555196167968 no MK para notificação antecipada<br>- 📅 próximo contato: confirmar com Lu que foi feito</div>
-  <div class="proximo">📅 confirmar com Lu que foi feito</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('bruno_procath_17292_484c88',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('bruno_procath_17292_484c88')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196167968')">💬 WhatsApp Cliente</button>
-      
-      <button class="btn-copiar" onclick="copiarContexto('bruno_procath_17292_484c88')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_bruno_procath_17292_484c88" data-ativo="false" onclick="toggleFollowup('bruno_procath_17292_484c88')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -323,26 +283,6 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-copiar" onclick="copiarContexto('jo_o_luiz_siqueira_pai_emerson_b5b473')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_jo_o_luiz_siqueira_pai_emerson_b5b473" data-ativo="false" onclick="toggleFollowup('jo_o_luiz_siqueira_pai_emerson_b5b473')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
-
-  </div>
-</div>
-<div class="card" id="card_teluk_cliente_desconhecido_n_n_bd3e0b" data-uid="teluk_cliente_desconhecido_n_n_bd3e0b" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
-  <div class="card-header">
-    <span class="emoji">⏳</span>
-    <strong class="titulo">Teluk — Cliente Desconhecido (nó na cabeça)</strong>
-    <span class="badge" style="background:#9333ea">Pendente Júnior/Lu</span>
-  </div>
-  <div class="desc">- Situação: dois assuntos embaralhados — um cara saiu da Teluk (Leandro), outro chegou<br>- Tem antena lá cujo login é desconhecido — não se sabe de quem é<br>- Júnior falou com alguém que disse "tem gente em casa o dia inteiro" na Teluk<br>- Fábio nunca foi lá confirmar o login da antena</div>
-  <div class="proximo">📅 29/06 — Júnior fala com os dois caras diretamente pra se achar</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('teluk_cliente_desconhecido_n_n_bd3e0b',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('teluk_cliente_desconhecido_n_n_bd3e0b')">🎙️ Áudio via WhatsApp</button>
-      
-      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20seguintes%20dados%20para%20o%20atendimento:\n*Teluk%20—%20Cliente%20Desconhecido%20(nó%20na%20cabeça)*\n\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n\nPode%20me%20informar?%20🙏','_blank')" title="Pedir dados faltantes via WhatsApp">📋 Dados faltando (3)</button>
-      <button class="btn-copiar" onclick="copiarContexto('teluk_cliente_desconhecido_n_n_bd3e0b')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_teluk_cliente_desconhecido_n_n_bd3e0b" data-ativo="false" onclick="toggleFollowup('teluk_cliente_desconhecido_n_n_bd3e0b')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -463,26 +403,6 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-copiar" onclick="copiarContexto('jorge_luis_dutra_nunes_17177_62f55e')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_jorge_luis_dutra_nunes_17177_62f55e" data-ativo="true" onclick="toggleFollowup('jorge_luis_dutra_nunes_17177_62f55e')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">📅 →7d em 5d (2026-07-06)</span></div>
-
-  </div>
-</div>
-<div class="card" id="card_teiftec_ap_dos_pppoe_vin_cius_1615cf" data-uid="teiftec_ap_dos_pppoe_vin_cius_1615cf" data-status="pendente" style="border-left:4px solid #9333ea;background:#faf5ff">
-  <div class="card-header">
-    <span class="emoji">⏳</span>
-    <strong class="titulo">Teiftec — AP dos PPPoE (Vinícius)</strong>
-    <span class="badge" style="background:#9333ea">Pendente Júnior/Lu</span>
-  </div>
-  <div class="desc">- Perguntou a qual AP pertencem pppoe-elianess, pppoe-ionaragbr, pppoe-romildomaas (sem VLAN)<br>- 📅 próximo contato: **hoje 24/06** — PENDENTE JÚNIOR: identificar o AP e responder</div>
-  <div class="proximo">📅 **hoje 24/06** — PENDENTE JÚNIOR: identificar o AP e responder</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('teiftec_ap_dos_pppoe_vin_cius_1615cf',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('teiftec_ap_dos_pppoe_vin_cius_1615cf')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555121604781')">💬 WhatsApp Cliente</button>
-      
-      <button class="btn-copiar" onclick="copiarContexto('teiftec_ap_dos_pppoe_vin_cius_1615cf')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_teiftec_ap_dos_pppoe_vin_cius_1615cf" data-ativo="false" onclick="toggleFollowup('teiftec_ap_dos_pppoe_vin_cius_1615cf')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -607,7 +527,7 @@ button:disabled{opacity:0.4;cursor:default}
   </div>
 </div>
 </div>
-<div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (18)</h2>
+<div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (17)</h2>
 <div class="card" id="card_daiane_11150_17207_daiane_frei_064e47" data-uid="daiane_11150_17207_daiane_frei_064e47" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
     <span class="emoji">🟡</span>
@@ -634,8 +554,8 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">17291 - Thais Moura — SINAL RUIM (desempenho)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- Reclamação há ~1 mês: YouTube travando, WhatsApp lento, reinício não resolve<br>- ✅ Online desde 29/06 15:50 (16h uptime, 35 GB baixados) — luz voltou, antena logou sozinha<br>- Login: thaism | codconexao: 14214 | VLAN: vlan112-silo-hoerbe<br>- **30/06 12:19:** Respondeu — YouTube melhorou, WhatsApp com vídeo/áudio ainda pesado</div>
-  <div class="proximo">📅 hoje tarde — diagnosticar e retornar</div>
+  <div class="desc">- Reclamação há ~1 mês: YouTube travando, WhatsApp lento, reinício não resolve<br>- Login: thaism | codconexao: 14214 | VLAN: vlan112-silo-hoerbe<br>- **01/07 10:08:** Bot informou que link tá estável, WhatsApp pesado é server deles<br>- **01/07 18:39:** Follow-up enviado perguntando se melhorou — sem resposta ainda</div>
+  <div class="proximo">📅 03/07 — se não responder, encerrar por falta de retorno</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('17291_thais_moura_sinal_ruim_d_37b125',this)">✅ Encerrar</button>
@@ -665,26 +585,6 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-copiar" onclick="copiarContexto('helena_teixeira_tavares_17227_823036')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_helena_teixeira_tavares_17227_823036" data-ativo="false" onclick="toggleFollowup('helena_teixeira_tavares_17227_823036')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
-
-  </div>
-</div>
-<div class="card" id="card_rosane_vieira_peixoto_16903_452cc4" data-uid="rosane_vieira_peixoto_16903_452cc4" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
-  <div class="card-header">
-    <span class="emoji">🟡</span>
-    <strong class="titulo">Rosane Vieira Peixoto (16903)</strong>
-    <span class="badge" style="background:#e6a700">Em andamento</span>
-  </div>
-  <div class="desc">- Júnior assumiu atendimento pessoalmente (áudios 18:37-18:39).<br>- Ela disse "Conseguimos fazer ali no coisinho" — parece ter conseguido acessar o chatbot.<br>- Júnior pediu pra ela mandar print quando travar. Ela respondeu "Tá bom" (18:44).<br>- ⚠️ Júnior sem sistema no momento para desbloquear manual — monitorar se ela retornar com print.</div>
-  <div class="proximo">📅 se não retornar até amanhã → encerrar (resolvido pelo Júnior)</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('rosane_vieira_peixoto_16903_452cc4',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('rosane_vieira_peixoto_16903_452cc4')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555192591515')">💬 WhatsApp Cliente</button>
-      
-      <button class="btn-copiar" onclick="copiarContexto('rosane_vieira_peixoto_16903_452cc4')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_rosane_vieira_peixoto_16903_452cc4" data-ativo="false" onclick="toggleFollowup('rosane_vieira_peixoto_16903_452cc4')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -1303,25 +1203,6 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="card" style="border-left:4px solid #6b7280;background:#f9fafb;margin-bottom:12px">
   <div class="card-header">
     <span style="font-weight:700;color:#6b7280;font-size:0.9rem;min-width:50px">⏰ ??:??</span>
-    <strong class="titulo">Teluk — Cliente Desconhecido (nó na cabeça)</strong>
-    <span class="badge" style="background:#6b7280">📋 OS</span>
-  </div>
-  <div style="margin:4px 0 2px"><span class="tag-faltando">SSID da antena (nome da rede que aparece no rádio)</span><span class="tag-faltando">POP/repetidora que atende o cliente</span><span class="tag-faltando">Nível de sinal atual (dBm)</span></div>
-  <div class="desc">- Situação: dois assuntos embaralhados — um cara saiu da Teluk (Leandro), outro chegou<br>- Tem antena lá cujo login é desconhecido — não se sabe de quem é<br>- Júnior falou com alguém que disse "tem gente em casa o dia inteiro" na Teluk<br>- Fábio nunca foi lá confirmar o login da antena</div>
-  <div class="proximo">📅 29/06 — Júnior fala com os dois caras diretamente pra se achar</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('coringa_teluk_cliente_desconhecido_n_n_bd3e0b')">🎙️ Áudio via WhatsApp</button>
-      
-      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20dados%20pra%20OS%20do%20Coringa:\n*Teluk%20—%20Cliente%20Desconhecido%20(nó%20na%20cabeça)*\n\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n\nPode%20me%20informar?%20🙏','_blank')">📋 Dados faltando (3)</button>
-      <button class="btn-copiar" onclick="copiarContexto('coringa_teluk_cliente_desconhecido_n_n_bd3e0b')">📋 Copiar contexto</button>
-    </div>
-    <textarea class="comentario" id="txt_coringa_teluk_cliente_desconhecido_n_n_bd3e0b" placeholder="Anotação sobre esta OS..." rows="2"></textarea>
-  </div>
-</div>
-<div class="card" style="border-left:4px solid #6b7280;background:#f9fafb;margin-bottom:12px">
-  <div class="card-header">
-    <span style="font-weight:700;color:#6b7280;font-size:0.9rem;min-width:50px">⏰ ??:??</span>
     <strong class="titulo">Leandro (17290)</strong>
     <span class="badge" style="background:#6b7280">📋 OS</span>
   </div>
@@ -1446,21 +1327,38 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_0">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
-    <strong class="titulo" style="flex:1;color:#166534">Maria Beatriz (17061)</strong>
+    <strong class="titulo" style="flex:1;color:#166534">Lucas Schmidt (17235)</strong>
     <span style="background:#16a34a;color:#fff;font-size:0.7rem;padding:1px 7px;border-radius:8px;font-weight:700">ÚLTIMO</span>
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07 às 17:25</span>
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07 às 18:48</span>
   </div>
-  <div class="desc">Roteador resolveu o problema. Confirmou "Sim/Fico" às 17:17 de 01/07. | 01/07 11:37: respondeu ping "Deu uma parada" — nova queda confirmada! | ✅ Respondido 11:45: "Tá sem internet agora ou voltou? Vou verificar 👀"</div>
+  <div class="desc">Júnior confirmou via áudio no self-chat (18:48): erro de login corrigido, 100% resolvido | Júnior já despediu com chave de ouro em 30/06 19:53 ("Disponha e boa noite 🙏👊💪") | Não entra em follow-up</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_0')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197973539')">💬 WhatsApp Cliente</button>
-      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Maria Beatriz (17061)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196495774')">💬 WhatsApp Cliente</button>
+      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Lucas Schmidt (17235)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
     <textarea class="comentario" id="txt_enc_0" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
 <div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_1">
+  <div class="card-header">
+    <span style="color:#16a34a;font-size:1rem">✅</span>
+    <strong class="titulo" style="flex:1;color:#166534">Maria Beatriz (17061)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07 às 17:25</span>
+  </div>
+  <div class="desc">Roteador resolveu o problema. Confirmou "Sim/Fico" às 17:17 de 01/07. | 01/07 11:37: respondeu ping "Deu uma parada" — nova queda confirmada! | ✅ Respondido 11:45: "Tá sem internet agora ou voltou? Vou verificar 👀"</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_1')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197973539')">💬 WhatsApp Cliente</button>
+      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Maria Beatriz (17061)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
+    </div>
+    <textarea class="comentario" id="txt_enc_1" placeholder="Anotação..." rows="2"></textarea>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_2">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Clézio (17281)</strong>
@@ -1474,10 +1372,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Clézio (17281)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_1" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_2" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_2">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_3">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Lucas Eduardo (16979)</strong>
@@ -1487,14 +1385,82 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">Sinal caindo/travando vídeos (30/06 20:57) | Reiniciou antena e roteador — voltou ao normal, demorou um pouco pra estabilizar (normal) | Bot confirmou que delay é normal pós-reinício ✅</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_2')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_3')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555191819081')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Lucas Eduardo (16979)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_2" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_3" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_3">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_4">
+  <div class="card-header">
+    <span style="color:#16a34a;font-size:1rem">✅</span>
+    <strong class="titulo" style="flex:1;color:#166534">Bruno Procath (17292)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07</span>
+  </div>
+  <div class="desc">Lu confirmou no QG (18:50): número 555196167968 já está no cadastro do MK ✅ | Não precisa de ação adicional</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_4')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196167968')">💬 WhatsApp Cliente</button>
+      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Bruno Procath (17292)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
+    </div>
+    <textarea class="comentario" id="txt_enc_4" placeholder="Anotação..." rows="2"></textarea>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_5">
+  <div class="card-header">
+    <span style="color:#16a34a;font-size:1rem">✅</span>
+    <strong class="titulo" style="flex:1;color:#166534">Rosane Vieira Peixoto (16903)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07</span>
+  </div>
+  <div class="desc">Bot perguntou se conseguiu pagar (18:39). Ela respondeu "Tá bom" (18:40) ✅ | Encerrado sem pendências</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_5')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555192591515')">💬 WhatsApp Cliente</button>
+      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Rosane Vieira Peixoto (16903)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
+    </div>
+    <textarea class="comentario" id="txt_enc_5" placeholder="Anotação..." rows="2"></textarea>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_6">
+  <div class="card-header">
+    <span style="color:#16a34a;font-size:1rem">✅</span>
+    <strong class="titulo" style="flex:1;color:#166534">Teluk — Cliente Desconhecido</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07</span>
+  </div>
+  <div class="desc">Situação: dois assuntos embaralhados — um cara saiu da Teluk (Leandro), outro chegou | Tem antena lá cujo login é desconhecido — não se sabe de quem é | Júnior falou com alguém que disse "tem gente em casa o dia inteiro" na Teluk</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      
+      
+      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Teluk — Cliente Desconhecido').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
+    </div>
+    <textarea class="comentario" id="txt_enc_6" placeholder="Anotação..." rows="2"></textarea>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_7">
+  <div class="card-header">
+    <span style="color:#16a34a;font-size:1rem">✅</span>
+    <strong class="titulo" style="flex:1;color:#166534">Teiftec — AP dos PPPoE (Vinícius)</strong>
+    
+    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">01/07</span>
+  </div>
+  <div class="desc">Perguntou a qual AP pertencem pppoe-elianess, pppoe-ionaragbr, pppoe-romildomaas (sem VLAN) | </div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_7')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555121604781')">💬 WhatsApp Cliente</button>
+      <button class="btn-copiar" onclick="navigator.clipboard.writeText('Teiftec — AP dos PPPoE (Vinícius)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
+    </div>
+    <textarea class="comentario" id="txt_enc_7" placeholder="Anotação..." rows="2"></textarea>
+  </div>
+</div>
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_8">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Fazenda Teluke — INSTALAÇÃO CONCLUÍDA 30/06 10:16** | Grupo Materiais
@@ -1554,7 +1520,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">Login PPPoE invertido (Reynaldo/Lucas/Marcelo) — corrigido pelo Júnior em 01/07 13:15. Internet voltou normal.</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_3')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_8')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180592752')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Fazenda Teluke — INSTALAÇÃO CONCLUÍDA 30/06 10:16** | Grupo Materiais
 - Fábio confirmou no grupo Materiais (10:16): instalou Force 180 + fonte + C20; retirou Ubnt (antiga)
@@ -1608,10 +1574,10 @@ button:disabled{opacity:0.4;cursor:default}
 
 ✅ **Lucas Schmidt (17235)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_3" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_8" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_4">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_9">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Lucas Schmidt (17235)</strong>
@@ -1625,10 +1591,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Lucas Schmidt (17235)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_4" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_9" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_5">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_10">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Bianca Nunes (17223)</strong>
@@ -1638,14 +1604,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">Queria desbloqueio — pagou ao meio-dia, internet liberou automaticamente | 14:43: "Cheguei em casa e ela ta funcionando / Obrigada" | Respondido 14:50: confirmação + encerramento ✅</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_5')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_10')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('5551920052058')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Bianca Nunes (17223)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_5" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_10" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_6">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_11">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Joana Pedroso (17224)</strong>
@@ -1659,10 +1625,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Joana Pedroso (17224)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_6" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_11" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_7">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_12">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Daiane (Álvaro 16467 / ID 13269)</strong>
@@ -1672,14 +1638,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">Lu desbloqueou manualmente. Daiane confirmou: "a Luciana arrumou obrigada" ✅</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_7')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_12')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555180354681')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Daiane (Álvaro 16467 / ID 13269)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_7" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_12" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_8">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_13">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">10853 - Adriana Nunes Pruss** | JID: 555199209365@s.whatsapp.net | Entrada: 29/06 | Encerrado: 29/06
@@ -1723,7 +1689,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">Paulinho reconectou às 17:56 29/06 — configurou sozinho ✅ | Novo áudio 30/06 11:56: Augusto colocou fontezinha no roteador → internet funcionando, YouTube rodando ✅ | Diagnóstico: era problema de alimentação elétrica (fonte do roteador). Resolvido sem visita técnica.</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_8')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_13')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199209365')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('10853 - Adriana Nunes Pruss** | JID: 555199209365@s.whatsapp.net | Entrada: 29/06 | Encerrado: 29/06
 - Pediu desbloqueio 06:23. Problema era roteador — filho reiniciou, voltou. Encerrado ✅
@@ -1761,10 +1727,10 @@ button:disabled{opacity:0.4;cursor:default}
 ---
 ### ✅ Israel Lucas (16865)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_8" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_13" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_9">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_14">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Ana (JID: 555195007185)</strong>
@@ -1778,10 +1744,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Ana (JID: 555195007185)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_9" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_14" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_10">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_15">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Luiz Carlos Lopes (10690)</strong>
@@ -1795,10 +1761,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Luiz Carlos Lopes (10690)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_10" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_15" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_11">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_16">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">16979 - Lucas Eduardo Sena da Rosa</strong>
@@ -1812,10 +1778,10 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('16979 - Lucas Eduardo Sena da Rosa').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_11" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_16" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_12">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_17">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">Gelson Souza (16836)</strong>
@@ -1825,14 +1791,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="desc">—</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_12')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('enc_17')">🎙️ Áudio via WhatsApp</button>
       <button class="btn-cliente" onclick="abrirWhatsAppCliente('555197916269')">💬 WhatsApp Cliente</button>
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('Gelson Souza (16836)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_12" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_17" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
-<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_13">
+<div class="card" style="border-left:4px solid #16a34a;background:#f0fdf4;margin-bottom:10px" id="card_enc_18">
   <div class="card-header">
     <span style="color:#16a34a;font-size:1rem">✅</span>
     <strong class="titulo" style="flex:1;color:#166534">17269 - Paulo Ricardo Oliveira Soares (Bxga)</strong>
@@ -1846,7 +1812,7 @@ button:disabled{opacity:0.4;cursor:default}
       
       <button class="btn-copiar" onclick="navigator.clipboard.writeText('17269 - Paulo Ricardo Oliveira Soares (Bxga)').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
     </div>
-    <textarea class="comentario" id="txt_enc_13" placeholder="Anotação..." rows="2"></textarea>
+    <textarea class="comentario" id="txt_enc_18" placeholder="Anotação..." rows="2"></textarea>
   </div>
 </div>
 
@@ -2024,7 +1990,15 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="container">
   <h2 style="margin-bottom:16px;font-size:1rem;color:#1a1a2e">🤖 O que a Zapia está fazendo</h2>
   <p style="font-size:0.82rem;color:#888;margin-bottom:16px">Log das últimas rondas — do mais recente pro mais antigo.</p>
-  <div class="log-entry log-limpa"><div class="log-titulo">🟢 17:50 → 17:58 — 2 rondas executadas, nenhuma novidade</div></div>
+  <div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 18:57 Ronda 01/07 (run #48)</div>
+  <div class="log-corpo">### Chats verificados após 18:37 (cutoff)<br>**9 chats com atividade nova:**<br>#### 1. Pedroschmidt (18:57) ⭐<br>- Conversa ativa entre Júnior e Pedro sobre ponto de encontro para OS 04/07<br>- Pedro sugeriu Mataburro: "Cheguem primeiro e esperem no Mataburro"<br>- Júnior concordou ✅ — PONTO DE ENCONTRO DEFINIDO: Mataburro<br>- ⚠️ OS no Calendar ainda não criada — pendente Júnior<br>#### 2. Aline Aires 16986 (18:53)<br>- Júnior enviou áudio (pediu desculpa pela demora, prometeu foco) + 2 imagens (diagnóstico)<br>- Júnior assumiu o atendimento diretamente ✅<br>#### 3. QG - CompetenceNet - Gestão (18:50) ⭐<br>- Bot havia postado: Bruno Procath pediu cadastrar número para notificação<br>- Lu respondeu com imagem: "mas é o número que está no cadastro" — já está no MK ✅<br>- Bruno Procath ENCERRADO<br>#### 4. Self (18:48)<br>- Júnior enviou áudio sobre Lucas Schmidt (17235): "erro de login corrigido, 100%, encerrar do atendimento"<br>- Lucas Schmidt ENCERRADO ✅<br>#### 5. João Luiz/Fasa 17284 (18:44)<br>- Recibo enviado pelo bot (18:43). João respondeu "Tá tudo certo? Boa tarde." ✅<br>#### 6. Família Presente de Deus (18:41) — grupo familiar<br>- Verificado: mensagens pessoais do grupo. Sem ação operacional.<br>#### 7. Rosane Vieira Peixoto 16903 (18:40)<br>- Bot perguntou se conseguiu pagar portal (18:39). Ela respondeu "Tá bom" (18:40) ✅<br>- ENCERRADA<br>#### 8. Thais Moura 17291 (18:39)<br>- Bot enviou follow-up (18:39). Sem resposta ainda.<br>#### 9. Aline da Silva 15924 (18:38)<br>- Bot mandou lembrete sobre endereço (18:38). Sem resposta ainda.<br>### Ações tomadas:<br>- ✅ Lucas Schmidt (17235): marcado ENCERRADO no ATENDIMENTO_PENDENTE.md<br>- ✅ Bruno Procath (17292): marcado ENCERRADO<br>- ✅ Rosane Vieira Peixoto (16903): marcada ENCERRADA<br>- ✅ Pedroschmidt: atualizado — ponto encontro = Mataburro<br>- ✅ Thais Moura (17291): atualizada — follow-up enviado, aguardando resposta<br>- ✅ Aline Aires (16986): atualizada — Júnior assumiu atendimento direto<br>### Disparo comunicado: PULADO — 3 pendentes, todos sem_whatsapp.<br>### Timestamp último processamento: 2026-07-01T18:57:00-03:00<br>### Pendências em aberto (atualizado):<br>1. ⚠️ Talila (189749284) — aguardando resposta + decisão Júnior comodato R$250<br>2. 💰 Regina/Raul (17065/17153) — Júnior responder Lu sobre valores da visita<br>3. 🟡 Vera (16774) — instalação roteador galpão — sexta 03/07<br>4. 🟡 Helena (17227) — instabilidade + troca senha Wi-Fi pendentes (prometeram retorno hoje!)<br>5. 🟡 Aline da Silva (15924) — confirmação endereço (sem resposta — follow-up enviado 18:38)<br>6. 🔴 Aline Aires (16986) — Júnior assumiu, aguardando diagnóstico/visita<br>7. 🔴 Jonatan (16808) — nobreak pendente (acordo: entrega na loja)<br>8. 🟡 Alcino (16773) — verificar se Júnior falou com ele<br>9. 🟡 Lilian Bicca (15989) — semana que vem<br>10. ⏳ Ana Elizete/17270 — prazo 05/07<br>11. ⏳ Maria/Patrícia (17015) — OS retirada 02/07 ou 03/07 tarde<br>12. 🔵 Andressa Bastos — lead cobertura Leopoldina 301 pendente<br>13. ⏳ Jayne (16775) — cutucar 07/07<br>14. ⏳ Glauciléia (16397) — retirada dia de sol (sexta 03/07!)<br>15. ⏳ Pedroschmidt — OS 04/07 13h | Ponto encontro: Mataburro ✅ | OS Calendar pendente!<br>16. 🟡 Thais Moura (17291) — follow-up enviado, aguardando resposta (prazo 03/07)<br>17. 💰 Despesa Dal Ri R$ 256,03 — lançar planilha<br>18. 💼 Jairo ZTE — NF hardware R$ 1.495,46 venc. 16/07 + boleto software R$ 867,50<br>19. 🌧️ Quinta 02/07 — CHUVA TOTAL → nenhum serviço de campo<br>20. 📅 Maria Beatriz (17061) — follow-up 08/07</div>
+</div>
+<div class="log-entry log-acao">
+  <div class="log-titulo">🔄 UPDATE 18:37 Ronda 01/07 (run #47)</div>
+  <div class="log-corpo">### Chats verificados após 17:58<br>**7 chats com atividade nova:**<br>#### 1. Lu DM (18:24) ⭐<br>- Áudio Júnior (18:24): comentou sobre chuva amanhã, o sistema tentando montar OS<br>- Lu respondeu "Mas é pouco" — referência ao pagamento R$85 do João Luiz<br>- Conversa em curso entre Júnior e Lu. Sem ação da minha parte.<br>#### 2. Grupo Atividades (18:22)<br>- Bot enviou previsão do tempo 02/07 no grupo — chuva total confirmada, Fábio de folga ✅<br>- Sem resposta nova da Lu/Fábio após.<br>#### 3. Daiane — 11150 (18:20)<br>- Júnior enviou áudio longo explicando sistema dois cadastros (11150/17207)<br>- Resolvido: libera um, paga com o app, funciona pra ambos<br>- Júnior concluiu diretamente: "Então tá, Daíno, muito obrigado, fica com Deus" ✅<br>#### 4. Talila . (189749284) — 18:15<br>- Última mensagem foi do bot (18:15:51): tabela completa de preços + confirmação R$75/mês<br>- Sem resposta da Talila ainda. Aguardando.<br>#### 5. João Luiz/Fasa 17284 (18:11) ✅<br>- Mandou comprovante + áudio: pagou R$85 comodato nobreak (2ª parcela), vence dia 10-15<br>- Lu gerou recibo MK (documento recebido e arquivado)<br>- Bot já respondeu: "Recebido, João! Comprovante anotado aqui ✅ Obrigado pelo pagamento!"<br>- Lu comentou "Mas é pouco" ao Júnior (parcela menor)<br>#### 6. Self (18:06)<br>- Bot enviou resumo da Talila para Júnior decidir comodato R$250 vs R$100<br>- Decisão Júnior ainda pendente<br>#### 7. Amor Novo (18:02)<br>- Lista de compras pessoal — sem ação<br>### Disparo comunicado: PULADO — 3 pendentes, todos sem_whatsapp.<br>### Timestamp último processamento: 2026-07-01T18:37:00-03:00<br>### Pendências em aberto (atualizado):<br>1. ⚠️ Talila (189749284) — aguardando resposta dela / decisão Júnior comodato R$250<br>2. 💰 Regina/Raul (17065/17153) — Júnior responder Lu sobre valores da visita<br>3. 🟡 Vera (16774) — instalação roteador galpão — sexta 03/07<br>4. 🟡 Helena (17227) — instabilidade + troca senha Wi-Fi pendentes<br>5. 🟡 Aline da Silva (15924) — confirmação endereço (sem resposta)<br>6. ✅ Daiane (11150+17207) — Júnior explicou workaround (libera 1 paga pra 2) — encerrado<br>7. 🔴 Jonatan (16808) — nobreak pendente (acordo: entrega na loja)<br>8. 🔴 Aline Aires (16986) — sinal fraco — diagnóstico pendente<br>9. 🟡 Alcino (16773) — verificar se Júnior falou com ele<br>10. 🟡 Lilian Bicca (15989) — semana que vem<br>11. ⏳ Ana Elizete/17270 — prazo 05/07<br>12. ⏳ Maria/Patrícia (17015) — OS retirada 02/07 ou 03/07 tarde<br>13. 🔵 Andressa Bastos — lead cobertura Leopoldina 301 pendente<br>14. ⏳ Jayne (16775) — cutucar 07/07<br>15. ⏳ Glauciléia (16397) — retirada dia de sol (sexta 03/07!)<br>16. ⏳ Pedroschmidt — OS 04/07 13h<br>17. 💰 Despesa Dal Ri R$ 256,03 — lançar planilha<br>18. 💼 Jairo ZTE — NF hardware R$ 1.495,46 venc. 16/07 + boleto software R$ 867,50<br>19. 🌧️ Quinta 02/07 — CHUVA TOTAL → nenhum serviço de campo (Lu confirmou)<br>20. 📅 Maria Beatriz (17061) — follow-up 08/07<br>21. ✅ João Luiz/Fasa (17284) — pagou R$85 comodato nobreak 2ª parcela — recibo gerado pela Lu</div>
+</div>
+<div class="log-entry log-limpa"><div class="log-titulo">🟢 17:50 → 17:58 — 2 rondas executadas, nenhuma novidade</div></div>
 <div class="log-entry log-acao">
   <div class="log-titulo">🔄 UPDATE 17:26 Ronda 01/07 (run #44)</div>
   <div class="log-corpo">### Chats verificados após 17:02<br>**2 chats com atividade nova:**<br>#### 1. Maria Beatriz (17061) — ENCERRADA ✅<br>- Respondeu "Sim / Fico" às 17:17 — confirmando que o roteador resolveu o problema<br>- Áudio Júnior (13:27) perguntava se a internet ficou boa após troca do roteador<br>- **Reply enviada:** confirmação de encerramento + aviso de follow-up em 7 dias<br>- **ENCERRADA** na lista e no arquivo de cliente<br>- 📅 Follow-up: 08/07<br>#### 2. Grupo Família presente de Deus (17:24)<br>- Conversa sobre chuva (pessoal/família)<br>- Sem ação necessária<br>### Disparo comunicado: PULADO — 0 pendentes (campanha encerrada)<br>### Timestamp último processamento: 2026-07-01T17:26:00-03:00<br>### Pendências em aberto:<br>1. ⚠️ Talila (189749284) — reclamou inconsistência R$100→R$250 comodato — **JÚNIOR DECIDIR**<br>2. 💰 Regina/Raul (17065/17153) — Júnior responder Lu sobre valores da visita<br>3. 🟡 Vera (16774) — instalação roteador galpão — sexta 03/07<br>4. 🟡 Helena (17227) — instabilidade + troca senha Wi-Fi pendentes<br>5. 🟡 Aline da Silva (15924) — confirmação endereço (Júnior perguntou 14:04)<br>6. 🟡 Daiane (11150+17207) — ID 17207 ainda bloqueada<br>7. 🔴 Jonatan (16808) — boleto comodato sem fatura MK<br>8. 🔴 Aline Aires (16986) — sinal fraco — diagnóstico pendente<br>9. 🟡 Alcino (16773) — verificar se Júnior falou com ele<br>10. 🟡 Lilian Bicca (15989) — semana que vem<br>11. 🟡 Chaiene (10502) — follow 02/07<br>12. ⏳ Ana Elizete/17270 — prazo 05/07<br>13. ⏳ Maria/Patrícia (17015) — OS retirada 02/07 ou 03/07 tarde<br>14. 🔵 Andressa Bastos — lead cobertura Leopoldina 301 pendente<br>15. ⏳ Jayne (16775) — cutucar 07/07<br>16. ⏳ Glauciléia (16397) — retirada dia de sol (sexta 03/07!)<br>17. ⏳ Pedroschmidt — OS 04/07 13h<br>18. 💰 Despesa Dal Ri R$ 256,03 — lançar planilha<br>19. 💼 Jairo ZTE — NF hardware R$ 1.495,46 venc. 16/07 + boleto software R$ 867,50 pendente<br>20. 🌧️ Quinta 02/07 — CHUVA TOTAL → nenhum serviço de campo<br>21. 📅 Maria Beatriz (17061) — follow-up 08/07 (encerrada hoje)</div>
@@ -2068,14 +2042,6 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="log-entry log-acao">
   <div class="log-titulo">🔄 UPDATE 14:00 Ronda 01/07 (run #91)</div>
   <div class="log-corpo">### Chats verificados após 13:45:<br>- **"Eu" group (13:57):** Júnior postou imagem pessoal — sem ação<br>- **Aline da Silva (15924) — 13:46:** Júnior assumiu pessoalmente (áudio + localização 13:46) — acompanhando<br>- **Sônia Marli (11134) — 13:46:** Deu 👍 após nossa resposta. Ainda sem internet. Status 🔴 mantido.<br>- **Maria Beatriz (17061):** Júnior respondeu áudio 13:27. Aguardando resposta dela.<br>- **555196979771 (JID desconhecido):** Júnior enviando notas sobre Ana Elizete comodato — uso interno/notas pessoais.<br>- **Lu DM:** Troca com Júnior 11:58-12:00. Júnior respondeu por último ✅<br>- **OS group:** Fábio "Saindo Vila Vargas" 11:58 — OS Vila Vargas concluída ✅<br>- **Atividades group:** Lu "Beleza/Não" 11:03 — conversa fechada ✅<br>- **Helena (17227) — 12:47:** ⚠️ NOVA mensagem unanswered: além da instabilidade, pediu troca de senha do Wi-Fi → RESPONDIDA 14:00<br>- **Clézio (17281) — 11:09:** ⚠️ Audio unanswered dando direções (Vila Vargas). Fábio foi lá (11:24 "Indo", 11:58 "Saindo Vila Vargas") → RESPONDIDO 14:00 com follow-up<br>- **Aline Aires (16986) — 12:32:** "Tá bom" após nossa resposta. Aguardando diagnóstico ✅<br>- **Maria/Patrícia (17015) — 10:31:** Bot confirmou retira amanhã/sexta à tarde ✅<br>- **Alcino (16773) — 11:31:** Nossa mensagem enviada — sem resposta ainda<br>### Ações tomadas:<br>- ✅ Helena (17227) respondida: confirmou pedido troca senha + verificação instabilidade<br>- ✅ Clézio (17281) respondido: follow-up pós-visita Fábio (Vila Vargas 11:24-11:58)<br>- Clézio cliente file pendente atualização (Fábio visitou — aguardar resposta de Clézio)<br>### Disparo comunicado: PULADO — 0 pendentes<br>### Pendências em aberto (14:00 01/07):<br>1. 🔴 Sônia Marli (11134) — SEM INTERNET desde ~13:30 (interior) — Júnior verificar POP urgente<br>2. 🟡 Helena (17227) — respondida: instabilidade + pediu troca senha. Aguardando diagnóstico/técnico<br>3. 🟡 Clézio (17281) — Fábio foi Vila Vargas. Enviado follow-up, aguardando resposta<br>4. 🟡 Aline da Silva (15924) — Júnior assumiu, aguardando resposta dela<br>5. 🔴 Maria Beatriz (17061) — Júnior enviou áudio 13:27, aguardando resposta dela<br>6. 🟡 Daiane (11150+17207) — ID 17207 ainda bloqueada, Júnior resolvendo<br>7. 🔴 Jonatan (16808) — boleto comodato sem fatura MK<br>8. ⚠️ Regina Porto (17065) — ligar sobre valores — HOJE<br>9. 🔴 Aline Aires (16986) — sinal fraco, chamada vídeo impossível. Aguardando diagnóstico<br>10. 🟡 Alcino (16773) — mensagem enviada, aguardando resposta sobre Ana Elizete<br>11. 🟡 Lilian Bicca (15989) — semana que vem<br>12. 🟡 Chaiene (10502) — follow 02/07 (problema noturno após troca roteador)<br>13. ⏳ Ana Elizete/17270 — prazo 05/07 (Júnior fazendo notas sobre comodato)<br>14. ⏳ Maria/Patrícia (17015) — OS retirada amanhã 02/07 ou sexta 03/07 TARDE<br>15. 🔵 Andressa Bastos — lead<br>16. ⏳ Jayne (16775) — cutucar 07/07<br>17. ⏳ Glauciléia (16397) — retirada dia de sol<br>18. ⏳ Pedroschmidt — OS 04/07 13h (Júnior confirmar data exata)<br>19. 💰 Despesa Dal Ri R$ 256,03 — lançar planilha</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 13:45 Ronda 01/07 (run #90)</div>
-  <div class="log-corpo">**Novidades após 13:30:**<br>- **Sônia Marli (11134) 13:33:** "Oi tava lenta agora caiu tudo sem net" — 🔴 SEM INTERNET confirmado (interior)<br>- Respondida 13:44: registrado como urgente, verificando<br>- Atualizada na lista para 🔴<br>- **Aline da Silva (15924) 13:44:** Júnior assumiu pessoalmente via áudio<br>- Contexto: plano 49,90 (5MB básico), ofereceu upgrade para plano maior<br>- Aguardando resposta da Aline<br>**Campanha comunicado: ENCERRADA 100% — nada a disparar**<br>**Ações tomadas:**<br>- Sônia Marli → respondida (urgente) + promovida para 🔴 na lista<br>- Aline da Silva → arquivo cliente atualizado<br>**Pendências em aberto (13:45 01/07):**<br>1. 🔴 Sônia Marli (11134) — SEM INTERNET desde ~13:30 (interior) — Júnior verificar POP<br>2. 🟡 Aline da Silva (15924) — Júnior ofereceu upgrade, aguardando resposta<br>3. 🔴 Maria Beatriz (17061) — Júnior enviou áudio 13:27, aguardando resposta dela<br>4. 🟡 Daiane (11150+17207) — ID 17207 ainda bloqueada, Júnior resolvendo<br>5. 🔴 Jonatan (16808) — boleto comodato sem fatura MK<br>6. ⚠️ Regina Porto (17065) — ligar sobre valores — HOJE<br>7. 🔴 Aline Aires (16986) — sinal fraco. ⏳ Júnior verificar MK<br>8. 🟡 Helena (17227) — instabilidade<br>9. 🟡 Clézio (17281) — follow 02/07<br>10. 🟡 Alcino (16773) — aguardando resposta equip. Ana Elizete<br>11. 🟡 Lilian Bicca (15989) — semana que vem<br>12. 🟡 Chaiene (10502) — follow 02/07<br>13. ⏳ Ana Elizete/17270 — prazo 05/07<br>14. ⏳ Maria/Patrícia (17015) — OS retirada 02-03/07<br>15. 🔵 Andressa Bastos — lead<br>16. ⏳ Jayne (16775) — cutucar 07/07<br>17. ⏳ Glauciléia (16397) — retirada dia de sol<br>18. ⏳ Pedroschmidt — OS 04/07 13h<br>19. 💰 Despesa Dal Ri R$ 256,03 — lançar planilha</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">🔄 UPDATE 13:30 Ronda 01/07 (run #89)</div>
-  <div class="log-corpo">**Novidades após 13:15:**<br>- **Fábio (13:23):** Júnior respondeu com áudio — tratou pessoalmente ✅<br>- **Teiftec (13:21):** Júnior respondeu "Isso q bom 🙏" — assunto rádio 172.31.72.58 encerrado ✅<br>- **Sônia Marli (11134) NOVA (13:19):** "Internete tá péssima hoje" — interior — respondi perguntando se sem net ou lenta<br>- **Maria Beatriz (13:27):** Júnior enviou áudio explicando a situação — aguardando resposta dela ainda<br>- **Felipe/Raquel (13:26):** "Tá bom obrigada" — encerrado ✅<br>**Maria Beatriz — contexto áudio Júnior (13:27):**<br>- Júnior perguntou se "deu uma parada" = parou de travar ou parou a internet<br>- Disse que roteador resolve 90% dos problemas<br>- Aguardando resposta dela<br>**Campanha comunicado: ENCERRADA 100%**<br>**Ações tomadas:**<br>- Sônia Marli → respondida, adicionada à lista (🟡)<br>- Felipe/Raquel → encerrado ✅<br>- Lembrete Lu → disparado na ronda anterior ✅<br>**Pendências em aberto (13:30 01/07):**<br>1. 🟡 Sônia Marli (11134) — péssima hoje, aguardando resposta (se sem net ou lenta)<br>2. 🔴 Maria Beatriz (17061) — Júnior enviou áudio 13:27, aguardando resposta dela<br>3. ⏳ Fábio — Júnior tratou pessoalmente via áudio 13:23<br>4. 🟡 Daiane (11150+17207) — ID 17207 ainda bloqueada, Júnior resolvendo<br>5. 🔴 Jonatan (16808) — boleto comodato sem fatura MK<br>6. ⚠️ Regina Porto (17065) — ligar sobre valores — HOJE<br>7. 🔴 Aline Aires (16986) — sinal fraco. ⏳ Júnior verificar MK<br>8. 🟡 Helena (17227) — instabilidade. ⏳ Diagnóstico sinal<br>9. 🟡 Clézio (17281) — follow 02/07<br>10. 🟡 Alcino (16773) — aguardando resposta equip. Ana Elizete<br>11. 🟡 Lilian Bicca (15989) — semana que vem<br>12. 🟡 Chaiene (10502) — follow 02/07<br>13. ⏳ Ana Elizete/17270 — prazo 05/07<br>14. ⏳ Maria/Patrícia (17015) — OS retirada 02-03/07<br>15. 🟡 Aline da Silva (15924) — SSID/antena<br>16. 🔵 Andressa Bastos — lead<br>17. ⏳ Jayne (16775) — cutucar 07/07<br>18. ⏳ Glauciléia (16397) — retirada dia de sol<br>19. ⏳ Pedroschmidt — OS 04/07 13h<br>20. ✅ Lucas Schmidt (17235) — encerrado (login corrigido)<br>21. 💰 Despesa Dal Ri R$ 256,03 — lançar planilha</div>
 </div>
 
 </div>
