@@ -1,261 +1,240 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard CompetenceNet</title>
+    <title>CompetenceNet</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, sans-serif; background: #f4f6f8; color: #1a1a2e; }
-        header { background: #1a1a2e; color: #fff; padding: 16px; text-align: center; position: sticky; top: 0; z-index: 200; }
-        .tabs { display: flex; background: #fff; border-bottom: 1px solid #ddd; position: sticky; top: 60px; z-index: 100; overflow-x: auto; }
-        .tab { padding: 14px 20px; cursor: pointer; font-weight: 600; color: #666; border-bottom: 3px solid transparent; white-space: nowrap; }
-        .tab.active { color: #1a1a2e; border-bottom-color: #3b82f6; }
-        .content { display: none; padding: 16px; }
-        .content.active { display: block; }
-        .card { background: #fff; border-radius: 10px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-left: 5px solid #ddd; }
-        .card.🔴 { border-left-color: #ef4444; }
-        .card.🟡 { border-left-color: #f59e0b; }
-        .card.🔵 { border-left-color: #3b82f6; }
-        .card.encerrado { opacity: 0.3; text-decoration: line-through; }
-        .btn { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; margin-top: 8px; }
-        .btn-encerrar { background: #22c55e; color: #fff; }
+        body { font-family: sans-serif; padding: 10px; background: #eee; }
+        .header { background: #1a1a2e; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 15px; }
+        .card { background: white; padding: 15px; margin-bottom: 10px; border-radius: 8px; border-left: 10px solid #ccc; shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .card.🔴 { border-left-color: red; }
+        .card.🟡 { border-left-color: orange; }
+        .card.🔵 { border-left-color: blue; }
+        .card.⏳ { border-left-color: purple; }
+        .btn { background: #22c55e; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; width: 100%; margin-top: 10px; font-size: 16px; }
+        .done { opacity: 0.3; text-decoration: line-through; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>📡 CompetenceNet</h1>
-        <small>Gerado em: 02/07/2026 19:22</small>
-    </header>
-    <div class="tabs">
-        <div class="tab active" onclick="showTab('atendimentos', this)">📋 Atendimentos</div>
-        <div class="tab" onclick="showTab('status', this)">🤖 Status</div>
+    <div class="header">
+        <h2 style="margin:0">📡 CompetenceNet</h2>
+        <p style="margin:5px 0 0 0; font-size: 12px;">Atualizado às 19:27</p>
     </div>
-    <div id="atendimentos" class="content active">
 
-        <div class="card ⏳" id="card_lead___talila_0f09">
-            <strong>⏳ Lead — Talila</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('lead___talila_0f09')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_daiane__11150_17207__064e">
-            <strong>🟡 Daiane (11150+17207 / Daiane Freitas de Oliveira) — PARCIALMENTE RESOLVIDO</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('daiane__11150_17207__064e')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_17015___maria_eduard_0b1e">
-            <strong>⏳ 17015 - Maria Eduarda Trindade dos Santos — CANCELAMENTO</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('17015___maria_eduard_0b1e')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_pendente_j_nior_f_bi_b7c2">
-            <strong>⏳ Pendente Júnior/Fábio:</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('pendente_j_nior_f_bi_b7c2')">Encerrar</button>
-        </div>
-        <div class="card 🔵" id="card_triagem_83f6">
-            <strong>🔵 Triagem</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('triagem_83f6')">Encerrar</button>
-        </div>
-        <div class="card 🔴" id="card_urgente_0b6f">
-            <strong>🔴 Urgente</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('urgente_0b6f')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_em_andamento_976b">
-            <strong>🟡 Em andamento</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('em_andamento_976b')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_pendente_j_nior_lu_cec9">
-            <strong>⏳ Pendente Júnior/Lu</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('pendente_j_nior_lu_cec9')">Encerrar</button>
-        </div>
-        <div class="card 🔇" id="card_sil_ncio_intencional_2c72">
-            <strong>🔇 Silêncio intencional</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('sil_ncio_intencional_2c72')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_17291___thais_moura__37b1">
-            <strong>🟡 17291 - Thais Moura — SINAL RUIM (desempenho)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('17291___thais_moura__37b1')">Encerrar</button>
-        </div>
-        <div class="card 🔵" id="card_11263___rodrigo_trin_9749">
-            <strong>🔵 11263 - Rodrigo Trindade — PAGAMENTO</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('11263___rodrigo_trin_9749')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_pendente_j_nior__fd52">
-            <strong>⏳ PENDENTE JÚNIOR:</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('pendente_j_nior__fd52')">Encerrar</button>
-        </div>
-        <div class="card 🔴" id="card_aline_da_silva__1592_e005">
-            <strong>🔴 Aline da Silva (15924) — RISCO CANCELAMENTO</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('aline_da_silva__1592_e005')">Encerrar</button>
-        </div>
-        <div class="card 🔴" id="card_aline_aires_da_silve_ee12">
-            <strong>🔴 Aline Aires da Silveira (16986)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('aline_aires_da_silve_ee12')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_helena_teixeira_tava_8230">
-            <strong>🟡 Helena Teixeira Tavares (17227)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('helena_teixeira_tava_8230')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_andressa_bastos__lea_27c3">
-            <strong>🟡 Andressa Bastos (Lead)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('andressa_bastos__lea_27c3')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_jo_o_luiz_siqueira___b5b4">
-            <strong>⏳ João Luiz Siqueira (pai Emerson 16753)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('jo_o_luiz_siqueira___b5b4')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_celetro_gilberto__16_edce">
-            <strong>🟡 Celetro/Gilberto (16574)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('celetro_gilberto__16_edce')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_pendente_j_nior__fd52">
-            <strong>⏳ PENDENTE JÚNIOR:</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('pendente_j_nior__fd52')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_lilian_bicca__15989__d1ff">
-            <strong>🟡 Lilian Bicca (15989)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('lilian_bicca__15989__d1ff')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_valdir_garcia__17294_b434">
-            <strong>🟡 Valdir Garcia (17294) — Recolhimento antena</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('valdir_garcia__17294_b434')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_ivanete__17053__0eb2">
-            <strong>🟡 Ivanete (17053)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('ivanete__17053__0eb2')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_chaiene__10502__7132">
-            <strong>🟡 Chaiene (10502)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('chaiene__10502__7132')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_alceu_sandra__16457__6907">
-            <strong>🟡 Alceu/Sandra (16457/17171)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('alceu_sandra__16457__6907')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_mariane_rodrigues_go_ea30">
-            <strong>🟡 Mariane Rodrigues Gomes (16923) — PAGAMENTO AMANHÃ ✅</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('mariane_rodrigues_go_ea30')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_pendente__adda">
-            <strong>⏳ PENDENTE:</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('pendente__adda')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_liziane_arbelo__1533_b001">
-            <strong>🟡 Liziane Arbelo (15339)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('liziane_arbelo__1533_b001')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_jorge__10383__62fc">
-            <strong>⏳ Jorge (10383)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('jorge__10383__62fc')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_adilmo__11093__716e">
-            <strong>🟡 Adilmo (11093)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('adilmo__11093__716e')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_jo_o_lu_s__locat_rio_3c48">
-            <strong>⏳ João Luís (locatário Ângela)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('jo_o_lu_s__locat_rio_3c48')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_leandro__17290__bfe2">
-            <strong>🟡 Leandro (17290)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('leandro__17290__bfe2')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_j_ssica_prussiano_de_3b4f">
-            <strong>⏳ Jéssica Prussiano de Morais</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('j_ssica_prussiano_de_3b4f')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_jorge_luis_dutra_nun_62f5">
-            <strong>⏳ Jorge Luis Dutra Nunes (17177)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('jorge_luis_dutra_nun_62f5')">Encerrar</button>
-        </div>
-        <div class="card 🔇" id="card_poliana_francine__17_ebf9">
-            <strong>🔇 Poliana Francine (17286)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('poliana_francine__17_ebf9')">Encerrar</button>
-        </div>
-        <div class="card 🔇" id="card_alana_corr_a_da_silv_735b">
-            <strong>🔇 Alana Corrêa da Silva (17054)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('alana_corr_a_da_silv_735b')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_cauana_baumhardt__16_4910">
-            <strong>🟡 Cauana Baumhardt (16784) — RETIRADA REAGENDADA</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('cauana_baumhardt__16_4910')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_bet_faxineira_loja___1fbb">
-            <strong>🟡 Bet Faxineira Loja (16751) — Segurar internet até sexta</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('bet_faxineira_loja___1fbb')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_ana_paula__16734_____23eb">
-            <strong>⏳ Ana Paula (16734) — sem no-break</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('ana_paula__16734_____23eb')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_16734___ana_paula_al_b5b9">
-            <strong>🟡 16734 - Ana Paula Alves</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('16734___ana_paula_al_b5b9')">Encerrar</button>
-        </div>
-        <div class="card 🔵" id="card_lead___j_lio_ac27">
-            <strong>🔵 Lead — Júlio</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('lead___j_lio_ac27')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_pergunta_lu___cobran_6daf">
-            <strong>⏳ Pergunta Lu — Cobrança Serviços 25/06</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('pergunta_lu___cobran_6daf')">Encerrar</button>
-        </div>
-        <div class="card 🔵" id="card_kak___amigo__39ad">
-            <strong>🔵 Kaká (amigo)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('kak___amigo__39ad')">Encerrar</button>
-        </div>
-        <div class="card 🔇" id="card_ana_cristina__16575__1f4e">
-            <strong>🔇 Ana Cristina (16575)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('ana_cristina__16575__1f4e')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_15001___val_ria_bart_ab34">
-            <strong>⏳ 15001 - Valéria Bartmann</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('15001___val_ria_bart_ab34')">Encerrar</button>
-        </div>
-        <div class="card 🟡" id="card_11263___rodrigo_trin_0a0e">
-            <strong>🟡 11263 - Rodrigo Trindade Florence</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('11263___rodrigo_trin_0a0e')">Encerrar</button>
-        </div>
-        <div class="card 🔵" id="card_santa_helena_fasa____d69c">
-            <strong>🔵 Santa Helena Fasa — Roteador do Paulinho</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('santa_helena_fasa____d69c')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_pendente__7e29">
-            <strong>⏳ Pendente:</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('pendente__7e29')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_pendente_j_nior__0e32">
-            <strong>⏳ Pendente Júnior:</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('pendente_j_nior__0e32')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_milbradt___dar_baixa_70dc">
-            <strong>⏳ Milbradt — dar baixa no comodato (AirGrid)</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('milbradt___dar_baixa_70dc')">Encerrar</button>
-        </div>
-        <div class="card ⏳" id="card_a__o_j_nior__264e">
-            <strong>⏳ Ação Júnior:</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('a__o_j_nior__264e')">Encerrar</button>
-        </div>
-        <div class="card 🔇" id="card_marly_mota_bri_o__16_8567">
-            <strong>🔇 Marly Mota Brião (16987) — acordo dia 15/07</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('marly_mota_bri_o__16_8567')">Encerrar</button>
-        </div>
-        <div class="card 🔵" id="card_bianca_marques_nunes_3c8a">
-            <strong>🔵 Bianca Marques Nunes (17223) — triagem</strong>
-            <br><button class="btn btn-encerrar" onclick="encerrar('bianca_marques_nunes_3c8a')">Encerrar</button>
-        </div>
+    <div class="card ⏳" id="LeadTalila">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Lead — Talila</div>
+        <button class="btn" onclick="encerrar('LeadTalila')">ENCERRAR ✅</button>
     </div>
-    <div id="status" class="content">
-        <p>Dashboard simplificado para garantir estabilidade.</p>
+    <div class="card 🟡" id="Daiane111501720">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Daiane (11150+17207 / Daiane Freitas de Oliveira) — PARCIALMENTE RESOLVIDO</div>
+        <button class="btn" onclick="encerrar('Daiane111501720')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="17015MariaEduar">
+        <div style="font-size: 18px; font-weight: bold;">⏳ 17015 - Maria Eduarda Trindade dos Santos — CANCELAMENTO</div>
+        <button class="btn" onclick="encerrar('17015MariaEduar')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="PendenteJniorFb">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Pendente Júnior/Fábio:</div>
+        <button class="btn" onclick="encerrar('PendenteJniorFb')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔵" id="Triagem">
+        <div style="font-size: 18px; font-weight: bold;">🔵 Triagem</div>
+        <button class="btn" onclick="encerrar('Triagem')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔴" id="Urgente">
+        <div style="font-size: 18px; font-weight: bold;">🔴 Urgente</div>
+        <button class="btn" onclick="encerrar('Urgente')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="Emandamento">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Em andamento</div>
+        <button class="btn" onclick="encerrar('Emandamento')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="PendenteJniorLu">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Pendente Júnior/Lu</div>
+        <button class="btn" onclick="encerrar('PendenteJniorLu')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔇" id="Silnciointencio">
+        <div style="font-size: 18px; font-weight: bold;">🔇 Silêncio intencional</div>
+        <button class="btn" onclick="encerrar('Silnciointencio')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="17291ThaisMoura">
+        <div style="font-size: 18px; font-weight: bold;">🟡 17291 - Thais Moura — SINAL RUIM (desempenho)</div>
+        <button class="btn" onclick="encerrar('17291ThaisMoura')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔵" id="11263RodrigoTri">
+        <div style="font-size: 18px; font-weight: bold;">🔵 11263 - Rodrigo Trindade — PAGAMENTO</div>
+        <button class="btn" onclick="encerrar('11263RodrigoTri')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="PENDENTEJNIOR">
+        <div style="font-size: 18px; font-weight: bold;">⏳ PENDENTE JÚNIOR:</div>
+        <button class="btn" onclick="encerrar('PENDENTEJNIOR')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔴" id="AlinedaSilva159">
+        <div style="font-size: 18px; font-weight: bold;">🔴 Aline da Silva (15924) — RISCO CANCELAMENTO</div>
+        <button class="btn" onclick="encerrar('AlinedaSilva159')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔴" id="AlineAiresdaSil">
+        <div style="font-size: 18px; font-weight: bold;">🔴 Aline Aires da Silveira (16986)</div>
+        <button class="btn" onclick="encerrar('AlineAiresdaSil')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="HelenaTeixeiraT">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Helena Teixeira Tavares (17227)</div>
+        <button class="btn" onclick="encerrar('HelenaTeixeiraT')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="AndressaBastosL">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Andressa Bastos (Lead)</div>
+        <button class="btn" onclick="encerrar('AndressaBastosL')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="JooLuizSiqueira">
+        <div style="font-size: 18px; font-weight: bold;">⏳ João Luiz Siqueira (pai Emerson 16753)</div>
+        <button class="btn" onclick="encerrar('JooLuizSiqueira')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="CeletroGilberto">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Celetro/Gilberto (16574)</div>
+        <button class="btn" onclick="encerrar('CeletroGilberto')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="PENDENTEJNIOR">
+        <div style="font-size: 18px; font-weight: bold;">⏳ PENDENTE JÚNIOR:</div>
+        <button class="btn" onclick="encerrar('PENDENTEJNIOR')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="LilianBicca1598">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Lilian Bicca (15989)</div>
+        <button class="btn" onclick="encerrar('LilianBicca1598')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="ValdirGarcia172">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Valdir Garcia (17294) — Recolhimento antena</div>
+        <button class="btn" onclick="encerrar('ValdirGarcia172')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="Ivanete17053">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Ivanete (17053)</div>
+        <button class="btn" onclick="encerrar('Ivanete17053')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="Chaiene10502">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Chaiene (10502)</div>
+        <button class="btn" onclick="encerrar('Chaiene10502')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="AlceuSandra1645">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Alceu/Sandra (16457/17171)</div>
+        <button class="btn" onclick="encerrar('AlceuSandra1645')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="MarianeRodrigue">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Mariane Rodrigues Gomes (16923) — PAGAMENTO AMANHÃ ✅</div>
+        <button class="btn" onclick="encerrar('MarianeRodrigue')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="PENDENTE">
+        <div style="font-size: 18px; font-weight: bold;">⏳ PENDENTE:</div>
+        <button class="btn" onclick="encerrar('PENDENTE')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="LizianeArbelo15">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Liziane Arbelo (15339)</div>
+        <button class="btn" onclick="encerrar('LizianeArbelo15')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="Jorge10383">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Jorge (10383)</div>
+        <button class="btn" onclick="encerrar('Jorge10383')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="Adilmo11093">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Adilmo (11093)</div>
+        <button class="btn" onclick="encerrar('Adilmo11093')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="JooLuslocatrion">
+        <div style="font-size: 18px; font-weight: bold;">⏳ João Luís (locatário Ângela)</div>
+        <button class="btn" onclick="encerrar('JooLuslocatrion')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="Leandro17290">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Leandro (17290)</div>
+        <button class="btn" onclick="encerrar('Leandro17290')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="JssicaPrussiano">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Jéssica Prussiano de Morais</div>
+        <button class="btn" onclick="encerrar('JssicaPrussiano')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="JorgeLuisDutraN">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Jorge Luis Dutra Nunes (17177)</div>
+        <button class="btn" onclick="encerrar('JorgeLuisDutraN')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔇" id="PolianaFrancine">
+        <div style="font-size: 18px; font-weight: bold;">🔇 Poliana Francine (17286)</div>
+        <button class="btn" onclick="encerrar('PolianaFrancine')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔇" id="AlanaCorradaSil">
+        <div style="font-size: 18px; font-weight: bold;">🔇 Alana Corrêa da Silva (17054)</div>
+        <button class="btn" onclick="encerrar('AlanaCorradaSil')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="CauanaBaumhardt">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Cauana Baumhardt (16784) — RETIRADA REAGENDADA</div>
+        <button class="btn" onclick="encerrar('CauanaBaumhardt')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="BetFaxineiraLoj">
+        <div style="font-size: 18px; font-weight: bold;">🟡 Bet Faxineira Loja (16751) — Segurar internet até sexta</div>
+        <button class="btn" onclick="encerrar('BetFaxineiraLoj')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="AnaPaula16734se">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Ana Paula (16734) — sem no-break</div>
+        <button class="btn" onclick="encerrar('AnaPaula16734se')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="16734AnaPaulaAl">
+        <div style="font-size: 18px; font-weight: bold;">🟡 16734 - Ana Paula Alves</div>
+        <button class="btn" onclick="encerrar('16734AnaPaulaAl')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔵" id="LeadJlio">
+        <div style="font-size: 18px; font-weight: bold;">🔵 Lead — Júlio</div>
+        <button class="btn" onclick="encerrar('LeadJlio')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="PerguntaLuCobra">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Pergunta Lu — Cobrança Serviços 25/06</div>
+        <button class="btn" onclick="encerrar('PerguntaLuCobra')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔵" id="Kakamigo">
+        <div style="font-size: 18px; font-weight: bold;">🔵 Kaká (amigo)</div>
+        <button class="btn" onclick="encerrar('Kakamigo')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔇" id="AnaCristina1657">
+        <div style="font-size: 18px; font-weight: bold;">🔇 Ana Cristina (16575)</div>
+        <button class="btn" onclick="encerrar('AnaCristina1657')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="15001ValriaBart">
+        <div style="font-size: 18px; font-weight: bold;">⏳ 15001 - Valéria Bartmann</div>
+        <button class="btn" onclick="encerrar('15001ValriaBart')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🟡" id="11263RodrigoTri">
+        <div style="font-size: 18px; font-weight: bold;">🟡 11263 - Rodrigo Trindade Florence</div>
+        <button class="btn" onclick="encerrar('11263RodrigoTri')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔵" id="SantaHelenaFasa">
+        <div style="font-size: 18px; font-weight: bold;">🔵 Santa Helena Fasa — Roteador do Paulinho</div>
+        <button class="btn" onclick="encerrar('SantaHelenaFasa')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="Pendente">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Pendente:</div>
+        <button class="btn" onclick="encerrar('Pendente')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="PendenteJnior">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Pendente Júnior:</div>
+        <button class="btn" onclick="encerrar('PendenteJnior')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="Milbradtdarbaix">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Milbradt — dar baixa no comodato (AirGrid)</div>
+        <button class="btn" onclick="encerrar('Milbradtdarbaix')">ENCERRAR ✅</button>
+    </div>
+    <div class="card ⏳" id="AoJnior">
+        <div style="font-size: 18px; font-weight: bold;">⏳ Ação Júnior:</div>
+        <button class="btn" onclick="encerrar('AoJnior')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔇" id="MarlyMotaBrio16">
+        <div style="font-size: 18px; font-weight: bold;">🔇 Marly Mota Brião (16987) — acordo dia 15/07</div>
+        <button class="btn" onclick="encerrar('MarlyMotaBrio16')">ENCERRAR ✅</button>
+    </div>
+    <div class="card 🔵" id="BiancaMarquesNu">
+        <div style="font-size: 18px; font-weight: bold;">🔵 Bianca Marques Nunes (17223) — triagem</div>
+        <button class="btn" onclick="encerrar('BiancaMarquesNu')">ENCERRAR ✅</button>
     </div>
     <script>
-        function showTab(id, el) {
-            document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            el.classList.add('active');
-        }
-        function encerrar(uid) {
-            const card = document.getElementById('card_' + uid);
-            card.classList.add('encerrado');
-            alert('Encerrado: ' + uid);
+        function encerrar(id) {
+            document.getElementById(id).classList.add('done');
+            // Aqui enviaria pro Zapia no futuro, por enquanto apenas visual
+            alert('Encerrado com sucesso!');
         }
     </script>
 </body>
