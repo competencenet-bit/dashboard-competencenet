@@ -1,240 +1,440 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompetenceNet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CompetenceNet Dashboard</title>
     <style>
-        body { font-family: sans-serif; padding: 10px; background: #eee; }
-        .header { background: #1a1a2e; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 15px; }
-        .card { background: white; padding: 15px; margin-bottom: 10px; border-radius: 8px; border-left: 10px solid #ccc; shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .card.🔴 { border-left-color: red; }
-        .card.🟡 { border-left-color: orange; }
-        .card.🔵 { border-left-color: blue; }
-        .card.⏳ { border-left-color: purple; }
-        .btn { background: #22c55e; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; width: 100%; margin-top: 10px; font-size: 16px; }
-        .done { opacity: 0.3; text-decoration: line-through; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, system-ui, sans-serif; background: #f0f2f5; color: #1c1e21; line-height: 1.4; }
+        header { background: #1a1a2e; color: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .tabs { display: flex; background: white; position: sticky; top: 58px; z-index: 900; border-bottom: 1px solid #ddd; overflow-x: auto; }
+        .tab { flex: 1; text-align: center; padding: 12px 10px; font-weight: bold; color: #65676b; border-bottom: 3px solid transparent; white-space: nowrap; font-size: 14px; }
+        .tab.active { color: #1a73e8; border-bottom-color: #1a73e8; }
+        .content { display: none; padding: 12px; }
+        .content.active { display: block; }
+        .card { background: white; border-radius: 8px; padding: 12px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); border-left: 6px solid #ccc; }
+        .card.🔴 { border-left-color: #fa3e3e; }
+        .card.🟡 { border-left-color: #f7b928; }
+        .card.🔵 { border-left-color: #1a73e8; }
+        .card.⏳ { border-left-color: #8a3ab9; }
+        .card.encerrado { opacity: 0.4; filter: grayscale(1); pointer-events: none; }
+        .card-header { font-weight: bold; font-size: 16px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+        .card-body { font-size: 13px; color: #4b4f56; white-space: pre-wrap; margin-bottom: 8px; }
+        .btn { width: 100%; padding: 10px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-encerrar { background: #42b72a; color: white; }
+        .btn-lido { background: #ebedf0; color: #4b4f56; margin-top: 6px; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h2 style="margin:0">📡 CompetenceNet</h2>
-        <p style="margin:5px 0 0 0; font-size: 12px;">Atualizado às 19:27</p>
+    <header>
+        <h2 style="font-size: 18px;">📡 CompetenceNet</h2>
+        <div style="font-size: 11px; opacity: 0.8;">Atualizado às 02/07/2026 20:33</div>
+    </header>
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('atendimentos', this)">📋 Lista</div>
+        <div class="tab" onclick="switchTab('status', this)">🤖 Zapia</div>
+    </div>
+    
+    <div id="atendimentos" class="content active">
+
+        <div class="card ⏳" id="card_lead___talila_0f09">
+            <div class="card-header">⏳ Lead — Talila</div>
+            <div class="card-body">| JID: 555189749284@s.whatsapp.net | Entrada: 01/07 16:49
+- **Endereço:** Rua Olímpio Lima, 70 — Quadra 4 — Piquiri | GPS: -30.257826,-52.800534
+- **Plano:** 50 Mega R\$ 75,00/mês (Tabela B) | Comodat...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('lead___talila_0f09')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('lead___talila_0f09')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_daiane__11150_1_064e">
+            <div class="card-header">🟡 Daiane (11150+17207 / Daiane Freitas de Oliveira) — PARCIALMENTE RESOLVIDO</div>
+            <div class="card-body">| JID: 555198264296@s.whatsapp.net | Atualizado: 01/07 13:02
+- ID 11150 desbloqueado ✅ (fez autoatendimento)
+- ID 17207 (segunda net) ainda bloqueada — Júnior conversando ativamente
+- Pix recebidos: R...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('daiane__11150_1_064e')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('daiane__11150_1_064e')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_17015___maria_e_0b1e">
+            <div class="card-header">⏳ 17015 - Maria Eduarda Trindade dos Santos — CANCELAMENTO</div>
+            <div class="card-body">| JID: 555196983474@s.whatsapp.net | Atualizado: 01/07 10:20
+- Pediu cancelamento: se mudou
+- **Endereço:** Rua Xafi Abrão Nazar, 136 — Parque Primavera
+- ⚠️ Duas antenas na casa: uma dela (ID 17015) ...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('17015___maria_e_0b1e')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('17015___maria_e_0b1e')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔵" id="card_triagem_83f6">
+            <div class="card-header">🔵 Triagem</div>
+            <div class="card-body">— entrou, ainda não identifiquei se é atendimento técnico/operacional
+- 🔴 **Urgente** — problema técnico ativo, risco alto, mas internet funcionando
+- 🟡 **Em andamento** — atendimento em curso (alerta...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('triagem_83f6')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('triagem_83f6')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_17291___thais_m_37b1">
+            <div class="card-header">🟡 17291 - Thais Moura — SINAL RUIM (desempenho)</div>
+            <div class="card-body">| JID: 555197975754@s.whatsapp.net | Atualizado: 01/07 18:39
+- Reclamação há ~1 mês: YouTube travando, WhatsApp lento, reinício não resolve
+- Login: thaism | codconexao: 14214 | VLAN: vlan112-silo-hoe...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('17291___thais_m_37b1')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('17291___thais_m_37b1')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔵" id="card_11263___rodrigo_9749">
+            <div class="card-header">🔵 11263 - Rodrigo Trindade — PAGAMENTO</div>
+            <div class="card-body">| JID: 555180173180@s.whatsapp.net | Entrada: 29/06 09:00
+- Quer pagar mensalidade. Orientado para o portal (09:00). CPF enviado: 930.060.710-34
+- 📅 próximo contato: aguardar — se não conseguir pelo p...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('11263___rodrigo_9749')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('11263___rodrigo_9749')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_pendente_j_nior_fd52">
+            <div class="card-header">⏳ PENDENTE JÚNIOR:</div>
+            <div class="card-body">autorizar nova liberação ou negar
+- 📅 próximo contato: **hoje 24/06** — decisão urgente...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('pendente_j_nior_fd52')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('pendente_j_nior_fd52')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔴" id="card_aline_da_silva__e005">
+            <div class="card-header">🔴 Aline da Silva (15924) — RISCO CANCELAMENTO</div>
+            <div class="card-body">| JID: 555599461813@s.whatsapp.net | Reaberto: 29/06 12:29
+- Reclamação grave: Netflix, Reels não abrem, patrão também reclama, viu grupo reclamando, cogitando Starlink
+- Em degustação 20 Mega desde 1...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('aline_da_silva__e005')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('aline_da_silva__e005')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔴" id="card_aline_aires_da__ee12">
+            <div class="card-header">🔴 Aline Aires da Silveira (16986)</div>
+            <div class="card-body">| JID: 555195442333@s.whatsapp.net | Entrada: 23/06
+- Lenta/travando (heavy user 32-45GB/sessão). Risco cancelamento
+- ✅ Voltou da viagem (01/07 12:25) — continua fraca, videochamada quase impossível
+...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('aline_aires_da__ee12')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('aline_aires_da__ee12')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_helena_teixeira_8230">
+            <div class="card-header">🟡 Helena Teixeira Tavares (17227)</div>
+            <div class="card-body">| JID: 555197494054@s.whatsapp.net | Entrada: 01/07 12:40
+- Internet instável + videochamadas travando. ⚠️ Júnior deu dicas (02/07 17:02), mas ela disse que não resolveu (17:39).
+- 🔴 PENDENTE: 1) Troc...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('helena_teixeira_8230')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('helena_teixeira_8230')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_andressa_bastos_27c3">
+            <div class="card-header">🟡 Andressa Bastos (Lead)</div>
+            <div class="card-body">| JID: 555180401451@s.whatsapp.net | Entrada: 01/07 10:00
+- Respondeu "Opa" (02/07 16:26) após envio de planos.
+- 📅 próximo contato: bot seguiu contato 02/07 18:00...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('andressa_bastos_27c3')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('andressa_bastos_27c3')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_jo_o_luiz_sique_b5b4">
+            <div class="card-header">⏳ João Luiz Siqueira (pai Emerson 16753)</div>
+            <div class="card-body">| Entrada: 26/06
+- CPF: 670.257.900-91 — Bairro Teluk
+- ✅ INSTALAÇÃO CONCLUÍDA por Fábio em 26/06 (~16h)
+- ⏳ PENDENTE LU: lançar cobrança R$ 450 comodato no MK
+- 📅 próximo contato: 02/07 — confirmar c...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('jo_o_luiz_sique_b5b4')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('jo_o_luiz_sique_b5b4')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_celetro_gilbert_edce">
+            <div class="card-header">🟡 Celetro/Gilberto (16574)</div>
+            <div class="card-body">| JID: 555196743031@s.whatsapp.net | Atualizado: 30/06 13:14
+- 24/06: perguntou sobre fibra na BR-153 com BR-290
+- 30/06 13:12: **NOVO PEDIDO** — quer orçamento de pontos CTG em 4 locais:
+  - PINHEIRO...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('celetro_gilbert_edce')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('celetro_gilbert_edce')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_lilian_bicca__1_d1ff">
+            <div class="card-header">🟡 Lilian Bicca (15989)</div>
+            <div class="card-body">| JID: 555197534942@s.whatsapp.net | Atualizado: 01/07 11:38
+- 29/06: internet voltou mas abaixo dos 10 MB contratados
+- Lu ligou ontem (30/06) e mandou mensagem hoje
+- Lilian disse: essa semana não d...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('lilian_bicca__1_d1ff')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('lilian_bicca__1_d1ff')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_valdir_garcia___b434">
+            <div class="card-header">🟡 Valdir Garcia (17294) — Recolhimento antena</div>
+            <div class="card-body">| Entrada: 16/06
+- Jean NÃO USA WHATSAPP — ligar (51) 99888-8403
+- OS reagendada para **27/06 (sábado) 14h** no Calendar
+- 📅 próximo contato: **26/06** — ligar pro Jean para confirmar disponibilidade ...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('valdir_garcia___b434')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('valdir_garcia___b434')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_ivanete__17053__0eb2">
+            <div class="card-header">🟡 Ivanete (17053)</div>
+            <div class="card-body">| JID: 555198473522@s.whatsapp.net | Entrada: 24/06
+- Voltou a funcionar após apertar botão da bateria. Pode ser bateria fraca
+- Júnior enviou áudio 28/06 17:55 — aguardando conteúdo (transcricao pend...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('ivanete__17053__0eb2')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('ivanete__17053__0eb2')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_chaiene__10502__7132">
+            <div class="card-header">🟡 Chaiene (10502)</div>
+            <div class="card-body">| JID: 555197016886@s.whatsapp.net
+- ✅ OS executada 30/06 — Fábio trocou roteador ~17:30.
+- UPDATE 02/07 11:05: Paramount entrou sem travar ✅. Impressora melhorou ✅. Quer testar com cabo direto na TV....</div>
+            <button class="btn btn-encerrar" onclick="encerrar('chaiene__10502__7132')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('chaiene__10502__7132')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_alceu_sandra__1_6907">
+            <div class="card-header">🟡 Alceu/Sandra (16457/17171)</div>
+            <div class="card-body">| JID: 555198264893@s.whatsapp.net | Entrada: 23/06
+- Vai pagar sexta
+- 📅 próximo contato: **26/06 (sexta)** — verificar pagamento...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('alceu_sandra__1_6907')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('alceu_sandra__1_6907')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_mariane_rodrigu_ea30">
+            <div class="card-header">🟡 Mariane Rodrigues Gomes (16923) — PAGAMENTO AMANHÃ ✅</div>
+            <div class="card-body">| JID: 555195732903@s.whatsapp.net | Entrada: 22/06
+- Antena recolhida. Acordo R$150 + 4x R$122,50. Aguardando aceite + registro Lu
+- 📅 próximo contato: **26/06** — se não confirmar, cutucar...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('mariane_rodrigu_ea30')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('mariane_rodrigu_ea30')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_pendente__adda">
+            <div class="card-header">⏳ PENDENTE:</div>
+            <div class="card-body">Júnior/Lu liberar internet no sistema
+- 📅 próximo contato: **hoje 24/06** — confirmar se internet foi liberada...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('pendente__adda')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('pendente__adda')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_liziane_arbelo__b001">
+            <div class="card-header">🟡 Liziane Arbelo (15339)</div>
+            <div class="card-body">| JID: 555199009710@s.whatsapp.net | Entrada: 15/06
+- Júnior verificou plano reduzido (28/06 18:07). Ela respondeu 19:06: "está bom, mas pretendo mudar pro plano de R$69 — dou resposta essa semana"
+- ...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('liziane_arbelo__b001')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('liziane_arbelo__b001')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_jorge__10383__62fc">
+            <div class="card-header">⏳ Jorge (10383)</div>
+            <div class="card-body">| JID: 555198571888@s.whatsapp.net | Entrada: 16/06
+- Pix R$250 autorizado. Verificar se pagou
+- 📅 próximo contato: **hoje 24/06** — 8 dias. Cobrar Júnior no briefing...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('jorge__10383__62fc')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('jorge__10383__62fc')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_adilmo__11093__716e">
+            <div class="card-header">🟡 Adilmo (11093)</div>
+            <div class="card-body">| JID: 555197702115@s.whatsapp.net | Entrada: 18/06
+- Júnior prometeu roteador novo. Roteador disponível na loja ✅
+- ⏳ Aguardando resposta do Adilmo sobre nome/senha Wi-Fi
+- 📅 próximo contato: 02/07 —...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('adilmo__11093__716e')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('adilmo__11093__716e')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_jo_o_lu_s__loca_3c48">
+            <div class="card-header">⏳ João Luís (locatário Ângela)</div>
+            <div class="card-body">| JID: 555599130339@s.whatsapp.net | Entrada: 18/06
+- Quer valor para 1-2 meses
+- 📅 próximo contato: **hoje 24/06** — 6 dias. Cobrar Júnior no briefing...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('jo_o_lu_s__loca_3c48')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('jo_o_lu_s__loca_3c48')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_leandro__17290__bfe2">
+            <div class="card-header">🟡 Leandro (17290)</div>
+            <div class="card-body">| JID: 555180319063@s.whatsapp.net | Entrada: 18/06
+- Cancelamento confirmado. Equipamentos com encarregado da Fazenda Teluque/Barragem
+- 🚧 Retirada ainda não realizada — Fábio ficou na ponte na últim...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('leandro__17290__bfe2')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('leandro__17290__bfe2')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_j_ssica_prussia_3b4f">
+            <div class="card-header">⏳ Jéssica Prussiano de Morais</div>
+            <div class="card-body">| JID: desconhecido | Entrada: 22/06
+- Comodato no cadastro, equipamento não retirado
+- ⏳ PENDENTE LU: ID MK + endereço para agendar recolhimento no Domingo Coringa
+- 📅 próximo contato: 02/07 — cobrar...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('j_ssica_prussia_3b4f')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('j_ssica_prussia_3b4f')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_jorge_luis_dutr_62f5">
+            <div class="card-header">⏳ Jorge Luis Dutra Nunes (17177)</div>
+            <div class="card-body">| Entrada: 24/06
+- Cancelamento informado pela Lu. Sem comodato pendente (já recolhido)
+- ⚠️ PENDENTE LU: desativar no MK + definir os débitos em aberto
+- 📅 próximo contato: aguardar Lu responder sobr...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('jorge_luis_dutr_62f5')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('jorge_luis_dutr_62f5')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔇" id="card_poliana_francin_ebf9">
+            <div class="card-header">🔇 Poliana Francine (17286)</div>
+            <div class="card-body">| Entrada: 15/06 | 9 dias — follow-up não disparou
+- 📅 Reativar: **hoje 24/06** — disparar follow-up agora...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('poliana_francin_ebf9')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('poliana_francin_ebf9')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔇" id="card_alana_corr_a_da_735b">
+            <div class="card-header">🔇 Alana Corrêa da Silva (17054)</div>
+            <div class="card-body">| JID: 555196906767@s.whatsapp.net | Entrada: 23/06
+- Pagou R$150 ✅ em 24/06. Internet liberada. Comprovante enviado. Acordo confirmado: 3x R$100 em 05/08, 05/09, 05/10
+- 🔇 Silêncio — aguardar parcela...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('alana_corr_a_da_735b')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('alana_corr_a_da_735b')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_cauana_baumhard_4910">
+            <div class="card-header">🟡 Cauana Baumhardt (16784) — RETIRADA REAGENDADA</div>
+            <div class="card-body">| JID: 555199605172@s.whatsapp.net
+- Cancelamento confirmado. Retirada era hoje 10h mas ela teve imprevisto.
+- Amanhã (30/06) estará na sala da frente trabalhando — pode abrir pra gente entrar.
+- 📅 pr...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('cauana_baumhard_4910')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('cauana_baumhard_4910')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_bet_faxineira_l_1fbb">
+            <div class="card-header">🟡 Bet Faxineira Loja (16751) — Segurar internet até sexta</div>
+            <div class="card-body">| JID: 555194203690@s.whatsapp.net | Pediu pra não cortar até 26/06 (sexta). Confirmado. Vai pagar na sexta. | 📅 próximo contato: 26/06...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('bet_faxineira_l_1fbb')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('bet_faxineira_l_1fbb')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_ana_paula__1673_23eb">
+            <div class="card-header">⏳ Ana Paula (16734) — sem no-break</div>
+            <div class="card-body">| JID: 555199121781@s.whatsapp.net | Sem bateria, luz cai muito. Aguardando Júnior decidir sobre fornecer no-break. 📅 próximo contato: 26/06 | JID: 555199121781@s.whatsapp.net | Entrada: 24/06 20:08
+-...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('ana_paula__1673_23eb')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('ana_paula__1673_23eb')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_16734___ana_pau_b5b9">
+            <div class="card-header">🟡 16734 - Ana Paula Alves</div>
+            <div class="card-body">| JID: 555199121781@s.whatsapp.net | Entrada: 25/06 14:25
+- **Situação:** Sem no-break, luz cai frequentemente na área rural. Pediu fornecimento de bateria/no-break.
+- **Ação:** Respondida, informei q...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('16734___ana_pau_b5b9')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('16734___ana_pau_b5b9')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔵" id="card_lead___j_lio_ac27">
+            <div class="card-header">🔵 Lead — Júlio</div>
+            <div class="card-body">| JID: 555199556463@s.whatsapp.net | Entrada: 25/06 16:00
+- **Interesse:** Internet residencial/rural
+- **Coords:** -30.201492, -53.045672
+- **Maps:** https://maps.google.com/?q=-30.201492,-53.045672
+...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('lead___j_lio_ac27')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('lead___j_lio_ac27')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_pergunta_lu___c_6daf">
+            <div class="card-header">⏳ Pergunta Lu — Cobrança Serviços 25/06</div>
+            <div class="card-body">| Grupo Atividades | 16:59
+- Lu enviou print do Calendar com os serviços do dia (Roberta Porto 08h + Pedro Gustavo 10h)
+- Pergunta: "tem alguma cobrança?"
+- Não há regra definida nos arquivos para cob...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('pergunta_lu___c_6daf')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('pergunta_lu___c_6daf')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔵" id="card_kak___amigo__39ad">
+            <div class="card-header">🔵 Kaká (amigo)</div>
+            <div class="card-body">| JID: 555194045839@s.whatsapp.net | Entrada: 25/06 19:37
+- Está tentando ajudar "Michel" com computador queimado
+- Precisa saber: o que queimou + se RAM é DDR3 ou DDR4 + processador
+- Tem placa-mãe A...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('kak___amigo__39ad')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('kak___amigo__39ad')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔇" id="card_ana_cristina__1_1f4e">
+            <div class="card-header">🔇 Ana Cristina (16575)</div>
+            <div class="card-body">| JID: 555198379692@s.whatsapp.net | Entrada: 25/06
+- ✅ Problema resolvido 26/06 11:35 — canal trocado, cliente confirmou melhora
+- Causa: interferência de equipamento clandestino de vizinho no POP Ze...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('ana_cristina__1_1f4e')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('ana_cristina__1_1f4e')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_15001___val_ria_ab34">
+            <div class="card-header">⏳ 15001 - Valéria Bartmann</div>
+            <div class="card-body">| JID: 555199961831@s.whatsapp.net | Entrada: 26/06 11:35
+- Quer alterar cadastro: nova titular = mãe dela (Maria Inez Nazer Bartmann, CPF 563.170.000-00)
+- ⏳ PENDENTE LU: alterar titular no MK com da...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('15001___val_ria_ab34')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('15001___val_ria_ab34')">👁️ LIDO</button>
+        </div>
+        <div class="card 🟡" id="card_11263___rodrigo_0a0e">
+            <div class="card-header">🟡 11263 - Rodrigo Trindade Florence</div>
+            <div class="card-body">| JID: 555180173180@s.whatsapp.net | Entrada: 29/06
+- Pagou julho (R$89,90) às 09:12 via débito
+- Pagou julho. Maio travada no portal — Júnior tratou diretamente 09:42
+- Rodrigo vai pagar maio em ~15 ...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('11263___rodrigo_0a0e')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('11263___rodrigo_0a0e')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔵" id="card_santa_helena_fa_d69c">
+            <div class="card-header">🔵 Santa Helena Fasa — Roteador do Paulinho</div>
+            <div class="card-body">| JID: 555195260383@s.whatsapp.net | Entrada: 29/06 09:05
+- Pediu roteador novo urgente para cliente Paulinho (filho — pai quer ver TV)
+- Roteador sem funcionar há pelo menos 1 semana
+- Prazo pedido: ...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('santa_helena_fa_d69c')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('santa_helena_fa_d69c')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_pendente__7e29">
+            <div class="card-header">⏳ Pendente:</div>
+            <div class="card-body">data de nascimento da Dóris (perguntado ao Pedro 08:45 e 10:20)
+- Lu pediu data de nascimento + e-mail + vencimento para completar cadastro
+- **📅 próximo contato:** aguardar resposta do Pedro (pergunt...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('pendente__7e29')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('pendente__7e29')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_pendente_j_nior_0e32">
+            <div class="card-header">⏳ Pendente Júnior:</div>
+            <div class="card-body">informar à Lu se houve taxa de instalação + telefone do cliente
+- 📅 próximo contato: hoje — Júnior informar taxa instalação + telefone cliente para Lu cadastrar...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('pendente_j_nior_0e32')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('pendente_j_nior_0e32')">👁️ LIDO</button>
+        </div>
+        <div class="card ⏳" id="card_milbradt___dar__70dc">
+            <div class="card-header">⏳ Milbradt — dar baixa no comodato (AirGrid)</div>
+            <div class="card-body">| Atividades 11:10
+- No grupo Atividades (30/06 11:10), Júnior disse: "dar baixa na antena dele [Milbradt] pelo login"
+- Milbradt se mudou para outra fazenda (Granja alguma coisa), deixou a AirGrid na...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('milbradt___dar__70dc')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('milbradt___dar__70dc')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔇" id="card_marly_mota_bri__8567">
+            <div class="card-header">🔇 Marly Mota Brião (16987) — acordo dia 15/07</div>
+            <div class="card-body">| JID pessoal: 555198787790@s.whatsapp.net | Atualizado: 30/06 11:50
+- Acordo fechado ao vivo com Júnior: paga dia 15 (entrega do móvel)
+- Ela respondeu "Valeu abraco" ✅ — acordo confirmado
+- CPF: 004...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('marly_mota_bri__8567')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('marly_mota_bri__8567')">👁️ LIDO</button>
+        </div>
+        <div class="card 🔵" id="card_bianca_marques__3c8a">
+            <div class="card-header">🔵 Bianca Marques Nunes (17223) — triagem</div>
+            <div class="card-body">| JID: 5551920052058@s.whatsapp.net | Entrada: 30/06 13:56
+- Mandou "Oii" — não identificou o motivo
+- ✅ Respondido 14:00: "Oi Bianca! Tudo bem? Como posso te ajudar?"
+- 📅 próximo contato: aguardar re...</div>
+            <button class="btn btn-encerrar" onclick="encerrar('bianca_marques__3c8a')">✅ ENCERRAR</button>
+            <button class="btn btn-lido" onclick="marcarLido('bianca_marques__3c8a')">👁️ LIDO</button>
+        </div>
+    </div>
+    <div id="status" class="content">
+        <div class="card">
+            <div class="card-header">🤖 Status do Sistema</div>
+            <div class="card-body">Rondas sincronizadas. Limite de disparos ajustado.</div>
+        </div>
     </div>
 
-    <div class="card ⏳" id="LeadTalila">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Lead — Talila</div>
-        <button class="btn" onclick="encerrar('LeadTalila')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="Daiane111501720">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Daiane (11150+17207 / Daiane Freitas de Oliveira) — PARCIALMENTE RESOLVIDO</div>
-        <button class="btn" onclick="encerrar('Daiane111501720')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="17015MariaEduar">
-        <div style="font-size: 18px; font-weight: bold;">⏳ 17015 - Maria Eduarda Trindade dos Santos — CANCELAMENTO</div>
-        <button class="btn" onclick="encerrar('17015MariaEduar')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="PendenteJniorFb">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Pendente Júnior/Fábio:</div>
-        <button class="btn" onclick="encerrar('PendenteJniorFb')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔵" id="Triagem">
-        <div style="font-size: 18px; font-weight: bold;">🔵 Triagem</div>
-        <button class="btn" onclick="encerrar('Triagem')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔴" id="Urgente">
-        <div style="font-size: 18px; font-weight: bold;">🔴 Urgente</div>
-        <button class="btn" onclick="encerrar('Urgente')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="Emandamento">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Em andamento</div>
-        <button class="btn" onclick="encerrar('Emandamento')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="PendenteJniorLu">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Pendente Júnior/Lu</div>
-        <button class="btn" onclick="encerrar('PendenteJniorLu')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔇" id="Silnciointencio">
-        <div style="font-size: 18px; font-weight: bold;">🔇 Silêncio intencional</div>
-        <button class="btn" onclick="encerrar('Silnciointencio')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="17291ThaisMoura">
-        <div style="font-size: 18px; font-weight: bold;">🟡 17291 - Thais Moura — SINAL RUIM (desempenho)</div>
-        <button class="btn" onclick="encerrar('17291ThaisMoura')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔵" id="11263RodrigoTri">
-        <div style="font-size: 18px; font-weight: bold;">🔵 11263 - Rodrigo Trindade — PAGAMENTO</div>
-        <button class="btn" onclick="encerrar('11263RodrigoTri')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="PENDENTEJNIOR">
-        <div style="font-size: 18px; font-weight: bold;">⏳ PENDENTE JÚNIOR:</div>
-        <button class="btn" onclick="encerrar('PENDENTEJNIOR')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔴" id="AlinedaSilva159">
-        <div style="font-size: 18px; font-weight: bold;">🔴 Aline da Silva (15924) — RISCO CANCELAMENTO</div>
-        <button class="btn" onclick="encerrar('AlinedaSilva159')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔴" id="AlineAiresdaSil">
-        <div style="font-size: 18px; font-weight: bold;">🔴 Aline Aires da Silveira (16986)</div>
-        <button class="btn" onclick="encerrar('AlineAiresdaSil')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="HelenaTeixeiraT">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Helena Teixeira Tavares (17227)</div>
-        <button class="btn" onclick="encerrar('HelenaTeixeiraT')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="AndressaBastosL">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Andressa Bastos (Lead)</div>
-        <button class="btn" onclick="encerrar('AndressaBastosL')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="JooLuizSiqueira">
-        <div style="font-size: 18px; font-weight: bold;">⏳ João Luiz Siqueira (pai Emerson 16753)</div>
-        <button class="btn" onclick="encerrar('JooLuizSiqueira')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="CeletroGilberto">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Celetro/Gilberto (16574)</div>
-        <button class="btn" onclick="encerrar('CeletroGilberto')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="PENDENTEJNIOR">
-        <div style="font-size: 18px; font-weight: bold;">⏳ PENDENTE JÚNIOR:</div>
-        <button class="btn" onclick="encerrar('PENDENTEJNIOR')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="LilianBicca1598">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Lilian Bicca (15989)</div>
-        <button class="btn" onclick="encerrar('LilianBicca1598')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="ValdirGarcia172">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Valdir Garcia (17294) — Recolhimento antena</div>
-        <button class="btn" onclick="encerrar('ValdirGarcia172')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="Ivanete17053">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Ivanete (17053)</div>
-        <button class="btn" onclick="encerrar('Ivanete17053')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="Chaiene10502">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Chaiene (10502)</div>
-        <button class="btn" onclick="encerrar('Chaiene10502')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="AlceuSandra1645">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Alceu/Sandra (16457/17171)</div>
-        <button class="btn" onclick="encerrar('AlceuSandra1645')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="MarianeRodrigue">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Mariane Rodrigues Gomes (16923) — PAGAMENTO AMANHÃ ✅</div>
-        <button class="btn" onclick="encerrar('MarianeRodrigue')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="PENDENTE">
-        <div style="font-size: 18px; font-weight: bold;">⏳ PENDENTE:</div>
-        <button class="btn" onclick="encerrar('PENDENTE')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="LizianeArbelo15">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Liziane Arbelo (15339)</div>
-        <button class="btn" onclick="encerrar('LizianeArbelo15')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="Jorge10383">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Jorge (10383)</div>
-        <button class="btn" onclick="encerrar('Jorge10383')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="Adilmo11093">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Adilmo (11093)</div>
-        <button class="btn" onclick="encerrar('Adilmo11093')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="JooLuslocatrion">
-        <div style="font-size: 18px; font-weight: bold;">⏳ João Luís (locatário Ângela)</div>
-        <button class="btn" onclick="encerrar('JooLuslocatrion')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="Leandro17290">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Leandro (17290)</div>
-        <button class="btn" onclick="encerrar('Leandro17290')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="JssicaPrussiano">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Jéssica Prussiano de Morais</div>
-        <button class="btn" onclick="encerrar('JssicaPrussiano')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="JorgeLuisDutraN">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Jorge Luis Dutra Nunes (17177)</div>
-        <button class="btn" onclick="encerrar('JorgeLuisDutraN')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔇" id="PolianaFrancine">
-        <div style="font-size: 18px; font-weight: bold;">🔇 Poliana Francine (17286)</div>
-        <button class="btn" onclick="encerrar('PolianaFrancine')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔇" id="AlanaCorradaSil">
-        <div style="font-size: 18px; font-weight: bold;">🔇 Alana Corrêa da Silva (17054)</div>
-        <button class="btn" onclick="encerrar('AlanaCorradaSil')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="CauanaBaumhardt">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Cauana Baumhardt (16784) — RETIRADA REAGENDADA</div>
-        <button class="btn" onclick="encerrar('CauanaBaumhardt')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="BetFaxineiraLoj">
-        <div style="font-size: 18px; font-weight: bold;">🟡 Bet Faxineira Loja (16751) — Segurar internet até sexta</div>
-        <button class="btn" onclick="encerrar('BetFaxineiraLoj')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="AnaPaula16734se">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Ana Paula (16734) — sem no-break</div>
-        <button class="btn" onclick="encerrar('AnaPaula16734se')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="16734AnaPaulaAl">
-        <div style="font-size: 18px; font-weight: bold;">🟡 16734 - Ana Paula Alves</div>
-        <button class="btn" onclick="encerrar('16734AnaPaulaAl')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔵" id="LeadJlio">
-        <div style="font-size: 18px; font-weight: bold;">🔵 Lead — Júlio</div>
-        <button class="btn" onclick="encerrar('LeadJlio')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="PerguntaLuCobra">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Pergunta Lu — Cobrança Serviços 25/06</div>
-        <button class="btn" onclick="encerrar('PerguntaLuCobra')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔵" id="Kakamigo">
-        <div style="font-size: 18px; font-weight: bold;">🔵 Kaká (amigo)</div>
-        <button class="btn" onclick="encerrar('Kakamigo')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔇" id="AnaCristina1657">
-        <div style="font-size: 18px; font-weight: bold;">🔇 Ana Cristina (16575)</div>
-        <button class="btn" onclick="encerrar('AnaCristina1657')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="15001ValriaBart">
-        <div style="font-size: 18px; font-weight: bold;">⏳ 15001 - Valéria Bartmann</div>
-        <button class="btn" onclick="encerrar('15001ValriaBart')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🟡" id="11263RodrigoTri">
-        <div style="font-size: 18px; font-weight: bold;">🟡 11263 - Rodrigo Trindade Florence</div>
-        <button class="btn" onclick="encerrar('11263RodrigoTri')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔵" id="SantaHelenaFasa">
-        <div style="font-size: 18px; font-weight: bold;">🔵 Santa Helena Fasa — Roteador do Paulinho</div>
-        <button class="btn" onclick="encerrar('SantaHelenaFasa')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="Pendente">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Pendente:</div>
-        <button class="btn" onclick="encerrar('Pendente')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="PendenteJnior">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Pendente Júnior:</div>
-        <button class="btn" onclick="encerrar('PendenteJnior')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="Milbradtdarbaix">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Milbradt — dar baixa no comodato (AirGrid)</div>
-        <button class="btn" onclick="encerrar('Milbradtdarbaix')">ENCERRAR ✅</button>
-    </div>
-    <div class="card ⏳" id="AoJnior">
-        <div style="font-size: 18px; font-weight: bold;">⏳ Ação Júnior:</div>
-        <button class="btn" onclick="encerrar('AoJnior')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔇" id="MarlyMotaBrio16">
-        <div style="font-size: 18px; font-weight: bold;">🔇 Marly Mota Brião (16987) — acordo dia 15/07</div>
-        <button class="btn" onclick="encerrar('MarlyMotaBrio16')">ENCERRAR ✅</button>
-    </div>
-    <div class="card 🔵" id="BiancaMarquesNu">
-        <div style="font-size: 18px; font-weight: bold;">🔵 Bianca Marques Nunes (17223) — triagem</div>
-        <button class="btn" onclick="encerrar('BiancaMarquesNu')">ENCERRAR ✅</button>
-    </div>
     <script>
-        function encerrar(id) {
-            document.getElementById(id).classList.add('done');
-            // Aqui enviaria pro Zapia no futuro, por enquanto apenas visual
-            alert('Encerrado com sucesso!');
+        function switchTab(id, el) {
+            document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            el.classList.add('active');
+            window.scrollTo(0,0);
+        }
+        function encerrar(uid) {
+            const card = document.getElementById('card_' + uid);
+            card.classList.add('encerrado');
+            alert('Encerrado! Vou limpar da lista na próxima ronda.');
+        }
+        function marcarLido(uid) {
+            const card = document.getElementById('card_' + uid);
+            card.style.display = 'none';
         }
     </script>
 </body>
