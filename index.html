@@ -146,7 +146,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 02/07/2026 22:54 | 49 itens</span>
+    <span class="meta">Gerado: 02/07/2026 23:01 | 48 itens</span>
   </div>
 </header>
 
@@ -211,7 +211,7 @@ button:disabled{opacity:0.4;cursor:default}
 </div>
 
   <div class="stats">
-    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">49</div><div class="lab">Todos</div></div>
+    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">48</div><div class="lab">Todos</div></div>
     <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">4</div><div class="lab">🔴 Urgente</div></div>
     <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">19</div><div class="lab">🟡 Andamento</div></div>
     <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#9333ea">15</div><div class="lab">⏳ Júnior</div></div>
@@ -1260,30 +1260,7 @@ button:disabled{opacity:0.4;cursor:default}
   {_render_painel_historico(item)}
 </div>
 </div>
-<div class="grupo" data-status="silencio"><h2 style="color:#999999;border-bottom:2px solid #999999;padding-bottom:6px">🔇 SILÊNCIO INTENCIONAL (4)</h2>
-<div class="card" id="card_{uid}" data-uid="{uid}" data-status="{status}" style="border-left:4px solid {cor};background:{bg}">
-  <div class="card-header">
-    <span class="emoji">{item["emoji"]}</span>
-    <strong class="titulo">{titulo_esc}</strong>
-    <span class="badge" style="background:{cor}">{item["status_label"]}</span>
-  </div>
-  <div class="desc">{desc_esc}</div>
-  <div class="proximo">📅 {proximo_esc}</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('{uid}',this)">✅ Encerrar</button>
-      <button class="btn-lido" id="lido_{uid}" onclick="marcarLido('{uid}',this)">👁️ Lido</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('{uid}')">🎙️ Áudio via WhatsApp</button>
-      {btn_cliente}
-      {btn_dados_card}
-      {_render_btn_historico(item)}
-      <button class="btn-copiar" onclick="copiarContexto('{uid}')">📋 Copiar contexto</button>
-    </div>
-    {_render_followup_tag(item)}
-
-  </div>
-  {_render_painel_historico(item)}
-</div>
+<div class="grupo" data-status="silencio"><h2 style="color:#999999;border-bottom:2px solid #999999;padding-bottom:6px">🔇 SILÊNCIO INTENCIONAL (3)</h2>
 <div class="card" id="card_{uid}" data-uid="{uid}" data-status="{status}" style="border-left:4px solid {cor};background:{bg}">
   <div class="card-header">
     <span class="emoji">{item["emoji"]}</span>
