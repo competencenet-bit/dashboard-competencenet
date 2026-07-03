@@ -50,6 +50,8 @@
         
         h3.section-title { font-size: 16px; color: #0056b3; margin: 20px 0 10px; text-transform: uppercase; text-align: center; border-bottom: 1px solid #0056b3; padding-bottom: 3px; }
         
+        .tech-badge { display: inline-block; background: #e8f0fe; color: #0056b3; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; border: 1px solid #0056b3; }
+
         .scenarios { display: flex; gap: 15px; margin-bottom: 20px; }
         .scenario-card { flex: 1; border: 1px solid #0056b3; border-radius: 4px; padding: 10px; background: rgba(232, 240, 254, 0.5); }
         .scenario-card h4 { margin: 0 0 5px; color: #0056b3; font-size: 14px; border-bottom: 1px solid #0056b3; }
@@ -59,6 +61,7 @@
         th { background: #f8f9fa; color: #0056b3; border: 1px solid #ddd; padding: 8px; text-align: left; }
         td { border: 1px solid #ddd; padding: 8px; }
         .price { font-weight: bold; color: #2e7d32; }
+        .speed { font-weight: bold; color: #0056b3; font-size: 13px; }
         .impossible { color: #c62828; font-weight: bold; background: #ffebee; }
         
         .notes { background: rgba(255, 253, 231, 0.8); border: 1px solid #ffe082; padding: 12px; font-size: 12px; color: #4e342e; border-radius: 4px; }
@@ -90,7 +93,7 @@
                 </div>
                 <div class="proposal-meta">
                     <p><b>PROPOSTA COMERCIAL</b></p>
-                    <p>Ref: CELETRO-2026-0703-V5</p>
+                    <p>Ref: CELETRO-2026-0703-V6</p>
                     <p>Data: 03/07/2026</p>
                 </div>
             </header>
@@ -100,6 +103,8 @@
                 <p><strong>Razão Social:</strong> CELETRO - Cooperativa Eletrificação Centro Jacuí Ltda</p>
                 <p><strong>A/C:</strong> Gilberto (Patrimônio e Materiais)</p>
             </div>
+
+            <div class="tech-badge">Tecnologia: Internet via Rádio Profissional (5.8GHz / 60GHz)</div>
 
             <h3 class="section-title">Definição Técnica e Custos de Comodato</h3>
             <div class="scenarios">
@@ -117,45 +122,45 @@
                 </div>
             </div>
 
-            <h3 class="section-title">Mensalidades por Localidade</h3>
+            <h3 class="section-title">Planos e Mensalidades por Localidade</h3>
             <table>
                 <thead>
                     <tr>
                         <th>Ponto de Conexão</th>
-                        <th>Mensalidade (Cenário A)</th>
-                        <th>Mensalidade (Cenário B)</th>
+                        <th>Cenário A (Até 7km)</th>
+                        <th>Cenário B (Longa Distância)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><b>KM 0 (Sede)</b></td>
-                        <td class="price">R$ 65,00/mês</td>
-                        <td class="price">R$ 131,50/mês</td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 65,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
                     </tr>
                     <tr>
                         <td><b>Butucaraí</b></td>
-                        <td class="price">R$ 65,00/mês</td>
-                        <td class="price">R$ 131,50/mês</td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 65,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
                     </tr>
                     <tr>
                         <td><b>Porteira Sete</b></td>
-                        <td class="price">R$ 65,00/mês</td>
-                        <td class="price">R$ 131,50/mês</td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 65,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
                     </tr>
                     <tr>
                         <td><b>SE 5369 (Forqueta)</b></td>
-                        <td class="price">R$ 65,00/mês</td>
-                        <td class="price">R$ 131,50/mês</td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 65,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
                     </tr>
                     <tr>
                         <td><b>SE 3127 (Agropecuária)</b></td>
-                        <td class="price">R$ 75,00/mês</td>
-                        <td class="price">R$ 131,50/mês</td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 75,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
                     </tr>
                     <tr>
                         <td><b>SE 3081 (Willy Rass)</b></td>
-                        <td class="price">R$ 55,00/mês</td>
-                        <td class="price">R$ 131,50/mês</td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 55,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
                     </tr>
                     <tr>
                         <td><b>Pinheiro</b></td>
@@ -170,7 +175,7 @@
                     <li><b class="highlight">Visita Técnica:</b> R$ 100,00 por ponto, <b class="highlight">pagos antecipadamente para agendamento</b>.</li>
                     <li><b>Abatimento:</b> O valor da visita é integralmente <b class="highlight">descontado do valor do comodato</b> na instalação.</li>
                     <li><b>Exemplo Cenário B:</b> Cliente paga R$ 100 da visita; na instalação, paga a diferença de <b class="highlight">R$ 350,00</b> do comodato total de R$ 450,00.</li>
-                    <li><b>Infraestrutura:</b> O comodato contempla o rádio/antena e o roteador Wi-Fi.</li>
+                    <li><b>Infraestrutura:</b> O comodato contempla o rádio/antena (Internet via Rádio) e o roteador Wi-Fi.</li>
                     <li><b>Validade desta proposta:</b> 15 dias.</li>
                 </ul>
             </div>
