@@ -146,7 +146,7 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 02/07/2026 21:58 | 48 itens</span>
+    <span class="meta">Gerado: 02/07/2026 21:59 | 48 itens</span>
   </div>
 </header>
 
@@ -179,7 +179,37 @@ button:disabled{opacity:0.4;cursor:default}
 <!-- ABA 1: ATENDIMENTOS -->
 <div class="tab-content active" id="aba-atendimentos">
 <div class="container">
-  
+  <div class="sem-internet-banner">
+<div class="sem-internet-titulo">⚡ SEM INTERNET — AÇÃO URGENTE</div>
+<div class="sem-internet-card">
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:1.3rem">⚡</span>
+    <strong style="flex:1;font-size:0.95rem">{titulo_esc}</strong>
+    {horas_badge}
+    <button class="btn-wpp-urgente" onclick="window.open('https://wa.me/{phone}','_blank')">💬 WhatsApp</button>
+  </div>
+  <div style="font-size:0.82rem;color:#7c2d12;margin-top:4px">{desc_esc}</div>
+</div>
+<div class="sem-internet-card">
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:1.3rem">⚡</span>
+    <strong style="flex:1;font-size:0.95rem">{titulo_esc}</strong>
+    {horas_badge}
+    <button class="btn-wpp-urgente" onclick="window.open('https://wa.me/{phone}','_blank')">💬 WhatsApp</button>
+  </div>
+  <div style="font-size:0.82rem;color:#7c2d12;margin-top:4px">{desc_esc}</div>
+</div>
+<div class="sem-internet-card">
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:1.3rem">⚡</span>
+    <strong style="flex:1;font-size:0.95rem">{titulo_esc}</strong>
+    {horas_badge}
+    <button class="btn-wpp-urgente" onclick="window.open('https://wa.me/{phone}','_blank')">💬 WhatsApp</button>
+  </div>
+  <div style="font-size:0.82rem;color:#7c2d12;margin-top:4px">{desc_esc}</div>
+</div>
+</div>
+
   <div class="stats">
     <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">48</div><div class="lab">Todos</div></div>
     <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">4</div><div class="lab">🔴 Urgente</div></div>
