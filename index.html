@@ -146,14 +146,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 02/07/2026 23:01 | 48 itens</span>
+    <span class="meta">Gerado: 03/07/2026 07:20 | 48 itens</span>
   </div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
   <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa {f'(11)' if coringa_n else ''}</div>
-  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos {f'(9)' if encerrados_n else ''}</div>
+  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos {f'(3)' if encerrados_n else ''}</div>
   <div class="tab" onclick="abrirAba('financeiro',this)">💰 Financeiro</div>
   <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
   <div class="tab" onclick="abrirAba('chat',this)">💬 Falar com Zapia</div>
@@ -1562,108 +1562,6 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="container">
   <h2 style="margin-bottom:6px;font-size:1rem;color:#1a1a2e">✅ Resolvidos — últimas 48h</h2>
   <div style="font-size:0.82rem;color:#888;margin-bottom:12px">Mais recente primeiro. Últimas 48h.</div>
-<div class="card" style="border-left:4px solid {borda};background:{bg};margin-bottom:10px" id="card_{uid}">
-  <div class="card-header">
-    <span style="color:{borda};font-size:1rem">✅</span>
-    <strong class="titulo" style="flex:1;color:#166534">{nome_esc}</strong>
-    {pin}
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">{ts_badge}</span>
-  </div>
-  <div class="desc">{resumo_esc}</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      {btn_audio}
-      {btn_wpp}
-      {btn_copiar}
-    </div>
-    <textarea class="comentario" id="txt_{uid}" placeholder="Anotação..." rows="2"></textarea>
-  </div>
-</div>
-<div class="card" style="border-left:4px solid {borda};background:{bg};margin-bottom:10px" id="card_{uid}">
-  <div class="card-header">
-    <span style="color:{borda};font-size:1rem">✅</span>
-    <strong class="titulo" style="flex:1;color:#166534">{nome_esc}</strong>
-    {pin}
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">{ts_badge}</span>
-  </div>
-  <div class="desc">{resumo_esc}</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      {btn_audio}
-      {btn_wpp}
-      {btn_copiar}
-    </div>
-    <textarea class="comentario" id="txt_{uid}" placeholder="Anotação..." rows="2"></textarea>
-  </div>
-</div>
-<div class="card" style="border-left:4px solid {borda};background:{bg};margin-bottom:10px" id="card_{uid}">
-  <div class="card-header">
-    <span style="color:{borda};font-size:1rem">✅</span>
-    <strong class="titulo" style="flex:1;color:#166534">{nome_esc}</strong>
-    {pin}
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">{ts_badge}</span>
-  </div>
-  <div class="desc">{resumo_esc}</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      {btn_audio}
-      {btn_wpp}
-      {btn_copiar}
-    </div>
-    <textarea class="comentario" id="txt_{uid}" placeholder="Anotação..." rows="2"></textarea>
-  </div>
-</div>
-<div class="card" style="border-left:4px solid {borda};background:{bg};margin-bottom:10px" id="card_{uid}">
-  <div class="card-header">
-    <span style="color:{borda};font-size:1rem">✅</span>
-    <strong class="titulo" style="flex:1;color:#166534">{nome_esc}</strong>
-    {pin}
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">{ts_badge}</span>
-  </div>
-  <div class="desc">{resumo_esc}</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      {btn_audio}
-      {btn_wpp}
-      {btn_copiar}
-    </div>
-    <textarea class="comentario" id="txt_{uid}" placeholder="Anotação..." rows="2"></textarea>
-  </div>
-</div>
-<div class="card" style="border-left:4px solid {borda};background:{bg};margin-bottom:10px" id="card_{uid}">
-  <div class="card-header">
-    <span style="color:{borda};font-size:1rem">✅</span>
-    <strong class="titulo" style="flex:1;color:#166534">{nome_esc}</strong>
-    {pin}
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">{ts_badge}</span>
-  </div>
-  <div class="desc">{resumo_esc}</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      {btn_audio}
-      {btn_wpp}
-      {btn_copiar}
-    </div>
-    <textarea class="comentario" id="txt_{uid}" placeholder="Anotação..." rows="2"></textarea>
-  </div>
-</div>
-<div class="card" style="border-left:4px solid {borda};background:{bg};margin-bottom:10px" id="card_{uid}">
-  <div class="card-header">
-    <span style="color:{borda};font-size:1rem">✅</span>
-    <strong class="titulo" style="flex:1;color:#166534">{nome_esc}</strong>
-    {pin}
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">{ts_badge}</span>
-  </div>
-  <div class="desc">{resumo_esc}</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      {btn_audio}
-      {btn_wpp}
-      {btn_copiar}
-    </div>
-    <textarea class="comentario" id="txt_{uid}" placeholder="Anotação..." rows="2"></textarea>
-  </div>
-</div>
 <div class="card" style="border-left:4px solid {borda};background:{bg};margin-bottom:10px" id="card_{uid}">
   <div class="card-header">
     <span style="color:{borda};font-size:1rem">✅</span>
