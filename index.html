@@ -146,13 +146,13 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 02/07/2026 21:59 | 48 itens</span>
+    <span class="meta">Gerado: 02/07/2026 22:54 | 49 itens</span>
   </div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
-  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa {f'(10)' if coringa_n else ''}</div>
+  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa {f'(11)' if coringa_n else ''}</div>
   <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos {f'(9)' if encerrados_n else ''}</div>
   <div class="tab" onclick="abrirAba('financeiro',this)">💰 Financeiro</div>
   <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
@@ -211,9 +211,9 @@ button:disabled{opacity:0.4;cursor:default}
 </div>
 
   <div class="stats">
-    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">48</div><div class="lab">Todos</div></div>
+    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">49</div><div class="lab">Todos</div></div>
     <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">4</div><div class="lab">🔴 Urgente</div></div>
-    <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">18</div><div class="lab">🟡 Andamento</div></div>
+    <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">19</div><div class="lab">🟡 Andamento</div></div>
     <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#9333ea">15</div><div class="lab">⏳ Júnior</div></div>
     <div class="stat" data-filter="triagem" onclick="filtrar('triagem')"><div class="num" style="color:#2288cc">7</div><div class="lab">🔵 Triagem</div></div>
   </div>
@@ -658,7 +658,30 @@ button:disabled{opacity:0.4;cursor:default}
   {_render_painel_historico(item)}
 </div>
 </div>
-<div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (18)</h2>
+<div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (19)</h2>
+<div class="card" id="card_{uid}" data-uid="{uid}" data-status="{status}" style="border-left:4px solid {cor};background:{bg}">
+  <div class="card-header">
+    <span class="emoji">{item["emoji"]}</span>
+    <strong class="titulo">{titulo_esc}</strong>
+    <span class="badge" style="background:{cor}">{item["status_label"]}</span>
+  </div>
+  <div class="desc">{desc_esc}</div>
+  <div class="proximo">📅 {proximo_esc}</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('{uid}',this)">✅ Encerrar</button>
+      <button class="btn-lido" id="lido_{uid}" onclick="marcarLido('{uid}',this)">👁️ Lido</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('{uid}')">🎙️ Áudio via WhatsApp</button>
+      {btn_cliente}
+      {btn_dados_card}
+      {_render_btn_historico(item)}
+      <button class="btn-copiar" onclick="copiarContexto('{uid}')">📋 Copiar contexto</button>
+    </div>
+    {_render_followup_tag(item)}
+
+  </div>
+  {_render_painel_historico(item)}
+</div>
 <div class="card" id="card_{uid}" data-uid="{uid}" data-status="{status}" style="border-left:4px solid {cor};background:{bg}">
   <div class="card-header">
     <span class="emoji">{item["emoji"]}</span>
@@ -1343,6 +1366,25 @@ button:disabled{opacity:0.4;cursor:default}
   <p style="font-size:0.82rem;color:#888;margin-bottom:16px">OSs sem data confirmada. Quando decidir a data real, arrasta no Google Calendar. Clique em <strong>📋 Dados faltando</strong> para me alimentar direto pelo WhatsApp.</p>
   <div style="margin-bottom:16px;font-size:0.85rem;color:#888">Eventos do Coringa — <strong>28/06/2026</strong>. Cards completos com todos os dados do cliente. Use <strong>📋 Dados faltando</strong> pra alimentar direto pelo WhatsApp.</div>
 <div class="coringa-lista">
+<div class="card" style="border-left:4px solid {cor_borda};background:{badge_bg};margin-bottom:12px">
+  <div class="card-header">
+    <span style="font-weight:700;color:{cor_borda};font-size:0.9rem;min-width:50px">⏰ {ev["hora"]}</span>
+    <strong class="titulo">{titulo_esc}</strong>
+    <span class="badge" style="background:{cor_borda}">{badge_txt}</span>
+  </div>
+  {tags_html}
+  <div class="desc">{desc_esc}</div>
+  <div class="proximo">📅 {proximo_esc}</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('{uid}')">🎙️ Áudio via WhatsApp</button>
+      {btn_cliente}
+      {btn_dados_card}
+      <button class="btn-copiar" onclick="copiarContexto('{uid}')">📋 Copiar contexto</button>
+    </div>
+    <textarea class="comentario" id="txt_{uid}" placeholder="Anotação sobre esta OS..." rows="2"></textarea>
+  </div>
+</div>
 <div class="card" style="border-left:4px solid {cor_borda};background:{badge_bg};margin-bottom:12px">
   <div class="card-header">
     <span style="font-weight:700;color:{cor_borda};font-size:0.9rem;min-width:50px">⏰ {ev["hora"]}</span>
