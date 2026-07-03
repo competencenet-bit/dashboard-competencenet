@@ -146,14 +146,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta">Gerado: 03/07/2026 07:20 | 48 itens</span>
+    <span class="meta">Gerado: 03/07/2026 07:49 | 48 itens</span>
   </div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
-  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa {f'(11)' if coringa_n else ''}</div>
-  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos {f'(3)' if encerrados_n else ''}</div>
+  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa (11)</div>
+  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos (3)</div>
   <div class="tab" onclick="abrirAba('financeiro',this)">💰 Financeiro</div>
   <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
   <div class="tab" onclick="abrirAba('chat',this)">💬 Falar com Zapia</div>
@@ -2238,8 +2238,6 @@ function restaurarEncerrados() {
 }
 // Restaurar marcações de lido (desmarca automaticamente se conteúdo mudou)
 restaurarLidos(); restaurarEncerrados();
-restaurarEncerrados();
-restaurarEncerrados();
 </script>
 </body>
 </html>
