@@ -276,7 +276,10 @@ function setTab(t) {
   const content = document.getElementById('aba-' + t);
   if (content) content.classList.add('active');
   
-  render();
+  // Garantir que o render seja chamado após a atualização do DOM das abas
+  if (typeof render === 'function') {
+    render();
+  }
 }
 
 function filtrar(f) {
