@@ -45,6 +45,7 @@
   .btn-cliente{background:#22c55e;color:#fff}
   .btn-qg{background:#3b82f6;color:#fff}
   .btn-encerrar{background:#e5e7eb;color:#4b5563}
+  .btn-reverter{background:#fbbf24;color:#fff}
   .card.encerrado{opacity:0.4;pointer-events:none}
 
   .tab-content{display:none}
@@ -97,7 +98,9 @@ async function loadData() {
 
 function render() {
   const d = state.data;
-  document.getElementById('ts-header').innerText = 'Gerado: ' + d.timestamp;
+  const agora = new Date();
+  const hora = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  document.getElementById('ts-header').innerText = '🕐 ' + hora + ' • Dados: ' + d.timestamp;
   
   // Alertas
   const alertasLista = document.getElementById('alertas-lista');
@@ -177,8 +180,21 @@ function setTab(t) {
 }
 
 function encerrar(id, btn) {
-  document.getElementById('card_' + id).classList.add('encerrado');
+  const card = document.getElementById('card_' + id);
+  card.classList.add('encerrado');
   btn.textContent = '✅ Encerrado!';
+  btn.classList.remove('btn-encerrar');
+  btn.classList.add('btn-reverter');
+  btn.onclick = function() { reverter(id, btn); };
+}
+
+function reverter(id, btn) {
+  const card = document.getElementById('card_' + id);
+  card.classList.remove('encerrado');
+  btn.textContent = '✅ Encerrar';
+  btn.classList.remove('btn-reverter');
+  btn.classList.add('btn-encerrar');
+  btn.onclick = function() { encerrar(id, btn); };
 }
 
 function copiarContexto(id) {
