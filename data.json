@@ -1,0 +1,164 @@
+{
+  "atendimentos": [
+    {
+      "id": "id_4ecfecf3",
+      "status": "urgente",
+      "cliente": "17085 - Dari (Piquiri)",
+      "detalhes": "Equipamento não liga. Confirmou falha física (luz vermelha na bateria, nada no roteador). **Requer troca de fonte/POE.**",
+      "proximo": "📅 Próximo contato: 04/07 14:30",
+      "phone": ""
+    },
+    {
+      "id": "id_12995b1e",
+      "status": "urgente",
+      "cliente": "17286 - Poliana (Vila Vargas)",
+      "detalhes": "Sem internet. Júnior cobrou Fábio às 12:47. Fábio deve estar na região.",
+      "proximo": "📅 Próximo contato: 04/07 15:00",
+      "phone": ""
+    },
+    {
+      "id": "id_14bfdcd5",
+      "status": "urgente",
+      "cliente": "16518 - Andréia (Michael - Vila Vargas)",
+      "detalhes": "Problema na repetidora. Fábio verifica hoje junto com o caso da Poliana.",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_1d7da2e9",
+      "status": "urgente",
+      "cliente": "10794 - Marcelo Cassol",
+      "detalhes": "Lentidão grave. Técnico deve passar hoje.",
+      "proximo": "📅 Próximo contato: 04/07 14:00",
+      "phone": ""
+    },
+    {
+      "id": "id_8be7bbcf",
+      "status": "urgente",
+      "cliente": "17291 - Thais Moura",
+      "detalhes": "Lentidão durante jogos. Monitorar.",
+      "proximo": "📅 Próximo contato: 04/07 14:00",
+      "phone": ""
+    },
+    {
+      "id": "id_0bc85fac",
+      "status": "andamento",
+      "cliente": "16878 - Mateus Schuck",
+      "detalhes": "Quer aumentar a velocidade por apenas 30 dias. Pendente decisão comercial.",
+      "proximo": "📅 Próximo contato: 04/07 14:00",
+      "phone": ""
+    },
+    {
+      "id": "id_2a6da166",
+      "status": "andamento",
+      "cliente": "17197/17187/17185 - Jorge Luis Dutra",
+      "detalhes": "Liberação de confiança na Serraria Cantagalo? Júnior decidir.",
+      "proximo": "📅 Próximo contato: 04/07 14:00",
+      "phone": ""
+    },
+    {
+      "id": "id_b12505f7",
+      "status": "andamento",
+      "cliente": "17273 - Jarbas (FASA)",
+      "detalhes": "Documento do Israel Fasa recebido. Pendente processar cadastro.",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_af2695d4",
+      "status": "andamento",
+      "cliente": "17XXX - Dóris Schmidt",
+      "detalhes": "Instalação confirmada às 14:00 no Salão da ULDA (César Paitrão).",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_2fc723de",
+      "status": "triagem",
+      "cliente": "11123 - Denise Fontoura",
+      "detalhes": "Problema no app. Zapia enviou link do portal. Vencimento 05/07.",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_c9d72004",
+      "status": "triagem",
+      "cliente": "17174 - Itamara Freitas",
+      "detalhes": "Confirmado que este é o suporte. Aguardando dúvida específica.",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_45ea3bfa",
+      "status": "triagem",
+      "cliente": "Setor de Patrimônio",
+      "detalhes": "Assinar termo e devolver.",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_5a25789e",
+      "status": "triagem",
+      "cliente": "Despesa Lu",
+      "detalhes": "Lançar despesa do mercado (03/07).",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    }
+  ],
+  "concluidos": [
+    {
+      "id": "id_7718656f",
+      "status": "concluido",
+      "cliente": "17264 - Joel",
+      "detalhes": "👍 recebido. Explicação sobre roteador/bateria aceita. Monitora quando voltar pra casa segunda.",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_ac5728a2",
+      "status": "concluido",
+      "cliente": "17XXX - Talila",
+      "detalhes": "Cliente aceitou reagendamento para SEGUNDA À TARDE. \"Tá ok eu tô aguardando\" (11:10). ✅",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_25b661b5",
+      "status": "concluido",
+      "cliente": "16085 - Lucas Holzschuh",
+      "detalhes": "Resolvido (fio solto + luz).",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_3e737c5a",
+      "status": "concluido",
+      "cliente": "16958 - Humberto",
+      "detalhes": "Oração de gratidão enviada. Zapia respondeu com acolhimento.",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    },
+    {
+      "id": "id_73e33763",
+      "status": "concluido",
+      "cliente": "17172 - Cristine",
+      "detalhes": "Zapia confirmou que é o suporte. Sem pendência.",
+      "proximo": "📅 próximo contato: Não definido",
+      "phone": ""
+    }
+  ],
+  "stats": {
+    "todos": 13,
+    "urgente": 5,
+    "andamento": 4,
+    "triagem": 4
+  },
+  "timestamp": "04/07/2026 17:46",
+  "alertas": [
+    {
+      "pop": "competence-cachoeira-fasa-NETPROBE",
+      "status": "offline",
+      "tempo": "37 min"
+    }
+  ]
+}
