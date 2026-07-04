@@ -11,20 +11,33 @@
         .tab { flex: 1; padding: 10px; text-align: center; color: #cbd5e1; cursor: pointer; border: 2px solid transparent; font-weight: bold; white-space: nowrap; }
         .tab.active { background: #1e293b; border-color: #3b82f6; color: white; }
         .content { padding: 15px; }
-        .card { background: white; border: 3px solid #1e293b; border-radius: 0; margin-bottom: 15px; padding: 15px; box-shadow: 5px 5px 0px #1e293b; }
-        .titulo { font-weight: bold; font-size: 1.1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 10px; }
-        .desc { font-size: 0.95rem; line-height: 1.4; margin-bottom: 10px; }
-        .proximo { font-style: italic; color: #64748b; font-size: 0.85rem; }
-        .btn-v9 { background: #1e293b; color: white; border: none; padding: 8px 12px; font-weight: bold; cursor: pointer; border-radius: 0; margin-right: 5px; margin-top: 10px; }
+        .card { background: white; border: 3px solid #1e293b; border-radius: 0; margin-bottom: 15px; padding: 15px; box-shadow: 5px 5px 0px #1e293b; transition: all 0.2s; }
+        .card.lido { opacity: 0.5; border-color: #64748b; box-shadow: 2px 2px 0px #64748b; }
+        .card.encerrado { border-color: #22c55e; background: #f0fdf4; box-shadow: 5px 5px 0px #22c55e; }
+        .titulo { font-weight: bold; font-size: 1.1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 10px; color: #1e293b; }
+        .desc { font-size: 0.95rem; line-height: 1.4; margin-bottom: 10px; color: #334155; }
+        .proximo { font-style: italic; color: #64748b; font-size: 0.85rem; margin-top: 5px; }
+        
+        .btn-v9 { background: #1e293b; color: white; border: none; padding: 8px 12px; font-weight: bold; cursor: pointer; border-radius: 0; margin-right: 5px; margin-top: 10px; text-transform: uppercase; font-size: 0.75rem; }
+        .btn-v9:active { transform: translate(2px, 2px); box-shadow: none; }
         .btn-copiar { background: #3b82f6; }
         .btn-wpp { background: #22c55e; }
-        .stats-bar { background: #e2e8f0; padding: 5px 15px; font-size: 0.8rem; font-weight: bold; }
+        .btn-encerrar { background: #ef4444; }
+        .btn-lido { background: #64748b; }
+        .btn-qg { background: #f59e0b; }
+        
+        header { background: #1e293b; color: white; padding: 15px; text-align: left; border-bottom: 4px solid #3b82f6; display: flex; justify-content: space-between; align-items: center; }
+        .stats-bar { background: #cbd5e1; padding: 8px 15px; font-size: 0.85rem; font-weight: bold; border-bottom: 2px solid #1e293b; display: flex; justify-content: space-between; }
+        .btn-enviar { background: #22c55e; color: white; border: 3px solid #14532d; padding: 8px 15px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
     <header>
-        <h1 style="margin:0; font-size: 1.3rem;">CompetenceNet v9-Evolution</h1>
-        <div id="ts-header" style="font-size: 0.8rem; opacity: 0.8;">Carregando...</div>
+        <div>
+            <h1 style="margin:0; font-size: 1.3rem;">CompetenceNet v9-Evolution</h1>
+            <div id="ts-header" style="font-size: 0.8rem; opacity: 0.8;">Carregando...</div>
+        </div>
+        <button class="btn-enviar" onclick="enviarRelatorio()">🚀 ENVIAR PARA ZAPIA</button>
     </header>
     
     <div class="stats-bar" id="stats-bar">Stats: ...</div>
@@ -44,7 +57,7 @@
     <script>
         const state = {
             currentTab: 'urgente',
-            data: {"stats": {"atendimentos": 11, "financeiro": 2, "campo": 3, "instalacao": 2, "concluido": 2}, "atendimentos": [{"id": "e797a4b2", "cliente": "17XXX - Dóris Schmidt (César) (17:13):", "detalhes": "Instalação EM ANDAMENTO e COMPLICADA. Fábio atingiu conduíte elétrico e derrubou a chave da casa. Cliente (César) impaciente.", "proximo": "📅 Próximo contato: Imediato", "phone": "", "status": "urgente"}, {"id": "2322bf2d", "cliente": "17174 - Itamara Freitas (17:27):", "detalhes": "Problema com bateria/carregador. Cliente enviou fotos. A luz azul só acende em algumas entradas. Precisa de avaliação técnica.", "proximo": "📅 Próximo contato: 04/07", "phone": "555197649977", "status": "urgente"}, {"id": "64c5af64", "cliente": "17085 - Dari Peixoto (17:03):", "detalhes": "Equipamento não liga. Urgência para hoje ou amanhã (não estará em casa segunda cedo).", "proximo": "📅 Próximo contato: 04/07", "phone": "5551997947536", "status": "urgente"}, {"id": "a96ec585", "cliente": "16936 - Valdson (16:18):", "detalhes": "Reclamação de um mês sem solução. Internet caindo muito. Prioridade Vila Vargas.", "proximo": "📅 Próximo contato: 04/07", "phone": "555190114165", "status": "urgente"}, {"id": "df716400", "cliente": "10794 - Marcelo Cassol (08:03):", "detalhes": "Mantém lentidão recorrente.", "proximo": "📅 Próximo contato: 04/07", "phone": "5551994684100", "status": "urgente"}, {"id": "d202d8b4", "cliente": "17291 - Thais Moura (08:01):", "detalhes": "Lentidão no horário de pico.", "proximo": "📅 Próximo contato: 04/07", "phone": "555197975754", "status": "urgente"}, {"id": "74ae2d5e", "cliente": "16878 - Mateus Schuck (17:50):", "detalhes": "Quer upgrade para 100Mb por 30 dias ATIVADO HOJE. Prometeu pagar amanhã. Júnior precisa autorizar liberação sem o PIX cair hoje.", "proximo": "", "phone": "555195971317", "status": "andamento"}, {"id": "4d3154a5", "cliente": "Grasi E Oséias (17:48):", "detalhes": "Pergunta se a taxa de instalação (R$ 450) pode ser parcelada ou se é só à vista.", "proximo": "", "phone": "", "status": "andamento"}, {"id": "a3309498", "cliente": "17197/17187/17185 - Jorge Luis Dutra (09:01):", "detalhes": "Aguarda decisão sobre liberação de confiança Serraria.", "proximo": "", "phone": "", "status": "andamento"}, {"id": "c97a1e71", "cliente": "Lu Vivo Particular (17:25):", "detalhes": "Questionamentos sobre despesas do Fábio e suporte via Zapia.", "proximo": "", "phone": "", "status": "andamento"}, {"id": "c0f86925", "cliente": "10611 - Fábio Cenedeze (17:54):", "detalhes": "Relatando dificuldades técnicas na Porteira 7.", "proximo": "", "phone": "555198761785", "status": "andamento"}], "financeiro": [{"id": "bbdf7eb1", "cliente": "Despesa Lu (08:31):", "detalhes": "Lançar despesa.", "proximo": "", "phone": "", "status": "financeiro"}, {"id": "b5ba8311", "cliente": "Cadastro Jarbas (FASA):", "detalhes": "Processar.", "proximo": "", "phone": "", "status": "financeiro"}], "campo": [{"id": "e797a4b2", "cliente": "17XXX - Dóris Schmidt (César) (17:13):", "detalhes": "Instalação EM ANDAMENTO e COMPLICADA. Fábio atingiu conduíte elétrico e derrubou a chave da casa. Cliente (César) impaciente.", "proximo": "📅 Próximo contato: Imediato", "phone": "", "status": "campo"}, {"id": "c97a1e71", "cliente": "Lu Vivo Particular (17:25):", "detalhes": "Questionamentos sobre despesas do Fábio e suporte via Zapia.", "proximo": "", "phone": "", "status": "campo"}, {"id": "c0f86925", "cliente": "10611 - Fábio Cenedeze (17:54):", "detalhes": "Relatando dificuldades técnicas na Porteira 7.", "proximo": "", "phone": "555198761785", "status": "campo"}], "instalacao": [{"id": "e797a4b2", "cliente": "17XXX - Dóris Schmidt (César) (17:13):", "detalhes": "Instalação EM ANDAMENTO e COMPLICADA. Fábio atingiu conduíte elétrico e derrubou a chave da casa. Cliente (César) impaciente.", "proximo": "📅 Próximo contato: Imediato", "phone": "", "status": "instalacao"}, {"id": "4d3154a5", "cliente": "Grasi E Oséias (17:48):", "detalhes": "Pergunta se a taxa de instalação (R$ 450) pode ser parcelada ou se é só à vista.", "proximo": "", "phone": "", "status": "instalacao"}], "concluidos": [{"id": "cf078f00", "cliente": "17286 - Poliana:", "detalhes": "Fábio já passou lá ou está alinhado (Lu perguntou).", "proximo": "", "phone": "555196383299", "status": "concluido"}, {"id": "1ecddd21", "cliente": "16085 - Lucas Holzschuh:", "detalhes": "Resolvido.", "proximo": "", "phone": "5551981193757", "status": "concluido"}], "empresa_financeiro": {"mes": "Maio/2026 (Consolidado)", "resumo": {"receita_total": "---", "despesa_total": "51.610,36", "saldo": "---"}, "pendencias": [{"titulo": "MK Solutions", "detalhes": "Sistema", "vencimento": "5/07", "valor": "997.0"}, {"titulo": "Dobrobit Telecom", "detalhes": "Link", "vencimento": "10/07", "valor": "300.0"}, {"titulo": "Bemobi", "detalhes": "Cobrança", "vencimento": "10/07", "valor": "Consultar"}, {"titulo": "Mhnet (TecPar)", "detalhes": "Link", "vencimento": "11/07", "valor": "500.0"}, {"titulo": "V Mix / Chatmix", "detalhes": "Chatbot", "vencimento": "15/07", "valor": "249.9"}, {"titulo": "Claro", "detalhes": "Telefonia", "vencimento": "15/07", "valor": "Consultar"}, {"titulo": "Omie / RR64", "detalhes": "ERP", "vencimento": "15/07", "valor": "450.0"}, {"titulo": "GGNET / ALT Telecom", "detalhes": "Link", "vencimento": "18/07", "valor": "2500.0"}, {"titulo": "Teleplus / Sync360", "detalhes": "Link", "vencimento": "25/07", "valor": "1750.0"}, {"titulo": "ALGCOM", "detalhes": "Link", "vencimento": "26/07", "valor": "738.38"}, {"titulo": "Ferenz Networks", "detalhes": "Storage", "vencimento": "26/07", "valor": "79.9"}, {"titulo": "RGE Sul (Energia)", "detalhes": "Energia", "vencimento": "18/07", "valor": "248.0"}, {"titulo": "Acesso Line (ALT)", "detalhes": "Link", "vencimento": "29/07", "valor": "Consultar"}]}, "update_ts": "04/07/2026 19:23"}
+            data: {"stats": {"atendimentos": 11, "financeiro": 2, "campo": 3, "instalacao": 2, "concluido": 2}, "atendimentos": [{"id": "e797a4b2", "cliente": "17XXX - Dóris Schmidt (César) (17:13):", "detalhes": "Instalação EM ANDAMENTO e COMPLICADA. Fábio atingiu conduíte elétrico e derrubou a chave da casa. Cliente (César) impaciente.", "proximo": "📅 Próximo contato: Imediato", "phone": "", "status": "urgente"}, {"id": "2322bf2d", "cliente": "17174 - Itamara Freitas (17:27):", "detalhes": "Problema com bateria/carregador. Cliente enviou fotos. A luz azul só acende em algumas entradas. Precisa de avaliação técnica.", "proximo": "📅 Próximo contato: 04/07", "phone": "555197649977", "status": "urgente"}, {"id": "64c5af64", "cliente": "17085 - Dari Peixoto (17:03):", "detalhes": "Equipamento não liga. Urgência para hoje ou amanhã (não estará em casa segunda cedo).", "proximo": "📅 Próximo contato: 04/07", "phone": "5551997947536", "status": "urgente"}, {"id": "a96ec585", "cliente": "16936 - Valdson (16:18):", "detalhes": "Reclamação de um mês sem solução. Internet caindo muito. Prioridade Vila Vargas.", "proximo": "📅 Próximo contato: 04/07", "phone": "555190114165", "status": "urgente"}, {"id": "df716400", "cliente": "10794 - Marcelo Cassol (08:03):", "detalhes": "Mantém lentidão recorrente.", "proximo": "📅 Próximo contato: 04/07", "phone": "5551994684100", "status": "urgente"}, {"id": "d202d8b4", "cliente": "17291 - Thais Moura (08:01):", "detalhes": "Lentidão no horário de pico.", "proximo": "📅 Próximo contato: 04/07", "phone": "555197975754", "status": "urgente"}, {"id": "74ae2d5e", "cliente": "16878 - Mateus Schuck (17:50):", "detalhes": "Quer upgrade para 100Mb por 30 dias ATIVADO HOJE. Prometeu pagar amanhã. Júnior precisa autorizar liberação sem o PIX cair hoje.", "proximo": "", "phone": "555195971317", "status": "andamento"}, {"id": "4d3154a5", "cliente": "Grasi E Oséias (17:48):", "detalhes": "Pergunta se a taxa de instalação (R$ 450) pode ser parcelada ou se é só à vista.", "proximo": "", "phone": "", "status": "andamento"}, {"id": "a3309498", "cliente": "17197/17187/17185 - Jorge Luis Dutra (09:01):", "detalhes": "Aguarda decisão sobre liberação de confiança Serraria.", "proximo": "", "phone": "", "status": "andamento"}, {"id": "c97a1e71", "cliente": "Lu Vivo Particular (17:25):", "detalhes": "Questionamentos sobre despesas do Fábio e suporte via Zapia.", "proximo": "", "phone": "", "status": "andamento"}, {"id": "c0f86925", "cliente": "10611 - Fábio Cenedeze (17:54):", "detalhes": "Relatando dificuldades técnicas na Porteira 7.", "proximo": "", "phone": "555198761785", "status": "andamento"}], "financeiro": [{"id": "bbdf7eb1", "cliente": "Despesa Lu (08:31):", "detalhes": "Lançar despesa.", "proximo": "", "phone": "", "status": "financeiro"}, {"id": "b5ba8311", "cliente": "Cadastro Jarbas (FASA):", "detalhes": "Processar.", "proximo": "", "phone": "", "status": "financeiro"}], "campo": [{"id": "e797a4b2", "cliente": "17XXX - Dóris Schmidt (César) (17:13):", "detalhes": "Instalação EM ANDAMENTO e COMPLICADA. Fábio atingiu conduíte elétrico e derrubou a chave da casa. Cliente (César) impaciente.", "proximo": "📅 Próximo contato: Imediato", "phone": "", "status": "campo"}, {"id": "c97a1e71", "cliente": "Lu Vivo Particular (17:25):", "detalhes": "Questionamentos sobre despesas do Fábio e suporte via Zapia.", "proximo": "", "phone": "", "status": "campo"}, {"id": "c0f86925", "cliente": "10611 - Fábio Cenedeze (17:54):", "detalhes": "Relatando dificuldades técnicas na Porteira 7.", "proximo": "", "phone": "555198761785", "status": "campo"}], "instalacao": [{"id": "e797a4b2", "cliente": "17XXX - Dóris Schmidt (César) (17:13):", "detalhes": "Instalação EM ANDAMENTO e COMPLICADA. Fábio atingiu conduíte elétrico e derrubou a chave da casa. Cliente (César) impaciente.", "proximo": "📅 Próximo contato: Imediato", "phone": "", "status": "instalacao"}, {"id": "4d3154a5", "cliente": "Grasi E Oséias (17:48):", "detalhes": "Pergunta se a taxa de instalação (R$ 450) pode ser parcelada ou se é só à vista.", "proximo": "", "phone": "", "status": "instalacao"}], "concluidos": [{"id": "cf078f00", "cliente": "17286 - Poliana:", "detalhes": "Fábio já passou lá ou está alinhado (Lu perguntou).", "proximo": "", "phone": "555196383299", "status": "concluido"}, {"id": "1ecddd21", "cliente": "16085 - Lucas Holzschuh:", "detalhes": "Resolvido.", "proximo": "", "phone": "5551981193757", "status": "concluido"}], "empresa_financeiro": {"mes": "Maio/2026 (Consolidado)", "resumo": {"receita_total": "---", "despesa_total": "51.610,36", "saldo": "---"}, "pendencias": [{"titulo": "MK Solutions", "detalhes": "Sistema", "vencimento": "5/07", "valor": "997.0"}, {"titulo": "Dobrobit Telecom", "detalhes": "Link", "vencimento": "10/07", "valor": "300.0"}, {"titulo": "Bemobi", "detalhes": "Cobrança", "vencimento": "10/07", "valor": "Consultar"}, {"titulo": "Mhnet (TecPar)", "detalhes": "Link", "vencimento": "11/07", "valor": "500.0"}, {"titulo": "V Mix / Chatmix", "detalhes": "Chatbot", "vencimento": "15/07", "valor": "249.9"}, {"titulo": "Claro", "detalhes": "Telefonia", "vencimento": "15/07", "valor": "Consultar"}, {"titulo": "Omie / RR64", "detalhes": "ERP", "vencimento": "15/07", "valor": "450.0"}, {"titulo": "GGNET / ALT Telecom", "detalhes": "Link", "vencimento": "18/07", "valor": "2500.0"}, {"titulo": "Teleplus / Sync360", "detalhes": "Link", "vencimento": "25/07", "valor": "1750.0"}, {"titulo": "ALGCOM", "detalhes": "Link", "vencimento": "26/07", "valor": "738.38"}, {"titulo": "Ferenz Networks", "detalhes": "Storage", "vencimento": "26/07", "valor": "79.9"}, {"titulo": "RGE Sul (Energia)", "detalhes": "Energia", "vencimento": "18/07", "valor": "248.0"}, {"titulo": "Acesso Line (ALT)", "detalhes": "Link", "vencimento": "29/07", "valor": "Consultar"}]}, "update_ts": "04/07/2026 19:25"}
         };
 
         function setTab(tab) {
@@ -75,17 +88,54 @@
 
             list.forEach(item => {
                 const card = document.createElement('div');
+                card.id = `card-${item.id}`;
                 card.className = 'card';
+                const qgLink = `https://wa.me/555194143224-1540688164@g.us?text=${encodeURIComponent('Sobre ' + (item.cliente || item.titulo) + ': ')}`;
+                
                 card.innerHTML = `
                     <div class="titulo">${item.cliente || item.titulo}</div>
                     <div class="desc">${item.detalhes || item.descricao}</div>
                     <div class="proximo">${item.proximo || ''}</div>
-                    <button class="btn-v9" onclick="alert('Marcar como LIDO/ENCERRADO virá na próxima v.')">👁️ Lido</button>
-                    <button class="btn-v9 btn-copiar" onclick="navigator.clipboard.writeText('${item.detalhes || item.descricao}')">📋 Copiar</button>
-                    ${item.phone ? `<button class="btn-v9 btn-wpp" onclick="window.open('https://wa.me/${item.phone}')">💬 Cli</button>` : ''}
+                    <div style="display:flex; flex-wrap:wrap; gap:5px;">
+                        <button class="btn-v9 btn-encerrar" onclick="marcar('${item.id}', 'encerrado')">✅ Encerrar</button>
+                        <button class="btn-v9 btn-lido" onclick="marcar('${item.id}', 'lido')">👁️ Lido</button>
+                        <button class="btn-v9 btn-copiar" onclick="copiarTexto('${item.id}', '${item.detalhes || item.descricao}')">📋 Copiar</button>
+                        <button class="btn-v9 btn-qg" onclick="window.open('${qgLink}')">🎙️ QG</button>
+                        ${item.phone ? `<button class="btn-v9 btn-wpp" onclick="window.open('https://wa.me/${item.phone}')">💬 Cli</button>` : ''}
+                    </div>
                 `;
                 container.appendChild(card);
             });
+        }
+
+        function marcar(id, status) {
+            const card = document.getElementById(`card-${id}`);
+            card.classList.remove('lido', 'encerrado');
+            card.classList.add(status);
+        }
+
+        function copiarTexto(id, texto) {
+            navigator.clipboard.writeText(texto);
+            const btn = event.target;
+            const original = btn.innerText;
+            btn.innerText = '✅ COPIADO';
+            setTimeout(() => btn.innerText = original, 2000);
+        }
+
+        function enviarRelatorio() {
+            const encerrados = document.querySelectorAll('.card.encerrado');
+            const lidos = document.querySelectorAll('.card.lido');
+            
+            if (encerrados.length === 0 && lidos.length === 0) {
+                alert("Nada para enviar! Marque alguém primeiro.");
+                return;
+            }
+
+            let msg = "🚀 *RELATÓRIO DASHBOARD COMPETENCENET*\n\n";
+            encerrados.forEach(c => msg += `✅ ENCERRADO: ${c.querySelector('.titulo').innerText}\n`);
+            lidos.forEach(c => msg += `👁️ LIDO: ${c.querySelector('.titulo').innerText}\n`);
+
+            window.open(`https://wa.me/5551997760717?text=${encodeURIComponent(msg)}`);
         }
 
         function renderFinanceiroEmpresa() {
