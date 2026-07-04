@@ -1,80 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dashboard CompetenceNet</title>
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f0f2f5;color:#222}
-  header{background:#1a1a2e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-  header h1{font-size:1.1rem}
-  .meta{font-size:0.78rem;opacity:0.7}
-  
-  .tabs{display:flex;background:#fff;border-bottom:2px solid #e5e7eb;position:sticky;top:56px;z-index:99}
-  .tab{flex:1;padding:12px 8px;text-align:center;cursor:pointer;font-size:0.9rem;font-weight:600;color:#888;border-bottom:3px solid transparent;transition:all .15s}
-  .tab.active{color:#1a1a2e;border-bottom-color:#1a1a2e}
-  
-  .container{max-width:900px;margin:0 auto;padding:16px}
-  
-  /* Alertas */
-  .alerta-rede{border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:0.85rem;line-height:1.5;background:#fff7ed;border:1px solid #fed7aa;color:#92400e}
-  .alerta-item{background:#fff;border-radius:8px;padding:9px 12px;margin-top:8px;font-size:0.85rem;color:#333;border-left:4px solid #f59e0b}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dashboard CompetenceNet</title>
+  <style>
+    :root {
+      --urgente: #ff4444;
+      --andamento: #f59e0b;
+      --triagem: #3b82f6;
+      --concluido: #22c55e;
+      --bg-urgente: #fff5f5;
+      --bg-andamento: #fffbee;
+      --bg-triagem: #f0f7ff;
+      --bg-concluido: #f0fdf4;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    body{background:#f3f4f6;color:#1f2937;padding-bottom:100px}
+    header{background:#111827;color:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+    header h1{font-size:1.2rem;margin-bottom:4px}
+    #ts-header{font-size:0.75rem;opacity:0.8}
+    
+    .tabs{display:flex;background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:62px;z-index:90}
+    .tab{flex:1;padding:12px;text-align:center;font-weight:600;font-size:0.9rem;cursor:pointer;color:#6b7280;border-bottom:3px solid transparent}
+    .tab.active{color:#111827;border-bottom-color:#3b82f6}
+    
+    .stats{display:flex;gap:8px;padding:12px;overflow-x:auto;background:#fff}
+    .stat-card{flex:1;min-width:80px;background:#f9fafb;padding:10px;border-radius:8px;text-align:center;border:1px solid #e5e7eb;cursor:pointer}
+    .stat-card.active{border-color:#3b82f6;background:#eff6ff}
+    .stat-card .val{display:block;font-size:1.1rem;font-weight:bold;margin-bottom:2px}
+    .stat-card .label{font-size:0.7rem;color:#6b7280;text-transform:uppercase}
+    
+    .alerta-container{padding:12px}
+    .alerta{background:#fffbeb;border:1px solid #fef3c7;border-radius:8px;padding:10px;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .alerta span{font-size:1.2rem}
+    .alerta div{font-size:0.85rem;color:#92400e}
 
-  /* Stats Buttons */
-  .stats{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
-  .stat{background:#fff;border-radius:10px;padding:12px 14px;flex:1;min-width:100px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.08);cursor:pointer;transition:all .15s}
-  .stat.active{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.12);border:2px solid #1a1a2e}
-  .stat .num{font-size:1.6rem;font-weight:700;margin-bottom:2px}
-  .stat .lab{font-size:0.75rem;color:#888;font-weight:600}
-
-  .grupo-titulo{font-size:1rem;font-weight:700;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid #ddd;display:flex;align-items:center;gap:8px}
-
-  /* Cards */
-  .card{background:#fff;border-radius:10px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);border-left:5px solid #ddd;transition:all .2s;position:relative}
-  .card.oculto{display:none}
-  .card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-  .titulo{flex:1;font-size:0.95rem;font-weight:700;color:#1a1a2e}
-  .badge{font-size:0.7rem;color:#fff;padding:2px 8px;border-radius:20px;font-weight:700;text-transform:uppercase}
-  .desc{font-size:0.85rem;color:#4b5563;margin-bottom:8px;line-height:1.5}
-  .proximo{font-size:0.8rem;color:#9ca3af;margin-bottom:12px}
-  
-  .acoes{display:flex;gap:8px;flex-wrap:wrap}
-  button{border:none;border-radius:6px;padding:8px 14px;cursor:pointer;font-size:0.85rem;font-weight:600}
-  .btn-copiar{background:#7c3aed;color:#fff}
-  .btn-cliente{background:#22c55e;color:#fff}
-  .btn-qg{background:#3b82f6;color:#fff}
-  .btn-encerrar{background:#e5e7eb;color:#4b5563}
-  .btn-reverter{background:#fbbf24;color:#fff}
-  .card.encerrado{opacity:0.4;pointer-events:none}
-
-  .tab-content{display:none}
-  .tab-content.active{display:block}
-</style>
+    .tab-content{display:none;padding:12px}
+    .tab-content.active{display:block}
+    
+    .card{background:#fff;border-radius:10px;padding:15px;margin-bottom:15px;box-shadow:0 1px 3px rgba(0,0,0,0.1);border-left:5px solid #ccc;transition:opacity 0.3s}
+    .card.urgente{border-left-color:var(--urgente);background:var(--bg-urgente)}
+    .card.andamento{border-left-color:var(--andamento);background:var(--bg-andamento)}
+    .card.triagem{border-left-color:var(--triagem);background:var(--bg-triagem)}
+    .card.concluido{border-left-color:var(--concluido);background:var(--bg-concluido)}
+    .card.encerrado{opacity:0.5}
+    
+    .card-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+    .emoji{font-size:1.2rem}
+    .titulo{flex:1;font-size:1rem;font-weight:700;line-height:1.3}
+    .badge{font-size:0.65rem;font-weight:bold;padding:2px 6px;border-radius:4px;color:#fff;text-transform:uppercase}
+    
+    .desc{font-size:0.85rem;line-height:1.4;margin-bottom:10px;color:#374151;white-space:pre-wrap}
+    .proximo{font-size:0.8rem;color:#6b7280;margin-bottom:12px;font-style:italic}
+    
+    .acoes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    button{border:none;border-radius:6px;padding:8px 12px;font-size:0.8rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px;transition:transform 0.1s}
+    button:active{transform:scale(0.95)}
+    
+    .btn-encerrar{background:#e5e7eb;color:#4b5563}
+    .btn-reverter{background:#fbbf24;color:#fff}
+    .btn-copiar{background:#7c3aed;color:#fff}
+    .btn-qg{background:#3b82f6;color:#fff}
+    .btn-cliente{background:#22c55e;color:#fff}
+    
+    .comentario{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:8px;font-size:0.85rem;resize:none;outline:none}
+    .comentario:focus{border-color:#3b82f6}
+    
+    .oculto{display:none}
+    
+    #overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:200}
+    .login-box{background:#fff;padding:25px;border-radius:12px;width:90%;max-width:320px;text-align:center}
+    .login-box input{width:100%;padding:12px;margin:15px 0;border:1px solid #ccc;border-radius:6px;font-size:1rem;text-align:center}
+    .login-box button{width:100%;padding:12px;background:#111827;color:#fff;justify-content:center;font-size:1rem}
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>📡 CompetenceNet</h1>
-  <div class="meta" id="ts-header">Carregando dados...</div>
-</header>
-
-<div class="tabs">
-  <div class="tab active" id="tab-atendimentos" onclick="setTab('atendimentos')">📋 Atendimentos</div>
-  <div class="tab" id="tab-resolvidos" onclick="setTab('resolvidos')">✅ Resolvidos</div>
+<div id="overlay">
+  <div class="login-box">
+    <h2>🔒 Acesso</h2>
+    <input type="password" id="pass" placeholder="Senha do Júnior" autofocus>
+    <button onclick="checkPass()">Entrar</button>
+  </div>
 </div>
 
-<div class="container">
-  <!-- ALERTAS (ORANGE THING) -->
-  <div class="alerta-rede" id="alertas-container">
-    ⚠️ <strong>ALERTAS DE REDE</strong>
-    <div id="alertas-lista"></div>
+<header>
+  <h1>📡 CompetenceNet</h1>
+  <div id="ts-header">Carregando...</div>
+</header>
+
+<div id="main-content" style="display:none">
+  <div class="tabs">
+    <div class="tab active" id="tab-atendimentos" onclick="setTab('atendimentos')">📋 Atendimentos</div>
+    <div class="tab" id="tab-resolvidos" onclick="setTab('resolvidos')">✅ Resolvidos</div>
   </div>
 
   <div id="aba-atendimentos" class="tab-content active">
-    <!-- FILTROS (4-5 BUTTONS) -->
+    <div class="alerta-container" id="alerta-container"></div>
     <div class="stats" id="stats-container"></div>
-    
     <div id="cards-container"></div>
   </div>
 
@@ -85,42 +109,64 @@
 
 <script>
 let state = { data: null, filtro: 'todos', aba: 'atendimentos' };
+const PASS = 'CompNet547183DB';
+
+function checkPass() {
+  if (document.getElementById('pass').value === PASS) {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+    loadData();
+    setInterval(updateClock, 1000);
+  } else {
+    alert('Senha incorreta!');
+  }
+}
+
+// Enter para logar
+document.getElementById('pass').addEventListener('keypress', e => { if(e.key === 'Enter') checkPass(); });
+
+function updateClock() {
+  if (!state.data) return;
+  const agora = new Date();
+  const hora = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  document.getElementById('ts-header').innerText = '🕐 ' + hora + ' • Dados: ' + state.data.timestamp;
+}
 
 async function loadData() {
   try {
-    const d = {"atendimentos": [{"id": "id_4ecfecf3", "status": "urgente", "cliente": "17085 - Dari (Piquiri)", "detalhes": "Equipamento não liga. Confirmou falha física (luz vermelha na bateria, nada no roteador). **Requer troca de fonte/POE.**", "proximo": "📅 Próximo contato: 04/07 14:30", "phone": ""}, {"id": "id_12995b1e", "status": "urgente", "cliente": "17286 - Poliana (Vila Vargas)", "detalhes": "Sem internet. Júnior cobrou Fábio às 12:47. Fábio deve estar na região.", "proximo": "📅 Próximo contato: 04/07 15:00", "phone": ""}, {"id": "id_14bfdcd5", "status": "urgente", "cliente": "16518 - Andréia (Michael - Vila Vargas)", "detalhes": "Problema na repetidora. Fábio verifica hoje junto com o caso da Poliana.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_1d7da2e9", "status": "urgente", "cliente": "10794 - Marcelo Cassol", "detalhes": "Lentidão grave. Técnico deve passar hoje.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": ""}, {"id": "id_8be7bbcf", "status": "urgente", "cliente": "17291 - Thais Moura", "detalhes": "Lentidão durante jogos. Monitorar.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": ""}, {"id": "id_0bc85fac", "status": "andamento", "cliente": "16878 - Mateus Schuck", "detalhes": "Quer aumentar a velocidade por apenas 30 dias. Pendente decisão comercial.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": ""}, {"id": "id_2a6da166", "status": "andamento", "cliente": "17197/17187/17185 - Jorge Luis Dutra", "detalhes": "Liberação de confiança na Serraria Cantagalo? Júnior decidir.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": ""}, {"id": "id_b12505f7", "status": "andamento", "cliente": "17273 - Jarbas (FASA)", "detalhes": "Documento do Israel Fasa recebido. Pendente processar cadastro.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_af2695d4", "status": "andamento", "cliente": "17XXX - Dóris Schmidt", "detalhes": "Instalação confirmada às 14:00 no Salão da ULDA (César Paitrão).", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_2fc723de", "status": "triagem", "cliente": "11123 - Denise Fontoura", "detalhes": "Problema no app. Zapia enviou link do portal. Vencimento 05/07.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_c9d72004", "status": "triagem", "cliente": "17174 - Itamara Freitas", "detalhes": "Confirmado que este é o suporte. Aguardando dúvida específica.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_45ea3bfa", "status": "triagem", "cliente": "Setor de Patrimônio", "detalhes": "Assinar termo e devolver.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_5a25789e", "status": "triagem", "cliente": "Despesa Lu", "detalhes": "Lançar despesa do mercado (03/07).", "proximo": "📅 próximo contato: Não definido", "phone": ""}], "concluidos": [{"id": "id_7718656f", "status": "concluido", "cliente": "17264 - Joel", "detalhes": "👍 recebido. Explicação sobre roteador/bateria aceita. Monitora quando voltar pra casa segunda.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_ac5728a2", "status": "concluido", "cliente": "17XXX - Talila", "detalhes": "Cliente aceitou reagendamento para SEGUNDA À TARDE. \"Tá ok eu tô aguardando\" (11:10). ✅", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_25b661b5", "status": "concluido", "cliente": "16085 - Lucas Holzschuh", "detalhes": "Resolvido (fio solto + luz).", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_3e737c5a", "status": "concluido", "cliente": "16958 - Humberto", "detalhes": "Oração de gratidão enviada. Zapia respondeu com acolhimento.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_73e33763", "status": "concluido", "cliente": "17172 - Cristine", "detalhes": "Zapia confirmou que é o suporte. Sem pendência.", "proximo": "📅 próximo contato: Não definido", "phone": ""}], "stats": {"todos": 13, "urgente": 5, "andamento": 4, "triagem": 4}, "timestamp": "04/07/2026 17:46", "alertas": [{"pop": "competence-cachoeira-fasa-NETPROBE", "status": "offline", "tempo": "37 min"}]};
+    // O JSON será embutido aqui pelo script de deploy
+    const d = {"atendimentos": [{"id": "id_4ecfecf3", "status": "urgente", "cliente": "17085 - Dari (Piquiri)", "detalhes": "Equipamento não liga. Confirmou falha física (luz vermelha na bateria, nada no roteador). **Requer troca de fonte/POE.**", "proximo": "📅 Próximo contato: 04/07 14:30", "phone": "5551997947536"}, {"id": "id_12995b1e", "status": "urgente", "cliente": "17286 - Poliana (Vila Vargas)", "detalhes": "Sem internet. Júnior cobrou Fábio às 12:47. Fábio deve estar na região.", "proximo": "📅 Próximo contato: 04/07 15:00", "phone": "555196383299"}, {"id": "id_14bfdcd5", "status": "urgente", "cliente": "16518 - Andréia (Michael - Vila Vargas)", "detalhes": "Problema na repetidora. Fábio verifica hoje junto com o caso da Poliana.", "proximo": "📅 próximo contato: Não definido", "phone": "5551995069891"}, {"id": "id_1d7da2e9", "status": "urgente", "cliente": "10794 - Marcelo Cassol", "detalhes": "Lentidão grave. Técnico deve passar hoje.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "5551994684100"}, {"id": "id_8be7bbcf", "status": "urgente", "cliente": "17291 - Thais Moura", "detalhes": "Lentidão durante jogos. Monitorar.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "555197975754"}, {"id": "id_0bc85fac", "status": "andamento", "cliente": "16878 - Mateus Schuck", "detalhes": "Quer aumentar a velocidade por apenas 30 dias. Pendente decisão comercial.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "555195971317"}, {"id": "id_2a6da166", "status": "andamento", "cliente": "17197/17187/17185 - Jorge Luis Dutra", "detalhes": "Liberação de confiança na Serraria Cantagalo? Júnior decidir.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": ""}, {"id": "id_b12505f7", "status": "andamento", "cliente": "17273 - Jarbas (FASA)", "detalhes": "Documento do Israel Fasa recebido. Pendente processar cadastro.", "proximo": "📅 próximo contato: Não definido", "phone": "5551999042777"}, {"id": "id_af2695d4", "status": "andamento", "cliente": "17XXX - Dóris Schmidt", "detalhes": "Instalação confirmada às 14:00 no Salão da ULDA (César Paitrão).", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_2fc723de", "status": "triagem", "cliente": "11123 - Denise Fontoura", "detalhes": "Problema no app. Zapia enviou link do portal. Vencimento 05/07.", "proximo": "📅 próximo contato: Não definido", "phone": "5551991121680"}, {"id": "id_c9d72004", "status": "triagem", "cliente": "17174 - Itamara Freitas", "detalhes": "Confirmado que este é o suporte. Aguardando dúvida específica.", "proximo": "📅 próximo contato: Não definido", "phone": "555197649977"}, {"id": "id_45ea3bfa", "status": "triagem", "cliente": "Setor de Patrimônio", "detalhes": "Assinar termo e devolver.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_5a25789e", "status": "triagem", "cliente": "Despesa Lu", "detalhes": "Lançar despesa do mercado (03/07).", "proximo": "📅 próximo contato: Não definido", "phone": ""}], "concluidos": [{"id": "id_7718656f", "status": "concluido", "cliente": "17264 - Joel", "detalhes": "👍 recebido. Explicação sobre roteador/bateria aceita. Monitora quando voltar pra casa segunda.", "proximo": "📅 próximo contato: Não definido", "phone": "5551999133274"}, {"id": "id_ac5728a2", "status": "concluido", "cliente": "17XXX - Talila", "detalhes": "Cliente aceitou reagendamento para SEGUNDA À TARDE. \"Tá ok eu tô aguardando\" (11:10). ✅", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_25b661b5", "status": "concluido", "cliente": "16085 - Lucas Holzschuh", "detalhes": "Resolvido (fio solto + luz).", "proximo": "📅 próximo contato: Não definido", "phone": "5551981193757"}, {"id": "id_3e737c5a", "status": "concluido", "cliente": "16958 - Humberto", "detalhes": "Oração de gratidão enviada. Zapia respondeu com acolhimento.", "proximo": "📅 próximo contato: Não definido", "phone": "5551997975636"}, {"id": "id_73e33763", "status": "concluido", "cliente": "17172 - Cristine", "detalhes": "Zapia confirmou que é o suporte. Sem pendência.", "proximo": "📅 próximo contato: Não definido", "phone": "5551996452318"}], "stats": {"todos": 13, "urgente": 5, "andamento": 4, "triagem": 4}, "timestamp": "04/07/2026 18:23", "alertas": [{"pop": "competence-cachoeira-fasa-NETPROBE", "status": "offline", "tempo": "37 min"}]};
     state.data = d;
     render();
   } catch(e) {
-    document.getElementById('ts-header').innerText = 'Erro: ' + e.message;
+    document.getElementById('ts-header').innerText = 'Erro ao carregar dados';
   }
 }
 
 function render() {
   const d = state.data;
-  const agora = new Date();
-  const hora = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  document.getElementById('ts-header').innerText = '🕐 ' + hora + ' • Dados: ' + d.timestamp;
   
   // Alertas
-  const alertasLista = document.getElementById('alertas-lista');
-  alertasLista.innerHTML = d.alertas.map(a => `
-    <div class="alerta-item">🟡 <strong>${a.pop}</strong> — ${a.status} há <strong>${a.tempo}</strong></div>
+  const alertaDiv = document.getElementById('alerta-container');
+  alertaDiv.innerHTML = d.alertas.map(a => `
+    <div class="alerta">
+      <span>⚠️</span>
+      <div><strong>${a.pop}</strong> — ${a.status} há <strong>${a.tempo}</strong></div>
+    </div>
   `).join('');
 
   // Stats
-  const statsContainer = document.getElementById('stats-container');
-  const s = d.stats;
-  const config = [
-    { id: 'todos', lab: 'Todos', num: s.todos, color: '#333' },
-    { id: 'urgente', lab: 'Urgente', num: s.urgente, color: '#ff4444' },
-    { id: 'andamento', lab: 'Andamento', num: s.andamento, color: '#f59e0b' },
-    { id: 'triagem', lab: 'Triagem', num: s.triagem, color: '#3b82f6' }
+  const statsDiv = document.getElementById('stats-container');
+  const filters = [
+    {id: 'todos', label: 'Todos', color: '#6b7280'},
+    {id: 'urgente', label: 'Urgente', color: 'var(--urgente)'},
+    {id: 'andamento', label: 'Andamento', color: 'var(--andamento)'},
+    {id: 'triagem', label: 'Triagem', color: 'var(--triagem)'}
   ];
-  statsContainer.innerHTML = config.map(c => `
-    <div class="stat ${state.filtro === c.id ? 'active' : ''}" onclick="setFiltro('${c.id}')">
-      <div class="num" style="color:${c.color}">${c.num}</div>
-      <div class="lab">${c.lab}</div>
+  statsDiv.innerHTML = filters.map(f => `
+    <div class="stat-card ${state.filtro === f.id ? 'active' : ''}" onclick="setFiltro('${f.id}')">
+      <span class="val" style="color:${f.color}">${d.stats[f.id] || 0}</span>
+      <span class="label">${f.label}</span>
     </div>
   `).join('');
 
@@ -136,31 +182,28 @@ function renderCards(containerId, list, filtro, isConcluido = false) {
     return;
   }
 
-  // Agrupar por status se for aba atendimentos e filtro 'todos'
   container.innerHTML = list.map(a => {
     const visible = filtro === 'todos' || a.status === filtro;
-    const color = a.status === 'urgente' ? '#ff4444' : (a.status === 'andamento' ? '#f59e0b' : (isConcluido ? '#22c55e' : '#3b82f6'));
     const emoji = a.status === 'urgente' ? '🔴' : (a.status === 'andamento' ? '🟡' : (isConcluido ? '✅' : '🔵'));
-    
-    // URL WhatsApp Júnior (QG) — abre conversa contigo mesmo
-    const nomeEncoded = encodeURIComponent(a.cliente);
-    const qgLink = `https://wa.me/5551997760717?text=Nota%20sobre%20${nomeEncoded}%3A%3A`;
+    const phoneClean = a.phone ? a.phone.replace(/\D/g, '') : '';
+    const qgLink = `https://wa.me/5551997760717?text=Nota%20sobre%20${encodeURIComponent(a.cliente)}%3A%3A`;
     
     return `
-      <div class="card ${visible ? '' : 'oculto'}" id="card_${a.id}" style="border-left-color:${color}">
+      <div class="card ${a.status} ${visible ? '' : 'oculto'}" id="card_${a.id}">
         <div class="card-header">
           <span class="emoji">${emoji}</span>
           <strong class="titulo">${a.cliente}</strong>
-          <span class="badge" style="background:${color}">${a.status}</span>
+          <span class="badge" style="background:var(--${a.status})">${a.status}</span>
         </div>
         <div class="desc">${a.detalhes}</div>
         <div class="proximo">${a.proximo}</div>
         <div class="acoes">
           ${!isConcluido ? `<button class="btn-encerrar" onclick="encerrar('${a.id}', this)">✅ Encerrar</button>` : ''}
-          <button class="btn-copiar" onclick="copiarContexto('${a.id}')">📋 Copiar</button>
-          <button class="btn-qg" onclick="window.open('${qgLink}','_blank')">🎙️ Áudio QG</button>
-          ${a.phone ? `<button class="btn-cliente" onclick="window.open('https://wa.me/${a.phone}','_blank')">💬 Cliente</button>` : ''}
+          <button class="btn-copiar" style="background:#7c3aed;color:#fff" onclick="copiarContexto('${a.id}')">📋 Copiar</button>
+          <button class="btn-qg" style="background:#3b82f6;color:#fff" onclick="window.open('${qgLink}','_blank')">🎙️ Áudio QG</button>
+          ${phoneClean ? `<button class="btn-cliente" style="background:#22c55e;color:#fff" onclick="window.open('https://wa.me/${phoneClean}','_blank')">💬 Cliente</button>` : ''}
         </div>
+        <textarea class="comentario" id="txt_${a.id}" placeholder="Escrever nota técnica ou comentário..." rows="2"></textarea>
       </div>
     `;
   }).join('');
@@ -182,9 +225,9 @@ function setTab(t) {
 function encerrar(id, btn) {
   const card = document.getElementById('card_' + id);
   card.classList.add('encerrado');
-  btn.textContent = '✅ Encerrado!';
-  btn.classList.remove('btn-encerrar');
-  btn.classList.add('btn-reverter');
+  btn.textContent = '↩️ Reverter';
+  btn.style.background = '#fbbf24';
+  btn.style.color = '#fff';
   btn.onclick = function() { reverter(id, btn); };
 }
 
@@ -192,37 +235,28 @@ function reverter(id, btn) {
   const card = document.getElementById('card_' + id);
   card.classList.remove('encerrado');
   btn.textContent = '✅ Encerrar';
-  btn.classList.remove('btn-reverter');
-  btn.classList.add('btn-encerrar');
+  btn.style.background = '#e5e7eb';
+  btn.style.color = '#4b5563';
   btn.onclick = function() { encerrar(id, btn); };
 }
 
 function copiarContexto(id) {
   const card = document.getElementById('card_' + id);
-  const t = card.querySelector('.titulo').innerText.trim();
-  const b = card.querySelector('.badge').innerText.trim();
-  const d = card.querySelector('.desc').innerText.trim();
-  const p = card.querySelector('.proximo').innerText.trim();
+  const titulo = card.querySelector('.titulo').innerText;
+  const desc = card.querySelector('.desc').innerText;
+  const proximo = card.querySelector('.proximo').innerText;
+  const coment = document.getElementById('txt_' + id).value;
   
-  const text = '[CONTEXTO ZAPIA]\n' + 
-               'Cliente: ' + t + '\n' +
-               'Status: ' + b + '\n' +
-               'Detalhes: ' + d + '\n' +
-               p;
-               
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = card.querySelector('.btn-copiar');
-      const old = btn.innerHTML;
-      btn.innerHTML = '✅ Copiado!';
-      setTimeout(() => { btn.innerHTML = old; }, 2000);
-    });
-  } else {
-    alert('Erro ao copiar context.');
-  }
+  const texto = `CLIENTE: ${titulo}\nSTATUS: ${card.classList[1].toUpperCase()}\nDETALHES: ${desc}\n${proximo}\nCOMENTÁRIO: ${coment}`;
+  
+  navigator.clipboard.writeText(texto).then(() => {
+    const btn = card.querySelector('.btn-copiar');
+    const original = btn.innerHTML;
+    btn.innerHTML = '✔️ Copiado!';
+    setTimeout(() => { btn.innerHTML = original; }, 2000);
+  });
 }
-
-loadData();
 </script>
+
 </body>
 </html>
