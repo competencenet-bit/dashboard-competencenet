@@ -7,7 +7,9 @@
   <style>
     :root {
       --urgente: #ff4444; --andamento: #f59e0b; --triagem: #3b82f6; --concluido: #22c55e;
+      --financeiro: #059669; --campo: #7c3aed; --instalacao: #0891b2;
       --bg-urgente: #fff5f5; --bg-andamento: #fffbee; --bg-triagem: #f0f7ff; --bg-concluido: #f0fdf4;
+      --bg-financeiro: #ecfdf5; --bg-campo: #f5f3ff; --bg-instalacao: #ecfeff;
     }
     *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
     body{background:#f3f4f6;color:#1f2937;padding-bottom:100px}
@@ -15,15 +17,10 @@
     header h1{font-size:1.2rem;margin-bottom:4px}
     #ts-header{font-size:0.75rem;opacity:0.8}
     
-    .tabs{display:flex;background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:62px;z-index:90}
-    .tab{flex:1;padding:12px;text-align:center;font-weight:600;font-size:0.9rem;cursor:pointer;color:#6b7280;border-bottom:3px solid transparent}
+    .tabs{display:flex;background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:62px;z-index:90;overflow-x:auto;scrollbar-width:none}
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{flex:none;padding:12px 20px;text-align:center;font-weight:600;font-size:0.9rem;cursor:pointer;color:#6b7280;border-bottom:3px solid transparent;white-space:nowrap}
     .tab.active{color:#111827;border-bottom-color:#3b82f6}
-    
-    .stats{display:flex;gap:8px;padding:12px;overflow-x:auto;background:#fff}
-    .stat-card{flex:1;min-width:80px;background:#f9fafb;padding:10px;border-radius:8px;text-align:center;border:1px solid #e5e7eb;cursor:pointer}
-    .stat-card.active{border-color:#3b82f6;background:#eff6ff}
-    .stat-card .val{display:block;font-size:1.1rem;font-weight:bold;margin-bottom:2px}
-    .stat-card .label{font-size:0.7rem;color:#6b7280;text-transform:uppercase}
     
     .alerta-container{padding:12px}
     .alerta{background:#fffbeb;border:1px solid #fef3c7;border-radius:8px;padding:10px;display:flex;align-items:center;gap:10px;margin-bottom:10px}
@@ -37,9 +34,11 @@
     .card.urgente{border-left-color:var(--urgente);background:var(--bg-urgente)}
     .card.andamento{border-left-color:var(--andamento);background:var(--bg-andamento)}
     .card.triagem{border-left-color:var(--triagem);background:var(--bg-triagem)}
+    .card.financeiro{border-left-color:var(--financeiro);background:var(--bg-financeiro)}
+    .card.campo{border-left-color:var(--campo);background:var(--bg-campo)}
+    .card.instalacao{border-left-color:var(--instalacao);background:var(--bg-instalacao)}
     .card.concluido{border-left-color:var(--concluido);background:var(--bg-concluido)}
     
-    /* EFEITOS DE ESTADO */
     .card.encerrado{opacity:0.4; background-color:rgba(255, 68, 68, 0.1) !important; filter: grayscale(0.5); border-left-color:#999}
     .card.lido{opacity:0.5; filter: grayscale(1); border-left-color:#999}
     
@@ -55,7 +54,7 @@
     button{border:none;border-radius:6px;padding:8px 12px;font-size:0.8rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px;transition:transform 0.1s}
     button:active{transform:scale(0.95)}
     
-    .btn-encerrar{background:#fee2e2;color:#991b1b} /* Vermelhinho */
+    .btn-encerrar{background:#fee2e2;color:#991b1b}
     .btn-lido{background:#e5e7eb;color:#4b5563}
     .btn-reverter{background:#fbbf24;color:#fff}
     .btn-copiar{background:#7c3aed;color:#fff}
@@ -63,17 +62,9 @@
     .btn-cliente{background:#22c55e;color:#fff}
     
     .oculto{display:none}
-    
-    #overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:200}
-    .login-box{background:#fff;padding:25px;border-radius:12px;width:90%;max-width:320px;text-align:center}
-    .login-box input{width:100%;padding:12px;margin:15px 0;border:1px solid #ccc;border-radius:6px;font-size:1rem;text-align:center}
-    .login-box button{width:100%;padding:12px;background:#111827;color:#fff;justify-content:center;font-size:1rem}
   </style>
 </head>
 <body>
-
-
-</div>
 
 <header>
   <h1>📡 CompetenceNet</h1>
@@ -81,95 +72,83 @@
 </header>
 
 <div id="main-content">
-  <div class="tabs">
-    <div class="tab active" id="tab-atendimentos" onclick="setTab('atendimentos')">📋 Atendimentos</div>
-    <div class="tab" id="tab-resolvidos" onclick="setTab('resolvidos')">✅ Resolvidos</div>
+  <div class="tabs" id="tabs-container">
+    <div class="tab active" onclick="setTab('atendimentos')">📋 Atendimentos (<span id="count-atendimentos">0</span>)</div>
+    <div class="tab" onclick="setTab('financeiro')">💰 Financeiro (<span id="count-financeiro">0</span>)</div>
+    <div class="tab" onclick="setTab('campo')">🛠️ Campo (<span id="count-campo">0</span>)</div>
+    <div class="tab" onclick="setTab('instalacao')">📡 Instalações (<span id="count-instalacao">0</span>)</div>
+    <div class="tab" onclick="setTab('concluidos')">✅ Resolvidos (<span id="count-concluidos">0</span>)</div>
   </div>
 
-  <div id="aba-atendimentos" class="tab-content active">
-    <div class="alerta-container" id="alerta-container"></div>
-    <div class="stats" id="stats-container"></div>
-    <div id="cards-container"></div>
-  </div>
+  <div class="alerta-container" id="alerta-container"></div>
 
-  <div id="aba-resolvidos" class="tab-content">
-    <div id="resolvidos-container"></div>
-  </div>
+  <div id="aba-atendimentos" class="tab-content active"><div id="cards-atendimentos"></div></div>
+  <div id="aba-financeiro" class="tab-content"><div id="cards-financeiro"></div></div>
+  <div id="aba-campo" class="tab-content"><div id="cards-campo"></div></div>
+  <div id="aba-instalacao" class="tab-content"><div id="cards-instalacao"></div></div>
+  <div id="aba-concluidos" class="tab-content"><div id="cards-concluidos"></div></div>
 </div>
 
 <script>
-let state = { data: null, filtro: 'todos', aba: 'atendimentos' };
-
-
- else {
-    alert('Senha incorreta!');
-  }
-}
-
-document.getElementById('pass').addEventListener('keypress', e => { if(e.key === 'Enter') checkPass(); });
+let state = { data: null, aba: 'atendimentos' };
 
 function updateClock() {
   if (!state.data) return;
   const agora = new Date();
-  const hora = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  const horaCurta = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }); document.getElementById('ts-header').innerText = '🕐 ' + horaCurta + ' • Versão: ' + state.data.timestamp;
+  const horaCurta = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+  document.getElementById('ts-header').innerText = '🕐 ' + horaCurta + ' • Versão: ' + state.data.timestamp;
 }
 
 async function loadData() {
   try {
-    const d = {"atendimentos": [{"id": "id_4ecfecf3", "status": "urgente", "cliente": "17085 - Dari (Piquiri)", "detalhes": "Equipamento não liga. Confirmou falha física (luz vermelha na bateria, nada no roteador). **Requer troca de fonte/POE.**", "proximo": "📅 Próximo contato: 04/07 14:30", "phone": "5551997947536"}, {"id": "id_12995b1e", "status": "urgente", "cliente": "17286 - Poliana (Vila Vargas)", "detalhes": "Sem internet. Júnior cobrou Fábio às 12:47. Fábio deve estar na região.", "proximo": "📅 Próximo contato: 04/07 15:00", "phone": "555196383299"}, {"id": "id_14bfdcd5", "status": "urgente", "cliente": "16518 - Andréia (Michael - Vila Vargas)", "detalhes": "Problema na repetidora. Fábio verifica hoje junto com o caso da Poliana.", "proximo": "📅 próximo contato: Não definido", "phone": "5551995069891"}, {"id": "id_1d7da2e9", "status": "urgente", "cliente": "10794 - Marcelo Cassol", "detalhes": "Lentidão grave. Técnico deve passar hoje.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "5551994684100"}, {"id": "id_8be7bbcf", "status": "urgente", "cliente": "17291 - Thais Moura", "detalhes": "Lentidão durante jogos. Monitorar.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "555197975754"}, {"id": "id_0bc85fac", "status": "andamento", "cliente": "16878 - Mateus Schuck", "detalhes": "Quer aumentar a velocidade por apenas 30 dias. Pendente decisão comercial.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "555195971317"}, {"id": "id_2a6da166", "status": "andamento", "cliente": "17197/17187/17185 - Jorge Luis Dutra", "detalhes": "Liberação de confiança na Serraria Cantagalo? Júnior decidir.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": ""}, {"id": "id_b12505f7", "status": "andamento", "cliente": "17273 - Jarbas (FASA)", "detalhes": "Documento do Israel Fasa recebido. Pendente processar cadastro.", "proximo": "📅 próximo contato: Não definido", "phone": "5551999042777"}, {"id": "id_af2695d4", "status": "andamento", "cliente": "17XXX - Dóris Schmidt", "detalhes": "Instalação confirmada às 14:00 no Salão da ULDA (César Paitrão).", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_2fc723de", "status": "triagem", "cliente": "11123 - Denise Fontoura", "detalhes": "Problema no app. Zapia enviou link do portal. Vencimento 05/07.", "proximo": "📅 próximo contato: Não definido", "phone": "5551991121680"}, {"id": "id_c9d72004", "status": "triagem", "cliente": "17174 - Itamara Freitas", "detalhes": "Confirmado que este é o suporte. Aguardando dúvida específica.", "proximo": "📅 próximo contato: Não definido", "phone": "555197649977"}, {"id": "id_45ea3bfa", "status": "triagem", "cliente": "Setor de Patrimônio", "detalhes": "Assinar termo e devolver.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_5a25789e", "status": "triagem", "cliente": "Despesa Lu", "detalhes": "Lançar despesa do mercado (03/07).", "proximo": "📅 próximo contato: Não definido", "phone": ""}], "concluidos": [{"id": "id_7718656f", "status": "concluido", "cliente": "17264 - Joel", "detalhes": "👍 recebido. Explicação sobre roteador/bateria aceita. Monitora quando voltar pra casa segunda.", "proximo": "📅 próximo contato: Não definido", "phone": "5551999133274"}, {"id": "id_ac5728a2", "status": "concluido", "cliente": "17XXX - Talila", "detalhes": "Cliente aceitou reagendamento para SEGUNDA À TARDE. \"Tá ok eu tô aguardando\" (11:10). ✅", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_25b661b5", "status": "concluido", "cliente": "16085 - Lucas Holzschuh", "detalhes": "Resolvido (fio solto + luz).", "proximo": "📅 próximo contato: Não definido", "phone": "5551981193757"}, {"id": "id_3e737c5a", "status": "concluido", "cliente": "16958 - Humberto", "detalhes": "Oração de gratidão enviada. Zapia respondeu com acolhimento.", "proximo": "📅 próximo contato: Não definido", "phone": "5551997975636"}, {"id": "id_73e33763", "status": "concluido", "cliente": "17172 - Cristine", "detalhes": "Zapia confirmou que é o suporte. Sem pendência.", "proximo": "📅 próximo contato: Não definido", "phone": "5551996452318"}], "stats": {"todos": 13, "urgente": 5, "andamento": 4, "triagem": 4}, "timestamp": "04/07/2026 18:38", "alertas": [{"pop": "competence-cachoeira-fasa-NETPROBE", "status": "offline", "tempo": "37 min"}]}, {"id": "id_12995b1e", "status": "urgente", "cliente": "17286 - Poliana (Vila Vargas)", "detalhes": "Sem internet. Júnior cobrou Fábio às 12:47. Fábio deve estar na região.", "proximo": "📅 Próximo contato: 04/07 15:00", "phone": "555196383299"}, {"id": "id_14bfdcd5", "status": "urgente", "cliente": "16518 - Andréia (Michael - Vila Vargas)", "detalhes": "Problema na repetidora. Fábio verifica hoje junto com o caso da Poliana.", "proximo": "📅 próximo contato: Não definido", "phone": "5551995069891"}, {"id": "id_1d7da2e9", "status": "urgente", "cliente": "10794 - Marcelo Cassol", "detalhes": "Lentidão grave. Técnico deve passar hoje.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "5551994684100"}, {"id": "id_8be7bbcf", "status": "urgente", "cliente": "17291 - Thais Moura", "detalhes": "Lentidão durante jogos. Monitorar.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "555197975754"}, {"id": "id_0bc85fac", "status": "andamento", "cliente": "16878 - Mateus Schuck", "detalhes": "Quer aumentar a velocidade por apenas 30 dias. Pendente decisão comercial.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "555195971317"}, {"id": "id_2a6da166", "status": "andamento", "cliente": "17197/17187/17185 - Jorge Luis Dutra", "detalhes": "Liberação de confiança na Serraria Cantagalo? Júnior decidir.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": ""}, {"id": "id_b12505f7", "status": "andamento", "cliente": "17273 - Jarbas (FASA)", "detalhes": "Documento do Israel Fasa recebido. Pendente processar cadastro.", "proximo": "📅 próximo contato: Não definido", "phone": "5551999042777"}, {"id": "id_af2695d4", "status": "andamento", "cliente": "17XXX - Dóris Schmidt", "detalhes": "Instalação confirmada às 14:00 no Salão da ULDA (César Paitrão).", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_2fc723de", "status": "triagem", "cliente": "11123 - Denise Fontoura", "detalhes": "Problema no app. Zapia enviou link do portal. Vencimento 05/07.", "proximo": "📅 próximo contato: Não definido", "phone": "5551991121680"}, {"id": "id_c9d72004", "status": "triagem", "cliente": "17174 - Itamara Freitas", "detalhes": "Confirmado que este é o suporte. Aguardando dúvida específica.", "proximo": "📅 próximo contato: Não definido", "phone": "555197649977"}, {"id": "id_45ea3bfa", "status": "triagem", "cliente": "Setor de Patrimônio", "detalhes": "Assinar termo e devolver.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_5a25789e", "status": "triagem", "cliente": "Despesa Lu", "detalhes": "Lançar despesa do mercado (03/07).", "proximo": "📅 próximo contato: Não definido", "phone": ""}], "concluidos": [{"id": "id_7718656f", "status": "concluido", "cliente": "17264 - Joel", "detalhes": "👍 recebido. Explicação sobre roteador/bateria aceita. Monitora quando voltar pra casa segunda.", "proximo": "📅 próximo contato: Não definido", "phone": "5551999133274"}, {"id": "id_ac5728a2", "status": "concluido", "cliente": "17XXX - Talila", "detalhes": "Cliente aceitou reagendamento para SEGUNDA À TARDE. \"Tá ok eu tô aguardando\" (11:10). ✅", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_25b661b5", "status": "concluido", "cliente": "16085 - Lucas Holzschuh", "detalhes": "Resolvido (fio solto + luz).", "proximo": "📅 próximo contato: Não definido", "phone": "5551981193757"}, {"id": "id_3e737c5a", "status": "concluido", "cliente": "16958 - Humberto", "detalhes": "Oração de gratidão enviada. Zapia respondeu com acolhimento.", "proximo": "📅 próximo contato: Não definido", "phone": "5551997975636"}, {"id": "id_73e33763", "status": "concluido", "cliente": "17172 - Cristine", "detalhes": "Zapia confirmou que é o suporte. Sem pendência.", "proximo": "📅 próximo contato: Não definido", "phone": "5551996452318"}], "stats": {"todos": 13, "urgente": 5, "andamento": 4, "triagem": 4}, "timestamp": "04/07/2026 18:34", "alertas": [{"pop": "competence-cachoeira-fasa-NETPROBE", "status": "offline", "tempo": "37 min"}]}, {"id": "id_12995b1e", "status": "urgente", "cliente": "17286 - Poliana (Vila Vargas)", "detalhes": "Sem internet. Júnior cobrou Fábio às 12:47. Fábio deve estar na região.", "proximo": "📅 Próximo contato: 04/07 15:00", "phone": "555196383299"}, {"id": "id_14bfdcd5", "status": "urgente", "cliente": "16518 - Andréia (Michael - Vila Vargas)", "detalhes": "Problema na repetidora. Fábio verifica hoje junto com o caso da Poliana.", "proximo": "📅 próximo contato: Não definido", "phone": "5551995069891"}, {"id": "id_1d7da2e9", "status": "urgente", "cliente": "10794 - Marcelo Cassol", "detalhes": "Lentidão grave. Técnico deve passar hoje.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "5551994684100"}, {"id": "id_8be7bbcf", "status": "urgente", "cliente": "17291 - Thais Moura", "detalhes": "Lentidão durante jogos. Monitorar.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "555197975754"}, {"id": "id_0bc85fac", "status": "andamento", "cliente": "16878 - Mateus Schuck", "detalhes": "Quer aumentar a velocidade por apenas 30 dias. Pendente decisão comercial.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": "555195971317"}, {"id": "id_2a6da166", "status": "andamento", "cliente": "17197/17187/17185 - Jorge Luis Dutra", "detalhes": "Liberação de confiança na Serraria Cantagalo? Júnior decidir.", "proximo": "📅 Próximo contato: 04/07 14:00", "phone": ""}, {"id": "id_b12505f7", "status": "andamento", "cliente": "17273 - Jarbas (FASA)", "detalhes": "Documento do Israel Fasa recebido. Pendente processar cadastro.", "proximo": "📅 próximo contato: Não definido", "phone": "5551999042777"}, {"id": "id_af2695d4", "status": "andamento", "cliente": "17XXX - Dóris Schmidt", "detalhes": "Instalação confirmada às 14:00 no Salão da ULDA (César Paitrão).", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_2fc723de", "status": "triagem", "cliente": "11123 - Denise Fontoura", "detalhes": "Problema no app. Zapia enviou link do portal. Vencimento 05/07.", "proximo": "📅 próximo contato: Não definido", "phone": "5551991121680"}, {"id": "id_c9d72004", "status": "triagem", "cliente": "17174 - Itamara Freitas", "detalhes": "Confirmado que este é o suporte. Aguardando dúvida específica.", "proximo": "📅 próximo contato: Não definido", "phone": "555197649977"}, {"id": "id_45ea3bfa", "status": "triagem", "cliente": "Setor de Patrimônio", "detalhes": "Assinar termo e devolver.", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_5a25789e", "status": "triagem", "cliente": "Despesa Lu", "detalhes": "Lançar despesa do mercado (03/07).", "proximo": "📅 próximo contato: Não definido", "phone": ""}], "concluidos": [{"id": "id_7718656f", "status": "concluido", "cliente": "17264 - Joel", "detalhes": "👍 recebido. Explicação sobre roteador/bateria aceita. Monitora quando voltar pra casa segunda.", "proximo": "📅 próximo contato: Não definido", "phone": "5551999133274"}, {"id": "id_ac5728a2", "status": "concluido", "cliente": "17XXX - Talila", "detalhes": "Cliente aceitou reagendamento para SEGUNDA À TARDE. \"Tá ok eu tô aguardando\" (11:10). ✅", "proximo": "📅 próximo contato: Não definido", "phone": ""}, {"id": "id_25b661b5", "status": "concluido", "cliente": "16085 - Lucas Holzschuh", "detalhes": "Resolvido (fio solto + luz).", "proximo": "📅 próximo contato: Não definido", "phone": "5551981193757"}, {"id": "id_3e737c5a", "status": "concluido", "cliente": "16958 - Humberto", "detalhes": "Oração de gratidão enviada. Zapia respondeu com acolhimento.", "proximo": "📅 próximo contato: Não definido", "phone": "5551997975636"}, {"id": "id_73e33763", "status": "concluido", "cliente": "17172 - Cristine", "detalhes": "Zapia confirmou que é o suporte. Sem pendência.", "proximo": "📅 próximo contato: Não definido", "phone": "5551996452318"}], "stats": {"todos": 13, "urgente": 5, "andamento": 4, "triagem": 4}, "timestamp": "04/07/2026 18:32", "alertas": [{"pop": "competence-cachoeira-fasa-NETPROBE", "status": "offline", "tempo": "37 min"}]};
+    const d = {DATA_JSON_PLACEHOLDER};
     state.data = d;
     render();
-  } catch(e) {
-    document.getElementById('ts-header').innerText = 'Erro ao carregar dados';
-  }
+  } catch(e) { console.error(e); }
 }
 
 function render() {
   const d = state.data;
-  const alertaDiv = document.getElementById('alerta-container');
-  alertaDiv.innerHTML = (d.alertas || []).map(a => `
+  
+  // Atualizar Contadores nas Tabs
+  document.getElementById('count-atendimentos').innerText = d.stats.atendimentos;
+  document.getElementById('count-financeiro').innerText = d.stats.financeiro;
+  document.getElementById('count-campo').innerText = d.stats.campo;
+  document.getElementById('count-instalacao').innerText = d.stats.instalacao;
+  document.getElementById('count-concluidos').innerText = d.stats.concluido;
+
+  // Alertas
+  document.getElementById('alerta-container').innerHTML = (d.alertas || []).map(a => `
     <div class="alerta">
       <span>⚠️</span>
       <div><strong>${a.pop}</strong> — ${a.status} há <strong>${a.tempo}</strong></div>
     </div>
   `).join('');
 
-  const statsDiv = document.getElementById('stats-container');
-  const filters = [
-    {id: 'todos', label: 'Todos', color: '#6b7280'},
-    {id: 'urgente', label: 'Urgente', color: 'var(--urgente)'},
-    {id: 'andamento', label: 'Andamento', color: 'var(--andamento)'},
-    {id: 'triagem', label: 'Triagem', color: 'var(--triagem)'}
-  ];
-  statsDiv.innerHTML = filters.map(f => `
-    <div class="stat-card ${state.filtro === f.id ? 'active' : ''}" onclick="setFiltro('${f.id}')">
-      <span class="val" style="color:${f.color}">${d.stats[f.id] || 0}</span>
-      <span class="label">${f.label}</span>
-    </div>
-  `).join('');
-
-  renderCards('cards-container', d.atendimentos, state.filtro);
-  renderCards('resolvidos-container', d.concluidos, 'todos', true);
+  // Renderizar cada seção
+  renderCardsList('cards-atendimentos', d.atendimentos);
+  renderCardsList('cards-financeiro', d.financeiro);
+  renderCardsList('cards-campo', d.campo);
+  renderCardsList('cards-instalacao', d.instalacao);
+  renderCardsList('cards-concluidos', d.concluidos, true);
 }
 
-function renderCards(containerId, list, filtro, isConcluido = false) {
+function renderCardsList(containerId, list, isConcluido = false) {
   const container = document.getElementById(containerId);
   if (!list || list.length === 0) {
-    container.innerHTML = '<p style="text-align:center;color:#888;padding:40px">Nenhum item encontrado.</p>';
+    container.innerHTML = '<p style="text-align:center;color:#888;padding:40px">Nenhum item nesta categoria.</p>';
     return;
   }
 
   container.innerHTML = list.map(a => {
-    const visible = filtro === 'todos' || a.status === filtro;
-    const emoji = a.status === 'urgente' ? '🔴' : (a.status === 'andamento' ? '🟡' : (isConcluido ? '✅' : '🔵'));
+    const emojiMap = { urgente:'🔴', andamento:'🟡', triagem:'🔵', financeiro:'💰', campo:'🛠️', instalacao:'📡', concluido:'✅' };
     const phoneClean = a.phone ? a.phone.replace(/\D/g, '') : '';
     const qgLink = `https://wa.me/5551997760717?text=Nota%20sobre%20${encodeURIComponent(a.cliente)}%3A%3A`;
     
     return `
-      <div class="card ${a.status} ${visible ? '' : 'oculto'}" id="card_${a.id}">
+      <div class="card ${a.status}" id="card_${a.id}">
         <div class="card-header">
-          <span class="emoji">${emoji}</span>
+          <span class="emoji">${emojiMap[a.status] || '❓'}</span>
           <strong class="titulo">${a.cliente}</strong>
           <span class="badge" style="background:var(--${a.status})">${a.status}</span>
         </div>
@@ -189,12 +168,15 @@ function renderCards(containerId, list, filtro, isConcluido = false) {
   }).join('');
 }
 
-function setFiltro(f) { state.filtro = f; render(); }
 function setTab(t) {
   state.aba = t;
   document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-' + t).classList.add('active');
+  
+  // Encontrar a tab pelo texto/onclick (simplificado para o exemplo)
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => { if(tab.getAttribute('onclick').includes(t)) tab.classList.add('active'); });
+
   document.getElementById('aba-' + t).classList.add('active');
 }
 
@@ -204,7 +186,7 @@ function encerrar(id, btn) {
   card.classList.add('encerrado');
   btn.textContent = '↩️ Reverter';
   btn.className = 'btn-reverter';
-  btn.onclick = function() { reverter(id, btn, 'encerrar'); };
+  btn.onclick = function() { reverter(id, btn); };
 }
 
 function marcarLido(id, btn) {
@@ -213,26 +195,14 @@ function marcarLido(id, btn) {
   card.classList.add('lido');
   btn.textContent = '↩️ Reverter';
   btn.className = 'btn-reverter';
-  btn.onclick = function() { reverter(id, btn, 'lido'); };
+  btn.onclick = function() { reverter(id, btn); };
 }
 
-function reverter(id, btn, tipo) {
+function reverter(id, btn) {
   const card = document.getElementById('card_' + id);
   card.classList.remove('encerrado', 'lido');
-  
-  // Restaurar botões originais
-  const acoes = card.querySelector('.acoes');
-  const phone = state.data.atendimentos.find(x => x.id === id).phone;
-  const phoneClean = phone ? phone.replace(/\D/g, '') : '';
-  const qgLink = `https://wa.me/5551997760717?text=Nota%20sobre%20${encodeURIComponent(card.querySelector('.titulo').innerText)}%3A%3A`;
-
-  acoes.innerHTML = `
-    <button class="btn-encerrar" onclick="encerrar('${id}', this)">✅ Encerrar</button>
-    <button class="btn-lido" onclick="marcarLido('${id}', this)">👁️ Lido</button>
-    <button class="btn-copiar" onclick="copiarContexto('${id}')">📋 Copiar</button>
-    <button class="btn-qg" onclick="window.open('${qgLink}','_blank')">🎙️ Áudio QG</button>
-    ${phoneClean ? `<button class="btn-cliente" onclick="window.open('https://wa.me/${phoneClean}','_blank')">💬 Cliente</button>` : ''}
-  `;
+  // Simplificado: apenas recarrega o estado do card no render seguinte ou reseta botões
+  render(); 
 }
 
 function copiarContexto(id) {
@@ -241,7 +211,6 @@ function copiarContexto(id) {
   const desc = card.querySelector('.desc').innerText;
   const proximo = card.querySelector('.proximo').innerText;
   const texto = `CLIENTE: ${titulo}\nDETALHES: ${desc}\n${proximo}`;
-  
   navigator.clipboard.writeText(texto).then(() => {
     const btn = card.querySelector('.btn-copiar');
     const original = btn.innerHTML;
@@ -249,6 +218,8 @@ function copiarContexto(id) {
     setTimeout(() => { btn.innerHTML = original; }, 2000);
   });
 }
+
+window.onload = () => { loadData(); setInterval(updateClock, 1000); };
 </script>
 </body>
 </html>
