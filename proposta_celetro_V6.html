@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Orçamento CompetenceNet — Celetro</title>
+    <style>
+        @page { size: A4; margin: 0; }
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; display: flex; justify-content: center; }
+        
+        .page { 
+            width: 210mm; 
+            min-height: 297mm; 
+            background: white; 
+            padding: 0; 
+            box-sizing: border-box; 
+            position: relative; 
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            width: 75%;
+            opacity: 0.05;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 1;
+            padding: 20mm 20mm;
+        }
+
+        .page::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 12px; background: #0056b3; z-index: 10; }
+        .page::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: #0056b3; z-index: 10; }
+
+        header { border-bottom: 2px solid #0056b3; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-start; }
+        .company-info h1 { margin: 0; color: #0056b3; font-size: 28px; text-transform: uppercase; font-weight: bold; }
+        .company-info p { margin: 1px 0; font-size: 12px; color: #333; }
+        .proposal-meta { text-align: right; font-size: 13px; color: #666; }
+        
+        .client-section { margin-bottom: 25px; border: 1px solid #ddd; padding: 12px; background: rgba(255, 255, 255, 0.7); border-radius: 4px; }
+        .client-section h2 { font-size: 13px; color: #0056b3; margin: 0 0 8px; text-transform: uppercase; border-bottom: 1px solid #eee; padding-bottom: 3px; }
+        .client-section p { margin: 2px 0; font-size: 14px; }
+        
+        h3.section-title { font-size: 16px; color: #0056b3; margin: 20px 0 10px; text-transform: uppercase; text-align: center; border-bottom: 1px solid #0056b3; padding-bottom: 3px; }
+        
+        .tech-badge { display: inline-block; background: #e8f0fe; color: #0056b3; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; border: 1px solid #0056b3; }
+
+        .scenarios { display: flex; gap: 15px; margin-bottom: 20px; }
+        .scenario-card { flex: 1; border: 1px solid #0056b3; border-radius: 4px; padding: 10px; background: rgba(232, 240, 254, 0.5); }
+        .scenario-card h4 { margin: 0 0 5px; color: #0056b3; font-size: 14px; border-bottom: 1px solid #0056b3; }
+        .scenario-card p { margin: 3px 0; font-size: 12px; color: #444; line-height: 1.3; }
+
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 12px; background: rgba(255, 255, 255, 0.7); }
+        th { background: #f8f9fa; color: #0056b3; border: 1px solid #ddd; padding: 8px; text-align: left; }
+        td { border: 1px solid #ddd; padding: 8px; }
+        .price { font-weight: bold; color: #2e7d32; }
+        .speed { font-weight: bold; color: #0056b3; font-size: 13px; }
+        .impossible { color: #c62828; font-weight: bold; background: #ffebee; }
+        
+        .notes { background: rgba(255, 253, 231, 0.8); border: 1px solid #ffe082; padding: 12px; font-size: 12px; color: #4e342e; border-radius: 4px; }
+        .notes ul { margin: 5px 0 0; padding-left: 15px; }
+        .highlight { color: #c62828; font-weight: bold; }
+        
+        .signature-area { margin-top: 40px; display: flex; justify-content: space-between; }
+        .signature-box { width: 45%; text-align: center; }
+        .sig-line { border-top: 1px solid #000; margin-top: 35px; padding-top: 5px; font-weight: bold; font-size: 12px; }
+
+        @media print {
+            body { background: none; display: block; }
+            .page { width: 100%; box-shadow: none; border: none; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <img src="https://share.zapia.com/6gqew77z57ohidf0u11k0u" class="watermark" alt="">
+        
+        <div class="page-content">
+            <header>
+                <div class="company-info">
+                    <h1>CompetenceNet</h1>
+                    <p><strong>CNPJ:</strong> 09.420.684/0001-55</p>
+                    <p>Rua Duque de Caxias, 1468 - Cachoeira do Sul/RS</p>
+                    <p><strong>WhatsApp:</strong> (51) 99776-0717</p>
+                </div>
+                <div class="proposal-meta">
+                    <p><b>PROPOSTA COMERCIAL</b></p>
+                    <p>Ref: CELETRO-2026-0703-V6</p>
+                    <p>Data: 03/07/2026</p>
+                </div>
+            </header>
+
+            <div class="client-section">
+                <h2>Dados do Cliente</h2>
+                <p><strong>Razão Social:</strong> CELETRO - Cooperativa Eletrificação Centro Jacuí Ltda</p>
+                <p><strong>A/C:</strong> Gilberto (Patrimônio e Materiais)</p>
+            </div>
+
+            <div class="tech-badge">Tecnologia: Internet via Rádio Profissional (5.8GHz / 60GHz)</div>
+
+            <h3 class="section-title">Definição Técnica e Custos de Comodato</h3>
+            <div class="scenarios">
+                <div class="scenario-card">
+                    <h4>Cenário A (Até 7km)</h4>
+                    <p>• <b>Equipamento:</b> Antena padrão de alto ganho.</p>
+                    <p>• <b>Comodato:</b> <span class="price">R$ 100,00</span> (Taxa única).</p>
+                    <p>• <i>Ideal para localidades com visada direta e curta distância.</i></p>
+                </div>
+                <div class="scenario-card">
+                    <h4>Cenário B (Longa Distância)</h4>
+                    <p>• <b>Equipamento:</b> Rádios <b>Cambium</b> de alta performance.</p>
+                    <p>• <b>Comodato:</b> <span class="price">R$ 450,00</span> (Taxa única).</p>
+                    <p>• <i>Tecnologia necessária para garantir estabilidade acima de 7km.</i></p>
+                </div>
+            </div>
+
+            <h3 class="section-title">Planos e Mensalidades por Localidade</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ponto de Conexão</th>
+                        <th>Cenário A (Até 7km)</th>
+                        <th>Cenário B (Longa Distância)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>KM 0 (Sede)</b></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 65,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>Butucaraí</b></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 65,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>Porteira Sete</b></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 65,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>SE 5369 (Forqueta)</b></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 65,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>SE 3127 (Agropecuária)</b></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 75,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>SE 3081 (Willy Rass)</b></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 55,00/mês</span></td>
+                        <td><span class="speed">20 Mega</span><br><span class="price">R$ 131,50/mês</span></td>
+                    </tr>
+                    <tr>
+                        <td><b>Pinheiro</b></td>
+                        <td colspan="2" class="impossible" style="text-align: center;">LOCALIDADE ATUALMENTE FORA DE ALCANCE</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <strong>Observações e Condições Gerais:</strong>
+                <ul>
+                    <li><b class="highlight">Visita Técnica:</b> R$ 100,00 por ponto, <b class="highlight">pagos antecipadamente para agendamento</b>.</li>
+                    <li><b>Abatimento:</b> O valor da visita é integralmente <b class="highlight">descontado do valor do comodato</b> na instalação.</li>
+                    <li><b>Exemplo Cenário B:</b> Cliente paga R$ 100 da visita; na instalação, paga a diferença de <b class="highlight">R$ 350,00</b> do comodato total de R$ 450,00.</li>
+                    <li><b>Infraestrutura:</b> O comodato contempla o rádio/antena (Internet via Rádio) e o roteador Wi-Fi.</li>
+                    <li><b>Validade desta proposta:</b> 15 dias.</li>
+                </ul>
+            </div>
+
+            <div class="signature-area">
+                <div class="signature-box">
+                    <div class="sig-line">CompetenceNet Informatica</div>
+                    <span>Luiz Carlos Junior</span>
+                </div>
+                <div class="signature-box">
+                    <div class="sig-line">CELETRO</div>
+                    <span>Responsável Técnico / Contratante</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
