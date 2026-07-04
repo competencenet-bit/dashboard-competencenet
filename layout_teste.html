@@ -1,195 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Layout Quadrado</title>
-    <style>
-        body { font-family: sans-serif; background: #fff; padding: 20px; }
-        h1 { font-size: 1.2rem; margin-bottom: 20px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CompetenceNet - Visual Retrô (v9)</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f0f2f5;color:#222}
+    header{background:#1a1a2e;color:#fff;padding:14px 20px;text-align:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+    header h1{font-size:1.1rem}
+    
+    .container{max-width:900px;margin:0 auto;padding:16px}
+    
+    /* Stats filtro - O Visual que o Júnior quer */
+    .stats{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+    .stat{background:#fff;border-radius:8px;padding:10px 14px;flex:1;min-width:80px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.1);cursor:pointer;transition:all .15s; border-top: 4px solid #ccc;}
+    .stat:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.12)}
+    .stat.active{background:#f8fafc; border-width: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.1)}
+    .stat .num{font-size:1.6rem;font-weight:700; display: block;}
+    .stat .lab{font-size:0.72rem;color:#666; font-weight: bold; text-transform: uppercase;}
+    
+    /* Cores do Júnior */
+    .stat-todos { border-top-color: #1a1a2e; }
+    .stat-urgente { border-top-color: #ff4444; color: #ff4444; }
+    .stat-triagem { border-top-color: #f59e0b; color: #f59e0b; }
+    .stat-andamento { border-top-color: #3b82f6; color: #3b82f6; }
+
+    /* Cards Robustos v9 */
+    .card{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.08); border-left: 5px solid #ddd;}
+    .card-urgente { border-left-color: #ff4444; background: #fff5f5; }
+    .card-triagem { border-left-color: #f59e0b; background: #fffcf0; }
+    .card-andamento { border-left-color: #3b82f6; background: #f0f7ff; }
+
+    .titulo{font-size:1rem; font-weight: bold; margin-bottom: 5px; display: block;}
+    .desc{font-size:0.85rem;color:#444;margin-bottom:8px; line-height: 1.4;}
+    .proximo{font-size:0.75rem;color:#777; font-style: italic;}
+    
+    .btn-v9 { background: #22c55e; color: #fff; border: none; border-radius: 6px; padding: 8px 16px; font-weight: bold; margin-top: 10px; cursor: pointer; }
+    .btn-zap { background: #111827; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block; margin-bottom: 20px; font-weight: bold; }
+  </style>
 </head>
 <body>
-    <h1>🧪 Teste de Layout: Botões e Cards Quadrados</h1>
-    <div id="cards-container">
-        
-        <div style="background:#fee2e2; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17085 - Dari (Piquiri):** Equipamento não liga. Confirmou falha física (luz vermelha na bateria, nada no roteador). **Requer troca de fonte/POE.** 📅 Próximo contato: 04/07 14:30</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#fee2e2; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17286 - Poliana (Vila Vargas):** Sem internet. Júnior cobrou Fábio às 12:47. Fábio deve estar na região. 📅 Próximo contato: 04/07 15:00</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#fee2e2; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **16518 - Andréia (Michael - Vila Vargas):** Problema na repetidora. Fábio verifica hoje junto com o caso da Poliana.</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#fee2e2; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **10794 - Marcelo Cassol:** Lentidão grave. Técnico deve passar hoje. 📅 Próximo contato: 04/07 14:00</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#fee2e2; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17291 - Thais Moura:** Lentidão durante jogos. Monitorar. 📅 Próximo contato: 04/07 14:00</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#fef9c3; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **16878 - Mateus Schuck:** Quer aumentar a velocidade por apenas 30 dias. Pendente decisão comercial. 📅 Próximo contato: 04/07 14:00</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#fef9c3; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17197/17187/17185 - Jorge Luis Dutra:** Liberação de confiança na Serraria Cantagalo? Júnior decidir. 📅 Próximo contato: 04/07 14:00</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#fef9c3; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17273 - Jarbas (FASA):** Documento do Israel Fasa recebido. Pendente processar cadastro.</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#fef9c3; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17XXX - Dóris Schmidt:** Instalação confirmada às 14:00 no Salão da ULDA (César Paitrão).</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#e5e7eb; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **11123 - Denise Fontoura:** Problema no app. Zapia enviou link do portal. Vencimento 05/07.</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#e5e7eb; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17174 - Itamara Freitas:** Confirmado que este é o suporte. Aguardando dúvida específica.</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#e5e7eb; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **Setor de Patrimônio:** Assinar termo e devolver.</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#e5e7eb; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **Despesa Lu:** Lançar despesa do mercado (03/07).</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#dcfce7; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17264 - Joel:** 👍 recebido. Explicação sobre roteador/bateria aceita. Monitora quando voltar pra casa segunda.</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#dcfce7; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17XXX - Talila:** Cliente aceitou reagendamento para SEGUNDA À TARDE. "Tá ok eu tô aguardando" (11:10). ✅</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#dcfce7; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **16085 - Lucas Holzschuh:** Resolvido (fio solto + luz).</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#dcfce7; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **16958 - Humberto:** Oração de gratidão enviada. Zapia respondeu com acolhimento.</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#dcfce7; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17172 - Cristine:** Zapia confirmou que é o suporte. Sem pendência.</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#dcfce7; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **16936 - Valdson (15:37):** Reclamou de suporte pendente há um mês e internet ruim. Vila Vargas. Diagnóstico: Online, mas requer análise de qualidade/lentidão. 📅 Próximo contato: 04/07 18:00</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#dcfce7; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **César / Dóris Schmidt (15:48):** Aguardando Fábio para conclusão de instalação na Porteira 7 (Salão da ULDA). Fábio a caminho. 📅 Próximo contato: 04/07 17:00</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#dcfce7; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **17085 - Dari Peixoto (13:14):** Equipamento não liga. Pendente troca de fonte/POE. Fábio avisado. 📅 Próximo contato: 04/07 18:00</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
-        <div style="background:#dcfce7; padding:20px; border-radius:12px; margin-bottom:15px; border:1px solid rgba(0,0,0,0.05); box-shadow: 4px 4px 0px rgba(0,0,0,0.1)">
-            <div style="font-weight:bold; font-size:1.1rem">- **Lead Grasi/Oséias (15:57):** Interessados em internet no Irui. Cobertura confirmada via Zeno Melo. Aguardando escolha de plano. 📅 Próximo contato: 06/07</div>
-            <div style="margin-top:10px; display:flex; gap:10px">
-                <button style="padding:8px 15px; border-radius:6px; border:none; background:#111827; color:#fff; font-weight:bold">✓ LIDO</button>
-                <button style="padding:8px 15px; border-radius:6px; border:1px solid #111827; background:transparent; font-weight:bold">X ENCERRAR</button>
-            </div>
-        </div>
-        
+  <header>
+    <h1>📡 CompetenceNet - Laboratório Visual (v9)</h1>
+  </header>
+
+  <div class="container">
+    <div style="text-align: right;">
+        <a href="https://wa.me/5551997760717" class="btn-zap">💬 Falar com Zap</a>
     </div>
-    <p style="text-align:center; font-size:0.8rem; color:#666; margin-top:30px">Gerado em: 04/07/2026 17:51</p>
+
+    <!-- O Visual dos Botões que o Júnior sente falta -->
+    <div class="stats">
+      <div class="stat stat-todos active">
+        <span class="num">12</span>
+        <span class="lab">Todos</span>
+      </div>
+      <div class="stat stat-urgente">
+        <span class="num">3</span>
+        <span class="lab">Urgente</span>
+      </div>
+      <div class="stat stat-triagem">
+        <span class="num">5</span>
+        <span class="lab">Triagem</span>
+      </div>
+      <div class="stat stat-andamento">
+        <span class="num">4</span>
+        <span class="lab">Andamento</span>
+      </div>
+    </div>
+
+    <h2>Clientes de Exemplo (Layout v9)</h2>
+    <br>
+
+    <div class="card card-urgente">
+      <span class="titulo">🔴 17286 - Poliana (César/Dóris) - URGENTE</span>
+      <div class="desc">Fábio bateu no conduíte, curto circuito na casa. Cliente brava. Fábio estressado.</div>
+      <div class="proximo">📅 monitorar se a luz voltou</div>
+      <button class="btn-v9">✅ Encerrar</button>
+    </div>
+
+    <div class="card card-triagem">
+      <span class="titulo">🔵 15420 - Paulo Cesar Simon - TRIAGEM</span>
+      <div class="desc">Mandou "Boa noite" e sumiu. Verificar se é suporte ou boleto.</div>
+      <div class="proximo">📅 triagem inicial</div>
+      <button class="btn-v9">✅ Encerrar</button>
+    </div>
+
+    <div class="card card-andamento">
+      <span class="titulo">🟡 16936 - Valdson - ANDAMENTO</span>
+      <div class="desc">Lentidão persistente em Vila Vargas. Já faz um mês reclamando.</div>
+      <div class="proximo">📅 técnico precisa ir no local</div>
+      <button class="btn-v9">✅ Encerrar</button>
+    </div>
+
+    <div style="margin-top: 40px; padding: 20px; background: #e2e8f0; border-radius: 10px; font-size: 0.9rem;">
+        <strong>Nota da Zapia:</strong> Júnior, esse aqui é o layout da <strong>v9</strong>. 
+        Os botões lá em cima são esses "cards" brancos com a borda colorida no topo. 
+        Os cartões de clientes têm a borda colorida na esquerda e o fundo levemente tingido. 
+        Era esse o visual "robusto" que você queria? Se for, eu transplante ele pro site oficial!
+    </div>
+    
+    <div style="margin-top: 20px; text-align: center;">
+        <a href="index.html" style="color: #3b82f6;">Voltar para o Dashboard Oficial</a>
+    </div>
+  </div>
 </body>
 </html>
