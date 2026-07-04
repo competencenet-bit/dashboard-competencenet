@@ -68,7 +68,7 @@
 
 <header>
   <h1>📡 CompetenceNet</h1>
-  <div id="ts-header">Carregando...</div>
+  <div id="ts-header">Última atualização: 04/07/2026 17:09Carregando...</div>
 </header>
 
 <div id="main-content">
@@ -101,7 +101,7 @@ function updateClock() {
 
 async function loadData() {
   try {
-    const d = {DATA_JSON_PLACEHOLDER};
+    const d = {"stats": {"atendimentos": 0, "financeiro": 0, "campo": 0, "instalacao": 0, "concluido": 0}, "alertas": [], "atendimentos": [], "financeiro": [], "campo": [], "instalacao": [], "concluidos": []};
     state.data = d;
     render();
   } catch(e) { console.error(e); }
