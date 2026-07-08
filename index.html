@@ -79,6 +79,7 @@
 <header>
   <h1>📡 CompetenceNet</h1>
   <div id="ts-header">Última atualização: 08/07/2026 17:31</div>
+  <button onclick="baixarRetorno()" style="margin-top:8px; background:#22c55e; color:#fff; border:none; border-radius:6px; padding:6px 14px; font-weight:bold; font-size:0.8rem; cursor:pointer">📥 Baixar Retorno (Encerrados)</button>
 </header>
 
 <div id="main-content">
@@ -215,6 +216,31 @@ function renderFinanceiroEmpresa(fin) {
   }
 
   container.innerHTML = html;
+  
+  // Aplicar estado salvo (encerrado/lido) depois de renderizar
+  aplicarEstado();
+}
+
+function baixarRetorno() {
+  const cards = document.querySelectorAll('.card.encerrado');
+  if (!cards.length) {
+    alert('Nenhum item encerrado para exportar. Clica no ✅ Encerrar nos cards primeiro!');
+    return;
+  }
+  const retorno = [];
+  cards.forEach(c => {
+    const id = c.id.replace('card_', '');
+    const titulo = c.querySelector('.titulo')?.innerText || '';
+    const desc = c.querySelector('.desc')?.innerText || '';
+    retorno.push({ id, cliente: titulo, acao: 'encerrado' });
+  });
+  const blob = new Blob([JSON.stringify(retorno, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'zapia_retorno.json';
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 function renderCardsList(containerId, list, isConcluido = false) {
@@ -292,12 +318,44 @@ function filtrar(f) {
   render();
 }
 
+function salvarEstado() {
+  const cards = document.querySelectorAll('[id^="card_"]');
+  const estado = {};
+  cards.forEach(c => {
+    const id = c.id.replace('card_', '');
+    if (c.classList.contains('encerrado')) estado[id] = 'encerrado';
+    else if (c.classList.contains('lido')) estado[id] = 'lido';
+  });
+  localStorage.setItem('dashboard_estado', JSON.stringify(estado));
+}
+
+function aplicarEstado() {
+  try {
+    const raw = localStorage.getItem('dashboard_estado');
+    if (!raw) return;
+    const estado = JSON.parse(raw);
+    Object.keys(estado).forEach(id => {
+      const card = document.getElementById('card_' + id);
+      if (!card) return;
+      const btn = card.querySelector('.btn-v9-encerrar');
+      if (estado[id] === 'encerrado') {
+        card.classList.add('encerrado');
+        if (btn) { btn.textContent = '↩️ Reverter'; btn.onclick = function() { reverter(id, btn); }; }
+      } else if (estado[id] === 'lido') {
+        card.classList.add('lido');
+        if (btn) { btn.textContent = '↩️ Reverter'; btn.onclick = function() { reverter(id, btn); }; }
+      }
+    });
+  } catch(e) { /* ignora */ }
+}
+
 function encerrar(id, btn) {
   const card = document.getElementById('card_' + id);
   card.classList.remove('lido');
   card.classList.add('encerrado');
   btn.textContent = '↩️ Reverter';
   btn.onclick = function() { reverter(id, btn); };
+  salvarEstado();
 }
 
 function marcarLido(id, btn) {
@@ -306,6 +364,7 @@ function marcarLido(id, btn) {
   card.classList.add('lido');
   btn.textContent = '↩️ Reverter';
   btn.onclick = function() { reverter(id, btn); };
+  salvarEstado();
 }
 
 function reverter(id, btn) {
