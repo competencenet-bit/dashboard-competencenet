@@ -5,98 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Dashboard CompetenceNet</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-    body{background:#f3f4f6;color:#1f2937;padding-bottom:100px}
-    header{background:#1a1a2e;color:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
-    header h1{font-size:1.2rem;margin-bottom:4px}
-    #v-badge{position:fixed;bottom:10px;left:10px;font-size:10px;color:#999;background:rgba(255,255,255,0.8);padding:2px 6px;border-radius:4px;z-index:999}
-    .oculto{display:none}
-
     :root {
       --urgente: #ff4444; --andamento: #3b82f6; --triagem: #f59e0b; --concluido: #22c55e;
       --financeiro: #059669; --campo: #7c3aed; --instalacao: #0891b2;
       --bg-urgente: #fff5f5; --bg-andamento: #f0f7ff; --bg-triagem: #fffcf0; --bg-concluido: #f0fdf4;
       --bg-financeiro: #ecfdf5; --bg-campo: #f5f3ff; --bg-instalacao: #ecfeff;
     }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    body{background:#f3f4f6;color:#1f2937;padding-bottom:100px}
+    header{background:#1a1a2e;color:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+    header h1{font-size:1.2rem;margin-bottom:4px}
+    #v-badge{font-size: 0.65rem; background: #374151; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 5px; color: #9ca3af;}
+    #ts-header{font-size:0.75rem;opacity:0.8}
+    
+    .tabs{display:flex;background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:62px;z-index:90;overflow-x:auto;scrollbar-width:none}
+    .tabs::-webkit-scrollbar{display:none}
+    .tab{flex:none;padding:12px 20px;text-align:center;font-weight:600;font-size:0.9rem;cursor:pointer;color:#6b7280;border-bottom:3px solid transparent;white-space:nowrap}
+    .tab.active{color:#111827;border-bottom-color:#111827}
+    
+    .filter-bar{display:flex;gap:10px;padding:12px;overflow-x:auto;scrollbar-width:none;background:#f3f4f6}
+    .filter-btn{flex:1;min-width:100px;padding:12px 10px;border-radius:8px;border:none;font-weight:bold;font-size:0.85rem;color:#666;background:#fff;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.05);text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px; border-top: 4px solid #ccc; transition: all 0.2s;}
+    .filter-btn span{font-size:0.7rem;opacity:0.9}
+    .filter-btn.active{transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.1); background:#f9fafb; border-bottom: 2px solid rgba(0,0,0,0.1);}
+    
+    .btn-todos{border-top-color:#111827}
+    .btn-urgente{border-top-color:var(--urgente); color:var(--urgente)}
+    .btn-triagem{border-top-color:var(--triagem); color:var(--triagem)}
+    .btn-andamento{border-top-color:var(--andamento); color:var(--andamento)}
+    
+    .card{background:#fff;border-radius:10px;padding:15px;margin-bottom:15px;box-shadow:0 1px 3px rgba(0,0,0,0.1);border-left:8px solid #ccc;transition:all 0.3s; position: relative;}
+    .card.urgente{border-left-color:var(--urgente);background:var(--bg-urgente)}
+    .card.andamento{border-left-color:var(--andamento);background:var(--bg-andamento)}
+    .card.triagem{border-left-color:var(--triagem);background:var(--bg-triagem)}
+    
+    .titulo{font-weight:bold; font-size:1.05rem; display:block; margin-bottom:8px;}
+    .desc{font-size:0.9rem; color:#333; line-height:1.4; margin-bottom:10px;}
+    .proximo{font-size:0.8rem; color:#666; font-style:italic; margin-bottom:12px;}
 
-    /* TELÃO DE SENHA */
-    #login-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:#1a1a2e;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999}
-    #login-screen h1{color:#fff;font-size:1.5rem;margin-bottom:5px}
-    #login-screen p{color:#9ca3af;font-size:0.85rem;margin-bottom:25px}
-    #login-screen input{width:260px;padding:14px;border:none;border-radius:8px;font-size:1rem;text-align:center;background:#2d2d4e;color:#fff;outline:2px solid transparent;transition:outline 0.2s}
-    #login-screen input:focus{outline:2px solid #3b82f6}
-    #login-screen .erro{color:#ef4444;font-size:0.85rem;margin-top:12px;min-height:24px}
-    #login-screen button{margin-top:15px;padding:12px 40px;border:none;border-radius:8px;background:#3b82f6;color:#fff;font-size:1rem;font-weight:600;cursor:pointer;transition:background 0.2s}
-    #login-screen button:hover{background:#2563eb}
-    #login-screen .lock-icon{font-size:3rem;margin-bottom:10px}
-
-    .tabs{display:flex;flex-wrap:wrap;background:#fff;border-bottom:2px solid #e5e7eb;position:sticky;top:55px;z-index:90}
-    .tab{padding:10px 12px;font-size:0.75rem;font-weight:600;color:#6b7280;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap}
-    .tab.active{color:#1f2937;border-bottom-color:#3b82f6;background:#f9fafb}
-    .tab:hover{color:#1f2937}
-
-    .filter-bar{display:flex;gap:8px;padding:10px 12px;background:#fff;flex-wrap:wrap;position:sticky;top:105px;z-index:89}
-    .filter-btn{padding:6px 10px;border-radius:8px;font-size:0.7rem;font-weight:600;cursor:pointer;transition:all 0.2s;border:2px solid transparent;display:flex;align-items:center;gap:4px}
-    .filter-btn span{background:rgba(0,0,0,0.08);padding:1px 6px;border-radius:10px;font-size:0.7rem}
-    .filter-btn.btn-todos{background:#e5e7eb;color:#374151}.filter-btn.btn-todos.active{background:#374151;color:#fff}
-    .filter-btn.btn-urgente{background:#fee2e2;color:#dc2626}.filter-btn.btn-urgente.active{background:#dc2626;color:#fff}
-    .filter-btn.btn-triagem{background:#fef3c7;color:#d97706}.filter-btn.btn-triagem.active{background:#d97706;color:#fff}
-    .filter-btn.btn-andamento{background:#dbeafe;color:#2563eb}.filter-btn.btn-andamento.active{background:#2563eb;color:#fff}
-
-    .alerta{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:10px 14px;margin:8px 12px;display:flex;align-items:flex-start;gap:10px;font-size:0.8rem}
-    .alerta span{font-size:1.2rem}
-
-    .tab-content{display:none}
-    .tab-content.active{display:block}
-
-    .card{background:#fff;border-radius:12px;padding:14px;margin:10px 12px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border-left:5px solid #ccc;transition:all 0.2s;position:relative}
-    .card.urgente{border-left-color:#ff4444;background:var(--bg-urgente)}
-    .card.andamento{border-left-color:#3b82f6;background:var(--bg-andamento)}
-    .card.triagem{border-left-color:#f59e0b;background:var(--bg-triagem)}
-    .card.financeiro{border-left-color:#059669;background:var(--bg-financeiro)}
-    .card.campo{border-left-color:#7c3aed;background:var(--bg-campo)}
-    .card.instalacao{border-left-color:#0891b2;background:var(--bg-instalacao)}
-    .card.concluido{border-left-color:#22c55e;background:var(--bg-concluido);opacity:0.85}
-    .card.encerrado{opacity:0.5}
-    .card.lido{opacity:0.7;filter:grayscale(0.3)}
-    .card .titulo{font-weight:700;font-size:0.95rem;display:block;margin-bottom:6px}
-    .card .desc{font-size:0.8rem;color:#4b5563;line-height:1.4}
-    .card .proximo{font-size:0.75rem;color:#6b7280;margin-top:8px;font-style:italic}
-
-    button{padding:6px 12px;border:none;border-radius:5px;font-size:0.7rem;font-weight:600;cursor:pointer;transition:all 0.15s}
-    button:active{transform:scale(0.96)}
-    .btn-v9-encerrar{background:#22c55e;color:#fff}
-    .btn-v9-lido{background:#3b82f6;color:#fff}
-    .btn-v9-copiar{background:#7c3aed;color:#fff}
+    .btn-v9-encerrar { background: #22c55e; color: #fff; border: none; border-radius: 6px; padding: 10px 18px; font-weight: bold; cursor: pointer; font-size: 0.9rem; margin-right: 8px;}
+    .btn-v9-lido { background: #e2e8f0; color: #475569; border: none; border-radius: 6px; padding: 10px 18px; font-weight: bold; cursor: pointer; font-size: 0.9rem; margin-right: 8px;}
+    .btn-v9-copiar { background: #3b82f6; color: #fff; border: none; border-radius: 6px; padding: 10px 18px; font-weight: bold; cursor: pointer; font-size: 0.9rem;}
+    
+    .card.encerrado{background:#fff5f5 !important; border-left-color:#ff4444 !important; outline: 2px solid #ff4444;}
+    .card.encerrado .titulo{text-decoration: line-through; color:#ff4444;}
+    .card.encerrado .btn-v9-encerrar{background:#f59e0b; content: "↩️ Reverter";}
+    
+    .card.lido{opacity:0.5; background:#f8fafc !important; filter: grayscale(0.8);}
+    
+    .card-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+    .emoji{font-size:1.2rem}
+    .titulo{flex:1;font-size:1rem;font-weight:700;line-height:1.3}
+    .badge{font-size:0.65rem;font-weight:bold;padding:2px 6px;border-radius:4px;color:#fff;text-transform:uppercase}
+    
+    .desc{font-size:0.85rem;line-height:1.4;margin-bottom:10px;color:#374151;white-space:pre-wrap}
+    .proximo{font-size:0.8rem;color:#6b7280;margin-bottom:12px;font-style:italic}
+    
+    .acoes{display:flex;gap:8px;flex-wrap:wrap}
+    button{border:none;border-radius:6px;padding:8px 12px;font-size:0.8rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px;transition:transform 0.1s}
+    button:active{transform:scale(0.95)}
+    
+    .btn-encerrar{background:#fee2e2;color:#991b1b}
+    .btn-lido{background:#e5e7eb;color:#4b5563}
+    .btn-reverter{background:#fbbf24;color:#fff}
+    .btn-copiar{background:#7c3aed;color:#fff}
+    .btn-qg{background:#3b82f6;color:#fff}
+    .btn-cliente{background:#22c55e;color:#fff}
+    
+    .oculto{display:none}
   </style>
 </head>
 <body>
 
-<!-- TELÃO DE SENHA -->
-<div id="login-screen">
-  <div class="lock-icon">🔒</div>
-  <h1>CompetenceNet</h1>
-  <p>Dashboard Interno</p>
-  <input type="password" id="senha-input" placeholder="Digite a senha" autocomplete="off" onkeydown="if(event.key==='Enter')verificarSenha()">
-  <div class="erro" id="erro-senha"></div>
-  <button onclick="verificarSenha()">Acessar</button>
-</div>
+<header>
+  <h1>📡 CompetenceNet</h1>
+  <div id="ts-header">Última atualização: 08/07/2026 11:20</div>
+</header>
 
-<div id="main-content" class="oculto">
-  <header>
-    <h1>📡 CompetenceNet</h1>
-    <div id="ts-header">🕐 Carregando...</div>
-  </header>
-
+<div id="main-content">
   <div class="tabs" id="tabs-container">
     <div class="tab active" onclick="setTab('atendimentos')">📋 Atendimentos (<span id="count-atendimentos">0</span>)</div>
     <div class="tab" onclick="setTab('financeiro')">💰 Financeiro (<span id="count-financeiro">0</span>)</div>
     <div class="tab" onclick="setTab('campo')">🛠️ Campo (<span id="count-campo">0</span>)</div>
     <div class="tab" onclick="setTab('instalacao')">📡 Instalações (<span id="count-instalacao">0</span>)</div>
     <div class="tab" onclick="setTab('concluidos')">✅ Resolvidos (<span id="count-concluidos">0</span>)</div>
+    <div class="tab" style="background:#e0f2fe"><a href="financeiro.html" style="text-decoration:none; color:#0369a1">📊 Financeiro Empresa</a></div>
+    <div class="tab" style="background:#fef3c7"><a href="layout_teste.html" style="text-decoration:none; color:#92400e">🧪 Teste Layout</a></div>
     <div class="tab" style="background:#111827; margin-left:auto; border-bottom:none"><button onclick="window.open('https://wa.me/5551997760717?text=Oi%20Zapia','_blank')" style="background:transparent; color:#fff; border:none; padding:12px 20px; cursor:pointer; font-weight:600; font-size:0.9rem">💬 Falar com Zap</button></div>
   </div>
 
+  <!-- BARRA DE TRIAGEM / FILTROS QUADRADOS -->
   <div class="filter-bar" id="filter-bar">
     <div class="filter-btn btn-todos active" onclick="filtrar('todos')">TODOS<span id="f-count-todos">0</span></div>
     <div class="filter-btn btn-urgente" onclick="filtrar('urgente')">URGENTE<span id="f-count-urgente">0</span></div>
@@ -109,31 +106,20 @@
   <div id="aba-atendimentos" class="tab-content active"><div id="cards-atendimentos"></div></div>
   <div id="aba-financeiro" class="tab-content">
     <div id="cards-financeiro"></div>
+    <hr style="margin:20px 0; border:0; border-top:1px solid #e5e7eb">
+    <div id="dashboard-financeiro-empresa" style="padding:15px; background:#fff; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.1)">
+      <h2 style="font-size:1.1rem; margin-bottom:15px; color:#111827">📊 Financeiro da Empresa</h2>
+      <div id="financeiro-stats-resumo" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px"></div>
+      <div id="financeiro-extrato-lista" style="font-size:0.85rem"></div>
+    </div>
   </div>
   <div id="aba-campo" class="tab-content"><div id="cards-campo"></div></div>
   <div id="aba-instalacao" class="tab-content"><div id="cards-instalacao"></div></div>
   <div id="aba-concluidos" class="tab-content"><div id="cards-concluidos"></div></div>
 </div>
 
-<div id="v-badge">v9</div>
-
 <script>
-const SENHA_CORRETA = "CompNet547183DB";
-let state = { data: null, aba: 'atendimentos', filtro: 'todos' };
-
-function verificarSenha() {
-  const input = document.getElementById('senha-input');
-  const erro = document.getElementById('erro-senha');
-  if (input.value === SENHA_CORRETA) {
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('main-content').classList.remove('oculto');
-    loadData();
-  } else {
-    erro.textContent = '❌ Senha incorreta. Tente novamente.';
-    input.value = '';
-    input.focus();
-  }
-}
+let state = { data: null, aba: 'atendimentos' };
 
 function updateClock() {
   if (!state.data) return;
@@ -142,107 +128,167 @@ function updateClock() {
   document.getElementById('ts-header').innerText = '🕐 ' + horaCurta + ' • ' + (state.data.update_ts || 'Atualizado agora');
 }
 
-// Tenta carregar dados externos, fallback para dados embutidos
 async function loadData() {
   try {
-    const resp = await fetch('dados.json');
-    if (resp.ok) {
-      const d = await resp.json();
-      state.data = d;
-      render();
-      return;
-    }
-  } catch(e) { /* fallback */ }
-  
-  // Dados embutidos (fallback)
-  const d = {"stats": {"atendimentos": 20, "financeiro": 4, "campo": 4, "instalacao": 1, "concluido": 6}, "atendimentos": [{"id": "b85ba62e", "cliente": "Certificado Digital (Lu):", "detalhes": "Enviou print de e-mail (10:50) alertando que o Certificado Digital da CompetenceNet está prestes a expirar. 🔴 **Ação Necessária.**", "proximo": "", "phone": "", "status": "urgente"}, {"id": "9f664377", "cliente": "Mateus Lucas Züge (Acerto):", "detalhes": "Carla Contabilidade enviou a Ficha de Registro de Empregado (10:24) para o acerto trabalhista.", "proximo": "", "phone": "", "status": "urgente"}, {"id": "14c004b3", "cliente": "Teresa/Paulo Terres (17300):", "detalhes": "Enviou comprovante Pix de R$ 646,00 (Ilo Renato da Rosa) às 10:08. ✅ Lu deve dar baixa.", "proximo": "", "phone": "5551997167737", "status": "urgente"}, {"id": "5b416dfb", "cliente": "Emília (10206):", "detalhes": "Mandou \"Bom dia\" (10:06). Sem pendência técnica.", "proximo": "", "phone": "555198641049", "status": "urgente"}, {"id": "e671b575", "cliente": "Poliana (17286):", "detalhes": "✅ Concluído. Fábio terminou a troca de roteador às 10:15. Materiais: Saiu ZTE, Entrou C20.", "proximo": "", "phone": "555196383299", "status": "urgente"}, {"id": "22432321", "cliente": "Fabiano (16997):", "detalhes": "Pediu orçamento para instalação pro filho no \"Quebra Canga\" (08:54). Mandou localização: `-30.155795, -52.864363`. Júnior não respondeu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551995809683", "status": "urgente"}, {"id": "8fc59db4", "cliente": "Marcia Adriele (17168):", "detalhes": "Sem internet (07/07 12:45). Orientada a reiniciar físico. Sem retorno.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551999226292", "status": "urgente"}, {"id": "baede40e", "cliente": "Marilene (16573):", "detalhes": "Enviou imagem às 08:15. Júnior não viu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551998456160", "status": "urgente"}, {"id": "ebf98a1b", "cliente": "Maria Elizabeth (16665):", "detalhes": "Roteador instável. Júnior explicou a analogia da bateria e ela disse que \"por enquanto está ok\". Monitorar se cai de novo.", "proximo": "📅 Próximo contato: 08/07", "phone": "555196175933", "status": "urgente"}, {"id": "a1485da4", "cliente": "Clésio (17281):", "detalhes": "Fábio antecipou manutenção hoje às 09:20 (agendado originalmente às 15:00). Resolvido troca de rádio.", "proximo": "", "phone": "5551998165064", "status": "urgente"}, {"id": "cc5952fe", "cliente": "Ana Cristina (16575):", "detalhes": "CANCELADA HOJE. Fábio não vai. Cliente deve levar o roteador na loja. Júnior notou estoque baixo de roteadores bons.", "proximo": "", "phone": "5551998379692", "status": "urgente"}, {"id": "42c6f62a", "cliente": "Pedro Schmidt / Dóris (17303):", "detalhes": "Troca de Roteador Quarta (08/07) às 17:45 confirmada. Cliente expressou receio de o técnico não ir (quer confirmação \"certeira\"). Júnior prometeu presença via áudio.", "proximo": "", "phone": "", "status": "urgente"}, {"id": "f5aabcd1", "cliente": "Valdir Garcia (17294):", "detalhes": "Retirada de antena hoje às 11:00 (Piquiri). Chave com Jean.", "proximo": "📅 Próximo contato: 08/07", "phone": "555198581221", "status": "urgente"}, {"id": "1acaf5d8", "cliente": "Felipe/Raquel (11264):", "detalhes": "Passarão na empresa hoje de manhã (07:46).", "proximo": "📅 Próximo contato: 08/07", "phone": "5551999961736", "status": "urgente"}, {"id": "eba10903", "cliente": "Su (Suelen Bulsing - 17019):", "detalhes": "Mandou \"Oi\". Zapia aguarda contexto (histórico de desbloqueio pendente).", "proximo": "📅 Próximo contato: 08/07", "phone": "5551992561621", "status": "andamento"}, {"id": "9a9bcfa8", "cliente": "Cristiano (17112):", "detalhes": "Enviou imagem (comprovante/erro) às 19:00 (ontem). Júnior não respondeu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551997692369", "status": "andamento"}, {"id": "b5f9b700", "cliente": "Grasiele (Iruí):", "detalhes": "Explicado parcelamento. Aguardando escolha.", "proximo": "📅 Próximo contato: 08/07", "phone": "", "status": "andamento"}, {"id": "795b664f", "cliente": "Vinicius (Caixa):", "detalhes": "Proposta de seguro Pronampe (R$ 8k-10k).", "proximo": "📅 Próximo contato: 08/07", "phone": "", "status": "andamento"}, {"id": "12e8d322", "cliente": "Nelson (Caixa):", "detalhes": "Enviou comprovante.", "proximo": "", "phone": "", "status": "andamento"}, {"id": "522438b6", "cliente": "Setor de Patrimônio:", "detalhes": "Aguardando assinatura do Júnior.", "proximo": "", "phone": "", "status": "andamento"}], "financeiro": [{"id": "2e15af11", "cliente": "Dionatan/Aline (17098):", "detalhes": "Pagamento de R$ 70,00 recebido (07/07 16:35). ✅ Lu deve dar baixa no sistema.", "proximo": "", "phone": "555198582437", "status": "financeiro"}, {"id": "1684f8d1", "cliente": "GupShop:", "detalhes": "R$ 321,00 de crédito colocado pelo Júnior. Lu deve lançar.", "proximo": "", "phone": "", "status": "financeiro"}, {"id": "83a17649", "cliente": "Recolhimento Antena (Simone/Duda):", "detalhes": "Pendente reagendamento/estratégia após recusa de entrega no local.", "proximo": "", "phone": "", "status": "financeiro"}, {"id": "c259f91f", "cliente": "Matheus Züge:", "detalhes": "Júnior realizando cálculos para acerto de contas (conversa amanhã).", "proximo": "", "phone": "", "status": "financeiro"}], "campo": [{"id": "e671b575", "cliente": "Poliana (17286):", "detalhes": "✅ Concluído. Fábio terminou a troca de roteador às 10:15. Materiais: Saiu ZTE, Entrou C20.", "proximo": "", "phone": "555196383299", "status": "campo"}, {"id": "a1485da4", "cliente": "Clésio (17281):", "detalhes": "Fábio antecipou manutenção hoje às 09:20 (agendado originalmente às 15:00). Resolvido troca de rádio.", "proximo": "", "phone": "5551998165064", "status": "campo"}, {"id": "cc5952fe", "cliente": "Ana Cristina (16575):", "detalhes": "CANCELADA HOJE. Fábio não vai. Cliente deve levar o roteador na loja. Júnior notou estoque baixo de roteadores bons.", "proximo": "", "phone": "5551998379692", "status": "campo"}, {"id": "42c6f62a", "cliente": "Pedro Schmidt / Dóris (17303):", "detalhes": "Troca de Roteador Quarta (08/07) às 17:45 confirmada. Cliente expressou receio de o técnico não ir (quer confirmação \"certeira\"). Júnior prometeu presença via áudio.", "proximo": "", "phone": "", "status": "campo"}], "instalacao": [{"id": "22432321", "cliente": "Fabiano (16997):", "detalhes": "Pediu orçamento para instalação pro filho no \"Quebra Canga\" (08:54). Mandou localização: `-30.155795, -52.864363`. Júnior não respondeu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551995809683", "status": "instalacao"}], "concluidos": [{"id": "e671b575", "cliente": "Poliana (17286):", "detalhes": "✅ Concluído (Troca de Roteador).", "proximo": "", "phone": "555196383299", "status": "concluido"}, {"id": "a5101085", "cliente": "Maraisa Ross (16718):", "detalhes": "Enviado link do portal para fatura.", "proximo": "", "phone": "5551980614161", "status": "concluido"}, {"id": "a55a4515", "cliente": "Lilian Bicca (15989):", "detalhes": "Visita cancelada pela cliente.", "proximo": "", "phone": "555198646611", "status": "concluido"}, {"id": "68c1f916", "cliente": "Aline Aires (16986):", "detalhes": "Encaminhada para autoatendimento.", "proximo": "", "phone": "555195442333", "status": "concluido"}, {"id": "8964d0ca", "cliente": "Aline Nunes (17221):", "detalhes": "Atendida pelo Júnior via áudio.", "proximo": "", "phone": "555180498563", "status": "concluido"}, {"id": "e7127179", "cliente": "Humberto (16958):", "detalhes": "Conversa social/pessoal com Júnior.", "proximo": "", "phone": "5551997975636", "status": "concluido"}], "update_ts": "08/07/2026 11:20"};
-  state.data = d;
-  render();
+    const d = {"stats": {"atendimentos": 20, "financeiro": 4, "campo": 4, "instalacao": 1, "concluido": 6}, "atendimentos": [{"id": "b85ba62e", "cliente": "Certificado Digital (Lu):", "detalhes": "Enviou print de e-mail (10:50) alertando que o Certificado Digital da CompetenceNet está prestes a expirar. 🔴 **Ação Necessária.**", "proximo": "", "phone": "", "status": "urgente"}, {"id": "9f664377", "cliente": "Mateus Lucas Züge (Acerto):", "detalhes": "Carla Contabilidade enviou a Ficha de Registro de Empregado (10:24) para o acerto trabalhista.", "proximo": "", "phone": "", "status": "urgente"}, {"id": "14c004b3", "cliente": "Teresa/Paulo Terres (17300):", "detalhes": "Enviou comprovante Pix de R$ 646,00 (Ilo Renato da Rosa) às 10:08. ✅ Lu deve dar baixa.", "proximo": "", "phone": "5551997167737", "status": "urgente"}, {"id": "5b416dfb", "cliente": "Emília (10206):", "detalhes": "Mandou \"Bom dia\" (10:06). Sem pendência técnica.", "proximo": "", "phone": "555198641049", "status": "urgente"}, {"id": "e671b575", "cliente": "Poliana (17286):", "detalhes": "✅ Concluído. Fábio terminou a troca de roteador às 10:15. Materiais: Saiu ZTE, Entrou C20.", "proximo": "", "phone": "555196383299", "status": "urgente"}, {"id": "22432321", "cliente": "Fabiano (16997):", "detalhes": "Pediu orçamento para instalação pro filho no \"Quebra Canga\" (08:54). Mandou localização: `-30.155795, -52.864363`. Júnior não respondeu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551995809683", "status": "urgente"}, {"id": "8fc59db4", "cliente": "Marcia Adriele (17168):", "detalhes": "Sem internet (07/07 12:45). Orientada a reiniciar físico. Sem retorno.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551999226292", "status": "urgente"}, {"id": "baede40e", "cliente": "Marilene (16573):", "detalhes": "Enviou imagem às 08:15. Júnior não viu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551998456160", "status": "urgente"}, {"id": "ebf98a1b", "cliente": "Maria Elizabeth (16665):", "detalhes": "Roteador instável. Júnior explicou a analogia da bateria e ela disse que \"por enquanto está ok\". Monitorar se cai de novo.", "proximo": "📅 Próximo contato: 08/07", "phone": "555196175933", "status": "urgente"}, {"id": "a1485da4", "cliente": "Clésio (17281):", "detalhes": "Fábio antecipou manutenção hoje às 09:20 (agendado originalmente às 15:00). Resolvido troca de rádio.", "proximo": "", "phone": "5551998165064", "status": "urgente"}, {"id": "cc5952fe", "cliente": "Ana Cristina (16575):", "detalhes": "CANCELADA HOJE. Fábio não vai. Cliente deve levar o roteador na loja. Júnior notou estoque baixo de roteadores bons.", "proximo": "", "phone": "5551998379692", "status": "urgente"}, {"id": "42c6f62a", "cliente": "Pedro Schmidt / Dóris (17303):", "detalhes": "Troca de Roteador Quarta (08/07) às 17:45 confirmada. Cliente expressou receio de o técnico não ir (quer confirmação \"certeira\"). Júnior prometeu presença via áudio.", "proximo": "", "phone": "", "status": "urgente"}, {"id": "f5aabcd1", "cliente": "Valdir Garcia (17294):", "detalhes": "Retirada de antena hoje às 11:00 (Piquiri). Chave com Jean.", "proximo": "📅 Próximo contato: 08/07", "phone": "555198581221", "status": "urgente"}, {"id": "1acaf5d8", "cliente": "Felipe/Raquel (11264):", "detalhes": "Passarão na empresa hoje de manhã (07:46).", "proximo": "📅 Próximo contato: 08/07", "phone": "5551999961736", "status": "urgente"}, {"id": "eba10903", "cliente": "Su (Suelen Bulsing - 17019):", "detalhes": "Mandou \"Oi\". Zapia aguarda contexto (histórico de desbloqueio pendente).", "proximo": "📅 Próximo contato: 08/07", "phone": "5551992561621", "status": "andamento"}, {"id": "9a9bcfa8", "cliente": "Cristiano (17112):", "detalhes": "Enviou imagem (comprovante/erro) às 19:00 (ontem). Júnior não respondeu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551997692369", "status": "andamento"}, {"id": "b5f9b700", "cliente": "Grasiele (Iruí):", "detalhes": "Explicado parcelamento. Aguardando escolha.", "proximo": "📅 Próximo contato: 08/07", "phone": "", "status": "andamento"}, {"id": "795b664f", "cliente": "Vinicius (Caixa):", "detalhes": "Proposta de seguro Pronampe (R$ 8k-10k).", "proximo": "📅 Próximo contato: 08/07", "phone": "", "status": "andamento"}, {"id": "12e8d322", "cliente": "Nelson (Caixa):", "detalhes": "Enviou comprovante.", "proximo": "", "phone": "", "status": "andamento"}, {"id": "522438b6", "cliente": "Setor de Patrimônio:", "detalhes": "Aguardando assinatura do Júnior.", "proximo": "", "phone": "", "status": "andamento"}], "financeiro": [{"id": "2e15af11", "cliente": "Dionatan/Aline (17098):", "detalhes": "Pagamento de R$ 70,00 recebido (07/07 16:35). ✅ Lu deve dar baixa no sistema.", "proximo": "", "phone": "555198582437", "status": "financeiro"}, {"id": "1684f8d1", "cliente": "GupShop:", "detalhes": "R$ 321,00 de crédito colocado pelo Júnior. Lu deve lançar.", "proximo": "", "phone": "", "status": "financeiro"}, {"id": "83a17649", "cliente": "Recolhimento Antena (Simone/Duda):", "detalhes": "Pendente reagendamento/estratégia após recusa de entrega no local.", "proximo": "", "phone": "", "status": "financeiro"}, {"id": "c259f91f", "cliente": "Matheus Züge:", "detalhes": "Júnior realizando cálculos para acerto de contas (conversa amanhã).", "proximo": "", "phone": "", "status": "financeiro"}], "campo": [{"id": "e671b575", "cliente": "Poliana (17286):", "detalhes": "✅ Concluído. Fábio terminou a troca de roteador às 10:15. Materiais: Saiu ZTE, Entrou C20.", "proximo": "", "phone": "555196383299", "status": "campo"}, {"id": "a1485da4", "cliente": "Clésio (17281):", "detalhes": "Fábio antecipou manutenção hoje às 09:20 (agendado originalmente às 15:00). Resolvido troca de rádio.", "proximo": "", "phone": "5551998165064", "status": "campo"}, {"id": "cc5952fe", "cliente": "Ana Cristina (16575):", "detalhes": "CANCELADA HOJE. Fábio não vai. Cliente deve levar o roteador na loja. Júnior notou estoque baixo de roteadores bons.", "proximo": "", "phone": "5551998379692", "status": "campo"}, {"id": "42c6f62a", "cliente": "Pedro Schmidt / Dóris (17303):", "detalhes": "Troca de Roteador Quarta (08/07) às 17:45 confirmada. Cliente expressou receio de o técnico não ir (quer confirmação \"certeira\"). Júnior prometeu presença via áudio.", "proximo": "", "phone": "", "status": "campo"}], "instalacao": [{"id": "22432321", "cliente": "Fabiano (16997):", "detalhes": "Pediu orçamento para instalação pro filho no \"Quebra Canga\" (08:54). Mandou localização: `-30.155795, -52.864363`. Júnior não respondeu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551995809683", "status": "instalacao"}], "concluidos": [{"id": "e671b575", "cliente": "Poliana (17286):", "detalhes": "✅ Concluído (Troca de Roteador).", "proximo": "", "phone": "555196383299", "status": "concluido"}, {"id": "a5101085", "cliente": "Maraisa Ross (16718):", "detalhes": "Enviado link do portal para fatura.", "proximo": "", "phone": "5551980614161", "status": "concluido"}, {"id": "a55a4515", "cliente": "Lilian Bicca (15989):", "detalhes": "Visita cancelada pela cliente.", "proximo": "", "phone": "555198646611", "status": "concluido"}, {"id": "68c1f916", "cliente": "Aline Aires (16986):", "detalhes": "Encaminhada para autoatendimento.", "proximo": "", "phone": "555195442333", "status": "concluido"}, {"id": "8964d0ca", "cliente": "Aline Nunes (17221):", "detalhes": "Atendida pelo Júnior via áudio.", "proximo": "", "phone": "555180498563", "status": "concluido"}, {"id": "e7127179", "cliente": "Humberto (16958):", "detalhes": "Conversa social/pessoal com Júnior.", "proximo": "", "phone": "5551997975636", "status": "concluido"}], "empresa_financeiro": {"mes": "Maio/2026 (Consolidado)", "resumo": {"receita_total": "---", "despesa_total": "51.610,36", "saldo": "---"}, "pendencias": [{"titulo": "MK Solutions", "detalhes": "Sistema", "vencimento": "5/07", "valor": "997.0"}, {"titulo": "Dobrobit Telecom", "detalhes": "Link", "vencimento": "10/07", "valor": "300.0"}, {"titulo": "Bemobi", "detalhes": "Cobrança", "vencimento": "10/07", "valor": "Consultar"}, {"titulo": "Mhnet (TecPar)", "detalhes": "Link", "vencimento": "11/07", "valor": "500.0"}, {"titulo": "V Mix / Chatmix", "detalhes": "Chatbot", "vencimento": "15/07", "valor": "249.9"}, {"titulo": "Claro", "detalhes": "Telefonia", "vencimento": "15/07", "valor": "Consultar"}, {"titulo": "Omie / RR64", "detalhes": "ERP", "vencimento": "15/07", "valor": "450.0"}, {"titulo": "GGNET / ALT Telecom", "detalhes": "Link", "vencimento": "18/07", "valor": "2500.0"}, {"titulo": "Teleplus / Sync360", "detalhes": "Link", "vencimento": "25/07", "valor": "1750.0"}, {"titulo": "ALGCOM", "detalhes": "Link", "vencimento": "26/07", "valor": "738.38"}, {"titulo": "Ferenz Networks", "detalhes": "Storage", "vencimento": "26/07", "valor": "79.9"}, {"titulo": "RGE Sul (Energia)", "detalhes": "Energia", "vencimento": "18/07", "valor": "248.0"}, {"titulo": "Acesso Line (ALT)", "detalhes": "Link", "vencimento": "29/07", "valor": "Consultar"}]}, "update_ts": "08/07/2026 11:20"};
+    state.data = d;
+    render();
+  } catch(e) { console.error(e); }
 }
 
 function render() {
-  const d = state.data;
-  if (!d) return;
-
+  const d = {"stats": {"atendimentos": 20, "financeiro": 4, "campo": 4, "instalacao": 1, "concluido": 6}, "atendimentos": [{"id": "b85ba62e", "cliente": "Certificado Digital (Lu):", "detalhes": "Enviou print de e-mail (10:50) alertando que o Certificado Digital da CompetenceNet está prestes a expirar. 🔴 **Ação Necessária.**", "proximo": "", "phone": "", "status": "urgente"}, {"id": "9f664377", "cliente": "Mateus Lucas Züge (Acerto):", "detalhes": "Carla Contabilidade enviou a Ficha de Registro de Empregado (10:24) para o acerto trabalhista.", "proximo": "", "phone": "", "status": "urgente"}, {"id": "14c004b3", "cliente": "Teresa/Paulo Terres (17300):", "detalhes": "Enviou comprovante Pix de R$ 646,00 (Ilo Renato da Rosa) às 10:08. ✅ Lu deve dar baixa.", "proximo": "", "phone": "5551997167737", "status": "urgente"}, {"id": "5b416dfb", "cliente": "Emília (10206):", "detalhes": "Mandou \"Bom dia\" (10:06). Sem pendência técnica.", "proximo": "", "phone": "555198641049", "status": "urgente"}, {"id": "e671b575", "cliente": "Poliana (17286):", "detalhes": "✅ Concluído. Fábio terminou a troca de roteador às 10:15. Materiais: Saiu ZTE, Entrou C20.", "proximo": "", "phone": "555196383299", "status": "urgente"}, {"id": "22432321", "cliente": "Fabiano (16997):", "detalhes": "Pediu orçamento para instalação pro filho no \"Quebra Canga\" (08:54). Mandou localização: `-30.155795, -52.864363`. Júnior não respondeu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551995809683", "status": "urgente"}, {"id": "8fc59db4", "cliente": "Marcia Adriele (17168):", "detalhes": "Sem internet (07/07 12:45). Orientada a reiniciar físico. Sem retorno.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551999226292", "status": "urgente"}, {"id": "baede40e", "cliente": "Marilene (16573):", "detalhes": "Enviou imagem às 08:15. Júnior não viu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551998456160", "status": "urgente"}, {"id": "ebf98a1b", "cliente": "Maria Elizabeth (16665):", "detalhes": "Roteador instável. Júnior explicou a analogia da bateria e ela disse que \"por enquanto está ok\". Monitorar se cai de novo.", "proximo": "📅 Próximo contato: 08/07", "phone": "555196175933", "status": "urgente"}, {"id": "a1485da4", "cliente": "Clésio (17281):", "detalhes": "Fábio antecipou manutenção hoje às 09:20 (agendado originalmente às 15:00). Resolvido troca de rádio.", "proximo": "", "phone": "5551998165064", "status": "urgente"}, {"id": "cc5952fe", "cliente": "Ana Cristina (16575):", "detalhes": "CANCELADA HOJE. Fábio não vai. Cliente deve levar o roteador na loja. Júnior notou estoque baixo de roteadores bons.", "proximo": "", "phone": "5551998379692", "status": "urgente"}, {"id": "42c6f62a", "cliente": "Pedro Schmidt / Dóris (17303):", "detalhes": "Troca de Roteador Quarta (08/07) às 17:45 confirmada. Cliente expressou receio de o técnico não ir (quer confirmação \"certeira\"). Júnior prometeu presença via áudio.", "proximo": "", "phone": "", "status": "urgente"}, {"id": "f5aabcd1", "cliente": "Valdir Garcia (17294):", "detalhes": "Retirada de antena hoje às 11:00 (Piquiri). Chave com Jean.", "proximo": "📅 Próximo contato: 08/07", "phone": "555198581221", "status": "urgente"}, {"id": "1acaf5d8", "cliente": "Felipe/Raquel (11264):", "detalhes": "Passarão na empresa hoje de manhã (07:46).", "proximo": "📅 Próximo contato: 08/07", "phone": "5551999961736", "status": "urgente"}, {"id": "eba10903", "cliente": "Su (Suelen Bulsing - 17019):", "detalhes": "Mandou \"Oi\". Zapia aguarda contexto (histórico de desbloqueio pendente).", "proximo": "📅 Próximo contato: 08/07", "phone": "5551992561621", "status": "andamento"}, {"id": "9a9bcfa8", "cliente": "Cristiano (17112):", "detalhes": "Enviou imagem (comprovante/erro) às 19:00 (ontem). Júnior não respondeu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551997692369", "status": "andamento"}, {"id": "b5f9b700", "cliente": "Grasiele (Iruí):", "detalhes": "Explicado parcelamento. Aguardando escolha.", "proximo": "📅 Próximo contato: 08/07", "phone": "", "status": "andamento"}, {"id": "795b664f", "cliente": "Vinicius (Caixa):", "detalhes": "Proposta de seguro Pronampe (R$ 8k-10k).", "proximo": "📅 Próximo contato: 08/07", "phone": "", "status": "andamento"}, {"id": "12e8d322", "cliente": "Nelson (Caixa):", "detalhes": "Enviou comprovante.", "proximo": "", "phone": "", "status": "andamento"}, {"id": "522438b6", "cliente": "Setor de Patrimônio:", "detalhes": "Aguardando assinatura do Júnior.", "proximo": "", "phone": "", "status": "andamento"}], "financeiro": [{"id": "2e15af11", "cliente": "Dionatan/Aline (17098):", "detalhes": "Pagamento de R$ 70,00 recebido (07/07 16:35). ✅ Lu deve dar baixa no sistema.", "proximo": "", "phone": "555198582437", "status": "financeiro"}, {"id": "1684f8d1", "cliente": "GupShop:", "detalhes": "R$ 321,00 de crédito colocado pelo Júnior. Lu deve lançar.", "proximo": "", "phone": "", "status": "financeiro"}, {"id": "83a17649", "cliente": "Recolhimento Antena (Simone/Duda):", "detalhes": "Pendente reagendamento/estratégia após recusa de entrega no local.", "proximo": "", "phone": "", "status": "financeiro"}, {"id": "c259f91f", "cliente": "Matheus Züge:", "detalhes": "Júnior realizando cálculos para acerto de contas (conversa amanhã).", "proximo": "", "phone": "", "status": "financeiro"}], "campo": [{"id": "e671b575", "cliente": "Poliana (17286):", "detalhes": "✅ Concluído. Fábio terminou a troca de roteador às 10:15. Materiais: Saiu ZTE, Entrou C20.", "proximo": "", "phone": "555196383299", "status": "campo"}, {"id": "a1485da4", "cliente": "Clésio (17281):", "detalhes": "Fábio antecipou manutenção hoje às 09:20 (agendado originalmente às 15:00). Resolvido troca de rádio.", "proximo": "", "phone": "5551998165064", "status": "campo"}, {"id": "cc5952fe", "cliente": "Ana Cristina (16575):", "detalhes": "CANCELADA HOJE. Fábio não vai. Cliente deve levar o roteador na loja. Júnior notou estoque baixo de roteadores bons.", "proximo": "", "phone": "5551998379692", "status": "campo"}, {"id": "42c6f62a", "cliente": "Pedro Schmidt / Dóris (17303):", "detalhes": "Troca de Roteador Quarta (08/07) às 17:45 confirmada. Cliente expressou receio de o técnico não ir (quer confirmação \"certeira\"). Júnior prometeu presença via áudio.", "proximo": "", "phone": "", "status": "campo"}], "instalacao": [{"id": "22432321", "cliente": "Fabiano (16997):", "detalhes": "Pediu orçamento para instalação pro filho no \"Quebra Canga\" (08:54). Mandou localização: `-30.155795, -52.864363`. Júnior não respondeu.", "proximo": "📅 Próximo contato: 08/07", "phone": "5551995809683", "status": "instalacao"}], "concluidos": [{"id": "e671b575", "cliente": "Poliana (17286):", "detalhes": "✅ Concluído (Troca de Roteador).", "proximo": "", "phone": "555196383299", "status": "concluido"}, {"id": "a5101085", "cliente": "Maraisa Ross (16718):", "detalhes": "Enviado link do portal para fatura.", "proximo": "", "phone": "5551980614161", "status": "concluido"}, {"id": "a55a4515", "cliente": "Lilian Bicca (15989):", "detalhes": "Visita cancelada pela cliente.", "proximo": "", "phone": "555198646611", "status": "concluido"}, {"id": "68c1f916", "cliente": "Aline Aires (16986):", "detalhes": "Encaminhada para autoatendimento.", "proximo": "", "phone": "555195442333", "status": "concluido"}, {"id": "8964d0ca", "cliente": "Aline Nunes (17221):", "detalhes": "Atendida pelo Júnior via áudio.", "proximo": "", "phone": "555180498563", "status": "concluido"}, {"id": "e7127179", "cliente": "Humberto (16958):", "detalhes": "Conversa social/pessoal com Júnior.", "proximo": "", "phone": "5551997975636", "status": "concluido"}], "empresa_financeiro": {"mes": "Maio/2026 (Consolidado)", "resumo": {"receita_total": "---", "despesa_total": "51.610,36", "saldo": "---"}, "pendencias": [{"titulo": "MK Solutions", "detalhes": "Sistema", "vencimento": "5/07", "valor": "997.0"}, {"titulo": "Dobrobit Telecom", "detalhes": "Link", "vencimento": "10/07", "valor": "300.0"}, {"titulo": "Bemobi", "detalhes": "Cobrança", "vencimento": "10/07", "valor": "Consultar"}, {"titulo": "Mhnet (TecPar)", "detalhes": "Link", "vencimento": "11/07", "valor": "500.0"}, {"titulo": "V Mix / Chatmix", "detalhes": "Chatbot", "vencimento": "15/07", "valor": "249.9"}, {"titulo": "Claro", "detalhes": "Telefonia", "vencimento": "15/07", "valor": "Consultar"}, {"titulo": "Omie / RR64", "detalhes": "ERP", "vencimento": "15/07", "valor": "450.0"}, {"titulo": "GGNET / ALT Telecom", "detalhes": "Link", "vencimento": "18/07", "valor": "2500.0"}, {"titulo": "Teleplus / Sync360", "detalhes": "Link", "vencimento": "25/07", "valor": "1750.0"}, {"titulo": "ALGCOM", "detalhes": "Link", "vencimento": "26/07", "valor": "738.38"}, {"titulo": "Ferenz Networks", "detalhes": "Storage", "vencimento": "26/07", "valor": "79.9"}, {"titulo": "RGE Sul (Energia)", "detalhes": "Energia", "vencimento": "18/07", "valor": "248.0"}, {"titulo": "Acesso Line (ALT)", "detalhes": "Link", "vencimento": "29/07", "valor": "Consultar"}]}, "update_ts": "08/07/2026 11:20"};
+  
+  // Atualizar Contadores nas Tabs
   document.getElementById('count-atendimentos').innerText = d.stats.atendimentos;
   document.getElementById('count-financeiro').innerText = d.stats.financeiro;
   document.getElementById('count-campo').innerText = d.stats.campo;
   document.getElementById('count-instalacao').innerText = d.stats.instalacao;
   document.getElementById('count-concluidos').innerText = d.stats.concluido;
 
+  // Atualizar Contadores na Barra de Triagem
   document.getElementById('f-count-todos').innerText = d.stats.atendimentos;
   document.getElementById('f-count-urgente').innerText = d.atendimentos.filter(a => a.status === 'urgente').length;
   document.getElementById('f-count-triagem').innerText = d.atendimentos.filter(a => a.status === 'triagem').length;
   document.getElementById('f-count-andamento').innerText = d.atendimentos.filter(a => a.status === 'andamento').length;
 
+  // Alertas
   document.getElementById('alerta-container').innerHTML = (d.alertas || []).map(a => `
-    <div class="alerta"><span>⚠️</span><div><strong>${a.pop}</strong> — ${a.status} há <strong>${a.tempo}</strong></div></div>
+    <div class="alerta">
+      <span>⚠️</span>
+      <div><strong>${a.pop}</strong> — ${a.status} há <strong>${a.tempo}</strong></div>
+    </div>
   `).join('');
 
+  // Renderizar cada seção
   renderCardsList('cards-atendimentos', d.atendimentos);
   renderCardsList('cards-financeiro', d.financeiro);
   renderCardsList('cards-campo', d.campo);
   renderCardsList('cards-instalacao', d.instalacao);
   renderCardsList('cards-concluidos', d.concluidos, true);
-  
+  renderFinanceiroEmpresa(d.empresa_financeiro);
 }
 
+function renderFinanceiroEmpresa(fin) {
+  const container = document.getElementById('financeiro-extrato-lista');
+  const statsDiv = document.getElementById('financeiro-stats-resumo');
+  if (!fin || !fin.extratos) {
+    container.innerHTML = '<p style="color:#888">Dados financeiros não carregados.</p>';
+    return;
+  }
 
+  // Pegar o último mês disponível
+  const meses = Object.keys(fin.extratos).sort().reverse();
+  const ultimoMes = meses[0];
+  const extrato = fin.extratos[ultimoMes];
+
+  statsDiv.innerHTML = `
+    <div style="background:#f0fdf4; padding:10px; border-radius:8px; border:1px solid #bbf7d0">
+      <div style="font-size:0.7rem; color:#166534">MÊS REFERÊNCIA</div>
+      <div style="font-weight:bold; font-size:1rem">${ultimoMes}</div>
+    </div>
+    <div style="background:#fefce8; padding:10px; border-radius:8px; border:1px solid #fef08a">
+      <div style="font-size:0.7rem; color:#854d0e">TOTAL SAÍDAS</div>
+      <div style="font-weight:bold; font-size:1rem">R$ ${extrato.total.toLocaleString('pt-BR', {minimumFractionDigits:2})}</div>
+    </div>
+  `;
+
+  let html = `<h3 style="font-size:0.9rem; margin: 15px 0 10px; border-bottom:1px solid #eee; padding-bottom:5px">Extrato ${extrato.banco}</h3>`;
+  html += extrato.lancamentos.map(l => `
+    <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #f9fafb">
+      <div>
+        <div style="font-weight:600">${l.descricao}</div>
+        <div style="font-size:0.7rem; color:#9ca3af">${l.data} • ${l.categoria}</div>
+      </div>
+      <div style="font-weight:bold; color:#ef4444">R$ ${l.valor.toLocaleString('pt-BR', {minimumFractionDigits:2})}</div>
+    </div>
+  `).join('');
+
+  if (fin.contratos_recorrentes) {
+    html += `<h3 style="font-size:0.9rem; margin: 20px 0 10px; border-bottom:1px solid #eee; padding-bottom:5px">Contratos Recorrentes</h3>`;
+    html += fin.contratos_recorrentes.map(c => `
+      <div style="display:flex; justify-content:space-between; padding:4px 0">
+        <div style="color:#4b5563">${c.empresa} (Dia ${c.venc_dia})</div>
+        <div style="font-weight:600">R$ ${c.valor ? c.valor.toLocaleString('pt-BR', {minimumFractionDigits:2}) : '---'}</div>
+      </div>
+    `).join('');
+  }
+
+  container.innerHTML = html;
+}
 
 function renderCardsList(containerId, list, isConcluido = false) {
   const container = document.getElementById(containerId);
+  
+  // Aplicar filtro se houver
   let filteredList = list;
   if (state.aba === 'atendimentos' && state.filtro && state.filtro !== 'todos') {
     filteredList = list.filter(a => a.status === state.filtro);
   }
+
   if (!filteredList || filteredList.length === 0) {
     container.innerHTML = '<p style="text-align:center;color:#888;padding:40px">Nenhum item nesta categoria.</p>';
     return;
   }
+
   container.innerHTML = filteredList.map(a => {
     const emojiMap = { urgente:'🔴', andamento:'🟡', triagem:'🔵', financeiro:'💰', campo:'🛠️', instalacao:'📡', concluido:'✅' };
     const phoneClean = a.phone ? a.phone.replace(/\D/g, '') : '';
     const qgLink = `https://wa.me/5551997760717?text=Nota%20sobre%20${encodeURIComponent(a.cliente)}%3A%3A`;
     const emoji = emojiMap[a.status] || '📋';
+    
     return `
       <div class="card ${a.status}" id="card_${a.id}">
         <span class="titulo">${emoji} ${a.cliente}</span>
         <div class="desc">${a.detalhes}</div>
         <div class="proximo">${a.proximo || ''}</div>
-        <div style="margin-top:15px;display:flex;flex-wrap:wrap;gap:10px;">
+        
+        <div style="margin-top:15px; display:flex; flex-wrap:wrap; gap:10px;">
           <button class="btn-v9-encerrar" onclick="encerrar('${a.id}',this)">✅ Encerrar</button>
           ${!isConcluido ? `<button class="btn-v9-lido" onclick="marcarLido('${a.id}',this)">👁️ Lido</button>` : ''}
           <button class="btn-v9-copiar" onclick="copiarContexto('${a.id}')">📋 Copiar</button>
-          <button class="btn-v9-lido" style="background:#ea580c;color:#fff" onclick="window.open('${qgLink}','_blank')">🎙️ Áudio QG</button>
-          ${phoneClean ? `<button class="btn-v9-lido" style="background:#25d366;color:#fff" onclick="window.open('https://wa.me/${phoneClean}','_blank')">💬 Cliente</button>` : ''}
+          <button class="btn-v9-lido" style="background:#ea580c; color:#fff" onclick="window.open('${qgLink}','_blank')">🎙️ Áudio QG</button>
+          ${phoneClean ? `<button class="btn-v9-lido" style="background:#25d366; color:#fff" onclick="window.open('https://wa.me/${phoneClean}','_blank')">💬 Cliente</button>` : ''}
         </div>
-      </div>`;
+      </div>
+    `;
   }).join('');
 }
 
 function setTab(t) {
   state.aba = t;
-  state.filtro = 'todos';
+  // Resetar filtro ao mudar de aba
+  state.filtro = 'todos'; 
   document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  
+  // Mostrar/Esconder barra de triagem conforme a aba
   const filterBar = document.getElementById('filter-bar');
-  filterBar.style.display = t === 'atendimentos' ? 'flex' : 'none';
+  if (t === 'atendimentos') filterBar.style.display = 'flex';
+  else filterBar.style.display = 'none';
+
+  // Encontrar a tab pelo texto/onclick (simplificado para o exemplo)
   const tabs = document.querySelectorAll('.tab');
-  tabs.forEach(tab => {
+  tabs.forEach(tab => { 
     const onclick = tab.getAttribute('onclick');
-    if (onclick && onclick.includes(`setTab('${t}')`)) tab.classList.add('active');
+    if(onclick && onclick.includes(`setTab('${t}')`)) tab.classList.add('active'); 
   });
+
   const content = document.getElementById('aba-' + t);
   if (content) content.classList.add('active');
-  render();
+  
+  // Garantir que o render seja chamado após a atualização do DOM das abas
+  if (typeof render === 'function') {
+    render();
+  }
 }
 
 function filtrar(f) {
   state.filtro = f;
+  // Feedback visual nos botões
   document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-  Array.from(document.querySelectorAll('.filter-btn')).forEach(b => {
-    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(`'${f}'`)) b.classList.add('active');
-  });
+  const target = Array.from(document.querySelectorAll('.filter-btn')).find(b => b.getAttribute('onclick').includes(`'${f}'`));
+  if (target) target.classList.add('active');
   render();
 }
 
@@ -262,7 +308,12 @@ function marcarLido(id, btn) {
   btn.onclick = function() { reverter(id, btn); };
 }
 
-function reverter(id, btn) { render(); }
+function reverter(id, btn) {
+  const card = document.getElementById('card_' + id);
+  card.classList.remove('encerrado', 'lido');
+  // Simplificado: apenas recarrega o estado do card no render seguinte ou reseta botões
+  render(); 
+}
 
 function copiarContexto(id) {
   const card = document.getElementById('card_' + id);
@@ -271,15 +322,14 @@ function copiarContexto(id) {
   const proximo = card.querySelector('.proximo').innerText;
   const texto = `CLIENTE: ${titulo}\nDETALHES: ${desc}\n${proximo}`;
   navigator.clipboard.writeText(texto).then(() => {
-    const btn = card.querySelector('.btn-v9-copiar');
+    const btn = card.querySelector('.btn-copiar');
     const original = btn.innerHTML;
     btn.innerHTML = '✔️ Copiado!';
     setTimeout(() => { btn.innerHTML = original; }, 2000);
   });
 }
 
-// Alguns navegadores bloqueiam autofocus em telas de login
-window.onload = () => { document.getElementById('senha-input').focus(); };
+window.onload = () => { loadData(); setInterval(updateClock, 1000); };
 </script>
 </body>
 </html>
