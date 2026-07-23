@@ -129,14 +129,14 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta"><strong>v.22/07/2026 10:01</strong> | 9 itens</span>
+    <span class="meta"><strong>v.23/07/2026 10:02</strong> | 15 itens</span>
   </div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
   <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa (6)</div>
-  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos (1)</div>
+  <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos </div>
   <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
   <div class="tab" onclick="abrirAba('chat',this)">💬 Falar com Zapia</div>
 </div>
@@ -163,9 +163,9 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="container">
   
   <div class="stats">
-    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">9</div><div class="lab">Todos</div></div>
+    <div class="stat active" data-filter="todos" onclick="filtrar('todos')"><div class="num" style="color:#333">15</div><div class="lab">Todos</div></div>
     <div class="stat" data-filter="urgente" onclick="filtrar('urgente')"><div class="num" style="color:#ff4444">6</div><div class="lab">🔴 Urgente</div></div>
-    <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">3</div><div class="lab">🟡 Andamento</div></div>
+    <div class="stat" data-filter="andamento" onclick="filtrar('andamento')"><div class="num" style="color:#e6a700">9</div><div class="lab">🟡 Andamento</div></div>
     <div class="stat" data-filter="pendente" onclick="filtrar('pendente')"><div class="num" style="color:#888">0</div><div class="lab">⏳ Pendente</div></div>
     <div class="stat" data-filter="triagem" onclick="filtrar('triagem')"><div class="num" style="color:#2288cc">0</div><div class="lab">🔵 Triagem</div></div>
   </div>
@@ -176,13 +176,13 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Michel Carlos (15085)</strong>
     <span class="badge" style="background:#ff4444">Urgente</span>
   </div>
-  <div class="desc">- Antena desalinhada pelo vento. MK 21/07 23:50: **SEM SESSÃO** (conexão 11594). Aguarda dia sem chuva para visita técnica de altura.<br>- JID: 555192238154@s.whatsapp.net</div>
+  <div class="desc">4º dia offline (desde 20/07 13:59)</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('michel_carlos_15085_eb74c9',this)">✅ Encerrar</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('michel_carlos_15085_eb74c9')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555192238154')">💬 WhatsApp Cliente</button>
+      
       
       <button class="btn-copiar" onclick="copiarContexto('michel_carlos_15085_eb74c9')">📋 Copiar contexto</button>
     </div>
@@ -196,7 +196,7 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">FASA Pivô Lagoa (14187)</strong>
     <span class="badge" style="background:#ff4444">Urgente</span>
   </div>
-  <div class="desc">- Continua sem sessão ativa. Fábio precisa ver quando possível.</div>
+  <div class="desc">**SEM SESSÃO** (crônico)</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -210,33 +210,13 @@ button:disabled{opacity:0.4;cursor:default}
 
   </div>
 </div>
-<div class="card" id="card_d_ris_17303_9caedb" data-uid="d_ris_17303_9caedb" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
-  <div class="card-header">
-    <span class="emoji">🔴</span>
-    <strong class="titulo">Dóris (17303)</strong>
-    <span class="badge" style="background:#ff4444">Urgente</span>
-  </div>
-  <div class="desc">- Última mensagem dela: 19/07 20:29 — "?"<br>- Júnior respondeu áudio em 19/07 10:23, ela respondeu (10:24, 12:16) perguntando sobre bateria/no-break. Depois mandou "?" e ficou sem resposta.<br>- **MK 21/07 23:50:** ✅ Online 1d 11h. 28.2GB. Link OK.<br>- **Ação:** 🔴 **RETORNAR URGENTE.**</div>
-  <div class="proximo">📅 —</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('d_ris_17303_9caedb',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('d_ris_17303_9caedb')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555195658323')">💬 WhatsApp Cliente</button>
-      
-      <button class="btn-copiar" onclick="copiarContexto('d_ris_17303_9caedb')">📋 Copiar contexto</button>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_d_ris_17303_9caedb" data-ativo="false" onclick="toggleFollowup('d_ris_17303_9caedb')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
-
-  </div>
-</div>
 <div class="card" id="card_alceu_sandra_16457_17171_6907fb" data-uid="alceu_sandra_16457_17171_6907fb" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
   <div class="card-header">
     <span class="emoji">🔴</span>
     <strong class="titulo">Alceu/Sandra (16457/17171)</strong>
     <span class="badge" style="background:#ff4444">Urgente</span>
   </div>
-  <div class="desc">- **MK 21/07 23:50:** ✅ Online 1d 12h. PORÉM apenas 1.7MB em 1d 12h — equipamento não está funcionando corretamente.<br>- Cliente está usando internet do vizinho. Aguardando telhado secar.<br>- Júnior respondeu (21/07 09:47, 11:43). Cliente entendeu.<br>- **Ação:** Monitorar. Domingo Coringa para 26/07.</div>
+  <div class="desc">**CAIU HOJE (22/07)**</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -256,13 +236,13 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Marlene Ilha (16702)</strong>
     <span class="badge" style="background:#ff4444">Urgente</span>
   </div>
-  <div class="desc">- Reset PoE feito (21/07 13:01). Conexão online desde 13:04. Luz WAN estava vermelha antes. Cliente não estava em casa, vai testar quando chegar.<br>- **Ação:** 🟡 Aguardando retorno da cliente.<br>- JID: 555196023949@s.whatsapp.net</div>
+  <div class="desc">**VÁCUO DESDE 08:27 (12h)**</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-encerrar" onclick="encerrar('marlene_ilha_16702_f63531',this)">✅ Encerrar</button>
       <button class="btn-audio" onclick="abrirWhatsAppAudio('marlene_ilha_16702_f63531')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555196023949')">💬 WhatsApp Cliente</button>
+      
       
       <button class="btn-copiar" onclick="copiarContexto('marlene_ilha_16702_f63531')">📋 Copiar contexto</button>
     </div>
@@ -270,35 +250,75 @@ button:disabled{opacity:0.4;cursor:default}
 
   </div>
 </div>
-<div class="card" id="card_reges_belle_17119_d671fa" data-uid="reges_belle_17119_d671fa" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+<div class="card" id="card_neusa_morais_16688_15d487" data-uid="neusa_morais_16688_15d487" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
   <div class="card-header">
     <span class="emoji">🔴</span>
-    <strong class="titulo">Reges Belle (17119)</strong>
+    <strong class="titulo">Neusa Morais (16688)</strong>
     <span class="badge" style="background:#ff4444">Urgente</span>
   </div>
-  <div class="desc">- Roteador secundário não pareia. Júnior orientou. Cliente disse "por enquanto tá indo assim, qualquer coisa aviso".<br>- **MK 21/07 23:50:** ✅ Online. Faturas em dia.<br>- **Ação:** 🟡 Aguardando cliente chamar.<br>- JID: 555599287548@s.whatsapp.net</div>
+  <div class="desc">Quedas intermitentes (22/07)</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-encerrar" onclick="encerrar('reges_belle_17119_d671fa',this)">✅ Encerrar</button>
-      <button class="btn-audio" onclick="abrirWhatsAppAudio('reges_belle_17119_d671fa')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555599287548')">💬 WhatsApp Cliente</button>
+      <button class="btn-encerrar" onclick="encerrar('neusa_morais_16688_15d487',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('neusa_morais_16688_15d487')">🎙️ Áudio via WhatsApp</button>
+      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555199381660')">💬 WhatsApp Cliente</button>
       
-      <button class="btn-copiar" onclick="copiarContexto('reges_belle_17119_d671fa')">📋 Copiar contexto</button>
+      <button class="btn-copiar" onclick="copiarContexto('neusa_morais_16688_15d487')">📋 Copiar contexto</button>
     </div>
-    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_reges_belle_17119_d671fa" data-ativo="false" onclick="toggleFollowup('reges_belle_17119_d671fa')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_neusa_morais_16688_15d487" data-ativo="false" onclick="toggleFollowup('neusa_morais_16688_15d487')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
+<div class="card" id="card_caio_friedrich_15abba" data-uid="caio_friedrich_15abba" data-status="urgente" style="border-left:4px solid #ff4444;background:#fff0f0">
+  <div class="card-header">
+    <span class="emoji">🔴</span>
+    <strong class="titulo">Caio Friedrich</strong>
+    <span class="badge" style="background:#ff4444">Urgente</span>
+  </div>
+  <div class="desc">Lead (Claiton indicou)</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('caio_friedrich_15abba',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('caio_friedrich_15abba')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('caio_friedrich_15abba')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_caio_friedrich_15abba" data-ativo="false" onclick="toggleFollowup('caio_friedrich_15abba')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
 </div>
-<div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (3)</h2>
+<div class="grupo" data-status="andamento"><h2 style="color:#e6a700;border-bottom:2px solid #e6a700;padding-bottom:6px">🟡 EM ANDAMENTO (9)</h2>
+<div class="card" id="card_d_ris_17303_9caedb" data-uid="d_ris_17303_9caedb" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Dóris (17303)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">Conversa retomada 22/07</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('d_ris_17303_9caedb',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('d_ris_17303_9caedb')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('d_ris_17303_9caedb')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_d_ris_17303_9caedb" data-ativo="false" onclick="toggleFollowup('d_ris_17303_9caedb')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
 <div class="card" id="card_lu_vivo_particular_e43d3d" data-uid="lu_vivo_particular_e43d3d" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
   <div class="card-header">
     <span class="emoji">🟡</span>
     <strong class="titulo">Lu Vivo Particular</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- Aguardando Júnior. Lu enviou documentos no grupo.<br>- **Ação:** Aguardando Júnior.</div>
+  <div class="desc">Fatura Vivo (11/2025)</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -318,7 +338,7 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Sapão (10924)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- Júnior conduzindo.<br>- **Ação:** Júnior conduzindo.</div>
+  <div class="desc">Instabilidade</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -338,7 +358,7 @@ button:disabled{opacity:0.4;cursor:default}
     <strong class="titulo">Valdson (16936)</strong>
     <span class="badge" style="background:#e6a700">Em andamento</span>
   </div>
-  <div class="desc">- **MK 21/07 23:50:** ✅ Online 11h39min. 14.7GB. Link OK. Reavaliar se desativa xaropão.<br>- **Ação:** Júnior confirmar.</div>
+  <div class="desc">Xaropão</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -349,6 +369,106 @@ button:disabled{opacity:0.4;cursor:default}
       <button class="btn-copiar" onclick="copiarContexto('valdson_16936_11cd2e')">📋 Copiar contexto</button>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-on" id="fu_valdson_16936_11cd2e" data-ativo="true" onclick="toggleFollowup('valdson_16936_11cd2e')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up ON</button><span style="font-size:0.75rem;color:#7c3aed;margin-left:6px">✅ Follow-up enviado (2026-07-19)</span></div>
+
+  </div>
+</div>
+<div class="card" id="card_reges_belle_17119_d671fa" data-uid="reges_belle_17119_d671fa" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Reges Belle (17119)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">Fonte de bateria</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('reges_belle_17119_d671fa',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('reges_belle_17119_d671fa')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('reges_belle_17119_d671fa')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_reges_belle_17119_d671fa" data-ativo="false" onclick="toggleFollowup('reges_belle_17119_d671fa')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
+<div class="card" id="card_cl_o_minssen_15869_c40462" data-uid="cl_o_minssen_15869_c40462" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Cléo Minssen (15869)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">OS de hoje (22/07)</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('cl_o_minssen_15869_c40462',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('cl_o_minssen_15869_c40462')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('cl_o_minssen_15869_c40462')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_cl_o_minssen_15869_c40462" data-ativo="false" onclick="toggleFollowup('cl_o_minssen_15869_c40462')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
+<div class="card" id="card_jorge_10383_17055_b8f76c" data-uid="jorge_10383_17055_b8f76c" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Jorge (10383/17055)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">Bloqueio/Paulo Ricardo</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('jorge_10383_17055_b8f76c',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('jorge_10383_17055_b8f76c')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('jorge_10383_17055_b8f76c')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_jorge_10383_17055_b8f76c" data-ativo="false" onclick="toggleFollowup('jorge_10383_17055_b8f76c')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
+<div class="card" id="card_clesio_17281_32c573" data-uid="clesio_17281_32c573" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Clesio (17281)</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">Teste de equipamentos</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('clesio_17281_32c573',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('clesio_17281_32c573')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('clesio_17281_32c573')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_clesio_17281_32c573" data-ativo="false" onclick="toggleFollowup('clesio_17281_32c573')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
+
+  </div>
+</div>
+<div class="card" id="card_sandro_primo_8f4dbc" data-uid="sandro_primo_8f4dbc" data-status="andamento" style="border-left:4px solid #e6a700;background:#fffbee">
+  <div class="card-header">
+    <span class="emoji">🟡</span>
+    <strong class="titulo">Sandro Primo</strong>
+    <span class="badge" style="background:#e6a700">Em andamento</span>
+  </div>
+  <div class="desc">Extratos bancários</div>
+  <div class="proximo">📅 —</div>
+  <div class="acoes">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-encerrar" onclick="encerrar('sandro_primo_8f4dbc',this)">✅ Encerrar</button>
+      <button class="btn-audio" onclick="abrirWhatsAppAudio('sandro_primo_8f4dbc')">🎙️ Áudio via WhatsApp</button>
+      
+      
+      <button class="btn-copiar" onclick="copiarContexto('sandro_primo_8f4dbc')">📋 Copiar contexto</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin:6px 0 2px 0;flex-wrap:wrap"><button class="btn-followup-off" id="fu_sandro_primo_8f4dbc" data-ativo="false" onclick="toggleFollowup('sandro_primo_8f4dbc')" title="Ativar/desativar follow-up 7 dias" style="font-size:0.8rem;padding:4px 12px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all .2s">&#128197; Follow-up OFF</button></div>
 
   </div>
 </div>
@@ -432,7 +552,7 @@ button:disabled{opacity:0.4;cursor:default}
     <span class="badge" style="background:#f59e0b">🔧 OS Campo</span>
   </div>
   <div style="margin:4px 0 2px"><span class="tag-faltando">Coordenadas GPS (latitude, longitude)</span><span class="tag-faltando">SSID da antena (nome da rede que aparece no rádio)</span><span class="tag-faltando">POP/repetidora que atende o cliente</span><span class="tag-faltando">Nível de sinal atual (dBm)</span></div>
-  <div class="desc">- **MK 21/07 23:50:** ✅ Online 1d 12h. PORÉM apenas 1.7MB em 1d 12h — equipamento não está funcionando corretamente.<br>- Cliente está usando internet do vizinho. Aguardando telhado secar.<br>- Júnior respondeu (21/07 09:47, 11:43). Cliente entendeu.<br>- **Ação:** Monitorar. Domingo Coringa para 26/07.</div>
+  <div class="desc">**CAIU HOJE (22/07)**</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -451,12 +571,12 @@ button:disabled{opacity:0.4;cursor:default}
     <span class="badge" style="background:#f59e0b">🔧 OS Campo</span>
   </div>
   <div style="margin:4px 0 2px"><span class="tag-faltando">Coordenadas GPS (latitude, longitude)</span><span class="tag-faltando">SSID da antena (nome da rede que aparece no rádio)</span><span class="tag-faltando">POP/repetidora que atende o cliente</span><span class="tag-faltando">Nível de sinal atual (dBm)</span></div>
-  <div class="desc">- Antena desalinhada pelo vento. MK 21/07 23:50: **SEM SESSÃO** (conexão 11594). Aguarda dia sem chuva para visita técnica de altura.<br>- JID: 555192238154@s.whatsapp.net</div>
+  <div class="desc">4º dia offline (desde 20/07 13:59)</div>
   <div class="proximo">📅 —</div>
   <div class="acoes">
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn-audio" onclick="abrirWhatsAppAudio('coringa_michel_carlos_15085_eb74c9')">🎙️ Áudio via WhatsApp</button>
-      <button class="btn-cliente" onclick="abrirWhatsAppCliente('555192238154')">💬 WhatsApp Cliente</button>
+      
       <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20dados%20pra%20OS%20do%20Coringa:\n*OS%20—%20Michel%20Carlos%20Rodrigues%20(15085)%20—%20Antena%20desalinhada*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n\nPode%20me%20informar?%20🙏','_blank')">📋 Dados faltando (4)</button>
       <button class="btn-copiar" onclick="copiarContexto('coringa_michel_carlos_15085_eb74c9')">📋 Copiar contexto</button>
     </div>
@@ -472,25 +592,7 @@ button:disabled{opacity:0.4;cursor:default}
 <div class="tab-content" id="aba-resolvidos">
 <div class="container">
   <h2 style="margin-bottom:6px;font-size:1rem;color:#1a1a2e">✅ Resolvidos — últimas 48h</h2>
-  <div style="font-size:0.82rem;color:#888;margin-bottom:12px">Mais recente primeiro. Atendimentos das últimas 48h — a Zapia limpa automaticamente o que passou.</div>
-<div style="background:#dcfce7;border-left:4px solid #16a34a;border-radius:8px;padding:12px 14px;margin-bottom:8px">
-  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
-    <span style="color:#16a34a;font-size:1rem">✅</span>
-    <strong style="flex:1;font-size:0.88rem;color:#1a1a2e">Thiago Vargas (10089)** — RESOLVIDO
-- Júnior orientou configuração de porta LAN (20/07). Cliente confirmou 21/07 09:48: "Tudo normal funcionando tudo".
-- **MK 21/07 23:50:** ✅ Online 1d 14h. 10.9GB.
-
-✅ **Pamela Pereira Ortiz (17045)**
-- Desbloqueou pelo chatbot. Orientada sobre Fatura Fácil. Encerrado.
-
-✅</strong>
-    <span style="background:#16a34a;color:#fff;font-size:0.7rem;padding:1px 7px;border-radius:8px;font-weight:700">ÚLTIMO</span>
-    <span style="font-size:0.75rem;color:#166534;background:#bbf7d0;padding:2px 8px;border-radius:10px;font-weight:600">21/07 às 16:32</span>
-    
-  </div>
-  <div style="font-size:0.8rem;color:#374151;line-height:1.4">POP religado pelo Fábio. **MK 21/07 23:50:** ✅ Online 1d 13h. 36.1GB.</div>
-</div>
-
+  <p style="color:#888;padding:20px;text-align:center">Nenhum atendimento encerrado nas últimas 48h.</p>
 </div>
 </div>
 
@@ -500,15 +602,15 @@ button:disabled{opacity:0.4;cursor:default}
   <h2 style="margin-bottom:16px;font-size:1rem;color:#1a1a2e">🤖 O que a Zapia está fazendo</h2>
   <p style="font-size:0.82rem;color:#888;margin-bottom:16px">Log das últimas rondas — do mais recente pro mais antigo.</p>
   <div class="log-entry log-acao">
-  <div class="log-titulo">📌 **Pendências abertas (21:58 21/07):**</div>
-  <div class="log-corpo">1. 🔴 **Valdinei Silveira (16681):** Aguardando resultado do speedtest — Júnior conduzindo.<br>2. 🔴 **Ana Cristina da Cruz (16575):** Júnior trocou canal, cliente respondeu áudio (20:12) — pendente de resposta.<br>3. 🟡 **Gabriella Sawasul (Distribuidora Volt RS):** Júnior perguntou sobre garantia (19:58). Aguardando cliente.<br>4. 🔴 **Alceu/Sandra (16457/17171):** Domingo Coringa 26/07 — aguardando telhado secar.<br>5. 🔴 **Lu Vivo Particular:** Fatura Vivo 11/2025 — Lu enviou documentos. Aguardando Júnior.<br>6. 🔴 **Dóris (17303):** Pergunta sobre bateria.<br>7. 🔴 **Sapão (10924):** Instabilidade — Júnior conduzindo.<br>8. 🟡 **Marlene (16702):** Não estava em casa, vai testar internet quando chegar.<br>9. 🟡 **Bruna/Ricardo (17289):** Comprovante encaminhado pra Lu. Aguardando baixa manual.<br>**Próxima ação:** Próxima ronda. Verificar se Valdinei respondeu speedtest e se Ana Cristina respondeu sobre o canal.</div>
+  <div class="log-titulo">📌 **Pendências abertas (21:57 22/07):**</div>
+  <div class="log-corpo">1. 🔴 **16688 - Neusa Morais:** Parou de novo (21:34). **Prioridade.**<br>2. 🔴 **11055 - Geraldo/Liciane:** Não consegue acessar link de pagamento (21:48).<br>3. 🔴 **16457/17171- Alceu/Sandra:** Segue usando vizinho, aguarda sexta (21:34).<br>4. 🔴 **Caio Friedrich (555596395207):** Lead Fazenda Lua Nova. Aguardando Júnior.<br>5. 🔴 **Teiftec:** Erro de ping alto (18:02). Aguardando retorno.<br>6. 🔴 **Jorge (555198571888):** Bloqueio por pagamento (14:41).<br>7. 🔴 **17055 - Olimpio/Janice:** Sem resposta desde 11:37.<br>8. 🔴 **Sandro Primo 2017:** Extratos incompletos.<br>**Próxima ação:** Próxima ronda. Verificar se Neusa estabilizou ou se precisa de intervenção remota no MK.</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 Ronda 21:58 — Terça-feira 21/07 (run #359)</div>
-  <div class="log-corpo">**Sweep (20:57 → 21:58):** 1 DM com atividade após cutoff.<br>### Conversas processadas:<br>1. 🔴 **16681 - Valdinei Silveira:** Júnior ativamente conduzindo. Valdinei respondeu áudios: internet "trancando" em apps (WhatsApp, Facebook, vídeos). Roteador antigo (&gt;4 anos, dos primeiros). Júnior pediu speedtest e orientou. Cliente respondeu "Blz vou fazer aqui" (21:42). Aguardando resultado.<br>**Grupos com atividade:**<br>- **#Vendas Steam Deck / Rog Ally:** Anúncio de Lenovo Legion Go S (R$ 3.600) — grupo de vendas, não monitorado.<br>**Comunicado:** Campanha encerrada. Nada a disparar.</div>
+  <div class="log-titulo">🔄 Ronda 21:57 — Quarta-feira 22/07 (run #373)</div>
+  <div class="log-corpo">**Sweep (20:57 → 21:57):** 5 DMs com atividade após cutoff.<br>### DMs com atividade:<br>1. 🔴 **11055 - Geraldo/Liciane** — 21:48<br>- Áudio: "Boa noite, Júnior. Júnior, eu não consegui entrar no link para apagar a internet que está atrasada lá de casa."<br>- **Status:** Pendente. Cliente com dificuldade no acesso ao portal/app para pagamento.<br>2. 🔴 **16457/17171- Alceu/Sandra Infância** — 21:32-21:34<br>- "Boa noite tô usando a do vizinho. Der repente sexta eles arrumam é perigoso subir no telhado. A luz do roteador tá astres ligada mas elas não se mexem. A internet do vizinho só pega perto do muro".<br>- **Status:** Pendente. Confirmou que segue sem internet própria e usando a do vizinho. Aguardando telhado secar para visita (Sexta?).<br>3. 🔴 **16688 - Neusa Morais** — 21:34<br>- "Parou de novo".<br>- **Status:** Pendente. Reincidência de lentidão/queda após ter estabilizado na ronda anterior. **Prioridade técnica.**<br>4. ✅ **Pandão** — 21:28<br>- "Opa viu se quiser botar o teu carro ali embaixo ali tá tranquilo amanhã eu vou sair de manhã".<br>- **Status:** Informativo sobre estacionamento. Sem pendência técnica.<br>5. ✅ **10340 - Terezinha Rodrigues** — 21:26<br>- Enviou imagem de "Boa Noite" (cachorro com pipoca).<br>- **Status:** Cordialidade. Sem pendência.<br>### Grupos com atividade:<br>- Nenhum grupo relevante com atividade no período.<br>**Comunicado:** Campanha encerrada. Nada a disparar.</div>
 </div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">📌 # Timestamp último processamento: 2026-07-21T21:58:00-03:00</div>
+  <div class="log-titulo">📌 # Timestamp último processamento: 2026-07-22T21:57:00-03:00</div>
   <div class="log-corpo"></div>
 </div>
 
