@@ -129,13 +129,13 @@ button:disabled{opacity:0.4;cursor:default}
   <div class="header-right">
 
     <button class="btn-refresh" id="btn-refresh" onclick="confirmarRefresh()">🔄 Atualizar</button>
-    <span class="meta"><strong>v.24/07/2026 10:03</strong> | 0 itens</span>
+    <span class="meta"><strong>v.25/07/2026 10:06</strong> | 0 itens</span>
   </div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="abrirAba('atendimentos',this)">📋 Atendimentos</div>
-  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa (6)</div>
+  <div class="tab" onclick="abrirAba('coringa',this)">📅 Coringa (5)</div>
   <div class="tab" onclick="abrirAba('resolvidos',this)">✅ Resolvidos </div>
   <div class="tab" onclick="abrirAba('status',this)">🤖 Status Zapia</div>
   <div class="tab" onclick="abrirAba('chat',this)">💬 Falar com Zapia</div>
@@ -243,21 +243,6 @@ button:disabled{opacity:0.4;cursor:default}
 </div>
 <div class="card" style="border-left:4px solid #f59e0b;background:#fffbee;margin-bottom:12px">
   <div class="card-header">
-    <span style="font-weight:700;color:#f59e0b;font-size:0.9rem;min-width:50px">⏰ 12:00</span>
-    <strong class="titulo">OS — João Luiz Sampaio Siqueira (17302) — Sem internet</strong>
-    <span class="badge" style="background:#f59e0b">🔧 OS Campo</span>
-  </div>
-  <div style="margin:4px 0 2px"><span class="tag-faltando">Coordenadas GPS (latitude, longitude)</span><span class="tag-faltando">SSID da antena (nome da rede que aparece no rádio)</span><span class="tag-faltando">POP/repetidora que atende o cliente</span><span class="tag-faltando">Nível de sinal atual (dBm)</span></div>
-  <div class="desc" style="color:#888;font-size:0.82rem;font-style:italic">⚠️ Sem ficha no ATENDIMENTO_PENDENTE — dados limitados ao título do evento.</div>
-  <div class="acoes">
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-dados-faltando" onclick="window.open('https://wa.me/5551997760717?text=Júnior,%20preciso%20dos%20dados%20pra%20OS%20do%20Coringa:\n*OS%20—%20João%20Luiz%20Sampaio%20Siqueira%20(17302)%20—%20Sem%20internet*\n\n-%20Coordenadas%20GPS%20(latitude,%20longitude)\n-%20SSID%20da%20antena%20(nome%20da%20rede%20que%20aparece%20no%20rádio)\n-%20POP/repetidora%20que%20atende%20o%20cliente\n-%20Nível%20de%20sinal%20atual%20(dBm)\n\nPode%20me%20informar?%20🙏','_blank')">📋 Dados faltando (4)</button>
-      <button class="btn-copiar" onclick="navigator.clipboard.writeText('OS — João Luiz Sampaio Siqueira (17302) — Sem internet').then(()=>this.textContent='✅ Copiado!').catch(()=>0)">📋 Copiar título</button>
-    </div>
-  </div>
-</div>
-<div class="card" style="border-left:4px solid #f59e0b;background:#fffbee;margin-bottom:12px">
-  <div class="card-header">
     <span style="font-weight:700;color:#f59e0b;font-size:0.9rem;min-width:50px">⏰ 13:00</span>
     <strong class="titulo">OS — Posto Papagaio / Felipe (15486) — Reconfigurar roteadores</strong>
     <span class="badge" style="background:#f59e0b">🔧 OS Campo</span>
@@ -290,15 +275,12 @@ button:disabled{opacity:0.4;cursor:default}
   <h2 style="margin-bottom:16px;font-size:1rem;color:#1a1a2e">🤖 O que a Zapia está fazendo</h2>
   <p style="font-size:0.82rem;color:#888;margin-bottom:16px">Log das últimas rondas — do mais recente pro mais antigo.</p>
   <div class="log-entry log-acao">
-  <div class="log-titulo">📌 **Comunicado:** Campanha encerrada. Nada a disparar.</div>
-  <div class="log-corpo">**Próxima ação:** Próxima ronda. Prioridade: Maria Rita (suporte), Luciano (confirmar instalação 11:00), Ana Cristina (suporte).</div>
+  <div class="log-titulo">📌 # Resumo de pendências ativas (sem mudanças):</div>
+  <div class="log-corpo">- 🟡 **10611 Fábio** — atendimento Cléo adiado pra semana que vem<br>- 🔴 **16536 Laudir** — nobreak OK, vai ajustar sábado<br>- 🔴 **17045 Pamela** — paga quarta, religar ao receber comprovante<br>- 🔴 **Nicolas Gomez** — lead streaming<br>- 🔴 **Cris** — lead rural BR-293<br>- 🟡 **16964 Gilmar Dutra** — Júnior verificando viabilidade Mara<br>- 🟡 **OS Marli (15919)** — Júnior vai falar com ela<br>- 🟡 **17198 Mere Terezinha FV** — sinal ruim, visita semana que vem<br>- 🟡 **15486 Felipe Posto Papagaio** — leva ao chefe sábado 25/07<br>- 🟡 **Jorge Luis Dutra/Serraria** — 2 faturas vencidas<br>- 🟡 **Vogel/Rincão** — reinício rádio Natália Rohde<br>- 🟡 **16334 Andréia** — nobreak bateria vermelha<br>- 🟡 **15634 Frann** — check sinal MK<br>- 🟡 **Sandra 4x50** — lançar + cancelar Cauana<br>- 🟡 **16085 Lucas Holzschuh** — aguardar medição cabo<br>- 🟡 **Sicoob Pronamp** — aguardar segunda<br>- ⚠️ **Pix Luciano R$100** — Lu dar baixa<br>- ⚠️ **Boleto Joceli R$180** — Lu verificar baixa<br>- ⚠️ **Lu** — lançar Marli: 20Mbps R$131,50 + R$450 antena<br>- 🟡 **17055 Olimpio/Janice** — sem resposta<br>- ✅ **Celetro/Gilberto** — valores enviados, retorna segunda (28/07)<br>**Próxima ação:** Sábado — Laudir vai ajustar nobreak. Felipe leva proposta ao chefe. Monitorar Fábio. Júnior falar com Marli. Verificar viabilidade Mara (Gilmar). Se houver atividade nova de leads (Nicolas, Cris) devem ser priorizados.</div>
 </div>
+<div class="log-entry log-limpa"><div class="log-titulo">🟢 21:57 — ronda limpa, nenhuma novidade</div></div>
 <div class="log-entry log-acao">
-  <div class="log-titulo">🔄 Ronda 21:57 — Quinta-feira 23/07 (run #377)</div>
-  <div class="log-corpo">**Sweep (20:57 → 21:57):** 6 DMs com atividade.<br>### Novas DMs com atividade:<br>1. 🔴 **16538 — Maria Rita** (21:52)<br>- Respondeu follow-up de 20/07: "a internet está ruim hoje".<br>- **Ação:** Suporte técnico — verificar sinal no MK.<br>2. 🔴 **17144 — Luciano Santos da Rosa** (21:45)<br>- Júnior confirmou endereço (Rua 20 de Setembro, 1221 - Noemia) e vencimento dia 15.<br>- Luciano deu endereço completo, pediu instalação amanhã (24/07) às 11:00, pois precisa sair ao meio-dia. Já colocou poste de cimento e vai passar os fios.<br>- **Ação:** Júnior confirmar horário das 11:00 e agendar.<br>3. ✅ **10611 — Fabio Cenedeze** (21:39)<br>- Júnior enviou mensagem longa sobre o funcionamento do sistema (reflexão sobre IA). Sem pendência.<br>- **Status:** Conversa encerrada.<br>4. ✅ **Paty Vivo** (21:35)<br>- Júnior enviou a mesma reflexão sobre o sistema. Sem pendência.<br>- **Status:** Conversa encerrada.<br>5. ✅ **Amor Novo** (21:33)<br>- Enviou links de Facebook e Mercado Livre (compras pessoais). Sem ação.<br>- **Status:** ⚪ Sem ação.<br>6. 🔴 **16085 — Lucas Holzschuh** (21:29)<br>- Conversa ativa: Júnior sugeriu sistema de energia via adaptador PoE pela bateria, Lucas concordou que vai medir o percurso do cabo amanhã. Confirmou "É barbada fizemos sim".<br>- **Ação:** Aguardar medição do Lucas.<br>### Pendências abertas:<br>1. 🔴 **16538 Maria Rita:** Internet ruim — precisa de suporte.<br>2. 🔴 **17144 Luciano:** Instalação amanhã 11:00 — Júnior confirmar.<br>3. 🔴 **16575 Ana Cristina:** Internet horrível após reinício; suporte urgente.<br>4. 🔴 **16085 Lucas:** Definir medição do cabo do Postinho.<br>5. 🔴 **15486 Felipe:** Aguardar teste dos Unifi antigos (sábado).<br>6. 🔴 **Greice (Sicredi):** Estorno duplicado.<br>7. 🔴 **Sandra (Alceu):** Valor total pendente.<br>8. 🔴 **Vogel/Rincão:** Reinício físico rádio Natália Rohde.</div>
-</div>
-<div class="log-entry log-acao">
-  <div class="log-titulo">📌 # Timestamp último processamento: 2026-07-23T21:57:00-03:00</div>
+  <div class="log-titulo">📌 # Timestamp último processamento: 2026-07-24T21:57:00-03:00</div>
   <div class="log-corpo"></div>
 </div>
 
